@@ -1,0 +1,18 @@
+*{ margin: 0; padding: 0; }
+body, html {
+    font-family: $noto-regular; 
+    font-size: $fs14;
+    box-sizing: border-box;
+    background-color: $bg_lightgray;
+}
+h1,h2,h3,h4,h5,h6,input,a,p,span,div{
+    font-family: $noto-light; 
+    font-size: $fs14;
+    line-height: 1;
+}
+a { 
+    text-decoration: none;
+}
+li {
+    list-style-type: none;
+}

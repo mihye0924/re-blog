@@ -1,0 +1,67 @@
+// 한글 NotoSans
+@font-face {
+  font-family: "NotoSans-Bold"; 
+  src: url("../fonts/NotoSans-Bold.woff") format("woff");
+} 
+@font-face {
+  font-family: "NotoSans-Light"; 
+  src: url("../fonts/NotoSans-Light.woff") format("woff");
+} 
+@font-face {
+  font-family: "NotoSans-Medium"; 
+  src: url("../fonts/NotoSans-Medium.woff") format("woff");
+} 
+@font-face {
+  font-family: "NotoSans-Regular"; 
+  src: url("../fonts/NotoSans-Regular.woff") format("woff");
+} 
+@font-face {
+  font-family: "NotoSans-Thin"; 
+  src: url("../fonts/NotoSans-Thin.woff") format("woff");
+} 
+ 
+// 영문 Poppins
+@font-face {
+  font-family: 'Poppins-ExtraBold'; 
+  src: url("../fonts/Poppins-ExtraBold.woff") format("woff");
+}  
+@font-face {
+  font-family: 'Poppins-ExtraLight'; 
+  src: url("../fonts/Poppins-ExtraLight.woff") format("woff");
+} 
+@font-face {
+  font-family: 'Poppins-Bold'; 
+  src: url("../fonts/Poppins-Bold.woff") format("woff");
+} 
+@font-face {
+  font-family: 'Poppins-Light'; 
+  src: url("../fonts/Poppins-Light.woff") format("woff");
+} 
+@font-face {
+  font-family: 'Poppins-Medium'; 
+  src: url("../fonts/Poppins-Medium.woff") format("woff");
+} 
+@font-face {
+  font-family: 'Poppins-Regular'; 
+  src: url("../fonts/Poppins-Regular.woff") format("woff");
+} 
+@font-face {
+  font-family: 'Poppins-SemiBold'; 
+  src: url("../fonts/Poppins-SemiBold.woff") format("woff");
+} 
+@font-face {
+  font-family: 'Poppins-Thin'; 
+  src: url("../fonts/Poppins-Thin.woff") format("woff");
+} 
+
+
+@import url(https://db.onlinewebfonts.com/c/f6aa15866bffca161454d7554a004259?family=Monoton);
+@font-face {
+  font-family: "Monoton";
+  src: url("https://db.onlinewebfonts.com/t/f6aa15866bffca161454d7554a004259.eot");
+  src: url("https://db.onlinewebfonts.com/t/f6aa15866bffca161454d7554a004259.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/f6aa15866bffca161454d7554a004259.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/f6aa15866bffca161454d7554a004259.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/f6aa15866bffca161454d7554a004259.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/f6aa15866bffca161454d7554a004259.svg#Monoton")format("svg");
+}
