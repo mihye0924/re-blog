@@ -1,15 +1,14 @@
 import main from '@/assets/scss/layout/main.module.scss'
 import Header from '@/components/layout/Header.jsx'
-import Popup from './components/common/Popup'
-import RightLayout from './components/layout/RightLayout'
+import LoginPopup from './components/contents/LoginPopup'
 import LeftLayout from './components/layout/LeftLayout'
+import RightLayout from './components/layout/RightLayout'
 import {login} from '@/api/login.jsx' 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 function App() {   
   // 로그인 모달
   const [loginModal, setLoginModal] = useState(false)
   function onClick() {
-    console.log(loginModal)
     setLoginModal(true)
   }
 
@@ -21,6 +20,8 @@ function App() {
   function handleLogin() {
     login.map((item) => {
       if(item.id === idValue && item.pw === pwValue) {
+        window.localStorage.setItem("login", isLogin);
+        setLoginModal(false)
         setIsLogin(true)
       } else if(item.id !== idValue && item.pw !== pwValue) {
         alert('회원정보가 없습니다.')
@@ -31,18 +32,19 @@ function App() {
       }
     })
   }
-  useEffect(() => {
-    window.localStorage.setItem("login", isLogin);
-  }, [isLogin]);
+  function logout() {
+    setIsLogin(false)
+    window.localStorage.removeItem("login");
+  }
   return (
     <>
-      <Header onClick={onClick} login={ login } />
+      <Header onClick={onClick} login={ isLogin } logout={logout} />
       {
-        loginModal ? <Popup onClose={() => {setLoginModal(false)}} handleLogin={handleLogin} saveUserId={(e) => {setIdValue(e.target.value)}} saveUserPw={(e) => {setPwValue(e.target.value)}}  /> : false
+        loginModal ? <LoginPopup onClose={() => {setLoginModal(false)}} handleLogin={handleLogin} saveUserId={(e) => {setIdValue(e.target.value)}} saveUserPw={(e) => {setPwValue(e.target.value)}}  /> : false
       }
       <section className={main.main_content}>
-        <RightLayout />
         <LeftLayout />
+        <RightLayout />
       </section>
     </>
   )
