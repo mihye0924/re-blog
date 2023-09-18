@@ -113,10 +113,10 @@
     
 
     @font-face {
-    font-family: 'Poppins ExtraBold';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Poppins ExtraBold'), url('Poppins-ExtraBold.woff') format('woff');
+        font-family: 'Poppins ExtraBold';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Poppins ExtraBold'), url('Poppins-ExtraBold.woff') format('woff');
     }
     
 

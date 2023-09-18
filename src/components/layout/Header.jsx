@@ -1,7 +1,7 @@
 import header from '@/assets/scss/layout/header.module.scss';
 import Button from '@/components/common/Button.jsx'
 
-const Header = () => {
+const Header = ({onClick}) => {
     return (
         <header className={header.header_wrap}>
             <div className={header.header}>
@@ -19,7 +19,7 @@ const Header = () => {
                     <button>
                         <img src="/images/layout/alarm.png" alt="알림"/>
                     </button>
-                    <Button name="로그인" color="white" />
+                    <Button name="로그인" color="white" onClick={onClick} />
                 </div>
             </div>
         </header>

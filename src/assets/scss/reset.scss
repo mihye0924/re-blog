@@ -16,3 +16,10 @@ a {
 li {
     list-style-type: none;
 }
+
+button {
+    outline: none;
+    border: none;
+    background-color: initial;
+    cursor: pointer;
+}

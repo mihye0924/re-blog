@@ -1,9 +1,9 @@
 import button from '@/assets/scss/common/button.module.scss'
 
-const Button = ({ name, color }) => { 
+const Button = ({ name, color, onClick }) => { 
     return (
         <div className={button.button}>
-            <button className={color && button[`bg-${color}`]}>{name}</button>
+            <button onClick={onClick} className={color && button[`bg-${color}`]}>{name}</button>
         </div>
     );
 };
