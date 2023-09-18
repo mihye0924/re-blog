@@ -35,17 +35,21 @@
         background-color: $white;
     }
     &_ul {
-        li {
-            height: 101px;
-            padding: 20px;
+        li { 
+            padding: 20px 20px 0 20px;
+            height: 90px;
             box-sizing: border-box;
+            &:last-of-type {
+                padding: 20px;
+                height: 110px; 
+            }
             p {
                 font-size: $fs14;
                 color: $black; 
             }
             span {
                 display: block;
-                margin-top: 15px;
+                margin-top: 5px;
                 color: $f_lightgray_9;
             }
         }
