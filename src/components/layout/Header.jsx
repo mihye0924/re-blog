@@ -1,7 +1,9 @@
 import header from '@/assets/scss/layout/header.module.scss';
 import Button from '@/components/common/Button.jsx'
+// import { useState } from 'react';
 
-const Header = ({onClick}) => {
+const Header = ({onClick }) => {
+    // const [isLogin, setLogin] = useState(false)
     return (
         <header className={header.header_wrap}>
             <div className={header.header}>

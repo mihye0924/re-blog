@@ -1,13 +1,13 @@
 import popup from '@/assets/scss/common/popup.module.scss'
 
-const Popup = () => { 
+const Popup = ({onClose}) => { 
     return (
       <div className={popup.popup}>
         <div className={popup.popup_wrap}>
           <div className={popup.popup_header}>
             <div className={popup.popup_header_wrap}>
               <span>로그인</span>
-              <button><span>닫기</span><i className='icon close'/></button>
+              <button onClick={onClose}><span>닫기</span><i className='icon close'/></button>
             </div>
           </div>
           <div className={popup.popup_contents}>
