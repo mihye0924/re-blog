@@ -3,6 +3,8 @@
     // width: 100%;
     background-color: $white;
     border-radius: 15px 15px 0 0;
+    top: 0;
+    position: sticky;
   }
   &_main{
     display: flex;

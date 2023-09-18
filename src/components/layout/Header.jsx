@@ -42,7 +42,7 @@ const Header = ({ onClick, login, logout }) => {
                     <button className={header.header_profile}>
                         <img src="/images/common/profile.png" alt="프로필"/>        
                     </button>
-                    <Button name="글쓰기" color="black" />
+                    <Button name="글쓰기" color="blackborder" />
                     <Button name="로그아웃" color="black" onClick={logout} />
                 </div>
             </div>

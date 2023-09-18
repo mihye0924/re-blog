@@ -2,14 +2,14 @@
 import right from '@/assets/scss/layout/right.module.scss'
 import { popularList } from '@/api/popularList.jsx' 
 import { newsList } from '@/api/newsList.jsx' 
-import List from '@/components/common/List.jsx'    
+import SwiperList from '@/components/common/SwiperList.jsx'    
 import { Link } from 'react-router-dom'
 const RightLayout = () => {
   return (
   <aside className={right.right_wrap}>
   <div className={right.right_wrap_div}> 
-    <List list={popularList} keys={"popular"}/>
-    <List list={newsList} keys={"news"}/>
+    <SwiperList list={popularList} keys={"popular"}/>
+    <SwiperList list={newsList} keys={"news"}/>
     <div className={right.right_download}>
       <div className={right.right_download_title}> 
           <span>앱 다운로드</span>
