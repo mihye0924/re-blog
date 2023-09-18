@@ -1,6 +1,9 @@
 
 
 .button{ 
+    &_size {
+        width: 100%;
+    }
     width: 81px;
     height: 44px;
     border-radius: 4px;
