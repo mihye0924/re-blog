@@ -1,6 +1,6 @@
 import popup from '@/assets/scss/common/popup.module.scss'
 
-const Popup = ({onClose}) => { 
+const Popup = ({onClose}) => {
     return (
       <div className={popup.popup}>
         <div className={popup.popup_wrap}>
