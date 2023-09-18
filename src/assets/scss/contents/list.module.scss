@@ -1,6 +1,8 @@
 .list {
   &_wrap {
     margin-top: 10px;
+    height: 900px;
+    overflow-y: scroll;
   }
   &_ul {
     display: flex;
