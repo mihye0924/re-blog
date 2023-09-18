@@ -1,4 +1,4 @@
-import listS from '@/assets/scss/common/list.module.scss'
+import swiperList from '@/assets/scss/common/swiperList.module.scss'
 
 // swiper
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -7,17 +7,17 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar'; 
-const List = ({list,keys}) => {  
+const SwiperList = ({list,keys}) => {  
     return ( 
-        <div  className={listS.list_wrap}> 
-            <div className={listS.list_content}> 
-                <div className={listS.list_title}>
+        <div  className={swiperList.list_wrap}> 
+            <div className={swiperList.list_content}> 
+                <div className={swiperList.list_title}>
                     <span>{list.title}</span>
-                    <div className={listS.list_btn}> 
-                        <div className={`${listS.list_btn_left} prev_${keys}`}>
+                    <div className={swiperList.list_btn}> 
+                        <div className={`${swiperList.list_btn_left} prev_${keys}`}>
                             <img src="/images/common/left.png" alt="왼쪽" />
                         </div>
-                        <div className={`${listS.list_btn_right} next_${keys}`}>
+                        <div className={`${swiperList.list_btn_right} next_${keys}`}>
                             <img src="/images/common/right.png" alt="오른쪽" />
                         </div>
                     </div> 
@@ -36,7 +36,7 @@ const List = ({list,keys}) => {
                         {
                          list.list.map((item) => (   
                                 <SwiperSlide key={item.id}>
-                                    <ul className={listS.list_ul} >
+                                    <ul className={swiperList.list_ul} >
                                     {item.content.map((item2,id)=>( 
                                         <li key={id}>
                                             <p>{item2.label}</p>
@@ -53,4 +53,4 @@ const List = ({list,keys}) => {
     );
 };
 
-export default List;
+export default SwiperList;
