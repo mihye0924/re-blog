@@ -1,7 +1,12 @@
 import list from '@/assets/scss/contents/list.module.scss'
 import { data } from '@/api/List'
+import { useState } from 'react'
 const List = ({ mainNav, subNav }) => {
+  const [good, setGood] = useState(false); //좋아요
+  const [goodIndex, setGoodIndex] = useState(1) //좋아요 번째
+  const [favorite, setFavorite] = useState(false) //태그 
 
+  console.log(goodIndex)
   return (
     <section className={list.list_wrap}>
       <ul className={list.list_ul}>
@@ -23,17 +28,34 @@ const List = ({ mainNav, subNav }) => {
                       <p>{item.label}</p>
                       <p>{item.subLabel}</p>
                     </div>
-                    <div>
+                    <div className={list.list_sympathy_img}>
                       <img src={item.contentImg} alt={item.smallCategory2} />
                     </div>
                   </div>
                   <div className={list.list_sympathy}>
-                    <div>
-                      <button>공감</button>
-                      <button>댓글</button>
+                    <div className={list.list_sympathy_left}>
+                      <button onClick={() => { 
+                        setGoodIndex(item.id)
+                        
+                      }}>
+                        {
+                          item.id === goodIndex ? <i className='icon_heart_full' aria-hidden="true" /> :
+                          <i className='icon_heart' aria-hidden="true" /> 
+                        }
+                        {/* <i className='icons_heart' aria-hidden="true" />  */}
+                        {/* <i className='icon_heart_full' aria-hidden="true"/>   */}
+                        <span>공감</span>
+                      </button>
+                      <button> 
+                        <i className='icon' aria-hidden="true"/>
+                        <span>댓글</span>
+                      </button>
                     </div>
-                    <div>
-                      <img src={item.Favorites}></img>
+                    <div className={list.list_sympathy_right}>
+                      <button>
+                        <i className='icon' aria-hidden="true" />
+                        <span>즐겨찾기</span>
+                      </button>
                     </div>
                   </div> 
                 </div>

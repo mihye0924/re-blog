@@ -2,7 +2,8 @@ export const data =
   {
     brand: [
       {
-        id: 1,   
+        id: 1, 
+        good: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -18,6 +19,7 @@ export const data =
       },
       {
         id: 2, 
+        good: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -33,6 +35,7 @@ export const data =
         },
       {
         id: 3, 
+        good: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -48,6 +51,7 @@ export const data =
         },
       {
         id: 4, 
+        good: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -63,6 +67,7 @@ export const data =
         },
       {
         id: 5, 
+        good: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -78,6 +83,7 @@ export const data =
         },
       {
         id: 6, 
+        good: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -93,6 +99,7 @@ export const data =
         },
       {
         id: 7, 
+        good: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -108,6 +115,7 @@ export const data =
         },
       {
         id: 8, 
+        good: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -123,6 +131,7 @@ export const data =
         },
       {
         id: 9,  
+        good: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -138,6 +147,7 @@ export const data =
       },
       {
         id: 10, 
+        good: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -155,6 +165,7 @@ export const data =
     free: [
       {
         id: 1, 
+        good: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '자유',
@@ -170,6 +181,7 @@ export const data =
         },
       {
         id: 2,
+        good: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '자유',
@@ -187,6 +199,7 @@ export const data =
     humor: [
       {
         id: 1,
+        good: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '유머',
@@ -202,6 +215,7 @@ export const data =
         },
       {
         id: 2,
+        good: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '유머',

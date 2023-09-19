@@ -2,8 +2,7 @@ import { navList, categoryList } from '@/api/Nav'
 import nav from '@/assets/scss/contents/nav.module.scss' 
 
 const Nav = ({mainNav, subNav, onMainClick, onSubClick}) => { 
- 
-  console.log(mainNav, subNav)
+  
   return (
     <div className={nav.nav_wrap}>
       <ul className={nav.nav_main}>
