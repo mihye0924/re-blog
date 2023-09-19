@@ -22,9 +22,9 @@ function App() {
   function handleLogin() {
     login.map((item) => {
       if(item.id === idValue && item.pw === pwValue) {
-        window.localStorage.setItem("login", isLogin);
         setLoginModal(false)
         setIsLogin(true)
+        window.localStorage.setItem("login", true);
       } else if(item.id !== idValue && item.pw !== pwValue) {
         alert('회원정보가 없습니다.')
       } else if(item.id !== idValue ) {
