@@ -11,7 +11,7 @@ const List = ({ mainNav, subNav }) => {
     <section className={list.list_wrap}>
       <ul className={list.list_ul}>
         {
-          data.brand.map((item) => { 
+          data.brand.map((item, index) => { 
             return ( 
               <li key={item.id}>
                 <div className={list.list_content}> 
@@ -35,15 +35,14 @@ const List = ({ mainNav, subNav }) => {
                   <div className={list.list_sympathy}>
                     <div className={list.list_sympathy_left}>
                       <button onClick={() => { 
-                        setGoodIndex(item.id)
-                        
+                        setGoodIndex(index)
+                        item.good = !item.good
+                        console.log(item.good)
                       }}>
                         {
-                          item.id === goodIndex ? <i className='icon_heart_full' aria-hidden="true" /> :
+                          item.good ? <i className='icon_heart_full' aria-hidden="true" /> :
                           <i className='icon_heart' aria-hidden="true" /> 
                         }
-                        {/* <i className='icons_heart' aria-hidden="true" />  */}
-                        {/* <i className='icon_heart_full' aria-hidden="true"/>   */}
                         <span>공감</span>
                       </button>
                       <button> 
