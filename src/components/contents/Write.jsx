@@ -1,9 +1,15 @@
 import write from '@/assets/scss/contents/write.module.scss'
-const Write = () => {
-  return (
+const Write = ({ onWrite }) => {
+  return ( 
+    onWrite &&
     <section className={write.write_wrap}>
-      
-    </section>
+      <div>
+          <button>
+          <i className='icon'>+</i>  
+          <span>새글 작성하기</span>
+        </button>
+      </div>
+    </section> 
   )
 }
 export default Write

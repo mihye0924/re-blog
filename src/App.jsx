@@ -42,9 +42,15 @@ function App() {
   function handleProfile() {
     setIsProfile(true)
   }
+  // 글작성
+  const [write, setWrite] = useState(false)
+  
+  function handleWrite() {
+    setWrite(true)
+  }
   return (
     <>
-      <Header onClick={onClick} handleProfile={handleProfile} login={ isLogin } logout={logout} />
+      <Header onClick={onClick} handleProfile={handleProfile} login={isLogin} logout={logout} write={ handleWrite } />
       {
         loginModal ? <LoginPopup onClose={() => {setLoginModal(false)}} handleLogin={handleLogin} saveUserId={(e) => {setIdValue(e.target.value)}} saveUserPw={(e) => {setPwValue(e.target.value)}}  /> : false
       }
@@ -52,7 +58,7 @@ function App() {
         isProfile && <ProfilePopup onClose={() => {setIsProfile(false)}}  />
       }
       <section className={main.main_content}>
-        <LeftLayout />
+        <LeftLayout onWrite={ write } />
         <RightLayout />
       </section>
     </>

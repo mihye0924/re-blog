@@ -7,6 +7,9 @@
       width: 0;
       background-color: transparent;
     } 
+    &_active {
+      height: 720px;
+    }
   }
   &_ul {
     display: flex;

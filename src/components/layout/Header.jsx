@@ -1,7 +1,7 @@
 import header from '@/assets/scss/layout/header.module.scss';
 import Button from '@/components/common/Button.jsx' 
 
-const Header = ({ onClick, login, logout, handleProfile }) => { 
+const Header = ({ onClick, write, login, logout, handleProfile }) => { 
     return (
         !login ? <header className={header.header_wrap}>
         <div className={header.header}>
@@ -42,7 +42,7 @@ const Header = ({ onClick, login, logout, handleProfile }) => {
                     <button className={header.header_profile} onClick={handleProfile}>
                         <img src="/images/common/profile.png" alt="프로필"/>        
                     </button>
-                    <Button name="글쓰기" color="blackborder" />
+                    <Button name="글쓰기" color="blackborder" onClick={write} />
                     <Button name="로그아웃" color="black" onClick={logout} />
                 </div>
             </div>

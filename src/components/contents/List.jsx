@@ -1,6 +1,6 @@
 import list from '@/assets/scss/contents/list.module.scss'
 import { data } from '@/api/List' 
-const List = ({ mainNav, subNav }) => {   
+const List = ({ mainNav, subNav, onWrite }) => {   
   
   // 좋아요 기능
   const handleLike = (e, item) => {
@@ -27,7 +27,7 @@ const List = ({ mainNav, subNav }) => {
   }
 
   return ( 
-    <section className={list.list_wrap}>
+    <section className={`${list.list_wrap} ${onWrite ? list['list_wrap_active']: false}`}>
       <ul className={list.list_ul}>
         {
           data.brand.map((item) => { 
