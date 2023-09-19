@@ -7,15 +7,15 @@ export const data =
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: '브랜드관',
-        middleCategory: '편의점',
+        lagreCategory: 1, //브랜드관
+        middleCategory: 1, //편의점
         smallCategory1: '농심',
         smallCategory2: '신라면',
         label: '최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg: '/images/content/list/nongshim-shin-ramen.png',
-        uploadTime: '3분전',
+        uploadTime: '10분전',
       },
       {
         id: 2, 
@@ -23,24 +23,24 @@ export const data =
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: '브랜드관',
-        middleCategory: '편의점',
+        lagreCategory: 1, //브랜드관
+        middleCategory: 1, //편의점
         smallCategory1: '농심',
         smallCategory2: '신라면',
         label: '최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/nongshim-shin-ramen.png',
-        uploadTime: '3분전'
-        },
+        uploadTime: '15분전'
+      },
       {
         id: 3, 
         good: false,
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: '브랜드관',
-        middleCategory: '편의점',
+        lagreCategory: 1, //브랜드관
+        middleCategory: 1, //편의점
         smallCategory1: '농심',
         smallCategory2: '신라면',
         label: '최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
@@ -48,15 +48,15 @@ export const data =
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/nongshim-shin-ramen.png',
         uploadTime: '3분전'
-        },
+      },
       {
         id: 4, 
         good: false,
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: '브랜드관',
-        middleCategory: '편의점',
+        lagreCategory: 1, //브랜드관
+        middleCategory: 1, //편의점
         smallCategory1: '농심',
         smallCategory2: '신라면',
         label: '최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
@@ -64,15 +64,15 @@ export const data =
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/nongshim-shin-ramen.png',
         uploadTime: '3분전'
-        },
+      },
       {
         id: 5, 
         good: false,
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: '브랜드관',
-        middleCategory: '편의점',
+        lagreCategory: 1, //브랜드관
+        middleCategory: 1, //편의점
         smallCategory1: '농심',
         smallCategory2: '신라면',
         label: '최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
@@ -80,15 +80,15 @@ export const data =
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/nongshim-shin-ramen.png',
         uploadTime: '3분전'
-        },
+      },
       {
         id: 6, 
         good: false,
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: '브랜드관',
-        middleCategory: '편의점',
+        lagreCategory: 1, //브랜드관
+        middleCategory: 1, //편의점
         smallCategory1: '농심',
         smallCategory2: '신라면',
         label: '최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
@@ -96,15 +96,15 @@ export const data =
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/nongshim-shin-ramen.png',
         uploadTime: '3분전'
-        },
+      },
       {
         id: 7, 
         good: false,
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: '브랜드관',
-        middleCategory: '편의점',
+        lagreCategory: 1, //브랜드관
+        middleCategory: 1, //편의점
         smallCategory1: '삼양',
         smallCategory2: '맵탱',
         label: '최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
@@ -112,15 +112,15 @@ export const data =
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/samyang-maptaeng.png',
         uploadTime: '3분전'
-        },
+      },
       {
         id: 8, 
         good: false,
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: '브랜드관',
-        middleCategory: '편의점',
+        lagreCategory: 1, //브랜드관
+        middleCategory: 1, //편의점
         smallCategory1: '오뚜기',
         smallCategory2: '열라면',
         label: '최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
@@ -128,15 +128,15 @@ export const data =
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/ottogi-yeol-ramen.png',
         uploadTime: '3분전'
-        },
+      },
       {
         id: 9,  
         good: false,
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: '브랜드관',
-        middleCategory: '편의점',
+        lagreCategory: 1, //브랜드관
+        middleCategory: 1, //편의점
         smallCategory1: '팔도',
         smallCategory2: '틈새라면',
         label: '최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
@@ -151,14 +151,30 @@ export const data =
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: '브랜드관',
-        middleCategory: '편의점',
+        lagreCategory: 1, //브랜드관
+        middleCategory: 1, //편의점
         smallCategory1: '삼양',
         smallCategory2: '불닭볶음면',
         label: '최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '/images/content/list/samyang-bts.png',
+        uploadTime: '3분전'
+      },
+      {
+        id: 11, 
+        good: false,
+        favorite: false,
+        profileImg: '',
+        profileName: '',
+        lagreCategory: 1, //브랜드관
+        middleCategory: 2, //카페
+        smallCategory1: '빽다방',
+        smallCategory2: '카페모카',
+        label: '최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
+        subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
+        이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
+        contentImg : '',
         uploadTime: '3분전'
       } 
     ],
@@ -169,7 +185,7 @@ export const data =
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: '자유',
+        lagreCategory: 2, //자유
         middleCategory: '',
         smallCategory1: '',
         smallCategory2: '',
@@ -178,14 +194,14 @@ export const data =
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '',
         uploadTime: '3분전'
-        },
+      },
       {
         id: 2,
         good: false,
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: '자유',
+        lagreCategory: 2, //자유
         middleCategory: '',
         smallCategory1: '',
         smallCategory2: '',
@@ -193,8 +209,8 @@ export const data =
         subLabel: `자유글2 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '',
-        uploadTime: '3분전'
-        }
+        uploadTime: '20분전'
+      }
     ],
     humor: [
       {
@@ -203,7 +219,7 @@ export const data =
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: '유머',
+        lagreCategory: 3, //유머
         middleCategory: '',
         smallCategory1: '',
         smallCategory2: '',
@@ -212,14 +228,14 @@ export const data =
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '',
         uploadTime: '3분전'
-        },
+      },
       {
         id: 2,
         good: false,
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: '유머',
+        lagreCategory: 3, //유머
         middleCategory: '',
         smallCategory1: '',
         smallCategory2: '',
@@ -227,7 +243,7 @@ export const data =
         subLabel: `유머글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '',
-        uploadTime: '3분전'
+        uploadTime: '30분전'
       }
     ]
   }

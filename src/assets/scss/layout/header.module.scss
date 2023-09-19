@@ -96,6 +96,7 @@
         border: 1px solid $black;
         border-radius: 25px;
         box-sizing: border-box;
+        overflow: hidden;
         img {  
             z-index: -1;
             width: 43px; 
