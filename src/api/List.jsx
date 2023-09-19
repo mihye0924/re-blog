@@ -4,6 +4,7 @@ export const data =
       {
         id: 1, 
         good: false,
+        favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -14,12 +15,12 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg: '/images/content/list/nongshim-shin-ramen.png',
-        Favorites: '',
         uploadTime: '3분전',
       },
       {
         id: 2, 
         good: false,
+        favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -30,12 +31,12 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/nongshim-shin-ramen.png',
-        Favorites: '',
         uploadTime: '3분전'
         },
       {
         id: 3, 
         good: false,
+        favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -46,12 +47,12 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/nongshim-shin-ramen.png',
-        Favorites: '',
         uploadTime: '3분전'
         },
       {
         id: 4, 
         good: false,
+        favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -62,12 +63,12 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/nongshim-shin-ramen.png',
-        Favorites: '',
         uploadTime: '3분전'
         },
       {
         id: 5, 
         good: false,
+        favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -78,12 +79,12 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/nongshim-shin-ramen.png',
-        Favorites: '',
         uploadTime: '3분전'
         },
       {
         id: 6, 
         good: false,
+        favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -94,12 +95,12 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/nongshim-shin-ramen.png',
-        Favorites: '',
         uploadTime: '3분전'
         },
       {
         id: 7, 
         good: false,
+        favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -110,12 +111,12 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/samyang-maptaeng.png',
-        Favorites: '',
         uploadTime: '3분전'
         },
       {
         id: 8, 
         good: false,
+        favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -126,12 +127,12 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/ottogi-yeol-ramen.png',
-        Favorites: '',
         uploadTime: '3분전'
         },
       {
         id: 9,  
         good: false,
+        favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -142,12 +143,12 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '/images/content/list/eight-niche-ramen-noodles.png',
-        Favorites: '',
         uploadTime: '3분전'
       },
       {
         id: 10, 
         good: false,
+        favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '브랜드관',
@@ -158,7 +159,6 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '/images/content/list/samyang-bts.png',
-        Favorites: '',
         uploadTime: '3분전'
       } 
     ],
@@ -166,6 +166,7 @@ export const data =
       {
         id: 1, 
         good: false,
+        favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '자유',
@@ -176,12 +177,12 @@ export const data =
         subLabel: `자유글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '',
-        Favorites: '',
         uploadTime: '3분전'
         },
       {
         id: 2,
         good: false,
+        favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '자유',
@@ -192,7 +193,6 @@ export const data =
         subLabel: `자유글2 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '',
-        Favorites: '',
         uploadTime: '3분전'
         }
     ],
@@ -200,6 +200,7 @@ export const data =
       {
         id: 1,
         good: false,
+        favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '유머',
@@ -210,12 +211,12 @@ export const data =
         subLabel: `유머글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '',
-        Favorites: '',
         uploadTime: '3분전'
         },
       {
         id: 2,
         good: false,
+        favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: '유머',
@@ -226,7 +227,6 @@ export const data =
         subLabel: `유머글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '',
-        Favorites: '',
         uploadTime: '3분전'
       }
     ]

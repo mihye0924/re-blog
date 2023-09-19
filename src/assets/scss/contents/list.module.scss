@@ -95,7 +95,11 @@
         border: 1px solid #EBEBEB;
         padding: 8px 10px 8px 8px;
         border-radius: 5px;
+        i {
+          pointer-events: none;
+        }
         span { 
+          pointer-events: none;
           color: $f_lightgray_9;
         }
         &:first-child {
@@ -135,26 +139,36 @@
     }
     &_right {
       button {  
+        background: #f7f4eb;
         border: 1px solid #EBEBEB;
         padding: 6px 15px;
         display: flex;
         justify-content: center;
         border-radius: 5px;
-
+        i {
+          pointer-events: none;
+        }
         span {
           display: inline-block;
           text-indent: -9999px;
         }
         :global {
-          .icon { 
+          .icon_favorite { 
             background: url('/images/content/list/favorite.png') no-repeat;
             background-size: contain;
             width: 20px;
             height: 20px; 
             display: inline-block;
+            &_yellow {
+              background: url('/images/content/list/favorite_yellow.png') no-repeat;
+              background-size: contain;
+              width: 20px;
+              height: 20px; 
+              display: inline-block;
+            }
           } 
         }
-      }
+      } 
     }
     &_img { 
       flex: 0 1 35%; 

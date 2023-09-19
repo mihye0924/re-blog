@@ -1,17 +1,36 @@
 import list from '@/assets/scss/contents/list.module.scss'
-import { data } from '@/api/List'
-import { useState } from 'react'
-const List = ({ mainNav, subNav }) => {
-  const [good, setGood] = useState(false); //좋아요
-  const [goodIndex, setGoodIndex] = useState(1) //좋아요 번째
-  const [favorite, setFavorite] = useState(false) //태그 
+import { data } from '@/api/List' 
+const List = ({ mainNav, subNav }) => {   
+  
+  // 좋아요 기능
+  const handleLike = (e, item) => {
+    const event = e.target.firstChild 
+    item.good = true   
+     
+    if (event.classList.contains('icon_heart')) { 
+        event.className = 'icon_heart_full'
+      } else {
+        event.className = 'icon_heart' 
+    } 
+  } 
 
-  console.log(goodIndex)
-  return (
+  // 즐겨찾기
+  const handleFavorite = (e, item) => {
+    const event = e.target.firstChild 
+    item.favorite = true   
+    
+    if (event.classList.contains('icon_favorite')) { 
+      event.className = 'icon_favorite_yellow' 
+    } else {
+      event.className = 'icon_favorite'  
+    } 
+  }
+
+  return ( 
     <section className={list.list_wrap}>
       <ul className={list.list_ul}>
         {
-          data.brand.map((item, index) => { 
+          data.brand.map((item) => { 
             return ( 
               <li key={item.id}>
                 <div className={list.list_content}> 
@@ -33,16 +52,11 @@ const List = ({ mainNav, subNav }) => {
                     </div>
                   </div>
                   <div className={list.list_sympathy}>
-                    <div className={list.list_sympathy_left}>
-                      <button onClick={() => { 
-                        setGoodIndex(index)
-                        item.good = !item.good
-                        console.log(item.good)
-                      }}>
-                        {
-                          item.good ? <i className='icon_heart_full' aria-hidden="true" /> :
-                          <i className='icon_heart' aria-hidden="true" /> 
-                        }
+                    <div className={list.list_sympathy_left}> 
+                      <button onClick={(e) => { 
+                        handleLike(e, item)
+                      }}>  
+                        <i className='icon_heart' aria-hidden="true" /> 
                         <span>공감</span>
                       </button>
                       <button> 
@@ -51,8 +65,8 @@ const List = ({ mainNav, subNav }) => {
                       </button>
                     </div>
                     <div className={list.list_sympathy_right}>
-                      <button>
-                        <i className='icon' aria-hidden="true" />
+                      <button onClick={(e) => { handleFavorite(e, item) }}>
+                        <i className='icon_favorite' aria-hidden="true" />
                         <span>즐겨찾기</span>
                       </button>
                     </div>
