@@ -1,0 +1,11 @@
+.detail {
+  &_content { 
+  }
+  &_wrap {
+    width: 600px;
+    position: sticky;
+    height: 87vh;
+    top: 90px; 
+    border: 1px solid black;
+  }
+}

@@ -1,6 +1,7 @@
 import list from '@/assets/scss/contents/list.module.scss'
 import { data } from '@/api/List' 
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 const List = ({ mainNav, subNav, onWrite }) => {   
   
   // 좋아요 기능
@@ -89,8 +90,8 @@ const List = ({ mainNav, subNav, onWrite }) => {
                   </div>
                   <div className={list.list_label}>
                     <div>
-                      <p>{item.label}</p>
-                      <p>{item.subLabel}</p>
+                      <Link to="/detail">{item.label}</Link>
+                      <Link to="/detail">{item.subLabel}</Link>
                     </div>
                     <div className={list.list_sympathy_img}>
                       {
