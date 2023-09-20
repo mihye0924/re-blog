@@ -1,7 +1,6 @@
 import write from '@/assets/scss/contents/write.module.scss'
-const Write = ({ onWrite }) => {
-  return ( 
-    onWrite &&
+const Write = () => {
+  return (  
     <section className={write.write_wrap}>
       <div>
           <button>
