@@ -1,8 +1,16 @@
 import profileMain from '@/assets/scss/contents/profileMain.module.scss' 
+import { useState } from 'react'
 // import { useState } from 'react';
 
 const ProfileMain = ({handleProfilePopup, profileInfo}) => { 
-  const profile = JSON.parse(window.localStorage.getItem("profile"))
+  const [dummyStorage, setDummyStorage] = useState({
+    img: '',
+    name: '',
+    sectors: '',
+    textarea: ''
+  })
+  const profiles = window.localStorage.getItem("profile")
+  const newProfile = profiles ? JSON.parse(profiles) : dummyStorage
   return (
     <div className={profileMain.profileMain_wrap}>
       <div className={profileMain.profileMain_header}>
@@ -15,16 +23,16 @@ const ProfileMain = ({handleProfilePopup, profileInfo}) => {
         <div className={profileMain.profileMain_contents_wrap}>
           <img
             // src={imgFile ? imgFile :`/images/common/thumbnail.svg`}
-            src={profile.img ? profile.img :`/images/common/thumbnail.svg`}
+            src={newProfile.img ? newProfile.img :`/images/common/thumbnail.svg`}
             alt="프로필 이미지"
             className={profileMain.profileMainp_contents_profileimg}
           />
           <div className={profileMain.profileMain_contents_text}>
-            <span className={profileMain.profileMain_contents_text_title}>{profile.name}</span>
-            <span className={profileMain.profileMain_contents_text_desc}>{profile.sectors}</span>
+            <span className={profileMain.profileMain_contents_text_title}>{newProfile.name}</span>
+            <span className={profileMain.profileMain_contents_text_desc}>{newProfile.sectors}</span>
           </div>
           {
-            profile.textarea.length > 0 ? <span>{profile.textarea}</span> : <button onClick={profileInfo} className={profileMain.profileMain_contents_button}>프로필 소개 추가....</button>
+            newProfile.textarea.length > 0 ? <span>{newProfile.textarea}</span> : <button onClick={profileInfo} className={profileMain.profileMain_contents_button}>프로필 소개 추가....</button>
           }
         </div>  
       </div>  
