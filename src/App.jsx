@@ -6,10 +6,8 @@ import { login } from '@/api/login.jsx'
 import LoginPopup from '@/components/contents/LoginPopup'
 import Router from '@/components/Router'
 import RightLayout from '@/components/layout/RightLayout'
-import { useNavigate } from 'react-router-dom';
 
 function App() { 
-  const navigate  = useNavigate()
   // 로그인 모달
   const [loginModal, setLoginModal] = useState(false)
   function onClick() {
@@ -38,7 +36,6 @@ function App() {
   function logout() {
     setIsLogin(false)
     window.localStorage.removeItem("login"); 
-    navigate('/')
   }
 
   return (

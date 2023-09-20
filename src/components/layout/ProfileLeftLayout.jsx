@@ -3,12 +3,12 @@ import ProfileNav from '@/components/contents/ProfileNav'
 import ProfileMain from '@/components/contents/ProfileMain'
 import ProfileList from '@/components/contents/ProfileList'
 import { useState } from 'react'
-const ProfileLeftLayout = () => {
+const ProfileLeftLayout = ({handleProfilePopup, profileInfo}) => {
   const [mainNav, setMainNav] =  useState(1)
 
   return ( 
     <article className={left.left_wrap}> 
-      <ProfileMain />
+      <ProfileMain profileInfo={profileInfo} handleProfilePopup={handleProfilePopup} />
       <ProfileNav
         mainNav={mainNav}
         onMainClick={(e)=>{ setMainNav(e.target.value) }} 
