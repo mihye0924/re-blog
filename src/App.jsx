@@ -1,7 +1,6 @@
 import main from '@/assets/scss/layout/main.module.scss'
 import Header from '@/components/layout/Header.jsx'
 import LoginPopup from './components/contents/LoginPopup'
-import ProfilePopup from './components/contents/ProfilePopup'
 import LeftLayout from './components/layout/LeftLayout'
 import RightLayout from './components/layout/RightLayout'
 import {login} from '@/api/login.jsx' 
@@ -17,8 +16,7 @@ function App() {
   const [idValue, setIdValue] = useState('')
   const [pwValue, setPwValue] = useState('')
   const loginStatus = window.localStorage.getItem("login");
-  const [isLogin, setIsLogin] = useState(loginStatus || false)
-  const [isProfile, setIsProfile] = useState(false)
+  const [isLogin, setIsLogin] = useState(loginStatus)
   function handleLogin() {
     login.map((item) => {
       if(item.id === idValue && item.pw === pwValue) {
@@ -40,16 +38,13 @@ function App() {
   }
 
   function handleProfile() {
-    setIsProfile(true)
-  } 
+    history.push("/Profile")
+  }
   return (
     <>
-      <Header onClick={onClick} handleProfile={handleProfile} login={isLogin} logout={logout} />
+      <Header onClick={onClick} handleProfile={handleProfile} ProfileTo={'/Profile'} login={isLogin} logout={logout} />
       {
         loginModal ? <LoginPopup onClose={() => {setLoginModal(false)}} handleLogin={handleLogin} saveUserId={(e) => {setIdValue(e.target.value)}} saveUserPw={(e) => {setPwValue(e.target.value)}}  /> : false
-      }
-      {
-        isProfile && <ProfilePopup onClose={() => {setIsProfile(false)}}  />
       }
       <section className={main.main_content}>
         <LeftLayout />

@@ -1,0 +1,53 @@
+.profileNav {
+  &_wrap {
+    // width: 100%;
+    background-color: $white; 
+    margin-bottom: -10px;
+  }
+  &_main{
+    display: flex;
+    gap: 30px;
+    // font-family: $noto-bold;
+    border-bottom: 1px solid $b_lightgray_ed;
+    padding-left: 20px;
+    li {
+      padding: 15px  0;
+      button {
+        display: block;
+        font-size: $fs18;
+        color: $f_lightgray_9;
+        font-family: $noto-medium;
+      } 
+    }
+    &_active {
+      button {
+        color: $black !important;
+      }
+      border-bottom: 3px solid $black;
+      
+    }
+  }
+  &_sub {
+    ul {
+      display: flex;
+      gap: 5px;
+      padding: 10px 20px 10px 20px;
+      // padding: 20px 24px;
+      li {
+        padding: 5px 15px; 
+        button {
+          display: block;
+          font-size: $fs14;
+          color: $black;
+          font-family: $noto-regular;
+         
+        }
+      }
+    }
+    &_active {
+      background-color: #f1f1f1;
+      border-radius: 25px;
+      color: $black;
+    }
+  }
+}
