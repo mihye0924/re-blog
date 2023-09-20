@@ -14,8 +14,16 @@ export const data =
         label: '최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
-        contentImg: '/images/content/list/nongshim-shin-ramen.png',
+        contentImg: '/images/content/list/nongshim-shin-ramen.jpg',
         uploadTime: '10분전',
+        hashTag: [
+          {
+            label: '농심'
+          },
+          {
+            label: '신라면'
+          }
+        ]        
       },
       {
         id: 2, 
@@ -31,7 +39,15 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/nongshim-shin-ramen.png',
-        uploadTime: '15분전'
+        uploadTime: '15분전',
+        hashTag: [
+          {
+            label: '농심'
+          },
+          {
+            label: '신라면'
+          }
+        ]     
       },
       {
         id: 3, 
@@ -47,7 +63,15 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/nongshim-shin-ramen.png',
-        uploadTime: '3분전'
+        uploadTime: '3분전',
+        hashTag: [
+          {
+            label: '농심'
+          },
+          {
+            label: '신라면'
+          }
+        ]     
       },
       {
         id: 4, 
@@ -63,7 +87,15 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/nongshim-shin-ramen.png',
-        uploadTime: '3분전'
+        uploadTime: '3분전',
+        hashTag: [
+          {
+            label: '농심'
+          },
+          {
+            label: '신라면'
+          }
+        ]     
       },
       {
         id: 5, 
@@ -79,7 +111,15 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/nongshim-shin-ramen.png',
-        uploadTime: '3분전'
+        uploadTime: '3분전',
+        hashTag: [
+          {
+            label: '농심'
+          },
+          {
+            label: '신라면'
+          }
+        ]     
       },
       {
         id: 6, 
@@ -95,7 +135,15 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/nongshim-shin-ramen.png',
-        uploadTime: '3분전'
+        uploadTime: '3분전',
+        hashTag: [
+          {
+            label: '농심'
+          },
+          {
+            label: '신라면'
+          }
+        ]     
       },
       {
         id: 7, 
@@ -111,7 +159,15 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/samyang-maptaeng.png',
-        uploadTime: '3분전'
+        uploadTime: '3분전',
+        hashTag: [
+          {
+            label: '라면'
+          },
+          {
+            label: '삼양'
+          }
+        ]     
       },
       {
         id: 8, 
@@ -127,7 +183,15 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
          contentImg : '/images/content/list/ottogi-yeol-ramen.png',
-        uploadTime: '3분전'
+        uploadTime: '3분전',
+        hashTag: [
+          {
+            label: '오뚜기'
+          },
+          {
+            label: '노랑'
+          }
+        ]     
       },
       {
         id: 9,  
@@ -143,7 +207,15 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '/images/content/list/eight-niche-ramen-noodles.png',
-        uploadTime: '3분전'
+        uploadTime: '3분전',
+        hashTag: [
+          {
+            label: '팔도'
+          },
+          {
+            label: '비빔면'
+          }
+        ]     
       },
       {
         id: 10, 
@@ -159,7 +231,15 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '/images/content/list/samyang-bts.png',
-        uploadTime: '3분전'
+        uploadTime: '3분전',
+        hashTag: [
+          {
+            label: '존맛'
+          },
+          {
+            label: '매워'
+          }
+        ]     
       },
       {
         id: 11, 
@@ -175,7 +255,15 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '',
-        uploadTime: '3분전'
+        uploadTime: '3분전',
+        hashTag: [
+          {
+            label: '빽다방'
+          },
+          {
+            label: '백종원'
+          }
+        ]     
       },
       {
         id: 12, 
@@ -191,7 +279,18 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '/images/content/list/tteokbokki.jpg',
-        uploadTime: '1분전'
+        uploadTime: '1분전',
+        hashTag: [
+          {
+            label: '청년다방'
+          },
+          {
+            label: '로제'
+          },
+          {
+            label: '떡볶이'
+          }
+        ]  
       },
       {
         id: 13, 
@@ -207,10 +306,18 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '/images/content/list/polo_men.png',
-        uploadTime: '1분전'
+        uploadTime: '1분전',
+        hashTag: [
+          {
+            label: '폴로'
+          },
+          {
+            label: '셔츠'
+          }
+        ]     
       },
       {
-        id: 13, 
+        id: 14, 
         good: false,
         favorite: false,
         profileImg: '',
@@ -223,7 +330,15 @@ export const data =
         subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '/images/content/list/polo_woman.jpg',
-        uploadTime: '1분전'
+        uploadTime: '1분전',
+        hashTag: [
+          {
+            label: '폴로'
+          },
+          {
+            label: '가방'
+          }
+        ]     
       } 
     ],
     free: [
@@ -234,14 +349,22 @@ export const data =
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: 3, //자유
-        middleCategory: '',
-        smallCategory1: '',
-        smallCategory2: '',
+        middleCategory: 0,
+        smallCategory1: '자유글이다',
+        smallCategory2: '나는 사람이다',
         label: '자유글1 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
         subLabel: `자유글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '',
-        uploadTime: '3분전'
+        uploadTime: '3분전',
+        hashTag: [
+          {
+            label: ''
+          },
+          {
+            label: ''
+          }
+        ]     
       },
       {
         id: 2,
@@ -250,14 +373,22 @@ export const data =
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: 3, //자유
-        middleCategory: '',
-        smallCategory1: '',
-        smallCategory2: '',
+        middleCategory: 0,
+        smallCategory1: '자유글이다',
+        smallCategory2: '나는 자연인이다',
         label: '자유글2 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
         subLabel: `자유글2 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '',
-        uploadTime: '20분전'
+        uploadTime: '20분전',
+        hashTag: [
+          {
+            label: ''
+          },
+          {
+            label: ''
+          }
+        ]     
       }
     ],
     humor: [
@@ -268,14 +399,22 @@ export const data =
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: 4, //유머
-        middleCategory: '',
-        smallCategory1: '',
-        smallCategory2: '',
+        middleCategory: 0,
+        smallCategory1: '유머러스한',
+        smallCategory2: '너',
         label: '유머글1 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
         subLabel: `유머글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '',
-        uploadTime: '3분전'
+        uploadTime: '3분전',
+        hashTag: [
+          {
+            label: ''
+          },
+          {
+            label: ''
+          }
+        ]     
       },
       {
         id: 2,
@@ -284,14 +423,22 @@ export const data =
         profileImg: '/images/common/profile.png',
         profileName: '',
         lagreCategory: 4, //유머
-        middleCategory: '',
-        smallCategory1: '',
-        smallCategory2: '',
+        middleCategory: 0,
+        smallCategory1: '개구쟁이',
+        smallCategory2: '나',
         label: '유머글2 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
         subLabel: `유머글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '',
-        uploadTime: '30분전'
+        uploadTime: '30분전',
+        hashTag: [
+          {
+            label: ''
+          },
+          {
+            label: ''
+          }
+        ]     
       }
     ]
   }

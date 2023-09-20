@@ -1,18 +1,16 @@
 
-import detail from '@/assets/scss/contents/detail.module.scss'
+import left from '@/assets/scss/layout/left.module.scss'
 import DetailHeader from '@/components/contents/DetailHeader'
 import DetailContent from '@/components/contents/DetailContent'
 import DetailComment from '@/components/contents/DetailComment'
 
 function Detail() {
   return (
-    <section className={detail.detail_content}> 
-      <div className={detail.detail_wrap}> 
+    <article className={left.left_wrap}> 
         <DetailHeader />
         <DetailContent />
-        <DetailComment />
-      </div> 
-    </section>
+        <DetailComment /> 
+    </article>
   )
 }
 export default Detail

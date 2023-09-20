@@ -1,8 +1,8 @@
-import { Routes, Route,  } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Profile from '@/pages/Profile.jsx';
 import Detail from '@/pages/Detail.jsx';
 import Main from '@/pages/Main' 
-function router() {
+function router() { 
   
   const loginCheck = window.localStorage.getItem("login")
   return (
@@ -11,7 +11,7 @@ function router() {
         {
           loginCheck && <Route path="/Profile" element={<Profile />} />
         }
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:lagre/:middle/:id" element={<Detail />} /> 
       </Routes>  
   )
 }

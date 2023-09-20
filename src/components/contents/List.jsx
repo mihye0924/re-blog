@@ -1,60 +1,71 @@
 import list from '@/assets/scss/contents/list.module.scss'
 import { data } from '@/api/List' 
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-const List = ({ mainNav, subNav, onWrite }) => {   
+import { useNavigate } from 'react-router-dom';
+
+const List = ({ mainNav, subNav, onWrite }) => {  
+  const [isMounted, setIsMouted] = useState(false)
+  const [array, setArray] = useState([])
+  const navigate = useNavigate();
   
   // 좋아요 기능
   const handleLike = (e, item) => {
-    const event = e.target.firstChild 
-    item.good = true   
+    const event = e.target.firstChild
+    item.good = true
      
-    if (event.classList.contains('icon_heart')) { 
-        event.className = 'icon_heart_full'
-      } else {
-        event.className = 'icon_heart' 
-    } 
-  } 
-
-  // 즐겨찾기
-  const handleFavorite = (e, item) => {
-    const event = e.target.firstChild 
-    item.favorite = true   
-    
-    if (event.classList.contains('icon_favorite')) { 
-      event.className = 'icon_favorite_yellow' 
+    if (event.classList.contains('icon_heart')) {
+      event.className = 'icon_heart_full'
     } else {
-      event.className = 'icon_favorite'  
-    } 
+      event.className = 'icon_heart'
+    }
   }
-   
-  const [isMounted, setIsMouted] = useState(false)
-  const [array, setArray] = useState([])
+
+  // 북마크
+  const handleFavorite = (e, item) => {
+    const event = e.target.firstChild
+    item.favorite = true
+    
+    if (event.classList.contains('icon_favorite')) {
+      event.className = 'icon_favorite_yellow'
+    } else {
+      event.className = 'icon_favorite'
+    }
+  }
  
   // 배열 합치기
-  const arrayCocat = () => { 
+  const arrayCocat = () => {
     data.brand.forEach((item) => {
       array.push(item)
     })
-    data.free.forEach((item) => { 
+    data.free.forEach((item) => {
       array.push(item)
-    }) 
+    })
     data.humor.forEach((item) => {
       array.push(item)
-    });  
+    });
       
   }
 
   // 카테고리 별 네비게이션
   const categoryNav = (item) => {
-    if (Number(mainNav) === 1) {  
+    if (Number(mainNav) === 1) {
       return item.middleCategory === Number(subNav)
     } else if (Number(mainNav) === 2) {
       return true
-    } else { 
+    } else {
       return item.lagreCategory === Number(mainNav)
     }
   }
+
+  const handleLink = (item) => {
+    if (item.lagreCategory && item.middleCategory) {
+      navigate(`detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`)
+    } else {
+      navigate(`detail/${item.lagreCategory}/0/${item.id}`)
+    }
+
+  }
+ 
   useEffect(() => {
     arrayCocat()
     setIsMouted(true)
@@ -90,8 +101,12 @@ const List = ({ mainNav, subNav, onWrite }) => {
                   </div>
                   <div className={list.list_label}>
                     <div>
-                      <Link to="/detail">{item.label}</Link>
-                      <Link to="/detail">{item.subLabel}</Link>
+                        <button onClick={() => { handleLink(item) }}>
+                          <span>{item.label}</span>
+                      </button>
+                        <button onClick={() => { handleLink(item) }}>
+                          <span>{item.subLabel}</span>
+                      </button>
                     </div>
                     <div className={list.list_sympathy_img}>
                       {
@@ -117,7 +132,7 @@ const List = ({ mainNav, subNav, onWrite }) => {
                     <div className={list.list_sympathy_right}>
                       <button onClick={(e) => { handleFavorite(e, item) }}>
                         <i className='icon_favorite' aria-hidden="true" />
-                        <span>즐겨찾기</span>
+                        <span>북마크</span>
                       </button>
                     </div>
                   </div> 

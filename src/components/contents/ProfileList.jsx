@@ -14,7 +14,7 @@ const ProfileList = ({ onWrite }) => {
     } 
   } 
 
-  // 즐겨찾기
+  // 북마크
   const handleFavorite = (e, item) => {
     const event = e.target.firstChild 
     item.favorite = true   
@@ -104,7 +104,7 @@ const ProfileList = ({ onWrite }) => {
                     <div className={profileList.profileList_sympathy_right}>
                       <button onClick={(e) => { handleFavorite(e, item) }}>
                         <i className='icon_favorite' aria-hidden="true" />
-                        <span>즐겨찾기</span>
+                        <span>북마크</span>
                       </button>
                     </div>
                   </div> 
