@@ -41,7 +41,6 @@ function App() {
     setIsLogin(false)
     window.localStorage.removeItem("login");
   }
-
   function handleProfile() {
     history.push("/Profile")
   }
@@ -66,5 +65,4 @@ function App() {
     </>
   )
 }
-
 export default App
