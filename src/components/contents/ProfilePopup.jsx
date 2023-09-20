@@ -7,8 +7,9 @@ const ProfilePopup = ({onClose}) => {
       const [inputValue, setInputValue] = useState(0);
       // textarea value 소개
       const [textareaValue, setTextareaValue] = useState(0);
+      const newImg = window.localStorage.getItem("profile")
       // img upload
-      const [imgFile, setImgFile] = useState("");
+      const [imgFile, setImgFile] = useState(newImg || '');
       const imgRef = useRef();
       // 이미지 업로드 input의 onChange
       const saveImgFile = () => {
@@ -17,8 +18,9 @@ const ProfilePopup = ({onClose}) => {
           reader.readAsDataURL(file);
           reader.onloadend = () => {
               setImgFile(reader.result);
+            };
           };
-      };
+        window.localStorage.setItem("profile", imgFile)
     return (
       <div className={profilePopup.profilePopup}>
         <div className={profilePopup.profilePopup_wrap}>

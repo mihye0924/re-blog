@@ -41,12 +41,9 @@ function App() {
     navigate('/')
   }
 
-  function handleProfile() {
-    history.push("/Profile")
-  }
   return (
     <>
-        <Header onClick={onClick} handleProfile={handleProfile} ProfileTo={'/Profile'} login={isLogin} logout={logout} />
+        <Header onClick={onClick} ProfileTo={'/Profile'} login={isLogin} logout={logout} />
         {
           loginModal ? <LoginPopup onClose={() => {setLoginModal(false)}} handleLogin={handleLogin} saveUserId={(e) => {setIdValue(e.target.value)}} saveUserPw={(e) => {setPwValue(e.target.value)}}  /> : false
         }
@@ -57,5 +54,4 @@ function App() {
     </>
   )
 }
-
 export default App

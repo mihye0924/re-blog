@@ -102,4 +102,15 @@
             width: 43px; 
         }
     }
+    &_logout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 81px;
+        height: 44px;
+        border-radius: 4px;
+        background-color: $black !important;
+        color: $white;
+        font-family: $noto-medium;
+    }
 } 

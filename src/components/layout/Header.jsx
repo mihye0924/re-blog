@@ -2,7 +2,7 @@ import header from '@/assets/scss/layout/header.module.scss';
 import Button from '@/components/common/Button.jsx' 
 import { Link } from 'react-router-dom';
 
-const Header = ({ onClick, login, logout, handleProfile, ProfileTo }) => { 
+const Header = ({ onClick, login, logout, ProfileTo }) => { 
     return (
         !login ? <header className={header.header_wrap}>
         <div className={header.header}>
@@ -40,11 +40,13 @@ const Header = ({ onClick, login, logout, handleProfile, ProfileTo }) => {
                     <button className={header.header_alarm_black}>
                         <img src="/images/layout/alarm_black.png" alt="알림"/>
                     </button>
-                    <Link className={header.header_profile} to={ProfileTo} onClick={handleProfile}>
+                    <Link className={header.header_profile} to={ProfileTo} >
                         <img src="/images/common/profile.png" alt="프로필"/>        
                     </Link>
                     {/* <Button name="글쓰기" color="blackborder" /> */}
-                    <Button name="로그아웃" color="black" onClick={logout} />
+                    <Link to={'/'} onClick={logout} className={header.header_logout}>
+                        <span>로그아웃</span>
+                    </Link>
                 </div>
             </div>
         </header>
