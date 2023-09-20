@@ -1,22 +1,20 @@
-import {  BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
+
 import { useState } from 'react';
 import main from '@/assets/scss/layout/main.module.scss'
 import Header from '@/components/layout/Header.jsx'
 import { login } from '@/api/login.jsx' 
 import LoginPopup from '@/components/contents/LoginPopup'
+import Router from '@/components/Router'
 import RightLayout from '@/components/layout/RightLayout'
-import Profile from '@/pages/Profile.jsx';
-import Detail from '@/pages/Detail.jsx';
-import Main from '@/pages/Main'
+import { useNavigate } from 'react-router-dom';
 
-function App() {   
+function App() { 
+  const navigate  = useNavigate()
   // 로그인 모달
   const [loginModal, setLoginModal] = useState(false)
   function onClick() {
     setLoginModal(true)
   }
-  
-  const loginCheck = window.localStorage.getItem("login")
   // 로그인
   const [idValue, setIdValue] = useState('')
   const [pwValue, setPwValue] = useState('')
@@ -39,7 +37,8 @@ function App() {
   }
   function logout() {
     setIsLogin(false)
-    window.localStorage.removeItem("login");
+    window.localStorage.removeItem("login"); 
+    navigate('/')
   }
 
   function handleProfile() {
@@ -47,22 +46,14 @@ function App() {
   }
   return (
     <>
-     <Router>
         <Header onClick={onClick} handleProfile={handleProfile} ProfileTo={'/Profile'} login={isLogin} logout={logout} />
         {
           loginModal ? <LoginPopup onClose={() => {setLoginModal(false)}} handleLogin={handleLogin} saveUserId={(e) => {setIdValue(e.target.value)}} saveUserPw={(e) => {setPwValue(e.target.value)}}  /> : false
         }
         <section className={main.main_content}>
-        <Routes>
-          <Route path="/" element={<Main />} />
-          {
-            loginCheck && <Route path="/Profile" element={<Profile />} />
-          }
-          <Route path="/detail" element={<Detail />} />
-        </Routes> 
+        <Router />
         <RightLayout />
       </section>
-     </Router>
     </>
   )
 }

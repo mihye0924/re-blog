@@ -1,5 +1,5 @@
 
-import detail from '@/assets/scss/contents/detail.module.scs'
+import detail from '@/assets/scss/contents/detail.module.scss'
 import DetailHeader from '@/components/contents/DetailHeader'
 import DetailContent from '@/components/contents/DetailContent'
 import DetailComment from '@/components/contents/DetailComment'
