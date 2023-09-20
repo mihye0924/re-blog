@@ -176,6 +176,54 @@ export const data =
         이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
         contentImg : '',
         uploadTime: '3분전'
+      },
+      {
+        id: 12, 
+        good: false,
+        favorite: false,
+        profileImg: '',
+        profileName: '',
+        lagreCategory: 1, //브랜드관
+        middleCategory: 3, //음식점
+        smallCategory1: '청년다방',
+        smallCategory2: '차돌/오짱 로제 떡볶이',
+        label: '최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
+        subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
+        이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
+        contentImg : '/images/content/list/tteokbokki.jpg',
+        uploadTime: '1분전'
+      },
+      {
+        id: 13, 
+        good: false,
+        favorite: false,
+        profileImg: '',
+        profileName: '',
+        lagreCategory: 1, //브랜드관
+        middleCategory: 4, //의류
+        smallCategory1: '폴로',
+        smallCategory2: '커스텀 슬림핏 CLARUS® 폴로 셔츠',
+        label: '최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
+        subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
+        이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
+        contentImg : '/images/content/list/polo_men.png',
+        uploadTime: '1분전'
+      },
+      {
+        id: 13, 
+        good: false,
+        favorite: false,
+        profileImg: '',
+        profileName: '',
+        lagreCategory: 1, //브랜드관
+        middleCategory: 4, //의류
+        smallCategory1: '폴로',
+        smallCategory2: '폴로 ID 카프스킨 라지 숄더백',
+        label: '최대 두줄까지 할 예정이며 두줄이상이면 디폴트',
+        subLabel: `게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 
+        이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...`,
+        contentImg : '/images/content/list/polo_woman.jpg',
+        uploadTime: '1분전'
       } 
     ],
     free: [
@@ -185,7 +233,7 @@ export const data =
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: 2, //자유
+        lagreCategory: 3, //자유
         middleCategory: '',
         smallCategory1: '',
         smallCategory2: '',
@@ -201,7 +249,7 @@ export const data =
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: 2, //자유
+        lagreCategory: 3, //자유
         middleCategory: '',
         smallCategory1: '',
         smallCategory2: '',
@@ -219,7 +267,7 @@ export const data =
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: 3, //유머
+        lagreCategory: 4, //유머
         middleCategory: '',
         smallCategory1: '',
         smallCategory2: '',
@@ -235,7 +283,7 @@ export const data =
         favorite: false,
         profileImg: '/images/common/profile.png',
         profileName: '',
-        lagreCategory: 3, //유머
+        lagreCategory: 4, //유머
         middleCategory: '',
         smallCategory1: '',
         smallCategory2: '',

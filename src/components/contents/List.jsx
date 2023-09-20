@@ -30,36 +30,49 @@ const List = ({ mainNav, subNav, onWrite }) => {
   const [isMounted, setIsMouted] = useState(false)
   const [array, setArray] = useState([])
  
-  
-  data.brand.forEach((item) => {
-    array.push(item)
-  })
-  data.free.forEach((item2) => { 
-    array.push(item2)
-  }) 
-  data.humor.forEach((item3) => {
-    array.push(item3)
-  });  
+  // 배열 합치기
+  const arrayCocat = () => { 
+    data.brand.forEach((item) => {
+      array.push(item)
+    })
+    data.free.forEach((item) => { 
+      array.push(item)
+    }) 
+    data.humor.forEach((item) => {
+      array.push(item)
+    });  
+      
+  }
 
-  useEffect(() => {   
+  // 카테고리 별 네비게이션
+  const categoryNav = (item) => {
+    if (Number(mainNav) === 1) {  
+      return item.middleCategory === Number(subNav)
+    } else if (Number(mainNav) === 2) {
+      return true
+    } else { 
+      return item.lagreCategory === Number(mainNav)
+    }
+  }
+  useEffect(() => {
+    arrayCocat()
     setIsMouted(true)
-    setArray(array)
+    setArray(array)  
   },[])
+  console.log(array)
 
-  const now = new Date();	// 현재 날짜 및 시간 
-  const minutes = now.getMinutes();	// 분
-  console.log("분 : ", minutes); 
-
-
-  // console.log(mainNav, Number(subNav))
-
+  // const now = new Date();	// 현재 날짜 및 시간 
+  // const minutes = now.getMinutes();	// 분
+  // console.log("분 : ", minutes); 
+ 
   return (   
     <section className={`${list.list_wrap} ${onWrite ? list['list_wrap_active']: false}`}>
       <ul className={list.list_ul}>  
         {
           isMounted &&
-          array.map((item,id) => { 
-            return (   
+          array.map((item, id) => {
+            return (
+              categoryNav(item) &&
               <li key={id}>
                 <div className={list.list_content}> 
                   <div className={list.list_write}>
