@@ -2,9 +2,7 @@ import datailcontent from '@/assets/scss/contents/detailContent.module.scss'
 import { data } from '@/api/List' 
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react'
-function DetailContent() {
-  const [isMounted, setIsMouted] = useState(false) 
-  const [array, setArray] = useState([]) 
+function DetailContent() { 
   const [emotionActive, setEmotionActive] = useState(false)
   const location = useLocation();
   const largeCategory = Number(location.pathname.split("/")[2])
@@ -78,35 +76,15 @@ function DetailContent() {
       break;
     }
   }
-
-  // 배열 합치기
-  const arrayCocat = () => {
-    data.brand.forEach((item) => {
-      array.push(item)
-    })
-    data.free.forEach((item) => {
-      array.push(item)
-    })
-    data.humor.forEach((item) => {
-      array.push(item)
-    });
-      
-  }
+ 
   useEffect(() => { 
     setSympathyTotal(good + sad + laugh + angry)
-  })
-  useEffect(() => {
-    arrayCocat()
-    setIsMouted(true)
-    setArray(array)  
-  },[])
-  // console.log(array)
+  }) 
 
-  return (
-    isMounted &&
+  return ( 
     <article className={datailcontent.datailcontent_wrap}>
       <div>  
-        {array.map((item,id) => {
+        {data.map((item) => {
           return (
             item.lagreCategory === largeCategory && 
             item.id === contentId &&
@@ -126,10 +104,10 @@ function DetailContent() {
                 </div>
                 <ul className={datailcontent.datailcontent_header_bottom}>
                   {
-                    item.hashTag.map((item2, id2) => {
+                    item.hashTag.map((item2) => {
                       return (
                         item2.label &&
-                        <li key={id2}>
+                        <li key={item2.id}>
                           <span># {item2.label}</span>  
                         </li>
                       )

@@ -25,30 +25,7 @@ const ProfileList = ({ onWrite }) => {
       event.className = 'icon_favorite'  
     } 
   }
-   
-  const [isMounted, setIsMouted] = useState(false)
-  const [array, setArray] = useState([])
- 
-  // 배열 합치기
-  const arrayCocat = () => { 
-    data.brand.forEach((item) => {
-      array.push(item)
-    })
-    data.free.forEach((item) => { 
-      array.push(item)
-    }) 
-    data.humor.forEach((item) => {
-      array.push(item)
-    });  
-      
-  }
-
-  useEffect(() => {
-    arrayCocat()
-    setIsMouted(true)
-    setArray(array)  
-  },[])
-  console.log(array)
+     
 
   // const now = new Date();	// 현재 날짜 및 시간 
   // const minutes = now.getMinutes();	// 분
@@ -57,11 +34,10 @@ const ProfileList = ({ onWrite }) => {
   return (   
     <section className={`${profileList.profileList_wrap} ${onWrite ? profileList['profileList_wrap_active']: false}`}>
       <ul className={profileList.profileList_ul}>  
-        {
-          isMounted &&
-          array.map((item, id) => {
+        { 
+          data.map((item) => {
             return (
-              <li key={id}>
+              <li key={item.id}>
                 <div className={profileList.profileList_content}> 
                   <div className={profileList.profileList_write}>
                     <div>

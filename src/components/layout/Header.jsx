@@ -8,7 +8,7 @@ const Header = ({ onClick, login, logout, ProfileTo }) => {
         <div className={header.header}>
             <div className={header.header_logo}>
                 <h1>
-                    <a href='#'>
+                    <a href='/'>
                         <img src="/images/layout/logo.png" alt="로고" />
                     </a>
                 </h1>
@@ -28,7 +28,7 @@ const Header = ({ onClick, login, logout, ProfileTo }) => {
             <div className={header.header}>
                 <div className={header.header_logo}>
                     <h1>
-                        <a href='#'>
+                        <a href='/'>
                             <img src="/images/layout/logo_black.png" alt="로고" />
                         </a>
                     </h1>

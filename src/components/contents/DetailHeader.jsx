@@ -2,9 +2,7 @@ import datailheader from '@/assets/scss/contents/detailHeader.module.scss'
 import { data } from '@/api/List' 
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-function DetailHeader() {
-  const [isMounted, setIsMouted] = useState(false) 
-  const [array, setArray] = useState([]) 
+function DetailHeader() { 
   const navigate = useNavigate();
   const [active, setActive] = useState(false)
 
@@ -15,27 +13,10 @@ function DetailHeader() {
     } else {
       setActive(false)
     }
-  }
-  // 배열 합치기
-  const arrayCocat = () => {
-    data.brand.forEach((item) => {
-      array.push(item)
-    })
-    data.free.forEach((item) => {
-      array.push(item)
-    })
-    data.humor.forEach((item) => {
-      array.push(item)
-    });
-      
-  }
-  useEffect(() => {
-    arrayCocat()
-    setIsMouted(true)
-    setArray(array)  
-
+  } 
+  useEffect(() => { 
     // 북마크
-    array.forEach((item) => { 
+    data.forEach((item) => { 
       if (item.favorite) { 
         document.querySelector('.icon_favorite').classList = 'icon_favorite_yellow_2'
       }

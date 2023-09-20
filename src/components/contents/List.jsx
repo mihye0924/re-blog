@@ -1,11 +1,8 @@
 import list from '@/assets/scss/contents/list.module.scss'
-import { data } from '@/api/List' 
-import { useEffect, useState } from 'react'
+import { data } from '@/api/List'  
 import { useNavigate } from 'react-router-dom';
 
-const List = ({ mainNav, subNav, onWrite }) => {  
-  const [isMounted, setIsMouted] = useState(false)
-  const [array, setArray] = useState([])
+const List = ({ mainNav, subNav, onWrite }) => {   
   const navigate = useNavigate();
   
   // 좋아요 기능
@@ -31,20 +28,7 @@ const List = ({ mainNav, subNav, onWrite }) => {
       event.className = 'icon_favorite'
     }
   }
- 
-  // 배열 합치기
-  const arrayCocat = () => {
-    data.brand.forEach((item) => {
-      array.push(item)
-    })
-    data.free.forEach((item) => {
-      array.push(item)
-    })
-    data.humor.forEach((item) => {
-      array.push(item)
-    });
-      
-  }
+  
 
   // 카테고리 별 네비게이션
   const categoryNav = (item) => {
@@ -64,15 +48,7 @@ const List = ({ mainNav, subNav, onWrite }) => {
       navigate(`detail/${item.lagreCategory}/0/${item.id}`)
     }
 
-  }
- 
-  useEffect(() => {
-    arrayCocat()
-    setIsMouted(true)
-    setArray(array)  
-  },[])
-  console.log(array)
-
+  } 
   // const now = new Date();	// 현재 날짜 및 시간 
   // const minutes = now.getMinutes();	// 분
   // console.log("분 : ", minutes); 
@@ -80,9 +56,8 @@ const List = ({ mainNav, subNav, onWrite }) => {
   return (   
     <section className={`${list.list_wrap} ${onWrite ? list['list_wrap_active']: false}`}>
       <ul className={list.list_ul}>  
-        {
-          isMounted &&
-          array.map((item, id) => {
+        { 
+          data.map((item, id) => {
             return (
               categoryNav(item) &&
               <li key={id}>
