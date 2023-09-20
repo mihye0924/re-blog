@@ -1,5 +1,5 @@
 import datailcontent from '@/assets/scss/contents/detailContent.module.scss'
-import { data } from '@/api/List' 
+import data from '@/api/list' 
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 function DetailContent() { 

@@ -1,6 +1,5 @@
 import profileList from '@/assets/scss/contents/profileList.module.scss'
-import { data } from '@/api/list' 
-import { useEffect, useState } from 'react'
+import  data from '@/api/list'  
 const ProfileList = ({ onWrite }) => {   
   // 좋아요 기능
   const handleLike = (e, item) => {

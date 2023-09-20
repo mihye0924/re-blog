@@ -1,5 +1,5 @@
 import datailheader from '@/assets/scss/contents/detailHeader.module.scss'
-import { data } from '@/api/List' 
+import data from '@/api/list' 
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 function DetailHeader() { 

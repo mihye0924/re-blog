@@ -1,4 +1,5 @@
-import { navList, categoryList } from '@/api/Nav'
+import navList from '@/api/navList'
+import categoryList from '@/api/categoryList'
 import nav from '@/assets/scss/contents/nav.module.scss' 
 
 const Nav = ({mainNav, subNav, onMainClick, onSubClick}) => { 

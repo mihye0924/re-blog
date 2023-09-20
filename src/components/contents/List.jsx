@@ -1,5 +1,5 @@
 import list from '@/assets/scss/contents/list.module.scss'
-import { data } from '@/api/List'  
+import data from '@/api/list'  
 import { useNavigate } from 'react-router-dom';
 
 const List = ({ mainNav, subNav, onWrite }) => {   

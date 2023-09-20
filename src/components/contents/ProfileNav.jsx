@@ -1,4 +1,4 @@
-import { navList } from '@/api/profileNav'
+import  navList from '@/api/profileNav'
 import profileNav from '@/assets/scss/contents/profileNav.module.scss' 
 
 const ProfileNav = ({mainNav,onMainClick, }) => { 

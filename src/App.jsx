@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import main from '@/assets/scss/layout/main.module.scss'
 import Header from '@/components/layout/Header.jsx'
-import { login } from '@/api/login.jsx' 
+import login from '@/api/login' 
 import LoginPopup from '@/components/contents/LoginPopup'
 import Router from '@/components/Router'
 import RightLayout from '@/components/layout/RightLayout'
