@@ -8,7 +8,6 @@ import RightLayout from '@/components/layout/RightLayout'
 import Profile from '@/pages/Profile.jsx';
 import Detail from '@/pages/Detail.jsx';
 import Main from '@/pages/Main'
-
 function App() {   
   // 로그인 모달
   const [loginModal, setLoginModal] = useState(false)
@@ -41,13 +40,11 @@ function App() {
     setIsLogin(false)
     window.localStorage.removeItem("login");
   }
-  function handleProfile() {
-    history.push("/Profile")
-  }
+
   return (
     <>
      <Router>
-        <Header onClick={onClick} handleProfile={handleProfile} ProfileTo={'/Profile'} login={isLogin} logout={logout} />
+        <Header onClick={onClick}  ProfileTo={'/Profile'} login={isLogin} logout={logout} />
         {
           loginModal ? <LoginPopup onClose={() => {setLoginModal(false)}} handleLogin={handleLogin} saveUserId={(e) => {setIdValue(e.target.value)}} saveUserPw={(e) => {setPwValue(e.target.value)}}  /> : false
         }

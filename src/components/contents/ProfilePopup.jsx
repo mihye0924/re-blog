@@ -8,9 +8,6 @@ const ProfilePopup = ({onClose}) => {
       // textarea value 소개
       const [textareaValue, setTextareaValue] = useState(0);
       const newImg = window.localStorage.getItem("profile")
-      function imgClose() {
-        window.localStorage.romoveItem("profile")
-      }
       // img upload
       const [imgFile, setImgFile] = useState(newImg || '');
       const imgRef = useRef();
