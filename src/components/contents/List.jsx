@@ -1,57 +1,82 @@
 import list from '@/assets/scss/contents/list.module.scss'
 import data from '@/api/list'  
 import { useNavigate } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 const List = ({ mainNav, subNav, onWrite }) => {   
   const [datas, setDatas] = useState(data)
   const navigate = useNavigate();
-  // 좋아요 기능
-  const handleLike = (e,item) => {
-    item.good = !item.good
-    window.localStorage.setItem("list", JSON.stringify(datas))
-    setDatas([...datas])
-  }
 
-  // 북마크
-  const handleFavorite = (e,item) => {
-    item.favorite = !item.favorite
-    window.localStorage.setItem("list", JSON.stringify(datas))
-    setDatas([...datas])
-  }
-    
+  // 리스트 - 좋아요 기능
+  const handleLike = useMemo(() => {
+    return ((e,item) => {
+      item.good = !item.good
+      window.localStorage.setItem("list", JSON.stringify(datas))
+      setDatas([...datas])
+      console.log(datas)
+    })
+  },[datas])
 
-  // 카테고리 별 네비게이션
-  const categoryNav = (item) => {
-    if (Number(mainNav) === 1) {
-      return item.middleCategory === Number(subNav)
-    } else if (Number(mainNav) === 2) {
-      return true
-    } else {
-      return item.lagreCategory === Number(mainNav)
-    }
-  }
+  // 리스트 - 북마크
+  const handleFavorite = useMemo(() => {
+    return ((e,item) => {
+      item.favorite = !item.favorite
+      window.localStorage.setItem("list", JSON.stringify(datas))
+      setDatas([...datas])
+      }
+    )
+  },[datas])
+     
+  // 리스트 - 카테고리 별 네비게이션
+  const categoryNav = useMemo(() => {
+    return ((item) => {
+      if (Number(mainNav) === 1) {
+        return item.middleCategory === Number(subNav)
+      } else if (Number(mainNav) === 2) {
+        return true
+      } else {
+        return item.lagreCategory === Number(mainNav)
+      }
+    })
+  },[mainNav, subNav])
 
-  const handleLink = (item) => {
-    if (item.lagreCategory && item.middleCategory) {
-      navigate(`detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`)
-    } else {
-      navigate(`detail/${item.lagreCategory}/0/${item.id}`)
-    }
 
-  } 
+  // 리스트 -  url 주소 확인 후 detail페이지로 값 보내기
+  const handleLink = useMemo(() => {
+    return ((item) => {
+      if (item.lagreCategory && item.middleCategory) {
+        navigate(`detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`)
+      } else {
+        navigate(`detail/${item.lagreCategory}/0/${item.id}`)
+      }
+    })
+  },[navigate])
  
+  // 리스트 - 게시글 정렬하기
+  const handleSort = useMemo(() => {  
+    return (() => {
+      const sortList = datas.sort((a,b) => {
+        if(a.uploadTime > b.uploadTime) return 1;
+        if(a.uploadTime < b.uploadTime) return -1;
+          return 0;
+        });  
+       setDatas([...sortList])
+   })
+  },[])
 
-  useEffect(() => { 
+  // 리스트 - 로컬 데이터 가져오기
+  const handleLocalGetItem = () => { 
     const obj = window.localStorage.getItem("list")
     if (obj) {
       const newData = JSON.parse(obj)   
       setDatas([...newData])
-   }  
-  },[])
-  // const now = new Date();	// 현재 날짜 및 시간 
-  // const minutes = now.getMinutes();	// 분
-  // console.log("분 : ", minutes); 
+    }     
+  }
+   
+  useEffect(() => {  
+    handleSort()
+    handleLocalGetItem()
+  }, [])
  
   return (   
     <section className={`${list.list_wrap} ${onWrite ? list['list_wrap_active']: false}`}>
@@ -72,7 +97,7 @@ const List = ({ mainNav, subNav, onWrite }) => {
                       <span>{item.profileName}</span>
                       <span>{item.smallCategory2}</span>
                     </div>
-                    <span>{item.uploadTime}</span>
+                    <span>{item.uploadTime} 분전</span>
                   </div>
                   <div className={list.list_label}>
                     <div>

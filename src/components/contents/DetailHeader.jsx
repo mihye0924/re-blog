@@ -1,6 +1,6 @@
 import datailheader from '@/assets/scss/contents/detailHeader.module.scss'
 import data from '@/api/list' 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 function DetailHeader() { 
   const navigate = useNavigate();
@@ -13,34 +13,40 @@ function DetailHeader() {
   const contentId = Number(location.pathname.split("/")[4])   
 
 
-  // ... 아이콘 기능 (수정,삭제)
-  const handleSelect = () => {
-    if (active === false) {
-      setActive(true)
-    } else {
-      setActive(false)
-    }
-  } 
-  // 북마크 이벤트 기능
-  const handleFavorite = () => {    
-     datas.forEach((item) => {
-       if (item.lagreCategory === largeCategory &&
-         item.id === contentId &&
-         item.middleCategory === middleCategory) {
-         if (item.favorite) {
-           item.favorite = false 
-           setFavorite('icon_favorite')
-          } else {
-            item.favorite = true  
-            setFavorite('icon_favorite_yellow_2') 
-          }
-       }
-       window.localStorage.setItem("list",JSON.stringify(datas))
-     }) 
-     setDatas([...datas])
-    
-  }
-  useEffect(() => { 
+  // 북마크 - ... 아이콘 기능 (수정,삭제)
+  const handleSelect = useMemo(() => {
+    return (() => {
+      if (active === false) {
+        setActive(true)
+      } else {
+        setActive(false)
+      }
+    })
+  }, [active])
+  
+  // 북마크 - 이벤트 기능
+  const handleFavorite = useMemo(() => {    
+    return (() => {
+      datas.forEach((item) => {
+        if (item.lagreCategory === largeCategory &&
+          item.id === contentId &&
+          item.middleCategory === middleCategory) {
+          if (item.favorite) {
+            item.favorite = false 
+            setFavorite('icon_favorite')
+           } else {
+             item.favorite = true  
+             setFavorite('icon_favorite_yellow_2') 
+           }
+        }
+        window.localStorage.setItem("list",JSON.stringify(datas))
+        setDatas([...datas]) 
+      }) 
+     })
+  },[datas, largeCategory, middleCategory, contentId])
+  
+  // 북마크 - 로컬 데이터로 메인과 상세 연결
+  const handleLocalSetItem = () => { 
     const arr = window.localStorage.getItem("list")   
     if(arr){
       const list = JSON.parse(arr) 
@@ -57,7 +63,9 @@ function DetailHeader() {
       }) 
       setDatas([...list])
     }   
-    
+  }
+  useEffect(() => { 
+    handleLocalSetItem()
   },[]) 
 
  

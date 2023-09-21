@@ -11,7 +11,7 @@
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg" : "/images/content/list/nongshim-shin-ramen.jpg",
-    "uploadTime" : "10분전",
+    "uploadTime" :10,
     "hashTag" : [
       {
         "id" : 1,
@@ -41,7 +41,7 @@
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
       "contentImg"  : "/images/content/list/nongshim-shin-ramen.png",
-    "uploadTime" : "15분전",
+    "uploadTime" :15,
     "hashTag" : [
       {
         "id" : 1,
@@ -71,7 +71,7 @@
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/nongshim-shin-ramen.png",
-    "uploadTime" : "3분전",
+    "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
@@ -101,7 +101,7 @@
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/nongshim-shin-ramen.png",
-    "uploadTime" : "3분전",
+    "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
@@ -131,7 +131,7 @@
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/nongshim-shin-ramen.png",
-    "uploadTime" : "3분전",
+    "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
@@ -161,7 +161,7 @@
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/nongshim-shin-ramen.png",
-    "uploadTime" : "3분전",
+    "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
@@ -191,7 +191,7 @@
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/samyang-maptaeng.png",
-    "uploadTime" : "3분전",
+    "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
@@ -221,7 +221,7 @@
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/ottogi-yeol-ramen.png",
-    "uploadTime" : "3분전",
+    "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
@@ -251,7 +251,7 @@
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/eight-niche-ramen-noodles.png",
-    "uploadTime" : "3분전",
+    "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
@@ -281,7 +281,7 @@
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/samyang-bts.png",
-    "uploadTime" : "3분전",
+    "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
@@ -311,7 +311,7 @@
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "",
-    "uploadTime" : "3분전",
+    "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
@@ -341,7 +341,7 @@
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/tteokbokki.jpg",
-    "uploadTime" : "1분전",
+    "uploadTime" :1,
     "hashTag" : [
       {
         "id" : 1,
@@ -374,7 +374,7 @@
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/polo_men.png",
-    "uploadTime" : "1분전",
+    "uploadTime" :1,
     "hashTag" : [
       {
         "id" : 1,
@@ -404,7 +404,7 @@
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/polo_woman.jpg",
-    "uploadTime" : "1분전",
+    "uploadTime" :1,
     "hashTag" : [
       {
         "id" : 1,
@@ -434,7 +434,7 @@
     "label" : "자유글1 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "자유글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "",
-    "uploadTime" : "3분전",
+    "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
@@ -464,7 +464,7 @@
     "label" : "자유글2 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "자유글2 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "",
-    "uploadTime" : "20분전",
+    "uploadTime" :20,
     "hashTag" : [
       {
         "id" : 1,
@@ -494,7 +494,7 @@
     "label" : "유머글1 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "유머글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "",
-    "uploadTime" : "3분전",
+    "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
@@ -524,7 +524,7 @@
     "label" : "유머글2 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "유머글2 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "",
-    "uploadTime" : "30분전",
+    "uploadTime" :30,
     "hashTag" : [
       {
         "id" : 1,

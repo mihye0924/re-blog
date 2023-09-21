@@ -1,7 +1,7 @@
 import datailcontent from '@/assets/scss/contents/detailContent.module.scss'
 import data from '@/api/list'  
 import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react' 
+import { useEffect, useMemo, useState } from 'react' 
 
 
 function DetailContent() { 
@@ -12,44 +12,49 @@ function DetailContent() {
   const middleCategory = Number(location.pathname.split("/")[3])
   const contentId = Number(location.pathname.split("/")[4])   
 
-  // 공감표현 애니메이션 추가
-  const handleEmtionToggle = () => {
-    if (emotionActive) {
-      setEmotionActive(false)
-    } else {
-      setEmotionActive(true)
-    } 
-  }
+  // 공감표현 - 애니메이션 추가
+  const handleEmtionToggle = useMemo(() => {
+    return (() => {
+      if (emotionActive) {
+        setEmotionActive(false)
+      } else {
+        setEmotionActive(true)
+      } 
+    })
+  },[emotionActive])
   
-  // 공감표현 카운트 클릭 이벤트 
-  const handleSympathy = (index) => {
-    datas.forEach(item => {  
-      if(item.lagreCategory === largeCategory && 
-        item.id === contentId &&
-        item.middleCategory === middleCategory) {
-          switch(index) {
-            case 1: //좋아요
-              item.sympathy.good += 1  
-              break;
-              case 2: // 슬퍼요
-              item.sympathy.sad += 1   
-              break;
-              case 3: // 웃겨요
-              item.sympathy.laugh += 1   
-              break;
-              case 4: // 화나요
-              item.sympathy.angry += 1   
-              break; 
+  // 공감표현 - 카운트 클릭 이벤트 
+  const handleSympathy = useMemo(() => {
+    return ((index) => {
+      datas.forEach(item => {  
+        if(item.lagreCategory === largeCategory && 
+          item.id === contentId &&
+          item.middleCategory === middleCategory) {
+            switch(index) {
+              case 1: //좋아요
+                item.sympathy.good += 1  
+                break;
+                case 2: // 슬퍼요
+                item.sympathy.sad += 1   
+                break;
+                case 3: // 웃겨요
+                item.sympathy.laugh += 1   
+                break;
+                case 4: // 화나요
+                item.sympathy.angry += 1   
+                break; 
+          }
+          item.sympathy.total = item.sympathy.good + item.sympathy.sad + item.sympathy.laugh + item.sympathy.angry
         }
-        item.sympathy.total = item.sympathy.good + item.sympathy.sad + item.sympathy.laugh + item.sympathy.angry
-      }
-      window.localStorage.setItem("list", JSON.stringify(datas))  
-    });
-
-    setDatas([...datas])
-  }  
+        window.localStorage.setItem("list", JSON.stringify(datas))  
+      });
+  
+      setDatas([...datas])
+    })
+  },[])
  
-  useEffect(() => {   
+  // 공감표현 - 로컬 데이터 저장
+  const handleLocalSetItem = () => {
     const arr = window.localStorage.getItem("list")   
     if(arr){
       const sympathy = JSON.parse(arr) 
@@ -62,7 +67,10 @@ function DetailContent() {
         }
       })
       setDatas([...sympathy]) 
-    }  
+    } 
+  }
+  useEffect(() => {   
+    handleLocalSetItem()
   }, [])  
   return ( 
     <article className={datailcontent.datailcontent_wrap}>

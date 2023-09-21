@@ -1,5 +1,6 @@
 import header from '@/assets/scss/layout/header.module.scss';
 import Button from '@/components/common/Button.jsx' 
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = ({ onClick, login, logout, ProfileTo }) => { 
@@ -55,4 +56,4 @@ const Header = ({ onClick, login, logout, ProfileTo }) => {
     );
 };
 
-export default Header;
+export default React.memo(Header);
