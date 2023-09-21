@@ -3,26 +3,26 @@ import  data from '@/api/list'
 const ProfileList = ({ onWrite }) => {   
   // 좋아요 기능
   const handleLike = (e, item) => {
-    const event = e.target.firstChild 
-    item.good = true   
+    // const event = e.target.firstChild 
+    // item.good = true   
      
-    if (event.classprofileList.contains('icon_heart')) { 
-        event.className = 'icon_heart_full'
-      } else {
-        event.className = 'icon_heart' 
-    } 
+    // if (event.classprofileList.contains('icon_heart')) { 
+    //     event.className = 'icon_heart_full'
+    //   } else {
+    //     event.className = 'icon_heart' 
+    // } 
   } 
 
   // 북마크
   const handleFavorite = (e, item) => {
-    const event = e.target.firstChild 
-    item.favorite = true   
+    // const event = e.target.firstChild 
+    // item.favorite = true   
     
-    if (event.classprofileList.contains('icon_favorite')) { 
-      event.className = 'icon_favorite_yellow' 
-    } else {
-      event.className = 'icon_favorite'  
-    } 
+    // if (event.classprofileList.contains('icon_favorite')) { 
+    //   event.className = 'icon_favorite_yellow' 
+    // } else {
+    //   event.className = 'icon_favorite'  
+    // } 
   }
      
 

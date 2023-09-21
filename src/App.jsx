@@ -37,7 +37,6 @@ function App() {
     setIsLogin(false)
     window.localStorage.removeItem("login"); 
   }
-
   return (
     <>
         <Header onClick={onClick} ProfileTo={'/Profile'} login={isLogin} logout={logout} />

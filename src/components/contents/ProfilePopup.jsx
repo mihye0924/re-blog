@@ -1,6 +1,6 @@
 import profilePopup from '@/assets/scss/contents/profilePopup.module.scss'
 // import Button from '@/components/common/Button'
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const ProfilePopup = ({onClose, onProfileSet}) => {
   const dummyStorage = {
@@ -45,8 +45,11 @@ const ProfilePopup = ({onClose, onProfileSet}) => {
     setTimeout(() => {
       onProfileSet()
     }, 100)
+    JSON.parse(window.localStorage.getItem("profile"))
   }
-  window.localStorage.setItem("profile", JSON.stringify(profile))
+  useEffect(() => {
+    window.localStorage.setItem("profile", JSON.stringify(profile))
+  }, [profile])
   return (
     <div className={profilePopup.profilePopup}>
       <div className={profilePopup.profilePopup_wrap}>

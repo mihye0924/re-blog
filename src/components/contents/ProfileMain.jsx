@@ -31,7 +31,7 @@ const ProfileMain = ({handleProfilePopup, profileInfo}) => {
             <span className={profileMain.profileMain_contents_text_desc}>{newProfile.sectors}</span>
           </div>
           {
-            newProfile.textarea.length > 0 ? <span>{newProfile.textarea}</span> : <button onClick={profileInfo} className={profileMain.profileMain_contents_button}>프로필 소개 추가....</button>
+            newProfile.textarea.length > 0 ? <pre>{newProfile.textarea}</pre> : <button onClick={profileInfo} className={profileMain.profileMain_contents_button}>프로필 소개 추가....</button>
           }
         </div>  
       </div>  
