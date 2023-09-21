@@ -3,12 +3,12 @@ import profilePopup from '@/assets/scss/contents/profilePopup.module.scss'
 import { useRef, useState } from 'react';
 
 const ProfilePopup = ({onClose, onProfileSet}) => {
-  const [dummyStorage, setDummyStorage] = useState({
+  const dummyStorage = {
     img: '',
     name: '',
     sectors: '',
     textarea: ''
-  })
+  }
   const profiles = window.localStorage.getItem("profile")
   const newProfile = profiles ? JSON.parse(profiles) : dummyStorage
   // input value 닉네임

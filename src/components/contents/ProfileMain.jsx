@@ -1,14 +1,13 @@
 import profileMain from '@/assets/scss/contents/profileMain.module.scss' 
-import { useState } from 'react'
 // import { useState } from 'react';
 
 const ProfileMain = ({handleProfilePopup, profileInfo}) => { 
-  const [dummyStorage, setDummyStorage] = useState({
+  const dummyStorage = {
     img: '',
     name: '',
     sectors: '',
     textarea: ''
-  })
+  }
   const profiles = window.localStorage.getItem("profile")
   const newProfile = profiles ? JSON.parse(profiles) : dummyStorage
   return (
