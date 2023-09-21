@@ -42,10 +42,10 @@ const ProfileList = ({ onWrite }) => {
                     <div>
                       {
                         item.profileImg ?
-                        <img src={item.profileImg} alt={item.profileName} /> :
+                        <img src={item.profileImg} alt=""/> :
                         <img src='/images/common/profile_default.png' alt='기본프로필'/>
                       }
-                      <span>{item.smallCategory1}</span>
+                      <span>{item.profileName}</span>
                       <span>{item.smallCategory2}</span>
                     </div>
                     <span>{item.uploadTime}</span>

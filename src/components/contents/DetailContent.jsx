@@ -1,20 +1,16 @@
 import datailcontent from '@/assets/scss/contents/detailContent.module.scss'
-import data from '@/api/list' 
-import sympathy from '@/api/sympathy' 
+import data from '@/api/list'  
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react' 
 
+
 function DetailContent() { 
+  const [datas, setDatas] = useState(data)
   const [emotionActive, setEmotionActive] = useState(false)
   const location = useLocation();
   const largeCategory = Number(location.pathname.split("/")[2])
   const middleCategory = Number(location.pathname.split("/")[3])
-  const contentId = Number(location.pathname.split("/")[4])  
-  const [good, setGood] = useState(0) // 좋아요
-  const [sad, setSad] = useState(0) // 슬퍼요
-  const [laugh, setLaugh] = useState(0) //웃겨요
-  const [angry, setAngry] = useState(0) // 화나요
-  const [sympathyTotal, setSympathyTotal] = useState(0) //공감표현 총개수
+  const contentId = Number(location.pathname.split("/")[4])   
 
   // 공감표현 애니메이션 추가
   const handleEmtionToggle = () => {
@@ -25,71 +21,53 @@ function DetailContent() {
     } 
   }
   
-  const handleSympathyGetItem = () => {
-    const arr = window.localStorage.getItem("sympathy") 
-    if(arr){
-      const sympathy = JSON.parse(arr)
-      sympathy.forEach((item) => {
-        if(item.lagreCategory === largeCategory && 
-          item.id === contentId &&
-          item.middleCategory === middleCategory ){  
-            setGood(item.sympathy.good) 
-            setSad(item.sympathy.sad) 
-            setLaugh(item.sympathy.laugh) 
-            setAngry(item.sympathy.angry)  
-          }
-      })
-    }
-  }
-
   // 공감표현 카운트 클릭 이벤트 
-  const handleSympathy = (index) => {  
-    data.forEach(item => {  
+  const handleSympathy = (index) => {
+    datas.forEach(item => {  
       if(item.lagreCategory === largeCategory && 
         item.id === contentId &&
-        item.middleCategory === middleCategory ){
+        item.middleCategory === middleCategory) {
           switch(index) {
-            case 0: //좋아요
-              item.sympathy.good += 1 
+            case 1: //좋아요
+              item.sympathy.good += 1  
               break;
-              case 1: // 슬퍼요
-              item.sympathy.sad += 1 
+              case 2: // 슬퍼요
+              item.sympathy.sad += 1   
               break;
-              case 2: // 웃겨요
-              item.sympathy.laugh += 1 
+              case 3: // 웃겨요
+              item.sympathy.laugh += 1   
               break;
-              case 3: // 화나요
-              item.sympathy.angry +=1 
+              case 4: // 화나요
+              item.sympathy.angry += 1   
               break; 
-          }
         }
-        window.localStorage.setItem("sympathy", JSON.stringify(data)) 
+        item.sympathy.total = item.sympathy.good + item.sympathy.sad + item.sympathy.laugh + item.sympathy.angry
+      }
+      window.localStorage.setItem("list", JSON.stringify(datas))  
     });
-    handleSympathyGetItem()
-    handleSympathyCheck()
-  } 
-  const handleSympathyCheck = (index) => {
-    if(index === 0) {
-      return good
-    }else if( index === 1) {
-      return sad
-    }else if( index === 2) {
-      return laugh
-    }else {
-      return angry
-    }
-  }
- 
-  useEffect(() => {  
-    handleSympathyGetItem()
-    handleSympathyCheck()
-    // setSympathyTotal(good + sad + laugh + angry)
-  },[]) 
 
+    setDatas([...datas])
+  }  
+ 
+  useEffect(() => {   
+    const arr = window.localStorage.getItem("list")   
+    if(arr){
+      const sympathy = JSON.parse(arr) 
+      sympathy.forEach((item) => {
+        if (item.lagreCategory === largeCategory &&
+          item.id === contentId &&
+          item.middleCategory === middleCategory) {
+          item.views +=1
+          window.localStorage.setItem("list", JSON.stringify(sympathy)) 
+        }
+      })
+      setDatas([...sympathy]) 
+    }  
+  }, [])  
   return ( 
     <article className={datailcontent.datailcontent_wrap}>
       <div>  
-        {data.map((item) => {
+        {datas.map((item) => {
           return (
             item.lagreCategory === largeCategory && 
             item.id === contentId &&
@@ -100,11 +78,11 @@ function DetailContent() {
                   <h1>
                     {
                     item.profileImg ?
-                    <img src={item.profileImg} alt={item.profileName} /> :
+                    <img src={item.profileImg} alt="" /> :
                     <img src='/images/common/profile_default.png' alt='기본프로필'/>
                     }  
                   </h1>
-                  <span>{item.smallCategory1}</span>
+                  <span>{item.profileName}</span>
                   <span>{item.smallCategory2}</span>
                 </div>
                 <ul className={datailcontent.datailcontent_header_bottom}>
@@ -132,20 +110,27 @@ function DetailContent() {
               <div className={datailcontent.datailcontent_footer}>
                 <div className={datailcontent.datailcontent_footer_top}>
                   <div className={datailcontent.datailcontent_footer_top_left}>
-                    <span>조회 2,123 회</span>
+                    <span>조회 { item.views ? item.views : 0} 회</span>
                     <span>댓글</span>
-                    <span>공감 </span>
+                    <span>공감 {item.sympathy.total ? item.sympathy.total : 0} </span>
                     </div>
                     <div className={`${datailcontent.datailcontent_footer_top_right} ${emotionActive && datailcontent['datailcontent_footer_top_right_active']}`}>
                       {
-                        emotionActive &&
-                        sympathy.map((item, index) => {
-                          return (
-                            <button key={item.id} onClick={() => {handleSympathy(index)}}>
-                              <span>{handleSympathyCheck(index)}</span>
-                            </button> 
-                          )
-                        })
+                        emotionActive && 
+                        <>
+                        <button onClick={() => {handleSympathy(1)}}>
+                            <span>{item.sympathy.good}</span>
+                          </button>  
+                          <button onClick={() => {handleSympathy(2)}}>
+                            <span>{item.sympathy.sad}</span>
+                          </button>  
+                          <button onClick={() => {handleSympathy(3)}}>
+                            <span>{item.sympathy.laugh}</span>
+                          </button>  
+                          <button onClick={() => {handleSympathy(4)}}>
+                            <span>{item.sympathy.angry}</span>
+                          </button>
+                        </>  
                       }
                     </div>
                 </div>

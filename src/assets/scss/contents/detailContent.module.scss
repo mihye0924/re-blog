@@ -28,20 +28,8 @@
         font-size: $fs16;
         font-family: $noto-medium; 
         &:last-child {
-          color: $f_lightgray_9;
-          // margin-left: 20px;
-          position: relative;
-          &::after {
-            position: absolute;
-            content: '';
-            width: 3px;
-            height: 3px;
-            border-radius: 15px;
-            background: $f_lightgray_9;
-            left: -10px;
-            top: 50%;
-            transform: translate(-50%,-50%);
-          }
+          color: $f_lightgray_9; 
+          position: relative; 
         }
       }
     }

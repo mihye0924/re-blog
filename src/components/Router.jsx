@@ -2,12 +2,12 @@ import { Routes, Route } from 'react-router-dom';
 import Profile from '@/pages/Profile.jsx';
 import Detail from '@/pages/Detail.jsx';
 import Main from '@/pages/Main' 
-function router() { 
+function router({ onWrite, login }) { 
   
   const loginCheck = window.localStorage.getItem("login")
   return (
       <Routes>
-        <Route path="/" element={<Main />} />
+      <Route path="/" element={<Main onWrite={onWrite} login={login} />} />
         {
           loginCheck && <Route path="/Profile" element={<Profile />} />
         }

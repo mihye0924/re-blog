@@ -4,6 +4,7 @@ import main from '@/assets/scss/layout/main.module.scss'
 import Header from '@/components/layout/Header.jsx'
 import login from '@/api/login' 
 import LoginPopup from '@/components/contents/LoginPopup'
+import WritePopup from '@/components/contents/WritePopup'
 import Router from '@/components/Router'
 import RightLayout from '@/components/layout/RightLayout'
 
@@ -38,14 +39,23 @@ function App() {
     window.localStorage.removeItem("login"); 
   }
 
+  // 글쓰기
+  const [writeModal, setWriteModal] = useState(false)
+  function onWrite() {
+    console.log('동작')
+      setWriteModal(true)
+  }
   return (
     <>
-        <Header onClick={onClick} ProfileTo={'/Profile'} login={isLogin} logout={logout} />
-        {
+      <Header onClick={onClick} ProfileTo={'/Profile'} login={isLogin} logout={logout} />
+      {
           loginModal ? <LoginPopup onClose={() => {setLoginModal(false)}} handleLogin={handleLogin} saveUserId={(e) => {setIdValue(e.target.value)}} saveUserPw={(e) => {setPwValue(e.target.value)}}  /> : false
-        }
+      }
+      {
+        writeModal ? <WritePopup /> : ''
+      }
         <section className={main.main_content}>
-        <Router />
+        <Router onWrite={onWrite} login={isLogin} />
         <RightLayout />
       </section>
     </>

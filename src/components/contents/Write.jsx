@@ -1,9 +1,10 @@
 import write from '@/assets/scss/contents/write.module.scss'
-const Write = () => {
+const Write = ({ onWrite, login }) => {
   return (  
+    login &&
     <section className={write.write_wrap}>
       <div>
-          <button>
+          <button onClick={()=>{onWrite()}}>
           <i className='icon'>+</i>  
           <span>새글 작성하기</span>
         </button>

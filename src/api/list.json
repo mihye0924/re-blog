@@ -1,14 +1,13 @@
 [
   {
     "id" : 1, 
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
-    "profileName": "",
     "lagreCategory": 1, 
     "middleCategory": 1,  
-    "smallCategory1":  "농심",
-    "smallCategory2":  "신라면",
+    "profileName":  "닉네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg" : "/images/content/list/nongshim-shin-ramen.jpg",
@@ -27,7 +26,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0 
     } 
   },
   {
@@ -35,11 +35,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
-    "profileName": "",
     "lagreCategory": 1,  
     "middleCategory": 1,  
-    "smallCategory1":  "농심",
-    "smallCategory2":  "신라면",
+    "profileName":  "닉네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
       "contentImg"  : "/images/content/list/nongshim-shin-ramen.png",
@@ -58,7 +56,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -66,11 +65,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
-    "profileName": "",
     "lagreCategory": 1,  
     "middleCategory": 1,  
-    "smallCategory1":  "농심",
-    "smallCategory2":  "신라면",
+    "profileName":  "닉네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/nongshim-shin-ramen.png",
@@ -89,7 +86,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -97,11 +95,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
-    "profileName": "",
     "lagreCategory": 1,  
     "middleCategory": 1,  
-    "smallCategory1":  "농심",
-    "smallCategory2":  "신라면",
+    "profileName":  "닉네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/nongshim-shin-ramen.png",
@@ -120,7 +116,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -128,11 +125,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
-    "profileName": "",
     "lagreCategory": 1,  
     "middleCategory": 1,  
-    "smallCategory1":  "농심",
-    "smallCategory2":  "신라면",
+    "profileName":  "닉네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/nongshim-shin-ramen.png",
@@ -151,7 +146,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -159,11 +155,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
-    "profileName": "",
     "lagreCategory": 1,  
     "middleCategory": 1,  
-    "smallCategory1":  "농심",
-    "smallCategory2":  "신라면",
+    "profileName":  "닉네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/nongshim-shin-ramen.png",
@@ -182,7 +176,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -190,11 +185,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
-    "profileName": "",
     "lagreCategory": 1,  
     "middleCategory": 1,  
-    "smallCategory1": "삼양",
-    "smallCategory2": "맵탱",
+    "profileName": "닉네임", 
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/samyang-maptaeng.png",
@@ -213,7 +206,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -221,11 +215,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
-    "profileName": "",
     "lagreCategory": 1,  
     "middleCategory": 1,  
-    "smallCategory1": "오뚜기",
-    "smallCategory2": "열라면",
+    "profileName": "닉네임", 
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/ottogi-yeol-ramen.png",
@@ -244,7 +236,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -252,11 +245,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
-    "profileName": "",
     "lagreCategory": 1,  
     "middleCategory": 1,  
-    "smallCategory1": "팔도",
-    "smallCategory2": "틈새라면",
+    "profileName": "닉네임",  
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/eight-niche-ramen-noodles.png",
@@ -275,7 +266,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -283,11 +275,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
-    "profileName": "",
     "lagreCategory": 1,  
     "middleCategory": 1,  
-    "smallCategory1": "삼양",
-    "smallCategory2": "불닭볶음면",
+    "profileName": "닉네임",  
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/samyang-bts.png",
@@ -306,7 +296,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -314,11 +305,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "",
-    "profileName": "",
     "lagreCategory": 1,  
     "middleCategory": 2, 
-    "smallCategory1": "빽다방",
-    "smallCategory2": "카페모카",
+    "profileName": "닉네임",  
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "",
@@ -337,7 +326,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -345,11 +335,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "",
-    "profileName": "",
     "lagreCategory": 1,  
     "middleCategory": 3, 
-    "smallCategory1": "청년다방",
-    "smallCategory2": "차돌/오짱 로제 떡볶이",
+    "profileName": "닉네임",  
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/tteokbokki.jpg",
@@ -371,7 +359,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -379,11 +368,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "",
-    "profileName": "",
     "lagreCategory": 1,  
     "middleCategory": 4, 
-    "smallCategory1": "폴로",
-    "smallCategory2": "커스텀 슬림핏 CLARUS® 폴로 셔츠",
+    "profileName": "닉네임",  
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/polo_men.png",
@@ -402,7 +389,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -410,11 +398,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "",
-    "profileName": "",
     "lagreCategory": 1,  
-    "middleCategory": 4, 
-    "smallCategory1": "폴로",
-    "smallCategory2": "폴로 ID 카프스킨 라지 숄더백",
+    "middleCategory": 4,  
+    "profileName": "닉네임", 
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "/images/content/list/polo_woman.jpg",
@@ -433,7 +419,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -441,11 +428,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
-    "profileName": "",
     "lagreCategory": 3,
     "middleCategory": 0,
-    "smallCategory1": "자유글이다",
-    "smallCategory2": "나는 사람이다",
+    "profileName": "닉네임",  
     "label" : "자유글1 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "자유글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "",
@@ -464,7 +449,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -472,11 +458,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
-    "profileName": "",
     "lagreCategory": 3,
     "middleCategory": 0,
-    "smallCategory1": "자유글이다",
-    "smallCategory2": "나는 자연인이다",
+    "profileName": "닉네임",  
     "label" : "자유글2 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "자유글2 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "",
@@ -495,7 +479,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -503,11 +488,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
-    "profileName": "",
     "lagreCategory": 4, 
     "middleCategory": 0,
-    "smallCategory1": "유머러스한",
-    "smallCategory2": "너",
+    "profileName": "닉네임", 
     "label" : "유머글1 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "유머글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "",
@@ -526,7 +509,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   },
   {
@@ -534,11 +518,9 @@
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
-    "profileName": "",
     "lagreCategory": 4, 
     "middleCategory": 0,
-    "smallCategory1": "개구쟁이",
-    "smallCategory2": "나",
+    "profileName": "닉네임", 
     "label" : "유머글2 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "유머글2 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg"  : "",
@@ -557,7 +539,8 @@
       "good": 0,
       "sad" : 0,
       "laugh" : 0,
-      "angry" : 0
+      "angry" : 0,
+      "total" : 0
     } 
   }
 ]
