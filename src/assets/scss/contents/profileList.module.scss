@@ -30,23 +30,13 @@
         position: relative;
         font-size: $fs16;
         display: inline-block; 
-        margin-left: 5px; 
+        margin-left: 10px; 
         font-family: $noto-medium;
+        color: $f_lightgray_9;
         &:last-child {
           margin-left: 15px;
           color: $f_lightgray_9;
-          font-family: $noto-light;
-          &::after{
-            position: absolute;
-            content: '';
-            width: 3px;
-            height: 3px; 
-            left: -10px;
-            top: 50%;
-            transform: translateY(-50%);
-            border-radius: 25px;
-            background-color: $f_lightgray_9;
-          }
+          font-family: $noto-light; 
         }
       }
     }
