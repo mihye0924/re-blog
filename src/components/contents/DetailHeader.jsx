@@ -2,7 +2,7 @@ import datailheader from '@/assets/scss/contents/detailHeader.module.scss'
 import data from '@/api/list' 
 import { useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
-function DetailHeader() { 
+function DetailHeader({login}) { 
   const navigate = useNavigate();
   const [active, setActive] = useState(false)
   const [datas, setDatas] = useState(data)
@@ -26,24 +26,28 @@ function DetailHeader() {
   
   // 북마크 - 이벤트 기능
   const handleFavorite = useMemo(() => {    
-    return (() => {
-      datas.forEach((item) => {
-        if (item.lagreCategory === largeCategory &&
-          item.id === contentId &&
-          item.middleCategory === middleCategory) {
-          if (item.favorite) {
-            item.favorite = false 
-            setFavorite('icon_favorite')
-           } else {
-             item.favorite = true  
-             setFavorite('icon_favorite_yellow_2') 
-           }
-        }
-        window.localStorage.setItem("list",JSON.stringify(datas))
-        setDatas([...datas]) 
-      }) 
+    return (() => { 
+      if(login) {
+        datas.forEach((item) => {
+          if (item.lagreCategory === largeCategory &&
+            item.id === contentId &&
+            item.middleCategory === middleCategory) {
+            if (item.favorite) {
+              item.favorite = false 
+              setFavorite('icon_favorite')
+             } else {
+               item.favorite = true  
+               setFavorite('icon_favorite_yellow_2') 
+             }
+          }
+          window.localStorage.setItem("list",JSON.stringify(datas))
+          setDatas([...datas]) 
+        }) 
+      }else {
+        alert('로그인 필요합니다.')
+      }
      })
-  },[datas, largeCategory, middleCategory, contentId])
+  },[login, datas, largeCategory, middleCategory, contentId])
   
   // 북마크 - 로컬 데이터로 메인과 상세 연결
   const handleLocalSetItem = () => { 

@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react' 
 
 
-function DetailContent() { 
+function DetailContent({login}) { 
   const [datas, setDatas] = useState(data)
   const [emotionActive, setEmotionActive] = useState(false)
   const location = useLocation();
@@ -26,52 +26,54 @@ function DetailContent() {
   // 공감표현 - 카운트 클릭 이벤트 
   const handleSympathy = useMemo(() => {
     return ((index) => {
-      datas.forEach(item => {  
-        if(item.lagreCategory === largeCategory && 
-          item.id === contentId &&
-          item.middleCategory === middleCategory) {
-            switch(index) {
-              case 1: //좋아요
-                item.sympathy.good += 1  
-                break;
-                case 2: // 슬퍼요
-                item.sympathy.sad += 1   
-                break;
-                case 3: // 웃겨요
-                item.sympathy.laugh += 1   
-                break;
-                case 4: // 화나요
-                item.sympathy.angry += 1   
-                break; 
+      if(login) {
+        datas.forEach(item => {  
+          if(item.lagreCategory === largeCategory && 
+            item.id === contentId &&
+            item.middleCategory === middleCategory) {
+              switch(index) {
+                case 1: //좋아요
+                  item.sympathy.good += 1  
+                  break;
+                  case 2: // 슬퍼요
+                  item.sympathy.sad += 1   
+                  break;
+                  case 3: // 웃겨요
+                  item.sympathy.laugh += 1   
+                  break;
+                  case 4: // 화나요
+                  item.sympathy.angry += 1   
+                  break; 
+            }
+            item.sympathy.total = item.sympathy.good + item.sympathy.sad + item.sympathy.laugh + item.sympathy.angry
           }
-          item.sympathy.total = item.sympathy.good + item.sympathy.sad + item.sympathy.laugh + item.sympathy.angry
-        }
-        window.localStorage.setItem("list", JSON.stringify(datas))  
-      });
-  
-      setDatas([...datas])
+          window.localStorage.setItem("list", JSON.stringify(datas))  
+        });
+    
+        setDatas([...datas])
+      }
     })
-  },[])
- 
-  // 공감표현 - 로컬 데이터 저장
-  const handleLocalSetItem = () => {
-    const arr = window.localStorage.getItem("list")   
-    if(arr){
-      const sympathy = JSON.parse(arr) 
-      sympathy.forEach((item) => {
-        if (item.lagreCategory === largeCategory &&
-          item.id === contentId &&
-          item.middleCategory === middleCategory) {
-          item.views +=1
-          window.localStorage.setItem("list", JSON.stringify(sympathy)) 
-        }
-      })
-      setDatas([...sympathy]) 
-    } 
-  }
-  useEffect(() => {   
-    handleLocalSetItem()
-  }, [])  
+  },[login, datas, largeCategory, middleCategory, contentId])
+  useEffect(() => {    
+    
+    if(login) { 
+      const obj = window.localStorage.getItem('list')
+      if(obj) {
+        const list = JSON.parse(obj)
+        list.forEach((item) => {
+          if (item.lagreCategory === largeCategory &&
+            item.id === contentId &&
+            item.middleCategory === middleCategory) {
+              item.views += 1
+              window.localStorage.setItem("list", JSON.stringify(list))
+            }
+        })
+        setDatas([...list])
+      }
+      // window.localStorage.setItem("list", JSON.stringify(datas))
+    }
+
+  }, [login, contentId, largeCategory, middleCategory])  
   return ( 
     <article className={datailcontent.datailcontent_wrap}>
       <div>  

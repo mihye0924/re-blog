@@ -4,11 +4,11 @@ import DetailHeader from '@/components/contents/DetailHeader'
 import DetailContent from '@/components/contents/DetailContent'
 import DetailComment from '@/components/contents/DetailComment'
 
-function Detail() {
+function Detail({login, handleFavorite}) {
   return (
     <article className={left.left_wrap}> 
-        <DetailHeader />
-        <DetailContent />
+        <DetailHeader login={login} handleFavorite={handleFavorite}/>
+        <DetailContent login={login}/>
         <DetailComment /> 
     </article>
   )

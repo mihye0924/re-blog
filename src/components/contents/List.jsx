@@ -3,29 +3,36 @@ import data from '@/api/list'
 import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useMemo, useState } from 'react';
 
-const List = ({ mainNav, subNav, onWrite }) => {   
+const List = ({ mainNav, subNav, login }) => {   
   const [datas, setDatas] = useState(data)
   const navigate = useNavigate();
 
   // 리스트 - 좋아요 기능
   const handleLike = useMemo(() => {
     return ((e,item) => {
-      item.good = !item.good
-      window.localStorage.setItem("list", JSON.stringify(datas))
-      setDatas([...datas])
-      console.log(datas)
+      if(login) {
+        item.good = !item.good 
+        window.localStorage.setItem("list", JSON.stringify(datas))
+        setDatas([...datas]) 
+      }else {
+        alert('로그인이 필요합니다.')
+      }
     })
-  },[datas])
+  },[login, datas])
 
   // 리스트 - 북마크
   const handleFavorite = useMemo(() => {
     return ((e,item) => {
-      item.favorite = !item.favorite
-      window.localStorage.setItem("list", JSON.stringify(datas))
-      setDatas([...datas])
+      if(login) {
+        item.favorite = !item.favorite
+        window.localStorage.setItem("list", JSON.stringify(datas))
+        setDatas([...datas])
+      }else {
+        alert('로그인이 필요합니다.')
+      }
       }
     )
-  },[datas])
+  },[login, datas])
      
   // 리스트 - 카테고리 별 네비게이션
   const categoryNav = useMemo(() => {
@@ -39,7 +46,7 @@ const List = ({ mainNav, subNav, onWrite }) => {
       }
     })
   },[mainNav, subNav])
-
+ 
 
   // 리스트 -  url 주소 확인 후 detail페이지로 값 보내기
   const handleLink = useMemo(() => {
@@ -48,13 +55,13 @@ const List = ({ mainNav, subNav, onWrite }) => {
         navigate(`detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`)
       } else {
         navigate(`detail/${item.lagreCategory}/0/${item.id}`)
-      }
+      } 
     })
   },[navigate])
  
   // 리스트 - 게시글 정렬하기
   const handleSort = useMemo(() => {  
-    return (() => {
+    return (() => { 
       const sortList = datas.sort((a,b) => {
         if(a.uploadTime > b.uploadTime) return 1;
         if(a.uploadTime < b.uploadTime) return -1;
@@ -73,13 +80,13 @@ const List = ({ mainNav, subNav, onWrite }) => {
     }     
   }
    
-  useEffect(() => {  
+  useEffect(() => {   
     handleSort()
     handleLocalGetItem()
   }, [])
  
   return (   
-    <section className={`${list.list_wrap} ${onWrite ? list['list_wrap_active']: false}`}>
+    <section className={`${list.list_wrap} ${login ? list['list_wrap_active']: ''} ${Number(mainNav) !== 1 ? list['list_wrap_active_2']: ''}`}>
       <ul className={list.list_ul}>  
         { 
           datas.map((item, id) => {

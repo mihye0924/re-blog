@@ -1,6 +1,6 @@
 [
   {
-    "id" : 1, 
+    "id" : 1,  
     "views" : 0,
     "good": false,
     "favorite": false,
@@ -32,6 +32,7 @@
   },
   {
     "id" : 2, 
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
@@ -62,6 +63,7 @@
   },
   {
     "id" : 3, 
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
@@ -92,6 +94,7 @@
   },
   {
     "id" : 4, 
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
@@ -122,6 +125,7 @@
   },
   {
     "id" : 5, 
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
@@ -152,6 +156,7 @@
   },
   {
     "id" : 6, 
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
@@ -182,6 +187,7 @@
   },
   {
     "id" : 7, 
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
@@ -212,6 +218,7 @@
   },
   {
     "id" : 8, 
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
@@ -242,6 +249,7 @@
   },
   {
     "id" : 9,  
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
@@ -272,6 +280,7 @@
   },
   {
     "id" : 10, 
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
@@ -302,6 +311,7 @@
   },
   {
     "id" : 11, 
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "",
@@ -332,6 +342,7 @@
   },
   {
     "id" : 12, 
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "",
@@ -365,6 +376,7 @@
   },
   {
     "id" : 13, 
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "",
@@ -395,6 +407,7 @@
   },
   {
     "id" : 14, 
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "",
@@ -425,6 +438,7 @@
   },
   {
     "id" : 15, 
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
@@ -455,6 +469,7 @@
   },
   {
     "id" : 16,
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
@@ -485,6 +500,7 @@
   },
   {
     "id" : 17,
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",
@@ -515,6 +531,7 @@
   },
   {
     "id" : 18,
+    "views" : 0,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/profile.png",

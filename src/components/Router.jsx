@@ -11,7 +11,7 @@ function router({ onWrite, login }) {
         {
           loginCheck && <Route path="/Profile" element={<Profile />} />
         }
-        <Route path="/detail/:lagre/:middle/:id" element={<Detail />} /> 
+        <Route path="/detail/:lagre/:middle/:id" element={<Detail login={login} />} /> 
       </Routes>  
   )
 }

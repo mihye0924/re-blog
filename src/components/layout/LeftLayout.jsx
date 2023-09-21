@@ -19,6 +19,7 @@ const LeftLayout = ({ onWrite, login }) => {
       />
       <Write onWrite={onWrite} login={login} />
       <List 
+        login={login}
         mainNav={mainNav}
         subNav={subNav}
       />

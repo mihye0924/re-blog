@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import main from '@/assets/scss/layout/main.module.scss'
 import Header from '@/components/layout/Header.jsx'
 import login from '@/api/login' 
@@ -7,6 +7,7 @@ import LoginPopup from '@/components/contents/LoginPopup'
 import WritePopup from '@/components/contents/WritePopup'
 import Router from '@/components/Router'
 import RightLayout from '@/components/layout/RightLayout'
+import data from '@/api/list'  
 
 function App() { 
   // 로그인 모달
@@ -24,6 +25,7 @@ function App() {
       if(item.id === idValue && item.pw === pwValue) {
         setLoginModal(false)
         setIsLogin(true)
+        window.localStorage.setItem("list", JSON.stringify(data))  
         window.localStorage.setItem("login", true);
       } else if(item.id !== idValue && item.pw !== pwValue) {
         alert('회원정보가 없습니다.')
@@ -45,6 +47,11 @@ function App() {
     console.log('동작')
       setWriteModal(true)
   }
+
+  useEffect(() => {
+      // window.localStorage.setItem("list", JSON.stringify(data)) 
+      
+  },[])
   return (
     <>
       <Header onClick={onClick} ProfileTo={'/Profile'} login={isLogin} logout={logout} />
