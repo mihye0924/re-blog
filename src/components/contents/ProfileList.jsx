@@ -1,51 +1,78 @@
 import profileList from '@/assets/scss/contents/profileList.module.scss'
 import data from '@/api/list'  
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react' 
 const ProfileList = ({ onWrite,mainNav }) => {   
-  const [datas, setDatas] = useState(data)
-  const navigate = useNavigate();
-  // 좋아요 기능
-  const handleLike = (e,item) => {
-    item.good = !item.good
-    window.localStorage.setItem("list", JSON.stringify(datas))
-    setDatas([...datas])
-  }
+  const [datas, setDatas] = useState(data) 
 
-  // 북마크
-  const handleFavorite = (e,item) => {
-    item.favorite = !item.favorite
-    window.localStorage.setItem("list", JSON.stringify(datas))
-    // const setCategory = datas.filter(item => item.favorite === true)
-    setDatas([...datas])
-  }
+  // 리스트 - 좋아요 기능
+  const handleLike = useMemo(() => {
+    return ((e,item) => {
+      item.good = !item.good 
+      window.localStorage.setItem("list", JSON.stringify(datas))
+      setDatas([...datas]) 
+    })
+  },[datas])
+
+   // 리스트 - 북마크
+   const handleFavorite = useMemo(() => {
+    return ((e,item) => { 
+        item.favorite = !item.favorite
+        window.localStorage.setItem("list", JSON.stringify(datas))
+        setDatas([...datas]) 
+      }
+    )
+  },[datas])
   
   // 카테고리 별 네비게이션
-  const categoryNav = (item) => {
-    if (Number(mainNav) === 1) {
-      return true
-    } else if (Number(mainNav) === 2) {
-      return true
-    } else if(Number(mainNav) === 3) {
-      return item.favorite === true
-    }
-  }
-  console.log(Number(mainNav))
-  const handleLink = (item) => {
-    if (item.lagreCategory && item.middleCategory) {
-      navigate(`detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`)
-    } else {
-      navigate(`detail/${item.lagreCategory}/0/${item.id}`)
-    }
+  const categoryNav = useMemo(() => {
+    return ((item) => {
+      if (Number(mainNav) === 1) {
+        return true
+      } else if (Number(mainNav) === 2) {
+        return false
+      } else if(Number(mainNav) === 3) {
+        return item.favorite === true
+      }
+    })
+  },[])
 
-  } 
-  useEffect(() => { 
+  // 리스트 -  url 주소 확인 후 detail페이지로 값 보내기
+  const handleLink = useMemo(() => {
+    return ((item) => {
+      if (item.lagreCategory && item.middleCategory) {
+        window.location.href= `detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`
+      } else {
+        window.location.href= `detail/${item.lagreCategory}/0/${item.id}`
+      } 
+    })
+  },[])
+
+  // 리스트 - 게시글 정렬하기
+  const handleSort = useMemo(() => {  
+    return (() => { 
+      const sortList = datas.sort((a,b) => {
+        if(a.uploadTime > b.uploadTime) return 1;
+        if(a.uploadTime < b.uploadTime) return -1;
+          return 0;
+        });  
+       setDatas([...sortList])
+   })
+  },[])
+
+  // 리스트 - 로컬 데이터 가져오기
+  const handleLocalGetItem = () => { 
     const obj = window.localStorage.getItem("list")
     if (obj) {
       const newData = JSON.parse(obj)   
       setDatas([...newData])
-   }  
+    }     
+  }
+
+  useEffect(() => { 
+    handleSort()
+    handleLocalGetItem() 
   },[])
+
   const dummyStorage = {
     img: '',
     name: '',
@@ -53,12 +80,8 @@ const ProfileList = ({ onWrite,mainNav }) => {
     textarea: ''
   }
   const profiles = window.localStorage.getItem("profile")
-  const newProfile = profiles ? JSON.parse(profiles) : dummyStorage
+  const newProfile = profiles ? JSON.parse(profiles) : dummyStorage 
 
-  // const now = new Date();	// 현재 날짜 및 시간 
-  // const minutes = now.getMinutes();	// 분
-  // console.log("분 : ", minutes); 
- 
   return (   
     <section className={`${profileList.profileList_wrap} ${onWrite ? profileList['profileList_wrap_active']: false}`}>
       <ul className={profileList.profileList_ul}>  

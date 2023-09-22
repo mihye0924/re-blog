@@ -3,7 +3,7 @@ import data from '@/api/list'
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 
-const List = ({ mainNav, subNav, login }) => {   
+const List = ({ mainNav, subNav }) => {   
   const [datas, setDatas] = useState(data)
   const navigate = useNavigate();
 
@@ -44,12 +44,12 @@ const List = ({ mainNav, subNav, login }) => {
   const handleLink = useMemo(() => {
     return ((item) => {
       if (item.lagreCategory && item.middleCategory) {
-        navigate(`detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`)
+        window.location.href= `detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`
       } else {
-        navigate(`detail/${item.lagreCategory}/0/${item.id}`)
+        window.location.href= `detail/${item.lagreCategory}/0/${item.id}`
       } 
     })
-  },[navigate])
+  },[])
  
   // 리스트 - 게시글 정렬하기
   const handleSort = useMemo(() => {  
@@ -84,10 +84,7 @@ const List = ({ mainNav, subNav, login }) => {
     textarea: ''
   }
   const profiles = window.localStorage.getItem("profile")
-  const newProfile = profiles ? JSON.parse(profiles) : dummyStorage
-  // const now = new Date();	// 현재 날짜 및 시간 
-  // const minutes = now.getMinutes();	// 분
-  // console.log("분 : ", minutes); 
+  const newProfile = profiles ? JSON.parse(profiles) : dummyStorage 
  
   return (   
     <section className={`${list.list_wrap}`}>
