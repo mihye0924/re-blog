@@ -10,16 +10,16 @@
     "profileName":  "테스트네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg" : "/images/content/list/nongshim-shin-ramen.jpg",
+    "contentImg" : "/images/content/list/dummy.png",
     "uploadTime" :10,
     "hashTag" : [
       {
         "id" : 1,
-        "label" :  "농심"
+        "label" :  "해시태그1"
       },
       {
         "id" : 2,
-        "label" :  "신라면"
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -41,16 +41,16 @@
     "profileName":  "테스트네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-      "contentImg"  : "/images/content/list/nongshim-shin-ramen.png",
+    "contentImg"  : "/images/content/list/dummy.png",
     "uploadTime" :15,
     "hashTag" : [
       {
         "id" : 1,
-        "label" :  "농심"
+        "label" :  "해시태그1"
       },
       {
         "id" : 2,
-        "label" :  "신라면"
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -72,16 +72,16 @@
     "profileName":  "테스트네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/nongshim-shin-ramen.png",
+    "contentImg"  : "/images/content/list/dummy.png",
     "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
-        "label" :  "농심"
+        "label" :  "해시태그1"
       },
       {
         "id" : 2,
-        "label" :  "신라면"
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -109,16 +109,16 @@
     "profileName":  "테스트네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/nongshim-shin-ramen.png",
+    "contentImg"  : "/images/content/list/dummy.png",
     "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
-        "label" :  "농심"
+        "label" :  "해시태그1"
       },
       {
         "id" : 2,
-        "label" :  "신라면"
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -140,16 +140,16 @@
     "profileName":  "테스트네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/nongshim-shin-ramen.png",
+    "contentImg"  : "/images/content/list/dummy.png",
     "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
-        "label" :  "농심"
+        "label" :  "해시태그1"
       },
       {
         "id" : 2,
-        "label" :  "신라면"
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -171,16 +171,16 @@
     "profileName":  "테스트네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/nongshim-shin-ramen.png",
+    "contentImg"  : "/images/content/list/dummy.png",
     "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
-        "label" :  "농심"
+        "label" :  "해시태그1"
       },
       {
         "id" : 2,
-        "label" :  "신라면"
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -202,16 +202,16 @@
     "profileName": "테스트네임", 
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/samyang-maptaeng.png",
+    "contentImg"  : "/images/content/list/dummy.png",
     "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
-        "label" : "라면"
+        "label" :  "해시태그1"
       },
       {
         "id" : 2,
-        "label" : "삼양"
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -233,16 +233,16 @@
     "profileName": "테스트네임", 
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/ottogi-yeol-ramen.png",
+    "contentImg"  : "/images/content/list/dummy.png",
     "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
-        "label" : "오뚜기"
+        "label" :  "해시태그1"
       },
       {
         "id" : 2,
-        "label" : "노랑"
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -264,16 +264,16 @@
     "profileName": "테스트네임",  
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/eight-niche-ramen-noodles.png",
+    "contentImg"  : "/images/content/list/dummy.png",
     "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
-        "label" : "팔도"
+        "label" :  "해시태그1"
       },
       {
         "id" : 2,
-        "label" : "비빔면"
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -295,16 +295,16 @@
     "profileName": "테스트네임",  
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/samyang-bts.png",
+    "contentImg"  : "/images/content/list/dummy.png",
     "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
-        "label" : "존맛"
+        "label" :  "해시태그1"
       },
       {
         "id" : 2,
-        "label" : "매워"
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -326,7 +326,7 @@
     "profileName": "테스트네임",  
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "",
+    "contentImg"  : "/images/content/list/dummy.png",
     "uploadTime" :3,
     "hashTag" : [
       {
@@ -453,16 +453,16 @@
     "profileName": "테스트네임",  
     "label" : "자유글1 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "자유글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "",
+    "contentImg"  : "/images/content/list/dummy.png",
     "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
-        "label" : ""
+        "label" :  "해시태그1"
       },
       {
         "id" : 2,
-        "label" : ""
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -484,16 +484,16 @@
     "profileName": "테스트네임",  
     "label" : "자유글2 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "자유글2 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "",
+    "contentImg"  : "/images/content/list/dummy.png",
     "uploadTime" :20,
     "hashTag" : [
       {
         "id" : 1,
-        "label" : ""
+        "label" :  "해시태그1"
       },
       {
         "id" : 2,
-        "label" : ""
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -515,16 +515,16 @@
     "profileName": "테스트네임", 
     "label" : "유머글1 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "유머글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "",
+    "contentImg"  : "/images/content/list/dummy.png",
     "uploadTime" :3,
     "hashTag" : [
       {
         "id" : 1,
-        "label" : ""
+        "label" :  "해시태그1"
       },
       {
         "id" : 2,
-        "label" : ""
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -551,11 +551,11 @@
     "hashTag" : [
       {
         "id" : 1,
-        "label" : ""
+        "label" :  "해시태그1"
       },
       {
         "id" : 2,
-        "label" : ""
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {

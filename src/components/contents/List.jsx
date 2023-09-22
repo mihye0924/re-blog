@@ -1,9 +1,9 @@
 import list from '@/assets/scss/contents/list.module.scss'
-// import data from '@/api/list'   
+import data from '@/api/list'   
 import { useEffect, useMemo, useState } from 'react';
 
 const List = ({ mainNav, subNav }) => {   
-  const [datas, setDatas] = useState(JSON.parse(window.localStorage.getItem("list")))
+  const [datas, setDatas] = useState(data) 
 
   // 리스트 - 좋아요 기능
   const handleLike = useMemo(() => {

@@ -1,5 +1,5 @@
 import right from '@/assets/scss/layout/right.module.scss'
-import  popularList from '@/api/popularList' 
+import popularList from '@/api/popularList' 
 import newsList from '@/api/newsList' 
 import SwiperList from '@/components/common/SwiperList'    
 import { Link } from 'react-router-dom'
