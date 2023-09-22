@@ -8,8 +8,10 @@ import WritePopup from '@/components/contents/WritePopup'
 import Router from '@/components/Router'
 import RightLayout from '@/components/layout/RightLayout'
 import data from '@/api/list'  
+import { useNavigate } from 'react-router-dom';
 
 function App() { 
+  const navigate = useNavigate();
   // 로그인 모달
   const [loginModal, setLoginModal] = useState(false)
   function onClick() {
@@ -49,9 +51,15 @@ function App() {
   useEffect(() => {
     if (!window.localStorage.getItem("list")) {
       window.localStorage.setItem("list", JSON.stringify(data)) 
-    }
-      
-  },[])
+    } 
+  }, [])
+  
+  useEffect(() => { 
+    if (!isLogin && window.location.pathname === '/Profile') { 
+      alert('접근이 불가능합니다.')
+      navigate(-1) 
+   }
+  })
   return (
     <>
       <Header onClick={onClick} ProfileTo={'/Profile'} login={isLogin} logout={logout} />
