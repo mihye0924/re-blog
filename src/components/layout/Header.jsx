@@ -12,7 +12,6 @@ const Header = ({ onClick, login, logout, ProfileTo }) => {
       }
       const profiles = window.localStorage.getItem("profile")
       const newProfile = profiles ? JSON.parse(profiles) : dummyStorage
-
     return (
         !login ? <header className={header.header_wrap}>
         <div className={header.header}>

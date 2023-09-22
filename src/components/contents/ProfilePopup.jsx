@@ -1,6 +1,6 @@
 import profilePopup from '@/assets/scss/contents/profilePopup.module.scss'
 // import Button from '@/components/common/Button'
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState} from 'react';
 
 const ProfilePopup = ({onClose, onProfileSet}) => {
   const dummyStorage = {
@@ -9,8 +9,19 @@ const ProfilePopup = ({onClose, onProfileSet}) => {
     sectors: '',
     textarea: ''
   }
-  const profiles = window.localStorage.getItem("profile")
-  const newProfile = profiles ? JSON.parse(profiles) : dummyStorage
+  const profiles = localStorage.getItem("profile")
+  const [newProfile, setNewProfile] = useState(profiles ? JSON.parse(profiles) : dummyStorage)
+  useEffect(() => {
+    const handleStorageChange = (e) => {
+        if (e.key === 'profile') {
+          setNewProfile(e.newValue);
+        }
+    };
+    window.addEventListener('storage', handleStorageChange);
+    return () => {
+        window.removeEventListener('storage', handleStorageChange);
+    };
+}, []);
   // input value 닉네임
   const [inputNameValue, setInputNameValue] = useState(newProfile.name);
   // input value 업종
@@ -35,18 +46,21 @@ const ProfilePopup = ({onClose, onProfileSet}) => {
     sectors: inputSectorsValue,
     textarea: textareaValue
   })
-  function handleSaveProfile() {
-    setProfile({
-      img: imgFile,
-      name: inputNameValue, 
-      sectors: inputSectorsValue, 
-      textarea: textareaValue
+  const handleSaveProfile = useMemo(() => {
+    return(() => {
+        setProfile({
+          img: imgFile,
+          name: inputNameValue, 
+          sectors: inputSectorsValue, 
+          textarea: textareaValue
+        })
+        setTimeout(() => {
+          onProfileSet()
+        }, 100)
+        setNewProfile(profile);
+        JSON.parse(localStorage.getItem("profile"))
     })
-    setTimeout(() => {
-      onProfileSet()
-    }, 100)
-    JSON.parse(window.localStorage.getItem("profile"))
-  }
+  })
   useEffect(() => {
     window.localStorage.setItem("profile", JSON.stringify(profile))
   }, [profile])
