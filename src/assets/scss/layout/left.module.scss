@@ -3,8 +3,11 @@
     width: 600px;
     position: sticky;
     height: 87vh; 
-    top: 90px;
-    overflow: hidden;
-    // border: 1px solid #000;
+    top: 90px; 
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 0;
+      background-color: transparent;
+    }  
   } 
 }

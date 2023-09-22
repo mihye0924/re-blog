@@ -24,3 +24,10 @@ button {
     background-color: initial;
     cursor: pointer;
 }
+input,textarea,button {
+    font-family: $noto-light;
+    &:focus {
+        outline: none;
+        border: 0;
+    }
+}

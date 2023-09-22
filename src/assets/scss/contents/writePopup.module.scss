@@ -58,7 +58,113 @@
     }
   }
   &_contents {
-    padding: 32px 20px 7px;
+    padding: 20px;
+    &_top {
+      &_nav {
+        >ul {
+          display: flex;
+          >li {
+            >button{
+            width: 110px;
+            white-space: pre;
+            font-family: $noto-regular;
+             background-color: $bg_lightgray;
+             padding: 5px 30px 5px 20px; 
+             margin-right: 10px;
+             border-radius: 5px;
+             position: relative;
+             font-size: $fs12;
+             &::after {
+               position: absolute;
+               content: '';
+               background: url('/images/content/write/dropdown.png') no-repeat;
+               width: 15px;
+               height: 15px;
+               right: 10px;
+               top: 50%;
+               transform: translateY(-50%);
+               } 
+             }
+           }
+         } 
+        :global {
+          .active {
+            &::after {
+              transform: rotate(-180deg) translateY(7px);
+            }
+          }
+        }
+      }
+      &_sub {
+        position: fixed;
+        background-color: $bg_lightgray;
+        width: 110px;
+        margin-top: 10px;
+        border-radius: 5px;
+        li {
+          button {
+            font-family: $noto-regular;
+            font-size: $fs12;
+            width: 100%;
+            padding: 8px 10px;
+            box-sizing: border-box;
+            border-bottom: 1px solid $white; 
+          }
+        }
+      }
+      &_hashTag{
+        margin-top: 10px;
+        input {
+          width: 540px;
+          font-family: $noto-regular;
+          border-radius: 5px;
+          padding: 5px 10px;
+          border: 1px solid $b_lightgray_ed;
+          font-size: $fs12;
+          &:focus {
+            border: 1px solid $b_lightgray_ed;
+
+          }
+        }
+      }
+      &_hashTagList{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+        span {
+          display: inline-block;
+          background-color: $bg_lightgray;
+          padding: 5px 10px;
+          font-size: $fs12;
+          border-radius: 5px;
+        }
+      }
+    }
+    &_bottom {
+      display:flex;
+      flex-direction: column;
+      margin-top: 20px;
+      input {
+        // outline: none;
+        border: 0;
+        border-bottom: 1px solid $b_lightgray_ed;
+        padding-bottom: 15px;
+        font-size: $fs20;
+        font-family: $noto-medium;
+        &:focus {
+          border-bottom: 1px solid $b_lightgray_ed;
+        }
+        
+      }
+      textarea {
+        border: 0;
+        margin-top: 20px;
+        height: 450px;
+        font-size: $fs14;
+        font-family: $noto-light;
+      }
+    }
   }
   &_footer{
     &_wrap{

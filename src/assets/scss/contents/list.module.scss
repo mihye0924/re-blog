@@ -1,18 +1,6 @@
 .list {
   &_wrap {
     margin-top: 10px;
-    height: 910px;
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-      width: 0;
-      background-color: transparent;
-    } 
-    &_active {
-      height: 725px;
-      &_2 {
-        height: 780px !important;
-      }
-    }
   }
   &_ul {
     display: flex;

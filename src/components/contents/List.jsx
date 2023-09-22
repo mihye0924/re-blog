@@ -90,7 +90,7 @@ const List = ({ mainNav, subNav, login }) => {
   // console.log("분 : ", minutes); 
  
   return (   
-    <section className={`${list.list_wrap} ${login ? list['list_wrap_active']: ''} ${Number(mainNav) !== 1 ? list['list_wrap_active_2']: ''}`}>
+    <section className={`${list.list_wrap}`}>
       <ul className={list.list_ul}>  
         { 
           datas.map((item, id) => {

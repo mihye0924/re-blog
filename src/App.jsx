@@ -68,7 +68,7 @@ function App() {
           loginModal ? <LoginPopup onClose={() => {setLoginModal(false)}} handleLogin={handleLogin} saveUserId={(e) => {setIdValue(e.target.value)}} saveUserPw={(e) => {setPwValue(e.target.value)}}  /> : false
       }
       {
-        writeModal ? <WritePopup /> : ''
+        writeModal ? <WritePopup onclose={() => {setWriteModal(false)}}/> : ''
       }
         <section className={main.main_content}>
         <Router onWrite={onWrite} login={isLogin} />

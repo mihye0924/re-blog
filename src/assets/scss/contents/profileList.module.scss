@@ -1,15 +1,8 @@
 .profileList {
   &_wrap {
-    margin-top: 10px;
-    height: 700px;
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-      width: 0;
-      background-color: transparent;
-    } 
-    &_active {
-      height: 720px;
-    }
+    position: relative;
+    margin-top: 10px; 
+    z-index: 3;
   }
   &_ul {
     display: flex;

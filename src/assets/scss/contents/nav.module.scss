@@ -2,7 +2,11 @@
   &_wrap {
     // width: 100%;
     background-color: $white;
-    border-radius: 15px 15px 0 0;
+    // border-radius: 15px 15px 0 0;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    
   }
   &_main{
     display: flex;
@@ -32,6 +36,7 @@
       display: flex;
       gap: 5px;
       padding: 10px 20px 10px 20px;
+      border-bottom: 1px solid $b_lightgray_ed;
       // padding: 20px 24px;
       li {
         padding: 5px 15px; 

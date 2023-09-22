@@ -5,7 +5,7 @@ import Nav from '@/components/contents/Nav'
 import List from '@/components/contents/List'
 import Write from '@/components/contents/Write'
 import { useState } from 'react'
-const LeftLayout = ({ onWrite, login }) => {
+const LeftLayout = ({ onWrite, onclose, login }) => {
   const [mainNav, setMainNav] =  useState(1)
   const [subNav, setSubNav] = useState(1)  
 
@@ -17,7 +17,11 @@ const LeftLayout = ({ onWrite, login }) => {
         onMainClick={(e)=>{ setMainNav(e.target.value) }}
         onSubClick={(e) => { setSubNav(e.target.value) }}
       />
-      <Write onWrite={onWrite} login={login} />
+      <Write 
+        onWrite={onWrite} 
+        onclose={onclose}
+        login={login} 
+        />
       <List 
         login={login}
         mainNav={mainNav}
