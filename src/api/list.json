@@ -90,7 +90,13 @@
       "laugh" : 0,
       "angry" : 0,
       "total" : 0
-    } 
+    },
+    "comment" : [
+      {
+        "id": 1,
+        "text": ""
+      }
+    ]
   },
   {
     "id" : 4, 
