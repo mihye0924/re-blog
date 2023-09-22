@@ -76,7 +76,7 @@ const ProfileList = ({ onWrite,mainNav }) => {
                       <span>{newProfile.name}</span>
                       <span>{item.smallCategory2}</span>
                     </div>
-                    <span>{item.uploadTime}</span>
+                    <span>{item.uploadTime} 분전</span>
                   </div>
                   <div className={profileList.profileList_label}>
                     <div>
