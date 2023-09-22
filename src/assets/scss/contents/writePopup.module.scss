@@ -132,12 +132,29 @@
         flex-wrap: wrap;
         gap: 10px;
         margin-top: 10px;
-        span {
-          display: inline-block;
+        li {
+          display: flex;
+          align-items: center;
           background-color: $bg_lightgray;
-          padding: 5px 10px;
-          font-size: $fs12;
-          border-radius: 5px;
+          padding: 5px 5px 5px 10px;
+
+          span {
+            letter-spacing: -1px;
+            display: inline-block;
+            margin-right: 8px;
+            font-size: $fs12;
+            border-radius: 5px;
+          }
+          button {
+            font-size: 10px;
+            // background-color: $white;
+            color: $black;
+            border-radius: 5px;
+            width: 15px;
+            height: 15px;
+            display: inline;
+            line-height: 13px;
+          }
         }
       }
     }

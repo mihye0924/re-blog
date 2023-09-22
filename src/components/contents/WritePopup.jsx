@@ -55,23 +55,29 @@ function WritePopup({onclose}) {
     return((e) => {  
       setHash(e.target.value)
     })
-  },[]) 
+  },[])  
+
+  const handleRemove = (index) => {
+    hashList.splice(index, 1)  
+    setHashList([...hashList])
+    console.log(hashList) 
+
+  }
 
   // 해시태그 - 엔터시 값 입력
   const handleHashTagKeyPress =  useMemo(() => {
     return((e) => {      
-      if(e.code === "Enter") { 
-        const data = hashList.push(`<span>#${e.target.value}</span>`)
-        console.log()
+      if(e.code === "Enter") {   
+        hashList.push(e.target.value) 
+        setHashList([...hashList])
+        
         if(e.target.value === "") {
           alert('값을 입력해주세요')
-        }else{
-          setHashList([...hashList],data)
         }
         setHash("")  
       } 
     })
-  },[]) 
+  },[hashList]) 
   
   useEffect(() => {   
   },[])
@@ -143,11 +149,20 @@ function WritePopup({onclose}) {
               onChange={handleHashTag}  
               onKeyPress={handleHashTagKeyPress} 
             />
-            <div className={writePopup.writePopup_contents_top_hashTagList}> 
-              {
-                parse(`${hashList.join('')}`)
-              }   
-            </div>
+            <ul className={writePopup.writePopup_contents_top_hashTagList}> 
+              
+                  {
+                    hashList.map((item,index)=> {
+                      return(
+                        item &&
+                        <li key={index}>
+                          <span>{item}</span>
+                          <button onClick={() => {handleRemove(index)}}>x</button>
+                        </li>
+                      )
+                    })
+                  }     
+             </ul>
           </div> 
         </div>
         <div className={writePopup.writePopup_footer}>
