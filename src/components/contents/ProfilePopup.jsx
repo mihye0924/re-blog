@@ -59,6 +59,7 @@ const ProfilePopup = ({onClose, onProfileSet}) => {
         }, 100)
         setNewProfile(profile);
         JSON.parse(localStorage.getItem("profile"))
+        window.location.reload()
     })
   })
   useEffect(() => {
@@ -93,7 +94,7 @@ const ProfilePopup = ({onClose, onProfileSet}) => {
             <div className={profilePopup.profilePopup_contents_form_wrap}>
               <div className={profilePopup.profilePopup_contents_form_item}>
                 <div className={profilePopup.profilePopup_contents_form_label}>
-                  <label htmlFor='nickname'>소개</label>
+                  <label htmlFor='nickname'>닉네임</label>
                   <span>{inputNameValue.length ? inputNameValue.length : 0}/10</span>
                 </div>
                 <input id='nickname' className={profilePopup.profilePopup_contents_form_input} maxLength={10} type="text" placeholder="ID" value={inputNameValue} onChange={(e) => {setInputNameValue(e.target.value)}} />

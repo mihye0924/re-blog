@@ -101,7 +101,7 @@ const List = ({ mainNav, subNav, login }) => {
                   <div className={list.list_write}>
                     <div>
                       {
-                        item.profileImg ?
+                        newProfile.img !== '' ?
                         <img src={newProfile.img} alt="" /> :
                         <img src='/images/common/profile_default.png' alt='기본프로필'/>
                       }

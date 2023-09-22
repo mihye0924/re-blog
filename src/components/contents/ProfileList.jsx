@@ -16,19 +16,21 @@ const ProfileList = ({ onWrite,mainNav }) => {
   const handleFavorite = (e,item) => {
     item.favorite = !item.favorite
     window.localStorage.setItem("list", JSON.stringify(datas))
+    // const setCategory = datas.filter(item => item.favorite === true)
     setDatas([...datas])
   }
-    
+  
   // 카테고리 별 네비게이션
   const categoryNav = (item) => {
     if (Number(mainNav) === 1) {
       return true
     } else if (Number(mainNav) === 2) {
       return true
-    } else {
-      return item.lagreCategory === Number(mainNav)
+    } else if(Number(mainNav) === 3) {
+      return item.favorite === true
     }
   }
+  console.log(Number(mainNav))
   const handleLink = (item) => {
     if (item.lagreCategory && item.middleCategory) {
       navigate(`detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`)
@@ -69,9 +71,9 @@ const ProfileList = ({ onWrite,mainNav }) => {
                   <div className={profileList.profileList_write}>
                     <div>
                       {
-                        item.profileImg ?
-                        <img src={newProfile.img} alt="" /> :
-                        <img src='/images/common/profile_default.png' alt='기본프로필'/>
+                        newProfile.img !== '' ?
+                        <img src={newProfile.img} alt="" />
+                        : <img src='/images/common/profile_default.png' alt='기본프로필'/>
                       }
                       <span>{newProfile.name}</span>
                       <span>{item.smallCategory2}</span>

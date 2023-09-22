@@ -39,7 +39,8 @@ function App() {
   }
   function logout() {
     setIsLogin(false)
-    window.localStorage.removeItem("login"); 
+    window.localStorage.removeItem("login");
+    window.localStorage.removeItem("profile");
   }
 
   // 글쓰기
