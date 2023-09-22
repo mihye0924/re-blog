@@ -25,55 +25,57 @@ function DetailContent({login}) {
   
   // 공감표현 - 카운트 클릭 이벤트 
   const handleSympathy = useMemo(() => {
-    return ((index) => {
-      if(login) {
-        datas.forEach(item => {  
-          if(item.lagreCategory === largeCategory && 
-            item.id === contentId &&
-            item.middleCategory === middleCategory) {
-              switch(index) {
-                case 1: //좋아요
-                  item.sympathy.good += 1  
-                  break;
-                  case 2: // 슬퍼요
-                  item.sympathy.sad += 1   
-                  break;
-                  case 3: // 웃겨요
-                  item.sympathy.laugh += 1   
-                  break;
-                  case 4: // 화나요
-                  item.sympathy.angry += 1   
-                  break; 
-            }
-            item.sympathy.total = item.sympathy.good + item.sympathy.sad + item.sympathy.laugh + item.sympathy.angry
+    return ((index) => { 
+    const datas = JSON.parse(window.localStorage.getItem('list')) 
+    datas.forEach(item => {  
+        if(item.lagreCategory === largeCategory && 
+          item.id === contentId &&
+          item.middleCategory === middleCategory) {
+            switch(index) {
+              case 1: //좋아요
+                item.sympathy.good += 1  
+                break;
+                case 2: // 슬퍼요
+                item.sympathy.sad += 1   
+                break;
+                case 3: // 웃겨요
+                item.sympathy.laugh += 1   
+                break;
+                case 4: // 화나요
+                item.sympathy.angry += 1   
+                break; 
           }
-          window.localStorage.setItem("list", JSON.stringify(datas))  
-        });
-    
-        setDatas([...datas])
-      }
+          item.sympathy.total = item.sympathy.good + item.sympathy.sad + item.sympathy.laugh + item.sympathy.angry
+        }
+        window.localStorage.setItem("list", JSON.stringify(datas))  
+      });
+  
+      setDatas([...datas]) 
     })
-  },[login, datas, largeCategory, middleCategory, contentId])
-  useEffect(() => {    
-    
-    if(login) { 
-      const obj = window.localStorage.getItem('list')
-      if(obj) {
-        const list = JSON.parse(obj)
-        list.forEach((item) => {
+  }, [largeCategory, middleCategory, contentId])
+  
+
+  // 조회수 카운트
+  const handleGetItem = () => {
+    const newDatas = window.localStorage.getItem('list')
+      if(newDatas) {
+        const datas = JSON.parse(newDatas)
+        datas.forEach((item) => {
           if (item.lagreCategory === largeCategory &&
             item.id === contentId &&
             item.middleCategory === middleCategory) {
               item.views += 1
-              window.localStorage.setItem("list", JSON.stringify(list))
+              window.localStorage.setItem("list", JSON.stringify(datas))
             }
         })
-        setDatas([...list])
-      }
-      // window.localStorage.setItem("list", JSON.stringify(datas))
-    }
+        setDatas([...datas])
+      } 
+  }
 
-  }, [login, contentId, largeCategory, middleCategory])  
+  useEffect(() => {      
+    handleGetItem()
+  }, [])  
+  
   return ( 
     <article className={datailcontent.datailcontent_wrap}>
       <div>  

@@ -1,7 +1,7 @@
 import list from '@/assets/scss/contents/list.module.scss'
 import data from '@/api/list'  
 import { useNavigate } from 'react-router-dom';
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 const List = ({ mainNav, subNav, login }) => {   
   const [datas, setDatas] = useState(data)
@@ -10,29 +10,21 @@ const List = ({ mainNav, subNav, login }) => {
   // 리스트 - 좋아요 기능
   const handleLike = useMemo(() => {
     return ((e,item) => {
-      if(login) {
-        item.good = !item.good 
-        window.localStorage.setItem("list", JSON.stringify(datas))
-        setDatas([...datas]) 
-      }else {
-        alert('로그인이 필요합니다.')
-      }
+      item.good = !item.good 
+      window.localStorage.setItem("list", JSON.stringify(datas))
+      setDatas([...datas]) 
     })
-  },[login, datas])
+  },[datas])
 
   // 리스트 - 북마크
   const handleFavorite = useMemo(() => {
-    return ((e,item) => {
-      if(login) {
+    return ((e,item) => { 
         item.favorite = !item.favorite
         window.localStorage.setItem("list", JSON.stringify(datas))
-        setDatas([...datas])
-      }else {
-        alert('로그인이 필요합니다.')
-      }
+        setDatas([...datas]) 
       }
     )
-  },[login, datas])
+  },[datas])
      
   // 리스트 - 카테고리 별 네비게이션
   const categoryNav = useMemo(() => {

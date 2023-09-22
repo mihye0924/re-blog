@@ -1,11 +1,9 @@
-import datailheader from '@/assets/scss/contents/detailHeader.module.scss'
-import data from '@/api/list' 
+import datailheader from '@/assets/scss/contents/detailHeader.module.scss' 
 import { useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 function DetailHeader({login}) { 
   const navigate = useNavigate();
-  const [active, setActive] = useState(false)
-  const [datas, setDatas] = useState(data)
+  const [active, setActive] = useState(false) 
   const [favorite, setFavorite] = useState('icon_favorite') 
   const location = useLocation();
   const largeCategory = Number(location.pathname.split("/")[2])
@@ -26,9 +24,9 @@ function DetailHeader({login}) {
   
   // 북마크 - 이벤트 기능
   const handleFavorite = useMemo(() => {    
-    return (() => { 
-      if(login) {
-        datas.forEach((item) => {
+    return (() => {
+      const datas = JSON.parse(window.localStorage.getItem("list")) 
+      datas.forEach((item) => {
           if (item.lagreCategory === largeCategory &&
             item.id === contentId &&
             item.middleCategory === middleCategory) {
@@ -40,40 +38,30 @@ function DetailHeader({login}) {
                setFavorite('icon_favorite_yellow_2') 
              }
           }
-          window.localStorage.setItem("list",JSON.stringify(datas))
-          setDatas([...datas]) 
-        }) 
-      }else {
-        alert('로그인 필요합니다.')
-      }
+          window.localStorage.setItem("list",JSON.stringify(datas)) 
+        })  
      })
-  },[login, datas, largeCategory, middleCategory, contentId])
+  },[largeCategory, middleCategory, contentId])
   
   // 북마크 - 로컬 데이터로 메인과 상세 연결
-  const handleLocalSetItem = () => { 
-    const arr = window.localStorage.getItem("list")   
-    if(arr){
-      const list = JSON.parse(arr) 
-      list.forEach((item) => {
-        if (item.lagreCategory === largeCategory &&
-          item.id === contentId &&
-          item.middleCategory === middleCategory) {  
-          if (item.favorite) {
-            setFavorite('icon_favorite_yellow_2') 
-          } else {
-            setFavorite('icon_favorite')
-            }
+  const handleLocalSetItem = () => {  
+    const datas = JSON.parse(window.localStorage.getItem("list") ) 
+    datas.forEach((item) => {
+      if (item.lagreCategory === largeCategory &&
+        item.id === contentId &&
+        item.middleCategory === middleCategory) {  
+        if (item.favorite) {
+          setFavorite('icon_favorite_yellow_2') 
+        } else {
+          setFavorite('icon_favorite')
           }
-      }) 
-      setDatas([...list])
-    }   
-  }
+        }
+    })  
+  } 
   useEffect(() => { 
     handleLocalSetItem()
   },[]) 
-
  
-  
   return (
     <section className={datailheader.datailheader_wrap}>
       <div className={datailheader.datailheader_left}>

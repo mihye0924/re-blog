@@ -25,7 +25,6 @@ function App() {
       if(item.id === idValue && item.pw === pwValue) {
         setLoginModal(false)
         setIsLogin(true)
-        window.localStorage.setItem("list", JSON.stringify(data))  
         window.localStorage.setItem("login", true);
       } else if(item.id !== idValue && item.pw !== pwValue) {
         alert('회원정보가 없습니다.')
@@ -43,13 +42,14 @@ function App() {
 
   // 글쓰기
   const [writeModal, setWriteModal] = useState(false)
-  function onWrite() {
-    console.log('동작')
+  function onWrite() { 
       setWriteModal(true)
   }
 
   useEffect(() => {
-      // window.localStorage.setItem("list", JSON.stringify(data)) 
+    if (!window.localStorage.getItem("list")) {
+      window.localStorage.setItem("list", JSON.stringify(data)) 
+    }
       
   },[])
   return (
