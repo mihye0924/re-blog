@@ -54,17 +54,24 @@
       &:first-child { 
         margin-right: 20px;
       }
-      p {
+      button {
+        padding-block: 1px;
+        padding-inline: 6px;
         &:first-child {
+        span {
           font-family: $noto-medium;
           font-size: $fs18;
           margin-bottom: 10px;
+         }
         }
         &:last-child {
-          font-size: $fs16;
-          line-height: 1.2;
-          color: $f_lightgray_9;
+          span {
+            font-size: $fs16;
+            line-height: 1.2;
+            color: $f_lightgray_9;
+          }
         }
+       span{
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -72,6 +79,7 @@
         -webkit-box-orient: vertical;
         word-wrap:break-word; 
         line-height: 1.2em;
+       }
       }
     }
   }
