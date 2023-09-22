@@ -127,6 +127,10 @@
             }
           }
         } 
+        
+       &:focus{
+        border: 1px solid $b_lightgray_ed;
+       }
       }
     }
     &_right {
@@ -160,6 +164,10 @@
             }
           } 
         }
+        
+       &:focus{
+        border: 1px solid $b_lightgray_ed;
+       }
       } 
     }
     &_img { 

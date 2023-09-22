@@ -1,17 +1,26 @@
 import header from '@/assets/scss/layout/header.module.scss';
 import Button from '@/components/common/Button.jsx' 
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = ({ onClick, login, logout, ProfileTo }) => { 
-
+const Header = ({ onClick, login, logout, ProfileTo }) => {
+    const [search, setSearch] = useState("")  
     const dummyStorage = {
         img: '',
         name: '',
         sectors: '',
         textarea: ''
-      }
-      const profiles = window.localStorage.getItem("profile")
-      const newProfile = profiles ? JSON.parse(profiles) : dummyStorage
+    }
+    const profiles = window.localStorage.getItem("profile")
+    const newProfile = profiles ? JSON.parse(profiles) : dummyStorage
+    
+    const handleSearch = useMemo(() => {
+        return((e) => {
+            setSearch(e.target.value) 
+            console.log(search) 
+        })
+    },[])
+
     return (
         !login ? <header className={header.header_wrap}>
         <div className={header.header}>
@@ -22,7 +31,7 @@ const Header = ({ onClick, login, logout, ProfileTo }) => {
                     </a>
                 </h1>
                 <div className={header.header_search}>
-                    <input type="text" placeholder="찾고싶은 주제 혹은 닉네임을 입력하세요"/>
+                    <input type="text" placeholder="찾고싶은 주제 혹은 닉네임을 입력하세요" onChange={handleSearch} value={search || ''}/>
                 </div>
             </div>
             <div className={header.header_button}>
@@ -42,7 +51,7 @@ const Header = ({ onClick, login, logout, ProfileTo }) => {
                         </a>
                     </h1>
                     <div className={header.header_search}>
-                        <input type="text" placeholder="찾고싶은 주제 혹은 닉네임을 입력하세요"/>
+                        <input type="text" placeholder="찾고싶은 주제 혹은 닉네임을 입력하세요" onChange={handleSearch} value={search || ''}/>
                     </div>
                 </div>
                 <div className={header.header_button}>

@@ -1,11 +1,11 @@
 import datailcontent from '@/assets/scss/contents/detailContent.module.scss'
-import data from '@/api/list'  
+// import data from '@/api/list'  
 import { useLocation } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react' 
 
 
 function DetailContent({login}) { 
-  const [datas, setDatas] = useState(data)
+  const [datas, setDatas] = useState(JSON.parse(window.localStorage.getItem("list")))
   const [emotionActive, setEmotionActive] = useState(false)
   const location = useLocation();
   const largeCategory = Number(location.pathname.split("/")[2])

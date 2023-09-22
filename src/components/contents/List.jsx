@@ -1,11 +1,9 @@
 import list from '@/assets/scss/contents/list.module.scss'
-import data from '@/api/list'  
-import { useNavigate } from 'react-router-dom';
+// import data from '@/api/list'   
 import { useEffect, useMemo, useState } from 'react';
 
 const List = ({ mainNav, subNav }) => {   
-  const [datas, setDatas] = useState(data)
-  const navigate = useNavigate();
+  const [datas, setDatas] = useState(JSON.parse(window.localStorage.getItem("list")))
 
   // 리스트 - 좋아요 기능
   const handleLike = useMemo(() => {

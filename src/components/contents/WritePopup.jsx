@@ -14,6 +14,8 @@ function WritePopup({onclose}) {
   const [hash, setHash] = useState("")
   const [hashList, setHashList] = useState([])
   
+
+  // 대분류 토클
   const handleCategory1 = () => {
     if(category1) {
       setCategory1(false)
@@ -21,6 +23,8 @@ function WritePopup({onclose}) {
       setCategory1(true)
     }
   }
+
+  // 중분류 토글
   const handleCategory2 = () => {
     if(category2) {
       setCategory2(false)
@@ -29,13 +33,15 @@ function WritePopup({onclose}) {
     }
   }
 
+  //대분류 옵션 
   const handleCategory1Data = useMemo(() => {
-    return((e) => {
-      console.log(e.target.innerText)
+    return((e) => { 
       setCategory1(false)
       setCategory1Option(e.target.innerText)
     })
   },[])
+
+  //중분류 옵션
   const handleCategory2Data = useMemo(() => {
     return((e) => {
       console.log(e.target.innerText)
@@ -43,12 +49,15 @@ function WritePopup({onclose}) {
       setCategory2Option(e.target.innerText)
     })
   },[])
+
+  // 해시태그 - 값 찾기
   const handleHashTag = useMemo(() => {
     return((e) => {  
       setHash(e.target.value)
     })
   },[]) 
-  
+
+  // 해시태그 - 엔터시 값 입력
   const handleHashTagKeyPress =  useMemo(() => {
     return((e) => {      
       if(e.code === "Enter") { 
@@ -59,8 +68,7 @@ function WritePopup({onclose}) {
         }else{
           setHashList([...hashList],data)
         }
-        setHash("") 
-        console.log()
+        setHash("")  
       } 
     })
   },[]) 
