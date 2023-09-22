@@ -3,7 +3,16 @@ import Button from '@/components/common/Button.jsx'
 import { Link } from 'react-router-dom';
 
 const Header = ({ onClick, login, logout, ProfileTo }) => { 
-    
+
+    const dummyStorage = {
+        img: '',
+        name: '',
+        sectors: '',
+        textarea: ''
+      }
+      const profiles = window.localStorage.getItem("profile")
+      const newProfile = profiles ? JSON.parse(profiles) : dummyStorage
+
     return (
         !login ? <header className={header.header_wrap}>
         <div className={header.header}>
@@ -42,8 +51,8 @@ const Header = ({ onClick, login, logout, ProfileTo }) => {
                         <img src="/images/layout/alarm_black.png" alt="알림"/>
                     </button>
                     <Link className={header.header_profile} to={ProfileTo} >
-                        {/* <img src={data ? data.img : '/images/common/thumbnail.svg'} alt="프로필"/>         */}
-                        <img src='/images/common/thumbnail.svg' alt="프로필"/>        
+                        <img src={newProfile ? newProfile.img : '/images/common/thumbnail.svg'} alt="프로필"/>        
+                        {/* <img src='/images/common/thumbnail.svg' alt="프로필"/>         */}
                     </Link>
                     {/* <Button name="글쓰기" color="blackborder" /> */}
                     <Link to={'/'} onClick={logout} className={header.header_logout}>

@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import main from '@/assets/scss/layout/main.module.scss'
 import Header from '@/components/layout/Header.jsx'
 import login from '@/api/login' 
@@ -48,10 +48,6 @@ function App() {
       setWriteModal(true)
   }
 
-  useEffect(() => {
-      // window.localStorage.setItem("list", JSON.stringify(data)) 
-      
-  },[])
   return (
     <>
       <Header onClick={onClick} ProfileTo={'/Profile'} login={isLogin} logout={logout} />

@@ -108,8 +108,8 @@ const ProfilePopup = ({onClose, onProfileSet}) => {
                   alt="프로필 이미지"
                   className={profilePopup.profilePopup_footer_copybutton}
                 />
-              }
-              <button onClick={handleSaveProfile} className={profilePopup.profilePopup_footer_textbutton}>작성하기</button>
+              }  
+              <button onClick={handleSaveProfile} id='button' className={profilePopup.profilePopup_footer_textbutton}>작성하기</button>
             </div>
           </div>
       </div>
