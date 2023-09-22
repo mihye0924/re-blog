@@ -73,7 +73,7 @@ const ProfileList = ({ onWrite,mainNav }) => {
                       {
                         newProfile.img !== '' ?
                         <img src={newProfile.img} alt="" />
-                        : <img src='/images/common/profile_default.png' alt='기본프로필'/>
+                        : <img src='/images/common/thumbnail.svg' alt='기본프로필'/>
                       }
                       <span>{newProfile.name}</span>
                       <span>{item.smallCategory2}</span>

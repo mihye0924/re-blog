@@ -103,10 +103,13 @@ const List = ({ mainNav, subNav, login }) => {
                       {
                         newProfile.img !== '' ?
                         <img src={newProfile.img} alt="" /> :
-                        <img src='/images/common/profile_default.png' alt='기본프로필'/>
+                        <img src={item.profileImg} alt=''/>
                       }
-                      <span>{newProfile.name}</span>
-                      <span>{item.smallCategory2}</span>
+                      <span>{
+                        newProfile.name !== '' ?
+                        newProfile.name :
+                        item.profileName //더미 이름입니다.
+                      }</span> 
                     </div>
                     <span>{item.uploadTime} 분전</span>
                   </div>

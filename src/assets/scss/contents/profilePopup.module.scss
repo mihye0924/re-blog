@@ -118,21 +118,23 @@
       &_input {
         box-sizing: border-box;
         height: 40px;
-        padding: 13px 17px;
-        border: none;
-        outline: none;
+        padding: 13px 17px; 
         border: 1px solid $border_color;
         border-radius: 8px;
+        &:focus {
+          border: 1px solid $border_color;
+        }
       }
       &_textarea {
         resize: none;
         box-sizing: border-box;
         padding: 13px 17px;
-        height: 128px;
-        border: none;
-        outline: none;
+        height: 128px; 
         border: 1px solid $border_color;
         border-radius: 8px;
+        &:focus {
+          border: 1px solid $border_color;
+        }
       }
     }
   }
