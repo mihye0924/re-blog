@@ -58,7 +58,7 @@ function App() {
   useEffect(() => { 
     if (!isLogin && window.location.pathname === '/Profile') { 
       alert('접근이 불가능합니다.')
-      navigate(-1) 
+      navigate("/") 
    }
   })
   return (
