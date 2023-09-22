@@ -76,6 +76,18 @@ const List = ({ mainNav, subNav, login }) => {
     handleSort()
     handleLocalGetItem()
   }, [])
+
+  const dummyStorage = {
+    img: '',
+    name: '',
+    sectors: '',
+    textarea: ''
+  }
+  const profiles = window.localStorage.getItem("profile")
+  const newProfile = profiles ? JSON.parse(profiles) : dummyStorage
+  // const now = new Date();	// 현재 날짜 및 시간 
+  // const minutes = now.getMinutes();	// 분
+  // console.log("분 : ", minutes); 
  
   return (   
     <section className={`${list.list_wrap} ${login ? list['list_wrap_active']: ''} ${Number(mainNav) !== 1 ? list['list_wrap_active_2']: ''}`}>
@@ -90,10 +102,10 @@ const List = ({ mainNav, subNav, login }) => {
                     <div>
                       {
                         item.profileImg ?
-                        <img src={item.profileImg} alt="" /> :
+                        <img src={newProfile.img} alt="" /> :
                         <img src='/images/common/profile_default.png' alt='기본프로필'/>
                       }
-                      <span>{item.profileName}</span>
+                      <span>{newProfile.name}</span>
                       <span>{item.smallCategory2}</span>
                     </div>
                     <span>{item.uploadTime} 분전</span>
