@@ -1,22 +1,16 @@
 import left from '@/assets/scss/layout/left.module.scss'
 import ProfileNav from '@/components/contents/ProfileNav'
 import ProfileMain from '@/components/contents/ProfileMain'
-import ProfileList from '@/components/contents/ProfileList'
-import { useState } from 'react'
-const ProfileLeftLayout = ({handleProfilePopup, profileInfo}) => {
-  const [mainNav, setMainNav] =  useState(1)
+import ProfileList from '@/components/contents/ProfileList' 
 
-  return ( 
+const ProfileLeftLayout = () => {
+
+  return (   
     <article className={left.left_wrap}> 
-      <ProfileMain profileInfo={profileInfo} handleProfilePopup={handleProfilePopup} />
-      <ProfileNav
-        mainNav={mainNav}
-        onMainClick={(e)=>{ setMainNav(e.target.value) }} 
-      />
-      <ProfileList
-        mainNav={mainNav}
-      />
-    </article>  
+      <ProfileMain />
+      <ProfileNav />
+      <ProfileList />
+    </article>   
   )
 }
 export default ProfileLeftLayout

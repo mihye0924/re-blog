@@ -89,6 +89,9 @@
                 width: 25px; 
             }
         }
+        &:focus {
+            border: 1px solid $yellow;
+        }
     }
     &_profile {
         width: 45px; 

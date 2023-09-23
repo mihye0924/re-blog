@@ -1,10 +1,13 @@
 import write from '@/assets/scss/contents/write.module.scss'
-const Write = ({ onWrite, login }) => {
+import { useContext } from 'react';
+import { Context } from '@/context/Context';
+const Write = () => {
+  const {isLogin, setWriteModal} = useContext(Context);   
   return (  
-    login &&
+    isLogin &&
     <section className={write.write_wrap}>
       <div>
-          <button onClick={()=>{onWrite()}}>
+          <button onClick={()=>{setWriteModal(true)}}>
           <i className='icon'>+</i>  
           <span>새글 작성하기</span>
         </button>

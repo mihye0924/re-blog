@@ -1,7 +1,10 @@
 import datailheader from '@/assets/scss/contents/detailHeader.module.scss' 
-import { useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
-function DetailHeader({login}) { 
+import { Context } from '@/context/Context';
+
+function DetailHeader() { 
+  const isLogin = useContext(Context); 
   const navigate = useNavigate();
   const [active, setActive] = useState(false) 
   const [favorite, setFavorite] = useState('icon_favorite') 
@@ -30,7 +33,7 @@ function DetailHeader({login}) {
           if (item.lagreCategory === largeCategory &&
             item.id === contentId &&
             item.middleCategory === middleCategory) {
-            if(login) {
+            if(isLogin) {
               if (item.favorite) {
                 item.favorite = false 
                 setFavorite('icon_favorite')
@@ -45,7 +48,7 @@ function DetailHeader({login}) {
           window.localStorage.setItem("list",JSON.stringify(datas)) 
         })  
      })
-  },[login, largeCategory, middleCategory, contentId])
+  },[isLogin, largeCategory, middleCategory, contentId])
   
   // 북마크 - 로컬 데이터로 메인과 상세 연결
   const handleLocalGetItem = () => {  
@@ -54,7 +57,7 @@ function DetailHeader({login}) {
     if (item.lagreCategory === largeCategory &&
       item.id === contentId &&
       item.middleCategory === middleCategory) {  
-        if(login) {
+        if(isLogin) {
             if (item.favorite) {
               setFavorite('icon_favorite_yellow_2') 
             } else {
@@ -68,7 +71,7 @@ function DetailHeader({login}) {
   } 
   useEffect(() => { 
     handleLocalGetItem()
-  },[login]) 
+  },[isLogin]) 
  
   return (
     <section className={datailheader.datailheader_wrap}>

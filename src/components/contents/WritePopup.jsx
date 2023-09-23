@@ -2,11 +2,11 @@ import writePopup from '@/assets/scss/contents/writePopup.module.scss'
 // import data from '@/api/list' 
 import categoryList from '@/api/categoryList'
 import navList from '@/api/navList'
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { render } from 'react-dom'
+import { useContext, useEffect, useMemo, useRef, useState } from 'react'
+import { Context } from '@/context/Context'; 
 
-function WritePopup({onclose}) {
-  // const [datas, setDatas] = useState(data) 
+function WritePopup() { 
+  const { setWriteModal } = useContext(Context);
   const [category1, setCategory1] = useState(false)
   const [category2, setCategory2] = useState(false)
   const [category1Option, setCategory1Option] = useState('대분류') //카테고리1 값
@@ -19,8 +19,7 @@ function WritePopup({onclose}) {
 
   const [imgFile, setImgFile] = useState([])
   const imgRef = useRef();
-
-  // console.log(category1Option, category2Option)
+ 
 
   // 대분류 토클
   const handleCategory1 = () => {
@@ -119,7 +118,7 @@ function WritePopup({onclose}) {
         <section className={writePopup.writePopup_header}> 
           <div className={writePopup.writePopup_header_wrap}> 
             <span>글쓰기</span>
-            <button onClick={onclose}><span>닫기</span><i className='icon close'/></button>
+            <button onClick={()=>{setWriteModal(false)}}><span>닫기</span><i className='icon close'/></button>
           </div>
         </section>
         <section className={writePopup.writePopup_contents}>

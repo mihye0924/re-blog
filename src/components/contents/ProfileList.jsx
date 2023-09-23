@@ -1,7 +1,12 @@
 import profileList from '@/assets/scss/contents/profileList.module.scss'
 import data from '@/api/list'  
 import { useEffect, useMemo, useState } from 'react' 
-const ProfileList = ({ onWrite,mainNav }) => {   
+import { ProfileContext } from '@/context/ProfileContext';
+import { useContext } from 'react';
+
+
+const ProfileList = () => {   
+  const {mainNav} = useContext(ProfileContext);   
   const [datas, setDatas] = useState(data) 
 
   // 리스트 - 좋아요 기능
@@ -34,7 +39,7 @@ const ProfileList = ({ onWrite,mainNav }) => {
         return item.favorite === true
       }
     })
-  },[])
+  },[mainNav])
 
   // 리스트 -  url 주소 확인 후 detail페이지로 값 보내기
   const handleLink = useMemo(() => {
@@ -83,7 +88,7 @@ const ProfileList = ({ onWrite,mainNav }) => {
   const newProfile = profiles ? JSON.parse(profiles) : dummyStorage 
 
   return (   
-    <section className={`${profileList.profileList_wrap} ${onWrite ? profileList['profileList_wrap_active']: false}`}>
+    <section className={`${profileList.profileList_wrap}`}>
       <ul className={profileList.profileList_ul}>  
         { 
           datas.map((item, id) => {
