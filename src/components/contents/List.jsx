@@ -2,7 +2,7 @@ import list from '@/assets/scss/contents/list.module.scss'
 import data from '@/api/list'   
 import { useEffect, useMemo, useState } from 'react';
 
-const List = ({ mainNav, subNav }) => {   
+const List = ({ mainNav, subNav, login }) => {   
   const [datas, setDatas] = useState(data) 
 
   // 리스트 - 좋아요 기능
@@ -17,12 +17,16 @@ const List = ({ mainNav, subNav }) => {
   // 리스트 - 북마크
   const handleFavorite = useMemo(() => {
     return ((e,item) => { 
+      if(login) {
         item.favorite = !item.favorite
         window.localStorage.setItem("list", JSON.stringify(datas))
         setDatas([...datas]) 
+      }else {
+        alert('로그인이 필요합니다.')
+      }
       }
     )
-  },[datas])
+  },[login, datas])
      
   // 리스트 - 카테고리 별 네비게이션
   const categoryNav = useMemo(() => {
@@ -63,17 +67,21 @@ const List = ({ mainNav, subNav }) => {
 
   // 리스트 - 로컬 데이터 가져오기
   const handleLocalGetItem = () => { 
-    const obj = window.localStorage.getItem("list")
-    if (obj) {
-      const newData = JSON.parse(obj)   
-      setDatas([...newData])
-    }     
+    const getDatas =  JSON.parse(window.localStorage.getItem("list")) 
+    if (getDatas) { 
+      setDatas([...getDatas])
+      getDatas.forEach((item) => {
+        if(!login && item.favorite) {
+          item.favorite = !item.favorite
+        }
+      })
+    }        
   }
    
   useEffect(() => {   
     handleSort()
     handleLocalGetItem()
-  }, [])
+  }, [login])
 
   const dummyStorage = {
     img: '',

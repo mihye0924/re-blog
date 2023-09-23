@@ -30,37 +30,45 @@ function DetailHeader({login}) {
           if (item.lagreCategory === largeCategory &&
             item.id === contentId &&
             item.middleCategory === middleCategory) {
-            if (item.favorite) {
-              item.favorite = false 
-              setFavorite('icon_favorite')
-             } else {
-               item.favorite = true  
-               setFavorite('icon_favorite_yellow_2') 
-             }
+            if(login) {
+              if (item.favorite) {
+                item.favorite = false 
+                setFavorite('icon_favorite')
+              } else {
+                item.favorite = true  
+                setFavorite('icon_favorite_yellow_2') 
+              }
+            }else {
+              alert('로그인이 필요합니다.')
+            }
           }
           window.localStorage.setItem("list",JSON.stringify(datas)) 
         })  
      })
-  },[largeCategory, middleCategory, contentId])
+  },[login, largeCategory, middleCategory, contentId])
   
   // 북마크 - 로컬 데이터로 메인과 상세 연결
-  const handleLocalSetItem = () => {  
+  const handleLocalGetItem = () => {  
     const datas = JSON.parse(window.localStorage.getItem("list") ) 
     datas.forEach((item) => {
-      if (item.lagreCategory === largeCategory &&
-        item.id === contentId &&
-        item.middleCategory === middleCategory) {  
-        if (item.favorite) {
-          setFavorite('icon_favorite_yellow_2') 
-        } else {
-          setFavorite('icon_favorite')
+    if (item.lagreCategory === largeCategory &&
+      item.id === contentId &&
+      item.middleCategory === middleCategory) {  
+        if(login) {
+            if (item.favorite) {
+              setFavorite('icon_favorite_yellow_2') 
+            } else {
+              setFavorite('icon_favorite')
+            }
+          }else {
+            setFavorite('icon_favorite')
           }
-        }
+       }
     })  
   } 
   useEffect(() => { 
-    handleLocalSetItem()
-  },[]) 
+    handleLocalGetItem()
+  },[login]) 
  
   return (
     <section className={datailheader.datailheader_wrap}>

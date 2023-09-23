@@ -111,52 +111,7 @@
             border-bottom: 1px solid $white; 
           }
         }
-      }
-      &_hashTag{
-        margin-top: 10px;
-        input {
-          width: 540px;
-          font-family: $noto-regular;
-          border-radius: 5px;
-          padding: 5px 10px;
-          border: 1px solid $b_lightgray_ed;
-          font-size: $fs12;
-          &:focus {
-            border: 1px solid $b_lightgray_ed;
-
-          }
-        }
-      }
-      &_hashTagList{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 10px;
-        li {
-          display: flex;
-          align-items: center;
-          background-color: $bg_lightgray;
-          padding: 5px 5px 5px 10px;
-
-          span {
-            letter-spacing: -1px;
-            display: inline-block;
-            margin-right: 8px;
-            font-size: $fs12;
-            border-radius: 5px;
-          }
-          button {
-            font-size: 10px;
-            // background-color: $white;
-            color: $black;
-            border-radius: 5px;
-            width: 15px;
-            height: 15px;
-            display: inline;
-            line-height: 13px;
-          }
-        }
-      }
+      } 
     }
     &_bottom {
       display:flex;
@@ -183,6 +138,82 @@
       }
     }
   }
+  &_hashTag{
+    padding: 0 20px;
+    margin: 10px 0;
+    input {
+      width: 540px;
+      font-family: $noto-regular;
+      border-radius: 5px;
+      padding: 5px 10px;
+      border: 1px solid $b_lightgray_ed;
+      font-size: $fs12;
+      &:focus {
+        border: 1px solid $b_lightgray_ed;
+
+      }
+    }
+    &_list{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+      li {
+        display: flex;
+        align-items: center;
+        background-color: $bg_lightgray;
+        padding: 5px 5px 5px 10px;
+  
+        span {
+          letter-spacing: -1px;
+          display: inline-block;
+          margin-right: 8px;
+          font-size: $fs12;
+          border-radius: 5px;
+        }
+        button {
+          font-size: 10px;
+          // background-color: $white;
+          color: $black;
+          border-radius: 5px;
+          width: 15px;
+          height: 15px;
+          display: inline;
+          line-height: 13px;
+        }
+      }
+    }
+  }
+  &_img {
+    ul { 
+      padding: 0 20px;
+      display: flex; 
+      flex-wrap: wrap;
+      gap: 15px;
+      li {
+        border: 1px solid $border_color;
+        border-radius: 5px;
+        position: relative;
+        width: 97px;
+        height: 100px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    } 
+    &_button {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      line-height: 14px;
+      border-radius: 5px;
+      background-color: rgb(169 169 169 / 45%);
+      color: #000;
+    }
+  }
   &_footer{
     &_wrap{
       display: flex;
@@ -190,11 +221,24 @@
       padding: 16px 19px;
     }
     &_copybutton {
+      cursor: pointer;
+      position: relative;
       display: inline-block;
       width: 24px;
       height: 24px;
       object-fit: cover;
       object-position: center;
+      text-indent: -9999px;
+      &::after{
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        background:url("/images/common/copy.svg") no-repeat;
+        width: 24px;
+        height: 24px;
+
+      }
     }
     &_textbutton {
       color: $f_lightgray_9;

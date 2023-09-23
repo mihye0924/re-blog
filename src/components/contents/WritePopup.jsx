@@ -2,18 +2,25 @@ import writePopup from '@/assets/scss/contents/writePopup.module.scss'
 // import data from '@/api/list' 
 import categoryList from '@/api/categoryList'
 import navList from '@/api/navList'
-import { useEffect, useMemo, useState } from 'react'
-import parse from 'html-react-parser';
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { render } from 'react-dom'
 
 function WritePopup({onclose}) {
   // const [datas, setDatas] = useState(data) 
   const [category1, setCategory1] = useState(false)
   const [category2, setCategory2] = useState(false)
-  const [category1Option, setCategory1Option] = useState('대분류')
-  const [category2Option, setCategory2Option] = useState('중분류')
-  const [hash, setHash] = useState("")
-  const [hashList, setHashList] = useState([])
-  
+  const [category1Option, setCategory1Option] = useState('대분류') //카테고리1 값
+  const [category2Option, setCategory2Option] = useState('중분류') //카테고리2 값
+  const [hash, setHash] = useState("") 
+  const [hashList, setHashList] = useState([]) //해시태그
+
+  const [title, setTitle] = useState("") //제목
+  const [content, setContent] = useState("") //글
+
+  const [imgFile, setImgFile] = useState([])
+  const imgRef = useRef();
+
+  // console.log(category1Option, category2Option)
 
   // 대분류 토클
   const handleCategory1 = () => {
@@ -44,24 +51,15 @@ function WritePopup({onclose}) {
   //중분류 옵션
   const handleCategory2Data = useMemo(() => {
     return((e) => {
-      console.log(e.target.innerText)
       setCategory2(false)
       setCategory2Option(e.target.innerText)
     })
   },[])
-
-  // 해시태그 - 값 찾기
-  const handleHashTag = useMemo(() => {
-    return((e) => {  
-      setHash(e.target.value)
-    })
-  },[])  
-
-  const handleRemove = (index) => {
+ 
+  // 해시태그 - 제거
+  const handleHashTagRemove = (index) => {
     hashList.splice(index, 1)  
-    setHashList([...hashList])
-    console.log(hashList) 
-
+    setHashList([...hashList]) 
   }
 
   // 해시태그 - 엔터시 값 입력
@@ -79,20 +77,52 @@ function WritePopup({onclose}) {
     })
   },[hashList]) 
   
-  useEffect(() => {   
+  // const hanldeWrite = useMemo(() => {
+
+  // },[])
+
+  // 이미지 업로드 - input의 onChange
+  const saveImgFile = useMemo(() => { 
+    return(() => { 
+      const file = imgRef.current.files[0];
+      const reader = new FileReader();   
+      if( file.size > 3024 ) {
+        alert('파일 사이즈가 너무 큽니다.')
+        return false
+      }
+      if(file) {
+        reader.onloadend = () => {
+          setImgFile([...imgFile, reader.result]) 
+        }  
+        reader.readAsDataURL(file);
+      }   
+      imgRef.current.value = ""; // 같은 파일 upload를 위한 처리
+     
+    })
+    },[imgFile])
+
+  // 이미지 업로드 - 이미지 제거
+  const handleImgRemove = useMemo(() => {  
+    return((index) => {   
+        imgFile.splice(index, 1)
+        setImgFile([...imgFile])   
+    })
+  },[imgFile])
+  
+  useEffect(() => { 
   },[])
 
 
   return (
     <div className={writePopup.writePopup}>
       <div className={writePopup.writePopup_wrap}>
-        <div className={writePopup.writePopup_header}> 
+        <section className={writePopup.writePopup_header}> 
           <div className={writePopup.writePopup_header_wrap}> 
             <span>글쓰기</span>
             <button onClick={onclose}><span>닫기</span><i className='icon close'/></button>
           </div>
-        </div>
-        <div className={writePopup.writePopup_contents}>
+        </section>
+        <section className={writePopup.writePopup_contents}>
           <div className={writePopup.writePopup_contents_top}>
             <nav className={writePopup.writePopup_contents_top_nav}>
               <ul>
@@ -115,8 +145,8 @@ function WritePopup({onclose}) {
                 </li>
                 <li>
                   {
-                     category1Option === '브랜드관' &&
-                    <> 
+                    category1Option === '브랜드관' &&
+                  <> 
                     <button className={category2? 'active':''}
                     onClick={() => {handleCategory2()}}>{category2Option}</button>
                     <ul className={writePopup.writePopup_contents_top_sub}> 
@@ -131,52 +161,82 @@ function WritePopup({onclose}) {
                           })
                         }
                     </ul>
-                    </>
+                  </>
                   }
                 </li> 
               </ul>
             </nav>
           </div>
           <div className={writePopup.writePopup_contents_bottom}>
-              <input type="text" placeholder='제목을 입력하세요'/>
-              <textarea type="textarea" placeholder='지금 나누고 싶은 이야기는 무엇인가요? '/>
-          </div>
-          <div className={writePopup.writePopup_contents_top_hashTag}>
-            <input 
-              type="text" 
-              placeholder='해시태그' 
-              value={hash}
-              onChange={handleHashTag}  
-              onKeyPress={handleHashTagKeyPress} 
-            />
-            <ul className={writePopup.writePopup_contents_top_hashTagList}> 
-              
-                  {
-                    hashList.map((item,index)=> {
-                      return(
-                        item &&
-                        <li key={index}>
-                          <span>{item}</span>
-                          <button onClick={() => {handleRemove(index)}}>x</button>
-                        </li>
-                      )
-                    })
-                  }     
-             </ul>
-          </div> 
-        </div>
-        <div className={writePopup.writePopup_footer}>
-          <div className={writePopup.writePopup_footer_wrap}>
-            {
-              <img
-                src="/images/common/copy.svg`"
-                alt="프로필 이미지"
-                className={writePopup.writePopup_footer_copybutton}
+              <input 
+                type="text" 
+                placeholder='제목을 입력하세요' 
+                onChange={(e)=> {setTitle(e.target.value)}} 
+                value={title}
               />
+              <textarea 
+                type="textarea" 
+                placeholder='지금 나누고 싶은 이야기는 무엇인가요?' 
+                onChange={(e) => {setContent(e.target.value)}}
+                value={content}
+              />
+          </div>  
+        </section>
+        <section className={writePopup.writePopup_hashTag}>
+          <input 
+            type="text" 
+            placeholder='해시태그' 
+            value={hash}
+            onChange={(e) => {setHash(e.target.value)}}  
+            onKeyPress={handleHashTagKeyPress} 
+          />
+          <ul className={writePopup.writePopup_hashTag_list}> 
+            
+                {
+                  hashList.map((item,index)=> {
+                    return(
+                      item &&
+                      <li key={index}>
+                        <span>{item}</span>
+                        <button onClick={() => {handleHashTagRemove(index)}}>x</button>
+                      </li>
+                    )
+                  })
+                }     
+          </ul>
+        </section> 
+        <section className={writePopup.writePopup_img}>
+          <ul>
+            {
+              imgFile.map((item, index) => {
+                return(
+                  <li key={index}>
+                    <img src={item} alt=""/>
+                    <button onClick={()=>{handleImgRemove(index)}} className={writePopup.writePopup_img_button}>x</button>
+                  </li>
+                )
+              })
             }
-            <button className={writePopup.writePopup_footer_textbutton}>작성하기</button>
+          </ul>
+        </section>
+        <section className={writePopup.writePopup_footer}>
+          <div className={writePopup.writePopup_footer_wrap}>
+            { 
+            <>
+            <input
+              className={writePopup.writePopup_footer_copybutton}
+              type="file"
+              accept="image/*" 
+              onChange={saveImgFile} 
+              ref={imgRef}
+            />
+            </>
+            }
+            <button className={writePopup.writePopup_footer_textbutton}>
+              작성하기
+            </button>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   )
