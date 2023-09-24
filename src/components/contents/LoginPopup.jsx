@@ -1,7 +1,45 @@
 import loginPopup from '@/assets/scss/contents/loginPopup.module.scss'
 import Button from '@/components/common/Button'
+import login from '@/api/login'  
+import { useContext, useMemo } from 'react';
+import { Context } from '@/context/Context';
 
-const LoginPopup = ({onClose, handleLogin, saveUserPw, saveUserId}) => {
+const LoginPopup = () => {
+  const { 
+    idValue, 
+    pwValue, 
+    setLoginModal, 
+    setIsLogin, 
+    setIdValue, 
+    setPwValue
+  } = useContext(Context);
+
+    // 로그인 팝업 닫기
+    const onClose = useMemo(() => {
+      return(() => {
+        setLoginModal(false)
+      })
+    },[setLoginModal])
+
+    // 로그인 여부 체크
+    const handleLogin = useMemo(() => {
+      return(() => {
+        login.map((item) => {
+          if(item.id === idValue && item.pw === pwValue) {
+            setLoginModal(false)
+            setIsLogin(true)
+            window.localStorage.setItem("login", true);
+          } else if(item.id !== idValue && item.pw !== pwValue) {
+            alert('회원정보가 없습니다.')
+          } else if(item.id !== idValue ) {
+            alert('아이디가 잘못됐습니다.')
+          } else if(item.pw !== pwValue) {
+            alert('비밀번호가 잘못됐습니다.')
+          }
+        })
+      })
+    },[idValue, pwValue, setIsLogin, setLoginModal])
+
     return (
       <div className={loginPopup.loginPopup}>
         <div className={loginPopup.loginPopup_wrap}>
@@ -17,8 +55,18 @@ const LoginPopup = ({onClose, handleLogin, saveUserPw, saveUserId}) => {
             </div>
             <div className={loginPopup.loginPopup_contents_form}>
               <div className={loginPopup.loginPopup_contents_form_wrap}>
-                <input className={loginPopup.loginPopup_contents_form_input} type="text" name="userName" placeholder="ID" onChange={(e) => {saveUserId(e)}} />
-                <input className={loginPopup.loginPopup_contents_form_input} type="password" name="userPassword" placeholder="Password" onChange={(e) => {saveUserPw (e)}}/>
+                <input className={loginPopup.loginPopup_contents_form_input}
+                  type="text" 
+                  name="userName" 
+                  placeholder="ID" 
+                  onChange={(e) => {setIdValue(e.target.value)}} 
+                />
+                <input className={loginPopup.loginPopup_contents_form_input}
+                  type="password" 
+                  name="userPassword" 
+                  placeholder="Password" 
+                  onChange={(e) => {setPwValue(e.target.value)}}
+                />
                 <Button size type="submit" name='로그인' onClick={handleLogin} />
               </div>
             </div>
@@ -28,4 +76,4 @@ const LoginPopup = ({onClose, handleLogin, saveUserPw, saveUserId}) => {
     );
 };
 
-export default LoginPopup;
+export default LoginPopup

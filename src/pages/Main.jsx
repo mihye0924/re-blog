@@ -1,12 +1,8 @@
 
 import LeftLayout from '@/components/layout/LeftLayout'
-function Main({ onWrite, onclose, login }) {
+function Main() {
   return (
-    <LeftLayout 
-    onWrite={ onWrite } 
-    onclose={ onclose }
-    login={login} 
-    />
+    <LeftLayout />
   )
 }
 export default Main

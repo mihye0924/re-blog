@@ -1,8 +1,10 @@
 import list from '@/assets/scss/contents/list.module.scss'
 import data from '@/api/list'   
-import { useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
+import { Context } from '@/context/Context';
 
-const List = ({ mainNav, subNav, login }) => {   
+const List = () => {   
+  const {isLogin, mainNav, subNav, newProfile} = useContext(Context); 
   const [datas, setDatas] = useState(data) 
 
   // 리스트 - 좋아요 기능
@@ -17,7 +19,7 @@ const List = ({ mainNav, subNav, login }) => {
   // 리스트 - 북마크
   const handleFavorite = useMemo(() => {
     return ((e,item) => { 
-      if(login) {
+      if(isLogin) {
         item.favorite = !item.favorite
         window.localStorage.setItem("list", JSON.stringify(datas))
         setDatas([...datas]) 
@@ -26,7 +28,7 @@ const List = ({ mainNav, subNav, login }) => {
       }
       }
     )
-  },[login, datas])
+  },[isLogin, datas])
      
   // 리스트 - 카테고리 별 네비게이션
   const categoryNav = useMemo(() => {
@@ -71,7 +73,7 @@ const List = ({ mainNav, subNav, login }) => {
     if (getDatas) { 
       setDatas([...getDatas])
       getDatas.forEach((item) => {
-        if(!login && item.favorite) {
+        if(!isLogin && item.favorite) {
           item.favorite = !item.favorite
         }
       })
@@ -81,17 +83,8 @@ const List = ({ mainNav, subNav, login }) => {
   useEffect(() => {   
     handleSort()
     handleLocalGetItem()
-  }, [login])
+  }, [isLogin]) 
 
-  const dummyStorage = {
-    img: '',
-    name: '',
-    sectors: '',
-    textarea: ''
-  }
-  const profiles = window.localStorage.getItem("profile")
-  const newProfile = profiles ? JSON.parse(profiles) : dummyStorage 
- 
   return (   
     <section className={`${list.list_wrap}`}>
       <ul className={list.list_ul}>  
@@ -102,17 +95,9 @@ const List = ({ mainNav, subNav, login }) => {
               <li key={id}>
                 <div className={list.list_content}> 
                   <div className={list.list_write}>
-                    <div>
-                      {
-                        newProfile.img !== '' ?
-                        <img src={newProfile.img} alt="" /> :
-                        <img src={item.profileImg} alt=''/>
-                      }
-                      <span>{
-                        newProfile.name !== '' ?
-                        newProfile.name :
-                        item.profileName //더미 이름입니다.
-                      }</span> 
+                    <div> 
+                      <img src={item.profileImg} alt='게시글 프로필'/> 
+                      <span>{item.profileName}</span>
                     </div>
                     <span>{item.uploadTime} 분전</span>
                   </div>

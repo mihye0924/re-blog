@@ -1,10 +1,10 @@
 import datailcontent from '@/assets/scss/contents/detailContent.module.scss'
 // import data from '@/api/list'  
 import { useLocation } from 'react-router-dom';
-import { useEffect, useMemo, useState } from 'react' 
+import { useEffect, useMemo, useState } from 'react'  
 
 
-function DetailContent({login}) { 
+function DetailContent() {  
   const [datas, setDatas] = useState(JSON.parse(window.localStorage.getItem("list")))
   const [emotionActive, setEmotionActive] = useState(false)
   const location = useLocation();

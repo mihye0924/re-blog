@@ -1,7 +1,13 @@
 import profileList from '@/assets/scss/contents/profileList.module.scss'
 import data from '@/api/list'  
-import { useEffect, useMemo, useState } from 'react' 
-const ProfileList = ({ onWrite,mainNav }) => {   
+import { useContext, useEffect, useMemo, useState } from 'react' 
+import { ProfileContext } from '@/context/ProfileContext';
+import { Context } from '@/context/Context'; 
+
+
+const ProfileList = () => {   
+  const {mainNav} = useContext(ProfileContext);   
+  const {newProfile} = useContext(Context);   
   const [datas, setDatas] = useState(data) 
 
   // 리스트 - 좋아요 기능
@@ -34,7 +40,7 @@ const ProfileList = ({ onWrite,mainNav }) => {
         return item.favorite === true
       }
     })
-  },[])
+  },[mainNav])
 
   // 리스트 -  url 주소 확인 후 detail페이지로 값 보내기
   const handleLink = useMemo(() => {
@@ -71,19 +77,10 @@ const ProfileList = ({ onWrite,mainNav }) => {
   useEffect(() => { 
     handleSort()
     handleLocalGetItem() 
-  },[])
-
-  const dummyStorage = {
-    img: '',
-    name: '',
-    sectors: '',
-    textarea: ''
-  }
-  const profiles = window.localStorage.getItem("profile")
-  const newProfile = profiles ? JSON.parse(profiles) : dummyStorage 
+  },[]) 
 
   return (   
-    <section className={`${profileList.profileList_wrap} ${onWrite ? profileList['profileList_wrap_active']: false}`}>
+    <section className={`${profileList.profileList_wrap}`}>
       <ul className={profileList.profileList_ul}>  
         { 
           datas.map((item, id) => {
@@ -92,13 +89,9 @@ const ProfileList = ({ onWrite,mainNav }) => {
               <li key={id}>
                 <div className={profileList.profileList_content}> 
                   <div className={profileList.profileList_write}>
-                    <div>
-                      {
-                        newProfile.img !== '' ?
-                        <img src={newProfile.img} alt="" />
-                        : <img src='/images/common/thumbnail.svg' alt='기본프로필'/>
-                      }
-                      <span>{newProfile.name}</span>
+                    <div> 
+                      <img src={item.profileImg} alt='게시글 프로필'/> 
+                      <span>{item.profileName}</span>
                       <span>{item.smallCategory2}</span>
                     </div>
                     <span>{item.uploadTime} 분전</span>

@@ -1,7 +1,9 @@
-import profileMain from '@/assets/scss/contents/profileMain.module.scss' 
-// import { useState } from 'react';
+import profileMain from '@/assets/scss/contents/profileMain.module.scss'  
+import { ProfileContext } from '@/context/ProfileContext'
+import { useContext } from 'react';
 
-const ProfileMain = ({handleProfilePopup, profileInfo}) => { 
+const ProfileMain = () => { 
+  const {setPopup} = useContext(ProfileContext); 
   const dummyStorage = {
     img: '',
     name: '',
@@ -15,7 +17,7 @@ const ProfileMain = ({handleProfilePopup, profileInfo}) => {
       <div className={profileMain.profileMain_header}>
         <div className={profileMain.profileMain_header_wrap}>
           <span>내프로필</span>
-          <button onClick={handleProfilePopup}><i className={profileMain.profileMain_header_more}/></button>
+          <button onClick={()=>{setPopup(true)}}><i className={profileMain.profileMain_header_more}/></button>
         </div>
       </div>
       <div className={profileMain.profileMain_contents}>
@@ -31,7 +33,7 @@ const ProfileMain = ({handleProfilePopup, profileInfo}) => {
             <span className={profileMain.profileMain_contents_text_desc}>{newProfile.sectors}</span>
           </div>
           {
-            newProfile.textarea.length > 0 ? <pre>{newProfile.textarea}</pre> : <button onClick={profileInfo} className={profileMain.profileMain_contents_button}>프로필 소개 추가....</button>
+            newProfile.textarea.length > 0 ? <pre>{newProfile.textarea}</pre> : <button onClick={()=>{setPopup(true)}} className={profileMain.profileMain_contents_button}>프로필 소개 추가....</button>
           }
         </div>  
       </div>  

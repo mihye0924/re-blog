@@ -1,16 +1,13 @@
 import profilePopup from '@/assets/scss/contents/profilePopup.module.scss'
 // import Button from '@/components/common/Button'
-import { useEffect, useMemo, useRef, useState} from 'react';
-
-const ProfilePopup = ({onClose, onProfileSet}) => {
-  const dummyStorage = {
-    img: '',
-    name: '',
-    sectors: '',
-    textarea: ''
-  }
-  const profiles = localStorage.getItem("profile")
-  const [newProfile, setNewProfile] = useState(profiles ? JSON.parse(profiles) : dummyStorage)
+import { useContext, useEffect, useMemo, useRef, useState} from 'react';
+import { ProfileContext } from '@/context/ProfileContext'
+import { Context } from '@/context/Context'
+ 
+const ProfilePopup = () => {
+  const {setPopup} = useContext(ProfileContext);   
+  const {newProfile, setNewProfile} = useContext(Context);   
+ 
   useEffect(() => {
     const handleStorageChange = (e) => {
         if (e.key === 'profile') {
@@ -22,55 +19,57 @@ const ProfilePopup = ({onClose, onProfileSet}) => {
         window.removeEventListener('storage', handleStorageChange);
     };
 }, []);
+
   // input value 닉네임
   const [inputNameValue, setInputNameValue] = useState(newProfile.name);
   // input value 업종
   const [inputSectorsValue, setInputSectorsValue] = useState(newProfile.sectors);
   // textarea value 소개
   const [textareaValue, setTextareaValue] = useState(newProfile.textarea);
-  // img upload
+
+  // image 업로드
   const [imgFile, setImgFile] = useState(newProfile.img);
   const imgRef = useRef();
-  // 이미지 업로드 input의 onChange
-  const saveImgFile = () => {
+  
+  // image 업로드 - input의 onChange
+  const saveImgFile =  useMemo(() => {
+   return(() => {
     const file = imgRef.current.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
         setImgFile(reader.result);
       };
-    };
-  const [profile, setProfile] = useState({
-    img: imgFile,
-    name: inputNameValue,
-    sectors: inputSectorsValue,
-    textarea: textareaValue
-  })
+   })
+  },[]); 
+
   const handleSaveProfile = useMemo(() => {
-    return(() => {
-        setProfile({
+    return(() => { 
+        setNewProfile({
           img: imgFile,
           name: inputNameValue, 
           sectors: inputSectorsValue, 
           textarea: textareaValue
-        })
+        });
         setTimeout(() => {
-          onProfileSet()
+          setPopup(false)
         }, 100)
-        setNewProfile(profile);
         JSON.parse(localStorage.getItem("profile"))
-        window.location.reload()
+        // window.location.reload()
     })
-  })
+  },[imgFile, inputNameValue, inputSectorsValue, setNewProfile, setPopup, textareaValue])
+
   useEffect(() => {
-    window.localStorage.setItem("profile", JSON.stringify(profile))
-  }, [profile])
+    window.localStorage.setItem("profile", JSON.stringify(newProfile))
+  }, [newProfile])
+
+
   return (
     <div className={profilePopup.profilePopup}>
       <div className={profilePopup.profilePopup_wrap}>
         <div className={profilePopup.profilePopup_header}>
           <div className={profilePopup.profilePopup_header_wrap}>
-            <button onClick={onClose}><span>닫기</span><i className='icon close'/></button>
+            <button onClick={()=>{setPopup(false)}}><span>닫기</span><i className='icon close'/></button>
           </div>
         </div>
         <div className={profilePopup.profilePopup_contents}>
