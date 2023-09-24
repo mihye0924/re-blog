@@ -90,7 +90,11 @@ const ProfileList = () => {
                 <div className={profileList.profileList_content}> 
                   <div className={profileList.profileList_write}>
                     <div> 
-                      <img src={item.profileImg} alt='게시글 프로필'/> 
+                      {
+                        item.profileImg ?
+                        <img src={item.profileImg} alt="" /> :
+                        <img src='/images/common/profile_default.png' alt='기본프로필'/>
+                      }  
                       <span>{item.profileName}</span>
                       <span>{item.smallCategory2}</span>
                     </div>
@@ -107,8 +111,8 @@ const ProfileList = () => {
                     </div>
                     <div className={profileList.profileList_sympathy_img}>
                       {
-                        item.contentImg ?
-                        <img src={item.contentImg} alt={item.smallCategory2} />
+                        item.contentImg[0].img ?
+                        <img src={item.contentImg[0].img} alt={item.smallCategory2} />
                         : '이미지를 불러올 수 없습니다.'
                       }
                     </div>

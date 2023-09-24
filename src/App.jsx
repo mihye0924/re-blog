@@ -11,8 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { Context } from '@/context/Context';
  
 
-function App() {   
-
+function App() {    
   const navigate = useNavigate();
   const loginStatus = window.localStorage.getItem("login");
  
@@ -24,6 +23,7 @@ function App() {
 
   const [mainNav, setMainNav] =  useState(1) // 목록- 대분류
   const [subNav, setSubNav] = useState(1)  // 목록- 중분류
+  const [newWrite, setNewWrite] = useState([]) // 글쓰기
 
 
   // 프로필 - 헤더 값 변동
@@ -38,6 +38,7 @@ function App() {
   
   
   useEffect(() => {
+    console.log(newWrite,"하이")
     if (!window.localStorage.getItem("list")) {
       window.localStorage.setItem("list", JSON.stringify(data)) 
     } 
@@ -59,14 +60,16 @@ function App() {
         mainNav: mainNav,
         subNav: subNav,
         newProfile: newProfile,
-        setIsLogin : setIsLogin,
+        newWrite: newWrite,
+        setIsLogin: setIsLogin,
         setLoginModal: setLoginModal, 
         setIdValue: setIdValue,
         setPwValue: setPwValue,
         setWriteModal: setWriteModal,
         setMainNav: setMainNav,
         setSubNav: setSubNav,
-        setNewProfile: setNewProfile
+        setNewProfile: setNewProfile,
+        setNewWrite: setNewWrite
         }
       }> 
         <Header/>

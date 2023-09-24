@@ -99,10 +99,10 @@ function DetailContent() {
                 </div>
                 <ul className={datailcontent.datailcontent_header_bottom}>
                   {
-                    item.hashTag.map((item2) => {
+                    item.hashTag.map((item2,index) => {
                       return (
                         item2.label &&
-                        <li key={item2.id}>
+                        <li key={index}>
                           <span># {item2.label}</span>  
                         </li>
                       )
@@ -115,7 +115,14 @@ function DetailContent() {
                   <h3>{item.subLabel}</h3>
                   <div className={datailcontent.datailcontent_content_img}>
                     {
-                      item.contentImg && <img src={item.contentImg} alt=''/>
+                      // item.contentImg && <img src={item.contentImg} alt=''/>
+                      item.contentImg.map((item,index) => {
+                        return(
+                          <div key={index}>
+                            <img src={item.img} alt=''/>
+                          </div>
+                        )
+                      })
                    }
                   </div>
               </div>
