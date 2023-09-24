@@ -59,8 +59,8 @@
         }
         &:last-child {
           span {
-            font-size: $fs16;
-            line-height: 1.2;
+            font-size: $fs14; 
+            line-height: 1.5;
             color: $f_lightgray_9;
           }
         }
@@ -165,9 +165,9 @@
       } 
     }
     &_img { 
-      flex: 0 1 35%; 
-      width: 83px;
-      height: 83px;
+      flex: 0 1 40%; 
+      width: 75px;
+      height: 75px;
       overflow: hidden;
       border-radius: 10px;
       border: 1px solid #EBEBEB;

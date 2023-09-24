@@ -2,18 +2,12 @@ import profilePopup from '@/assets/scss/contents/profilePopup.module.scss'
 // import Button from '@/components/common/Button'
 import { useContext, useEffect, useMemo, useRef, useState} from 'react';
 import { ProfileContext } from '@/context/ProfileContext'
-
+import { Context } from '@/context/Context'
+ 
 const ProfilePopup = () => {
-  const {setPopup} = useContext(ProfileContext);  
-   
-  const dummyStorage = {
-    img: '',
-    name: '',
-    sectors: '',
-    textarea: ''
-  }
-  const profiles = localStorage.getItem("profile")
-  const [newProfile, setNewProfile] = useState(profiles ? JSON.parse(profiles) : dummyStorage)
+  const {setPopup} = useContext(ProfileContext);   
+  const {newProfile, setNewProfile} = useContext(Context);   
+ 
   useEffect(() => {
     const handleStorageChange = (e) => {
         if (e.key === 'profile') {
@@ -47,34 +41,27 @@ const ProfilePopup = () => {
         setImgFile(reader.result);
       };
    })
-  },[]);
+  },[]); 
 
-  const [profile, setProfile] = useState({
-    img: imgFile,
-    name: inputNameValue,
-    sectors: inputSectorsValue,
-    textarea: textareaValue
-  })
   const handleSaveProfile = useMemo(() => {
-    return(() => {
-        setProfile({
+    return(() => { 
+        setNewProfile({
           img: imgFile,
           name: inputNameValue, 
           sectors: inputSectorsValue, 
           textarea: textareaValue
-        })
+        });
         setTimeout(() => {
           setPopup(false)
         }, 100)
-        setNewProfile(profile);
         JSON.parse(localStorage.getItem("profile"))
-        window.location.reload()
+        // window.location.reload()
     })
-  },[imgFile, inputNameValue, inputSectorsValue, profile, setPopup, textareaValue])
+  },[imgFile, inputNameValue, inputSectorsValue, setNewProfile, setPopup, textareaValue])
 
   useEffect(() => {
-    window.localStorage.setItem("profile", JSON.stringify(profile))
-  }, [profile])
+    window.localStorage.setItem("profile", JSON.stringify(newProfile))
+  }, [newProfile])
 
 
   return (

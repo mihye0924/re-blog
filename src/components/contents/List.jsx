@@ -4,7 +4,7 @@ import { useContext, useEffect, useMemo, useState } from 'react';
 import { Context } from '@/context/Context';
 
 const List = () => {   
-  const {isLogin, mainNav, subNav} = useContext(Context); 
+  const {isLogin, mainNav, subNav, newProfile} = useContext(Context); 
   const [datas, setDatas] = useState(data) 
 
   // 리스트 - 좋아요 기능
@@ -83,17 +83,8 @@ const List = () => {
   useEffect(() => {   
     handleSort()
     handleLocalGetItem()
-  }, [isLogin])
+  }, [isLogin]) 
 
-  const dummyStorage = {
-    img: '',
-    name: '',
-    sectors: '',
-    textarea: ''
-  }
-  const profiles = window.localStorage.getItem("profile")
-  const newProfile = profiles ? JSON.parse(profiles) : dummyStorage 
- 
   return (   
     <section className={`${list.list_wrap}`}>
       <ul className={list.list_ul}>  
@@ -104,17 +95,9 @@ const List = () => {
               <li key={id}>
                 <div className={list.list_content}> 
                   <div className={list.list_write}>
-                    <div>
-                      {
-                        newProfile.img !== '' ?
-                        <img src={newProfile.img} alt="" /> :
-                        <img src={item.profileImg} alt=''/>
-                      }
-                      <span>{
-                        newProfile.name !== '' ?
-                        newProfile.name :
-                        item.profileName //더미 이름입니다.
-                      }</span> 
+                    <div> 
+                      <img src={item.profileImg} alt='게시글 프로필'/> 
+                      <span>{item.profileName}</span>
                     </div>
                     <span>{item.uploadTime} 분전</span>
                   </div>

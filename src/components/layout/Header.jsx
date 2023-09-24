@@ -1,13 +1,12 @@
 import header from '@/assets/scss/layout/header.module.scss';
 import Button from '@/components/common/Button.jsx' 
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '@/context/Context'; 
-
  
 
 const Header = () => {
-    const {isLogin, setIsLogin, setLoginModal} = useContext(Context);   
+    const {isLogin, setIsLogin, setLoginModal, newProfile} = useContext(Context);   
     // const [search, setSearch] = useState("")
 
     // 로그인 - 팝업
@@ -19,18 +18,11 @@ const Header = () => {
     const logout = () => { 
         setIsLogin(false)
         window.localStorage.removeItem("login");
-        window.localStorage.removeItem("profile");
+        // window.localStorage.removeItem("profile");
     }  
 
-    // 프로필 더미
-    const dummyStorage = {
-        img: '',
-        name: '',
-        sectors: '',
-        textarea: ''
-    } 
-    const profiles = window.localStorage.getItem("profile") 
-    const newProfile = profiles ? JSON.parse(profiles) : dummyStorage
+    // 프로필
+    const profile = newProfile
    
         // 검색결과
     // const handleSearch = useMemo(() => {
@@ -87,8 +79,8 @@ const Header = () => {
                     </button>
                     <Link className={header.header_profile} to="/Profile" >
                     <img src={
-                        newProfile.img !== '' ? 
-                        newProfile.img : 
+                        profile.img !== '' ? 
+                        profile.img : 
                         '/images/common/thumbnail.svg'
                         } alt="프로필"
                     />        

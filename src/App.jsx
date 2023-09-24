@@ -26,6 +26,17 @@ function App() {
   const [subNav, setSubNav] = useState(1)  // 목록- 중분류
 
 
+  // 프로필 - 헤더 값 변동
+  const dummyStorage = {
+    img: '',
+    name: '',
+    sectors: '',
+    textarea: ''
+  }
+  const profiles = localStorage.getItem("profile")
+  const [newProfile, setNewProfile] = useState(profiles ? JSON.parse(profiles) : dummyStorage)
+  
+  
   useEffect(() => {
     if (!window.localStorage.getItem("list")) {
       window.localStorage.setItem("list", JSON.stringify(data)) 
@@ -36,7 +47,7 @@ function App() {
     if (!isLogin && window.location.pathname === '/Profile') { 
       alert('접근이 불가능합니다.')
       navigate("/") 
-   }
+   } 
   })
   return (
     <>
@@ -47,13 +58,15 @@ function App() {
         pwValue: pwValue, 
         mainNav: mainNav,
         subNav: subNav,
+        newProfile: newProfile,
         setIsLogin : setIsLogin,
         setLoginModal: setLoginModal, 
         setIdValue: setIdValue,
         setPwValue: setPwValue,
         setWriteModal: setWriteModal,
         setMainNav: setMainNav,
-        setSubNav: setSubNav
+        setSubNav: setSubNav,
+        setNewProfile: setNewProfile
         }
       }> 
         <Header/>
