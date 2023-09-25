@@ -5,28 +5,28 @@ import { ProfileContext } from '@/context/ProfileContext';
 import { Context } from '@/context/Context';
 
 const ProfileList = () => {   
-  const {mainNav} = useContext(ProfileContext);   
-  const {newProfile} = useContext(Context);   
-  const [datas, setDatas] = useState(data) 
+  const {mainNav} = useContext(ProfileContext);    
+  const {newProfile, LocalItem, setLocalItem} = useContext(Context);   
+  // const [datas, setLocalItem] = useState(data) 
 
   // 리스트 - 좋아요 기능
   const handleLike = useMemo(() => {
     return ((e,item) => {
       item.good = !item.good 
-      window.localStorage.setItem("list", JSON.stringify(datas))
-      setDatas([...datas]) 
+      window.localStorage.setItem("list", JSON.stringify(LocalItem))
+      setLocalItem(LocalItem) 
     })
-  },[datas])
+  },[LocalItem, setLocalItem])
 
    // 리스트 - 북마크
    const handleFavorite = useMemo(() => {
     return ((e,item) => { 
         item.favorite = !item.favorite
-        window.localStorage.setItem("list", JSON.stringify(datas))
-        setDatas([...datas]) 
+        window.localStorage.setItem("list", JSON.stringify(LocalItem))
+        setLocalItem(LocalItem) 
       }
     )
-  },[datas])
+  },[LocalItem, setLocalItem])
   
   // 카테고리 별 네비게이션
   const categoryNav = useMemo(() => {
@@ -55,12 +55,12 @@ const ProfileList = () => {
   // 리스트 - 게시글 정렬하기
   const handleSort = useMemo(() => {  
     return (() => { 
-      const sortList = datas.sort((a,b) => {
+      const sortList = LocalItem.sort((a,b) => {
         if(a.uploadTime > b.uploadTime) return 1;
         if(a.uploadTime < b.uploadTime) return -1;
           return 0;
         });  
-       setDatas([...sortList])
+       setLocalItem([...sortList])
    })
   },[])
 
@@ -69,7 +69,7 @@ const ProfileList = () => {
     const obj = window.localStorage.getItem("list")
     if (obj) {
       const newData = JSON.parse(obj)   
-      setDatas([...newData])
+      setLocalItem(newData)
     }     
   }
 
@@ -82,7 +82,7 @@ const ProfileList = () => {
     <section className={`${profileList.profileList_wrap}`}>
       <ul className={profileList.profileList_ul}>  
         { 
-          datas.map((item, id) => {
+          LocalItem.map((item, id) => {
             return (
               categoryNav(item) &&
               <li key={id}>
@@ -110,7 +110,7 @@ const ProfileList = () => {
                     </div>
                     <div className={profileList.profileList_sympathy_img}>
                       {
-                        item.contentImg.img ?
+                        item.contentImg[0] ?
                         <img src={item.contentImg[0].img} alt={item.smallCategory2} />
                         : '이미지를 불러올 수 없습니다.'
                       }

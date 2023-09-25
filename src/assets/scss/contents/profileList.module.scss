@@ -46,8 +46,12 @@
     div {
       &:first-child { 
         margin-right: 20px;
+        flex: 1 0 60%;
+    // display: flex;
+    // flex-direction: column;
       }
       button {
+        display: block;
         padding-block: 1px;
         padding-inline: 6px;
         &:first-child {
@@ -61,7 +65,8 @@
           span {
             font-size: $fs14; 
             line-height: 1.5;
-            color: $f_lightgray_9;
+            color: $f_lightgray_9; 
+            text-align: left;
           }
         }
        span{
@@ -178,6 +183,7 @@
       border-radius: 10px;
       border: 1px solid #EBEBEB;
       text-align: center ;
+      flex-basis: 75px;
       img {
         width: 100%;
         height: 100%;
