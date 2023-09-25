@@ -37,7 +37,7 @@ function App() {
   const [newProfile, setNewProfile] = useState(profiles ? JSON.parse(profiles) : dummyStorage)
   
   
-  useEffect(() => { 
+  useEffect(() => {  
     if (!window.localStorage.getItem("list")) { 
       window.localStorage.setItem("list", JSON.stringify(data)) 
     } 

@@ -164,44 +164,37 @@ function WritePopup() {
           return false
         }
     
-      let pushList = [...newWrite,
-      {
-        "id": contentNum,
-        "views": 0,
-        "good": false,
-        "favorite": false,
-        "profileImg": !profile.img ? "/images/common/thumbnail.svg" : profile.img,
-        "lagreCategory": category1Num,
-        "middleCategory": category2Num,
-        "profileName": !profile.name ? login[0].id : profile.name,
-        "label": title,
-        "subLabel": content,
-        "contentImg": imgFile ? [...imgFile] : '',
-        "uploadTime": 0,
-        "hashTag": hashList ? [...hashList] : '',
-        "sympathy": {
-          "good": 0,
-          "sad": 0,
-          "laugh": 0,
-          "angry": 0,
-          "total": 0
+    let pushList = [...newWrite,
+        {
+          "id": contentNum,
+          "views": 0,
+          "good": false,
+          "favorite": false,
+          "profileImg": !profile.img ? "/images/common/thumbnail.svg" : profile.img,
+          "lagreCategory": category1Num,
+          "middleCategory": category2Num,
+          "profileName": !profile.name ? login[0].id : profile.name,
+          "label": title,
+          "subLabel": content,
+          "contentImg": imgFile ? [...imgFile] : '',
+          "uploadTime": 0,
+          "hashTag": hashList ? [...hashList] : '',
+          "sympathy": {
+            "good": 0,
+            "sad": 0,
+            "laugh": 0,
+            "angry": 0,
+            "total": 0
+          }
         }
-      }
-      ]
-
-      console.log('pushList', newWrite, pushList)
-      
-      setNewWrite(pushList)
-    
-
-      setLocal(pushList)
-      // setNewWrite([...newWrite, ])
-      // window.localStorage.setItem("list",JSON.stringify(newWrite))
-      // setTimeout(() => {
-      //   setWriteModal(false)
-      // }, 100) 
+      ] 
+      setNewWrite(pushList)  
+      setLocal(pushList)  
+      setTimeout(() => {
+        setWriteModal(false)
+      }, 100) 
     })
-  }, [category1Option, category2Option, title, content, newWrite, contentNum, profile.img, profile.name, category1Num, category2Num, imgFile, hashList, setNewWrite])
+  }, [category1Option, category2Option, title, content, newWrite, contentNum, profile.img, profile.name, category1Num, category2Num, imgFile, hashList, setNewWrite, setWriteModal])
    
 
   const setLocal = (pushList) => {

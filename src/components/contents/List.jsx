@@ -5,30 +5,30 @@ import { Context } from '@/context/Context';
 
 const List = () => {   
   const {isLogin, mainNav, subNav, newWrite, setNewWrite} = useContext(Context); 
-  // const [datas, setDatas] = useState(data) 
+  const [datas, setDatas] = useState(JSON.parse(window.localStorage.getItem("list")) ) 
 
   // 리스트 - 좋아요 기능
   const handleLike = useMemo(() => {
     return ((e,item) => {
       item.good = !item.good 
-      window.localStorage.setItem("list", JSON.stringify(newWrite))
-      setNewWrite([...newWrite]) 
+      window.localStorage.setItem("list", JSON.stringify(datas))
+      setNewWrite([...datas]) 
     })
-  },[newWrite, setNewWrite])
+  },[datas, setNewWrite])
 
   // 리스트 - 북마크
   const handleFavorite = useMemo(() => {
     return ((e,item) => { 
       if(isLogin) {
         item.favorite = !item.favorite
-        window.localStorage.setItem("list", JSON.stringify(newWrite))
-        setNewWrite([...newWrite]) 
+        window.localStorage.setItem("list", JSON.stringify(datas))
+        setNewWrite([...datas]) 
       }else {
         alert('로그인이 필요합니다.')
       }
       }
     )
-  },[isLogin, newWrite, setNewWrite])
+  },[isLogin, datas, setNewWrite])
      
   // 리스트 - 카테고리 별 네비게이션
   const categoryNav = useMemo(() => {
@@ -58,31 +58,28 @@ const List = () => {
   // 리스트 - 게시글 정렬하기
   const handleSort = useMemo(() => {  
     return (() => { 
-      const sortList = newWrite.sort((a,b) => {
+      const sortList = datas.sort((a,b) => {
         if(a.uploadTime > b.uploadTime) return 1;
         if(a.uploadTime < b.uploadTime) return -1;
           return 0;
         });  
         setNewWrite([...sortList])
    })
-  },[])
+  },[datas, setNewWrite])
 
   // 리스트 - 로컬 데이터 가져오기
-  const handleLocalGetItem = () => { 
-    const getDatas =  JSON.parse(window.localStorage.getItem("list")) 
-    if (getDatas) { 
-      setNewWrite([...getDatas])
-      getDatas.forEach((item) => {
-        if(!isLogin && item.favorite) {
-          item.favorite = !item.favorite
-        }
-      })
-    }        
+  const handleLocalGetItem = () => {  
+    datas.forEach((item) => {
+      if(!isLogin && item.favorite) {
+        item.favorite = !item.favorite
+      }
+    })      
   }
    
   useEffect(() => {   
-    handleSort()
+    setNewWrite(...datas)
     handleLocalGetItem()
+    handleSort()
   }, [isLogin]) 
 
   return (   
