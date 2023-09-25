@@ -4,15 +4,14 @@ import { useContext, useEffect, useMemo, useState } from 'react';
 import { Context } from '@/context/Context';
 
 const List = () => {   
-  const {isLogin, mainNav, subNav, newWrite, setNewWrite, LocalItem, setLocalItem} = useContext(Context); 
- 
+  const {isLogin, mainNav, subNav, newWrite, setNewWrite} = useContext(Context);  
 
   // 리스트 - 좋아요 기능
   const handleLike = useMemo(() => {
     return ((e,item) => {
       item.good = !item.good 
       window.localStorage.setItem("list", JSON.stringify(newWrite))
-      setNewWrite([...newWrite]) 
+      setNewWrite(newWrite) 
     })
   },[newWrite, setNewWrite])
 
@@ -22,7 +21,7 @@ const List = () => {
       if(isLogin) {
         item.favorite = !item.favorite
         window.localStorage.setItem("list", JSON.stringify(newWrite))
-        setNewWrite([...newWrite]) 
+        setNewWrite(newWrite) 
       }else {
         alert('로그인이 필요합니다.')
       }
@@ -68,13 +67,16 @@ const List = () => {
   },[])
 
   // 리스트 - 로컬 데이터 가져오기
-  const handleLocalGetItem = () => {  
-      setNewWrite(LocalItem)
-      LocalItem.forEach((item) => {
+  const handleLocalGetItem = () => { 
+    const getDatas =  JSON.parse(window.localStorage.getItem("list")) 
+    if (getDatas) { 
+      setNewWrite(getDatas)
+      getDatas.forEach((item) => {
         if(!isLogin && item.favorite) {
           item.favorite = !item.favorite
         }
-      })       
+      })
+    }        
   }
    
   useEffect(() => {   
@@ -86,7 +88,6 @@ const List = () => {
     <section className={`${list.list_wrap}`}>
       <ul className={list.list_ul}>  
         { 
-          newWrite?
           newWrite.map((item, id) => {
             return (
               categoryNav(item) &&
@@ -144,10 +145,6 @@ const List = () => {
             </li>
             )
           })
-          :
-          <div className='none-write'>
-            게시글이 없습니다.
-          </div>
         }
       </ul>
     </section>
