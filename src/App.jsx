@@ -25,6 +25,7 @@ function App() {
   const [subNav, setSubNav] = useState(1)  // 목록- 중분류
   
   const [newWrite, setNewWrite] = useState([...data]) // 글쓰기
+  const [LocalItem, setLocalItem] = useState(JSON.parse(window.localStorage.getItem("list")))
 
   // 프로필 - 헤더 값 변동
   const dummyStorage = {
@@ -37,7 +38,8 @@ function App() {
   const [newProfile, setNewProfile] = useState(profiles ? JSON.parse(profiles) : dummyStorage)
   
   
-  useEffect(() => { 
+  useEffect(() => {  
+    console.log(newWrite,"헐")
     if (!window.localStorage.getItem("list")) { 
       window.localStorage.setItem("list", JSON.stringify(data)) 
     } 
@@ -60,6 +62,7 @@ function App() {
         subNav: subNav,
         newProfile: newProfile, 
         newWrite : newWrite, 
+        LocalItem: LocalItem,
         setIsLogin: setIsLogin,
         setLoginModal: setLoginModal, 
         setIdValue: setIdValue,
@@ -68,7 +71,8 @@ function App() {
         setMainNav: setMainNav,
         setSubNav: setSubNav,
         setNewProfile: setNewProfile, 
-        setNewWrite: setNewWrite
+        setNewWrite: setNewWrite,
+        setLocalItem: setLocalItem
         }
       }> 
         <Header/>

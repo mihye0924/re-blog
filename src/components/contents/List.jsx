@@ -4,8 +4,8 @@ import { useContext, useEffect, useMemo, useState } from 'react';
 import { Context } from '@/context/Context';
 
 const List = () => {   
-  const {isLogin, mainNav, subNav, newWrite, setNewWrite} = useContext(Context); 
-  // const [datas, setDatas] = useState(data) 
+  const {isLogin, mainNav, subNav, newWrite, setNewWrite, LocalItem, setLocalItem} = useContext(Context); 
+ 
 
   // 리스트 - 좋아요 기능
   const handleLike = useMemo(() => {
@@ -68,27 +68,25 @@ const List = () => {
   },[])
 
   // 리스트 - 로컬 데이터 가져오기
-  const handleLocalGetItem = () => { 
-    const getDatas =  JSON.parse(window.localStorage.getItem("list")) 
-    if (getDatas) { 
-      setNewWrite([...getDatas])
-      getDatas.forEach((item) => {
+  const handleLocalGetItem = () => {  
+      setNewWrite(LocalItem)
+      LocalItem.forEach((item) => {
         if(!isLogin && item.favorite) {
           item.favorite = !item.favorite
         }
-      })
-    }        
+      })       
   }
    
   useEffect(() => {   
-    handleSort()
     handleLocalGetItem()
+    handleSort()
   }, [isLogin]) 
 
   return (   
     <section className={`${list.list_wrap}`}>
       <ul className={list.list_ul}>  
         { 
+          newWrite?
           newWrite.map((item, id) => {
             return (
               categoryNav(item) &&
@@ -146,6 +144,10 @@ const List = () => {
             </li>
             )
           })
+          :
+          <div className='none-write'>
+            게시글이 없습니다.
+          </div>
         }
       </ul>
     </section>

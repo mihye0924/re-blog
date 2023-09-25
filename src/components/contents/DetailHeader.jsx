@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Context } from '@/context/Context';
 
 function DetailHeader() { 
-  const isLogin = useContext(Context); 
+  const {isLogin, LocalItem, setLocalItem} = useContext(Context); 
   const navigate = useNavigate();
   const [active, setActive] = useState(false) 
   const [favorite, setFavorite] = useState('icon_favorite') 
@@ -12,8 +12,8 @@ function DetailHeader() {
   const largeCategory = Number(location.pathname.split("/")[2])
   const middleCategory = Number(location.pathname.split("/")[3])
   const contentId = Number(location.pathname.split("/")[4])   
-
-
+  // const [datas, setDatas] = useState(JSON.parse(window.localStorage.getItem("list")) ) 
+ 
   // 북마크 - ... 아이콘 기능 (수정,삭제)
   const handleSelect = useMemo(() => {
     return (() => {
@@ -69,8 +69,33 @@ function DetailHeader() {
        }
     })  
   } 
+
+  // 게시글 수정하기
+  const handleModify = useMemo(() => { 
+  },[])
+
+  // 게시글 삭제하기
+  const handleDelete = useMemo(() => { 
+   return (() => { 
+    LocalItem.forEach((item,index) => {
+      if(item.id === contentId) {
+        LocalItem.splice(index, 1) 
+      }
+    });
+    setLocalItem(LocalItem)   
+    setLocal(LocalItem) 
+    window.location.href = "/" 
+   })
+  },[contentId, LocalItem, setLocalItem]) 
+
+
+  const setLocal = (LocalItem) => {
+    window.localStorage.setItem("list", JSON.stringify(LocalItem))
+  }
+
+
   useEffect(() => { 
-    handleLocalGetItem()
+    handleLocalGetItem() 
   },[isLogin]) 
  
   return (
@@ -92,10 +117,10 @@ function DetailHeader() {
         {active &&
           <ul className={datailheader.datailheader_select}>
             <li>
-              <button>수정하기</button>
+              <button onClick={handleModify}>수정하기</button>
             </li>
             <li>
-              <button>삭제하기</button>
+              <button onClick={handleDelete}>삭제하기</button>
             </li>
           </ul>
         }

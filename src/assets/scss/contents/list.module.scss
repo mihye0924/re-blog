@@ -3,6 +3,16 @@
     margin-top: 10px;
   }
   &_ul {
+    :global {
+      .none-write {
+        background-color: $white;
+        height: 760px;
+        font-size: $fs20;
+        font-family: $noto-medium;
+        text-align: center;
+        line-height: 760px; 
+      }
+    } 
     display: flex;
     flex-direction: column; 
     li {
