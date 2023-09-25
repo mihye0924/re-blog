@@ -6,7 +6,6 @@ import { Context } from '@/context/Context';
 const List = () => {   
   const {isLogin, mainNav, subNav, newProfile} = useContext(Context); 
   const [datas, setDatas] = useState(data) 
-
   // 리스트 - 좋아요 기능
   const handleLike = useMemo(() => {
     return ((e,item) => {

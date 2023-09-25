@@ -90,8 +90,8 @@ const ProfileList = () => {
                 <div className={profileList.profileList_content}> 
                   <div className={profileList.profileList_write}>
                     <div> 
-                      <img src={item.profileImg} alt='게시글 프로필'/> 
-                      <span>{item.profileName}</span>
+                      <img src={newProfile.img} alt='게시글 프로필'/> 
+                      <span>{newProfile.name}</span>
                       <span>{item.smallCategory2}</span>
                     </div>
                     <span>{item.uploadTime} 분전</span>
