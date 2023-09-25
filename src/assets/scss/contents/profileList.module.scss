@@ -88,7 +88,7 @@
         align-items: center;
         border: 1px solid #EBEBEB;
         padding: 8px 10px 8px 8px;
-        border-radius: 5px;
+        border-radius: 5px; 
         i {
           pointer-events: none;
         }
@@ -129,6 +129,9 @@
             }
           }
         } 
+        &:focus {
+          border: 1px solid #EBEBEB !important;
+        }
       }
     }
     &_right {
@@ -161,6 +164,9 @@
               display: inline-block;
             }
           } 
+        }
+        &:focus {
+          border: 1px solid #EBEBEB !important;
         }
       } 
     }

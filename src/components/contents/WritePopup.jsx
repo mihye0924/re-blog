@@ -1,5 +1,4 @@
-import writePopup from '@/assets/scss/contents/writePopup.module.scss'
-import data from '@/api/list' 
+import writePopup from '@/assets/scss/contents/writePopup.module.scss' 
 import login from '@/api/login' 
 import categoryList from '@/api/categoryList'
 import navList from '@/api/navList'
@@ -14,14 +13,14 @@ function WritePopup() {
   const [category2Option, setCategory2Option] = useState('중분류') //카테고리2 값
   const [category1Num, setCategory1Num] = useState(1)
   const [category2Num, setCategory2Num] = useState(1)
-  const [hash, setHash] = useState("") 
+  const [hash, setHash] = useState("")
   const [hashList, setHashList] = useState([]) //해시태그
  
   const [contentNum, setContentNum] = useState(JSON.parse(window.localStorage.getItem("list")).length)
   const [title, setTitle] = useState("") //제목
   const [content, setContent] = useState("") //글 
   const [imgFile, setImgFile] = useState([]) //이미지 리스트
-  const imgRef = useRef(); 
+  const imgRef = useRef();
 
   const profile = newProfile //프로필 기본값 
   // const [timer, setTimer] = useState(0)  
@@ -29,171 +28,187 @@ function WritePopup() {
 
   // 대분류 토클
   const handleCategory1 = () => {
-    if(category1) {
+    if (category1) {
       setCategory1(false)
-    }else{
+    } else {
       setCategory1(true)
     }
   }
 
   // 중분류 토글
   const handleCategory2 = () => {
-    if(category2) {
+    if (category2) {
       setCategory2(false)
-    }else{
+    } else {
       setCategory2(true)
     }
   }
 
   //대분류 옵션 
   const handleCategory1Data = useMemo(() => {
-    return((e) => { 
+    return ((e) => {
       setCategory1(false)
-      setCategory1Option(e.target.innerText) 
-      switch(e.target.innerText) {
+      setCategory1Option(e.target.innerText)
+      switch (e.target.innerText) {
         case '브랜드관':
-          setCategory1Num(1) 
+          setCategory1Num(1)
           break;
         case '전체':
-          setCategory1Num(2) 
+          setCategory1Num(2)
           break;
         case '자유':
-          setCategory1Num(3) 
+          setCategory1Num(3)
           break;
-        case '유머': 
-          setCategory1Num(4) 
+        case '유머':
+          setCategory1Num(4)
           break;
       }
     })
-  },[])
+  }, [])
 
   //중분류 옵션
   const handleCategory2Data = useMemo(() => {
-    return((e) => {
+    return ((e) => {
       setCategory2(false)
-      setCategory2Option(e.target.innerText) 
-      switch(e.target.innerText) {
+      setCategory2Option(e.target.innerText)
+      switch (e.target.innerText) {
         case '편의점':
-          setCategory2Num(1)  
+          setCategory2Num(1)
           break;
         case '카페':
-          setCategory2Num(2)  
-          break; 
+          setCategory2Num(2)
+          break;
         case '음식점':
-          setCategory2Num(3)  
+          setCategory2Num(3)
           break;
         case '의류':
-          setCategory2Num(4)  
+          setCategory2Num(4)
           break;
         case '회계':
-          setCategory2Num(5)  
-          break; 
-        case '무역·유통': 
-          setCategory2Num(6)  
+          setCategory2Num(5)
           break;
-        case '기타': 
-          setCategory2Num(7)  
+        case '무역·유통':
+          setCategory2Num(6)
           break;
-      } 
+        case '기타':
+          setCategory2Num(7)
+          break;
+      }
     })
-  },[])
+  }, [])
  
   // 해시태그 - 제거
   const handleHashTagRemove = (index) => {
-    hashList.splice(index, 1)  
-    setHashList([...hashList]) 
+    hashList.splice(index, 1)
+    setHashList([...hashList])
   }
 
   // 해시태그 - 엔터시 값 입력
-  const handleHashTagKeyPress =  useMemo(() => {
-    return((e) => {      
+  const handleHashTagKeyPress = useMemo(() => {
+    return ((e) => {
       console.log(e)
-      if(e.code === "Enter") {    
-        setHashList([...hashList, { label : e.target.value}])
+      if (e.code === "Enter") {
+        setHashList([...hashList, { label: e.target.value }])
         
-        if(e.target.value === "") {
+        if (e.target.value === "") {
           alert('값을 입력해주세요')
         }
-        setHash("")  
-      } 
+        setHash("")
+      }
     })
-  },[hashList])  
+  }, [hashList])
+  
   // 이미지 업로드 - input의 onChange
-  const saveImgFile = useMemo(() => { 
-    return(() => { 
+  const saveImgFile = useMemo(() => {
+    return (() => {
       const file = imgRef.current.files[0];
-      const reader = new FileReader();   
+      const reader = new FileReader();
       // if( file.size > 3024 ) {
       //   alert('파일 사이즈가 너무 큽니다.')
       //   return false
       // }
-      if(file) {
+      if (file) {
         reader.onloadend = () => {
-          setImgFile([...imgFile, { img: reader.result}]) 
-        }  
+          setImgFile([...imgFile, { img: reader.result }])
+        }
         reader.readAsDataURL(file);
-      }   
+      }
       imgRef.current.value = ""; // 같은 파일 upload를 위한 처리 
     })
-    },[imgFile]) 
+  }, [imgFile])
 
   // 이미지 업로드 - 이미지 제거
-  const handleImgRemove = useMemo(() => {  
-    return((index) => {   
-        imgFile.splice(index, 1)
-        setImgFile([...imgFile])   
+  const handleImgRemove = useMemo(() => {
+    return ((index) => {
+      imgFile.splice(index, 1)
+      setImgFile([...imgFile])
     })
-  },[imgFile])    
+  }, [imgFile])
 
-  const hanldeWrite = useMemo(() => { 
-   return(()=> { 
-    if(category1Option === "대분류") {
-      alert("대분류 옵션을 선택해주세요")
-      return true
-    }else if(category1Option ==='브랜드관' && category2Option ==="중분류") {
-      alert("중분류 옵션을 선택해주세요")
-      return true
-    }else if(title === "") {
-      alert("제목을 입력해주세요")
-      return true
-    }else if(content === "") {
-      alert("글을 입력해주세요") 
-      return true
-    }  
+  const hanldeWrite = useMemo(() => {
+    return (() => {
+        if(category1Option === "대분류" && category2Option === "중분류") {
+          alert("대분류 옵션을 선택해주세요")
+          return false
+        }
+        if (category1Option === '브랜드관' && category2Option === "중분류") {
+          alert("중분류 옵션을 선택해주세요")
+          return false
+       }
+        if (title === "") {
+          alert("제목을 입력해주세요")
+          return false
+        }
+        if (content === "") {
+          alert("글을 입력해주세요") 
+          return false
+        }
     
-    setNewWrite([...data, {
-      "id" : contentNum,
-      "views" : 0,
-      "good": false,
-      "favorite": false,
-      "profileImg": !profile.img ? "/images/common/thumbnail.svg" : profile.img,
-      "lagreCategory": category1Num,
-      "middleCategory": category2Num,
-      "profileName": !profile.name ? login[0].id : profile.name,
-      "label": title,
-      "subLabel": content,
-      "contentImg": imgFile ? imgFile : '',
-      "uploadTime": 0,
-      "hashTag" : hashList ? hashList : '',
-      "sympathy": {
-        "good": 0,
-        "sad" : 0,
-        "laugh" : 0,
-        "angry" : 0,
-        "total" : 0
+      let pushList = [...newWrite,
+      {
+        "id": contentNum,
+        "views": 0,
+        "good": false,
+        "favorite": false,
+        "profileImg": !profile.img ? "/images/common/thumbnail.svg" : profile.img,
+        "lagreCategory": category1Num,
+        "middleCategory": category2Num,
+        "profileName": !profile.name ? login[0].id : profile.name,
+        "label": title,
+        "subLabel": content,
+        "contentImg": imgFile ? [...imgFile] : '',
+        "uploadTime": 0,
+        "hashTag": hashList ? [...hashList] : '',
+        "sympathy": {
+          "good": 0,
+          "sad": 0,
+          "laugh": 0,
+          "angry": 0,
+          "total": 0
+        }
       }
-    }])
-    // window.localStorage.setItem("list",JSON.stringify(newWrite))
-    setTimeout(() => {
-      setWriteModal(false)
-    }, 100) 
-    console.log(newWrite) 
-  }) 
-  },[category1Option, category2Option, title, content, contentNum, setNewWrite, profile.img, profile.name, category1Num, category2Num, imgFile, hashList, newWrite, setWriteModal])
- 
+      ]
 
+      console.log('pushList', newWrite, pushList)
+      
+      setNewWrite(pushList)
+    
 
-  useEffect(() => {   
+      setLocal(pushList)
+      // setNewWrite([...newWrite, ])
+      // window.localStorage.setItem("list",JSON.stringify(newWrite))
+      // setTimeout(() => {
+      //   setWriteModal(false)
+      // }, 100) 
+    })
+  }, [category1Option, category2Option, title, content, newWrite, contentNum, profile.img, profile.name, category1Num, category2Num, imgFile, hashList, setNewWrite])
+   
+
+  const setLocal = (pushList) => {
+      window.localStorage.setItem("list", JSON.stringify(pushList))
+  }
+
+  useEffect(() => {     
     setContentNum(Number(contentNum) + 1)
     // setInterval(() => {
     //   const now = new Date()
@@ -204,8 +219,7 @@ function WritePopup() {
     //     setTimer(timer + 1)
     //   }
     // }, 1000);
-  },[]) 
-  // console.log(timer, "타이머")
+  },[])  
   
   return (
     <div className={writePopup.writePopup}>

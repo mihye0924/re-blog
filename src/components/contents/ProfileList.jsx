@@ -2,12 +2,10 @@ import profileList from '@/assets/scss/contents/profileList.module.scss'
 import data from '@/api/list'  
 import { useContext, useEffect, useMemo, useState } from 'react' 
 import { ProfileContext } from '@/context/ProfileContext';
-import { Context } from '@/context/Context'; 
 
 
 const ProfileList = () => {   
   const {mainNav} = useContext(ProfileContext);   
-  const {newProfile} = useContext(Context);   
   const [datas, setDatas] = useState(data) 
 
   // 리스트 - 좋아요 기능
@@ -111,7 +109,7 @@ const ProfileList = () => {
                     </div>
                     <div className={profileList.profileList_sympathy_img}>
                       {
-                        item.contentImg[0].img ?
+                        item.contentImg.img ?
                         <img src={item.contentImg[0].img} alt={item.smallCategory2} />
                         : '이미지를 불러올 수 없습니다.'
                       }

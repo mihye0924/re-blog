@@ -1,5 +1,4 @@
 import datailcontent from '@/assets/scss/contents/detailContent.module.scss'
-// import data from '@/api/list'  
 import { useLocation } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react'  
 
@@ -115,8 +114,7 @@ function DetailContent() {
                   <h3>{item.subLabel}</h3>
                   <div className={datailcontent.datailcontent_content_img}>
                     {
-                      // item.contentImg && <img src={item.contentImg} alt=''/>
-                      item.contentImg.map((item,index) => {
+                       item.contentImg.map((item,index) => {
                         return(
                           <div key={index}>
                             <img src={item.img} alt=''/>

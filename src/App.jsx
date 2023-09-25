@@ -1,5 +1,5 @@
 
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useState } from 'react';
 import main from '@/assets/scss/layout/main.module.scss'
 import Header from '@/components/layout/Header.jsx'
 import LoginPopup from '@/components/contents/LoginPopup'
@@ -23,8 +23,8 @@ function App() {
 
   const [mainNav, setMainNav] =  useState(1) // 목록- 대분류
   const [subNav, setSubNav] = useState(1)  // 목록- 중분류
-  const [newWrite, setNewWrite] = useState([]) // 글쓰기
-
+  
+  const [newWrite, setNewWrite] = useState([...data]) // 글쓰기
 
   // 프로필 - 헤더 값 변동
   const dummyStorage = {
@@ -37,9 +37,8 @@ function App() {
   const [newProfile, setNewProfile] = useState(profiles ? JSON.parse(profiles) : dummyStorage)
   
   
-  useEffect(() => {
-    console.log(newWrite,"하이")
-    if (!window.localStorage.getItem("list")) {
+  useEffect(() => { 
+    if (!window.localStorage.getItem("list")) { 
       window.localStorage.setItem("list", JSON.stringify(data)) 
     } 
   }, [])
@@ -59,8 +58,8 @@ function App() {
         pwValue: pwValue, 
         mainNav: mainNav,
         subNav: subNav,
-        newProfile: newProfile,
-        newWrite: newWrite,
+        newProfile: newProfile, 
+        newWrite : newWrite, 
         setIsLogin: setIsLogin,
         setLoginModal: setLoginModal, 
         setIdValue: setIdValue,
@@ -68,7 +67,7 @@ function App() {
         setWriteModal: setWriteModal,
         setMainNav: setMainNav,
         setSubNav: setSubNav,
-        setNewProfile: setNewProfile,
+        setNewProfile: setNewProfile, 
         setNewWrite: setNewWrite
         }
       }> 
