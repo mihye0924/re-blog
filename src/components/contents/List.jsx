@@ -4,7 +4,7 @@ import { useContext, useEffect, useMemo, useState } from 'react';
 import { Context } from '@/context/Context';
 
 const List = () => {   
-  const {isLogin, mainNav, subNav, newWrite, setNewWrite} = useContext(Context);  
+  const {newProfile, isLogin, mainNav, subNav, newWrite, setNewWrite} = useContext(Context);  
 
   // 리스트 - 좋아요 기능
   const handleLike = useMemo(() => {
@@ -96,9 +96,9 @@ const List = () => {
                   <div className={list.list_write}>
                     <div> 
                       {
-                        item.profileImg ?
-                        <img src={item.profileImg} alt="" /> :
-                        <img src='/images/common/profile_default.png' alt='기본프로필'/>
+                         newProfile.img ?
+                         <img src={newProfile.img} alt="" /> :
+                         <img src='/images/common/profile_default.png' alt='기본프로필'/>
                       }  
                       <span>{item.profileName}</span>
                     </div>

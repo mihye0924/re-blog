@@ -1,9 +1,11 @@
 import datailcontent from '@/assets/scss/contents/detailContent.module.scss'
 import { useLocation } from 'react-router-dom';
-import { useEffect, useMemo, useState } from 'react'  
-
+import { useContext, useEffect, useMemo, useState } from 'react'   
+import { Context } from '@/context/Context';
 
 function DetailContent() {  
+  const {newProfile} = useContext(Context);  
+
   const [datas, setDatas] = useState(JSON.parse(window.localStorage.getItem("list")))
   const [emotionActive, setEmotionActive] = useState(false)
   const location = useLocation();
@@ -88,9 +90,9 @@ function DetailContent() {
                 <div className={datailcontent.datailcontent_header_top}>
                   <h1>
                     {
-                    item.profileImg ?
-                    <img src={item.profileImg} alt="" /> :
-                    <img src='/images/common/profile_default.png' alt='기본프로필'/>
+                     newProfile.img ?
+                     <img src={newProfile.img} alt="" /> :
+                     <img src='/images/common/profile_default.png' alt='기본프로필'/>
                     }  
                   </h1>
                   <span>{item.profileName}</span>
