@@ -10,15 +10,20 @@
     "profileName":  "테스트네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg" : "/images/content/list/dummy.png",
-    "uploadTime" :10,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" :  "해시태그1"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :10,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
         "label" :  "해시태그2"
       }
     ],
@@ -41,15 +46,20 @@
     "profileName":  "테스트네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/dummy.png",
-    "uploadTime" :15,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" :  "해시태그1"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :15,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
         "label" :  "해시태그2"
       }
     ],
@@ -72,15 +82,20 @@
     "profileName":  "테스트네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/dummy.png",
-    "uploadTime" :3,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" :  "해시태그1"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :3,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
         "label" :  "해시태그2"
       }
     ],
@@ -109,15 +124,20 @@
     "profileName":  "테스트네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/dummy.png",
-    "uploadTime" :3,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" :  "해시태그1"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :3,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
         "label" :  "해시태그2"
       }
     ],
@@ -140,15 +160,20 @@
     "profileName":  "테스트네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/dummy.png",
-    "uploadTime" :3,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" :  "해시태그1"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :3,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
         "label" :  "해시태그2"
       }
     ],
@@ -171,15 +196,20 @@
     "profileName":  "테스트네임",
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/dummy.png",
-    "uploadTime" :3,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" :  "해시태그1"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :3,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
         "label" :  "해시태그2"
       }
     ],
@@ -202,15 +232,20 @@
     "profileName": "테스트네임", 
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/dummy.png",
-    "uploadTime" :3,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" :  "해시태그1"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :3,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
         "label" :  "해시태그2"
       }
     ],
@@ -233,15 +268,20 @@
     "profileName": "테스트네임", 
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/dummy.png",
-    "uploadTime" :3,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" :  "해시태그1"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :3,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
         "label" :  "해시태그2"
       }
     ],
@@ -264,15 +304,20 @@
     "profileName": "테스트네임",  
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/dummy.png",
-    "uploadTime" :3,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" :  "해시태그1"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :3,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
         "label" :  "해시태그2"
       }
     ],
@@ -295,15 +340,20 @@
     "profileName": "테스트네임",  
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/dummy.png",
-    "uploadTime" :3,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" :  "해시태그1"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :3,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
         "label" :  "해시태그2"
       }
     ],
@@ -326,16 +376,21 @@
     "profileName": "테스트네임",  
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/dummy.png",
-    "uploadTime" :3,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" : "빽다방"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
-        "label" : "백종원"
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :3,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -357,19 +412,24 @@
     "profileName": "테스트네임",  
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/tteokbokki.jpg",
+    "contentImg" : [
+      {
+        "img" : "/images/content/list/dummy.png"
+      },
+      {
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
     "uploadTime" :1,
     "hashTag" : [
-      {
-        "id" : 1,
-        "label" : "청년다방"
+      { 
+        "label" :  "해시태그1"
       },
-      {
-        "id" : 2,
-        "label" : "로제"
+      { 
+        "label" :  "해시태그2"
       },
-      {
-        "label" : "떡볶이"
+      { 
+        "label" :  "해시태그3"
       }
     ],
     "sympathy": {
@@ -391,16 +451,21 @@
     "profileName": "테스트네임",  
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/polo_men.png",
-    "uploadTime" :1,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" : "폴로"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
-        "label" : "셔츠"
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :1,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -422,16 +487,21 @@
     "profileName": "테스트네임", 
     "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/polo_woman.jpg",
-    "uploadTime" :1,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" : "폴로"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
-        "label" : "가방"
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :1,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
+        "label" :  "해시태그2"
       }
     ],
     "sympathy": {
@@ -453,15 +523,20 @@
     "profileName": "테스트네임",  
     "label" : "자유글1 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "자유글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/dummy.png",
-    "uploadTime" :3,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" :  "해시태그1"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :3,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
         "label" :  "해시태그2"
       }
     ],
@@ -484,15 +559,20 @@
     "profileName": "테스트네임",  
     "label" : "자유글2 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "자유글2 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/dummy.png",
-    "uploadTime" :20,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" :  "해시태그1"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :20,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
         "label" :  "해시태그2"
       }
     ],
@@ -515,15 +595,20 @@
     "profileName": "테스트네임", 
     "label" : "유머글1 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "유머글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "/images/content/list/dummy.png",
-    "uploadTime" :3,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" :  "해시태그1"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :3,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
         "label" :  "해시태그2"
       }
     ],
@@ -546,15 +631,20 @@
     "profileName": "테스트네임", 
     "label" : "유머글2 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
     "subLabel": "유머글2 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
-    "contentImg"  : "",
-    "uploadTime" :30,
-    "hashTag" : [
+    "contentImg" : [
       {
-        "id" : 1,
-        "label" :  "해시태그1"
+        "img" : "/images/content/list/dummy.png"
       },
       {
-        "id" : 2,
+        "img" : "/images/content/list/dummy.png"
+      }
+    ],
+    "uploadTime" :30,
+    "hashTag" : [
+      { 
+        "label" :  "해시태그1"
+      },
+      { 
         "label" :  "해시태그2"
       }
     ],

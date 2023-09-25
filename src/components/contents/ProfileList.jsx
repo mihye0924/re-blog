@@ -2,8 +2,7 @@ import profileList from '@/assets/scss/contents/profileList.module.scss'
 import data from '@/api/list'  
 import { useContext, useEffect, useMemo, useState } from 'react' 
 import { ProfileContext } from '@/context/ProfileContext';
-import { Context } from '@/context/Context'; 
-
+import { Context } from '@/context/Context';
 
 const ProfileList = () => {   
   const {mainNav} = useContext(ProfileContext);   
@@ -90,7 +89,11 @@ const ProfileList = () => {
                 <div className={profileList.profileList_content}> 
                   <div className={profileList.profileList_write}>
                     <div> 
-                      <img src={newProfile.img} alt='게시글 프로필'/> 
+                      {
+                        newProfile.img ?
+                        <img src={newProfile.img} alt="" /> :
+                        <img src='/images/common/profile_default.png' alt='기본프로필'/>
+                      }  
                       <span>{newProfile.name}</span>
                       <span>{item.smallCategory2}</span>
                     </div>
@@ -107,8 +110,8 @@ const ProfileList = () => {
                     </div>
                     <div className={profileList.profileList_sympathy_img}>
                       {
-                        item.contentImg ?
-                        <img src={item.contentImg} alt={item.smallCategory2} />
+                        item.contentImg.img ?
+                        <img src={item.contentImg[0].img} alt={item.smallCategory2} />
                         : '이미지를 불러올 수 없습니다.'
                       }
                     </div>

@@ -1,5 +1,5 @@
 
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useState } from 'react';
 import main from '@/assets/scss/layout/main.module.scss'
 import Header from '@/components/layout/Header.jsx'
 import LoginPopup from '@/components/contents/LoginPopup'
@@ -11,8 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { Context } from '@/context/Context';
  
 
-function App() {   
-
+function App() {    
   const navigate = useNavigate();
   const loginStatus = window.localStorage.getItem("login");
  
@@ -24,7 +23,9 @@ function App() {
 
   const [mainNav, setMainNav] =  useState(1) // 목록- 대분류
   const [subNav, setSubNav] = useState(1)  // 목록- 중분류
-
+  
+  const [newWrite, setNewWrite] = useState([...data]) // 글쓰기
+  const [LocalItem, setLocalItem] = useState(JSON.parse(window.localStorage.getItem("list")))
 
   // 프로필 - 헤더 값 변동
   const dummyStorage = {
@@ -37,8 +38,9 @@ function App() {
   const [newProfile, setNewProfile] = useState(profiles ? JSON.parse(profiles) : dummyStorage)
   
   
-  useEffect(() => {
-    if (!window.localStorage.getItem("list")) {
+  useEffect(() => {  
+    console.log(newWrite,"헐")
+    if (!window.localStorage.getItem("list")) { 
       window.localStorage.setItem("list", JSON.stringify(data)) 
     } 
   }, [])
@@ -58,15 +60,19 @@ function App() {
         pwValue: pwValue, 
         mainNav: mainNav,
         subNav: subNav,
-        newProfile: newProfile,
-        setIsLogin : setIsLogin,
+        newProfile: newProfile, 
+        newWrite : newWrite, 
+        LocalItem: LocalItem,
+        setIsLogin: setIsLogin,
         setLoginModal: setLoginModal, 
         setIdValue: setIdValue,
         setPwValue: setPwValue,
         setWriteModal: setWriteModal,
         setMainNav: setMainNav,
         setSubNav: setSubNav,
-        setNewProfile: setNewProfile
+        setNewProfile: setNewProfile, 
+        setNewWrite: setNewWrite,
+        setLocalItem: setLocalItem
         }
       }> 
         <Header/>

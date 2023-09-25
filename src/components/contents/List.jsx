@@ -1,33 +1,33 @@
 import list from '@/assets/scss/contents/list.module.scss'
-import data from '@/api/list'   
+// import data from '@/api/list'   
 import { useContext, useEffect, useMemo, useState } from 'react';
 import { Context } from '@/context/Context';
 
 const List = () => {   
-  const {isLogin, mainNav, subNav, newProfile} = useContext(Context); 
-  const [datas, setDatas] = useState(data) 
+  const {isLogin, mainNav, subNav, newWrite, setNewWrite} = useContext(Context);  
+
   // 리스트 - 좋아요 기능
   const handleLike = useMemo(() => {
     return ((e,item) => {
       item.good = !item.good 
-      window.localStorage.setItem("list", JSON.stringify(datas))
-      setDatas([...datas]) 
+      window.localStorage.setItem("list", JSON.stringify(newWrite))
+      setNewWrite(newWrite) 
     })
-  },[datas])
+  },[newWrite, setNewWrite])
 
   // 리스트 - 북마크
   const handleFavorite = useMemo(() => {
     return ((e,item) => { 
       if(isLogin) {
         item.favorite = !item.favorite
-        window.localStorage.setItem("list", JSON.stringify(datas))
-        setDatas([...datas]) 
+        window.localStorage.setItem("list", JSON.stringify(newWrite))
+        setNewWrite(newWrite) 
       }else {
         alert('로그인이 필요합니다.')
       }
       }
     )
-  },[isLogin, datas])
+  },[isLogin, newWrite, setNewWrite])
      
   // 리스트 - 카테고리 별 네비게이션
   const categoryNav = useMemo(() => {
@@ -57,12 +57,12 @@ const List = () => {
   // 리스트 - 게시글 정렬하기
   const handleSort = useMemo(() => {  
     return (() => { 
-      const sortList = datas.sort((a,b) => {
+      const sortList = newWrite.sort((a,b) => {
         if(a.uploadTime > b.uploadTime) return 1;
         if(a.uploadTime < b.uploadTime) return -1;
           return 0;
         });  
-       setDatas([...sortList])
+        setNewWrite([...sortList])
    })
   },[])
 
@@ -70,7 +70,7 @@ const List = () => {
   const handleLocalGetItem = () => { 
     const getDatas =  JSON.parse(window.localStorage.getItem("list")) 
     if (getDatas) { 
-      setDatas([...getDatas])
+      setNewWrite(getDatas)
       getDatas.forEach((item) => {
         if(!isLogin && item.favorite) {
           item.favorite = !item.favorite
@@ -80,22 +80,26 @@ const List = () => {
   }
    
   useEffect(() => {   
-    handleSort()
     handleLocalGetItem()
+    handleSort()
   }, [isLogin]) 
 
   return (   
     <section className={`${list.list_wrap}`}>
       <ul className={list.list_ul}>  
         { 
-          datas.map((item, id) => {
+          newWrite.map((item, id) => {
             return (
               categoryNav(item) &&
               <li key={id}>
                 <div className={list.list_content}> 
                   <div className={list.list_write}>
                     <div> 
-                      <img src={item.profileImg} alt='게시글 프로필'/> 
+                      {
+                        item.profileImg ?
+                        <img src={item.profileImg} alt="" /> :
+                        <img src='/images/common/profile_default.png' alt='기본프로필'/>
+                      }  
                       <span>{item.profileName}</span>
                     </div>
                     <span>{item.uploadTime} 분전</span>
@@ -111,8 +115,8 @@ const List = () => {
                     </div>
                     <div className={list.list_sympathy_img}>
                       {
-                        item.contentImg ?
-                        <img src={item.contentImg} alt={item.smallCategory2} />
+                        item.contentImg[0] ?
+                        <img src={item.contentImg[0].img} alt={item.smallCategory2} />
                         : '이미지를 불러올 수 없습니다.'
                       }
                     </div>
