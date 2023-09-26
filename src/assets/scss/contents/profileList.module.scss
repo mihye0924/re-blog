@@ -34,9 +34,10 @@
       }
     }
     img {
-      width: 30px;
+      width: 25px;
+      height: 25px;
       border: 1px solid $b_lightgray_ed;
-      border-radius: 10px;
+      border-radius: 5px;
     }  
   }
   &_label {
@@ -180,7 +181,7 @@
       width: 75px;
       height: 75px;
       overflow: hidden;
-      border-radius: 10px;
+      border-radius: 5px;
       border: 1px solid #EBEBEB;
       text-align: center ;
       flex-basis: 75px;
