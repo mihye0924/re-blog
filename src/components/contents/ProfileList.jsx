@@ -4,29 +4,29 @@ import { useContext, useEffect, useMemo, useState } from 'react'
 import { ProfileContext } from '@/context/ProfileContext';
 import { Context } from '@/context/Context';
 
-const ProfileList = () => {   
+const ProfileList = () => {    
   const {mainNav} = useContext(ProfileContext);    
-  const {newProfile, LocalItem, setLocalItem} = useContext(Context);   
-  // const [datas, setLocalItem] = useState(data) 
+  const {newProfile, newWrite, setNewWrite, loginId} = useContext(Context);   
+  const [datas, setDatas] = useState(data) 
 
   // 리스트 - 좋아요 기능
   const handleLike = useMemo(() => {
     return ((e,item) => {
       item.good = !item.good 
-      window.localStorage.setItem("list", JSON.stringify(LocalItem))
-      setLocalItem(LocalItem) 
+      window.localStorage.setItem("list", JSON.stringify(newWrite))
+      setNewWrite([...newWrite])   
     })
-  },[LocalItem, setLocalItem])
+  },[newWrite, setNewWrite])
 
    // 리스트 - 북마크
    const handleFavorite = useMemo(() => {
     return ((e,item) => { 
         item.favorite = !item.favorite
-        window.localStorage.setItem("list", JSON.stringify(LocalItem))
-        setLocalItem(LocalItem) 
+        window.localStorage.setItem("list", JSON.stringify(newWrite))
+        setNewWrite([...newWrite])   
       }
     )
-  },[LocalItem, setLocalItem])
+  },[newWrite, setNewWrite])
   
   // 카테고리 별 네비게이션
   const categoryNav = useMemo(() => {
@@ -52,37 +52,38 @@ const ProfileList = () => {
     })
   },[])
 
+
+  // 리스트 - 로컬 데이터 가져오기
+  const handleLocalGetItem = () => { 
+    const localItem = JSON.parse(window.localStorage.getItem("list"))
+    if(localItem){
+      setDatas([...localItem]) 
+      setNewWrite([...localItem])   
+    }
+  }
+
   // 리스트 - 게시글 정렬하기
   const handleSort = useMemo(() => {  
     return (() => { 
-      const sortList = LocalItem.sort((a,b) => {
+      const sortList = datas.sort((a,b) => {
         if(a.uploadTime > b.uploadTime) return 1;
         if(a.uploadTime < b.uploadTime) return -1;
           return 0;
         });  
-       setLocalItem([...sortList])
+        setDatas([...sortList])
    })
   },[])
 
-  // 리스트 - 로컬 데이터 가져오기
-  const handleLocalGetItem = () => { 
-    const obj = window.localStorage.getItem("list")
-    if (obj) {
-      const newData = JSON.parse(obj)   
-      setLocalItem(newData)
-    }     
-  }
-
   useEffect(() => { 
-    handleSort()
     handleLocalGetItem() 
+    handleSort()
   },[]) 
 
   return (   
     <section className={`${profileList.profileList_wrap}`}>
       <ul className={profileList.profileList_ul}>  
         { 
-          LocalItem.map((item, id) => {
+          newWrite.map((item, id) => {
             return (
               categoryNav(item) &&
               <li key={id}>
@@ -94,7 +95,7 @@ const ProfileList = () => {
                         <img src={newProfile.img} alt="" /> :
                         <img src='/images/common/profile_default.png' alt='기본프로필'/>
                       }  
-                      <span>{newProfile.name}</span>
+                         <span>{newProfile.name ? newProfile.name : loginId[0].id}</span>
                       <span>{item.smallCategory2}</span>
                     </div>
                     <span>{item.uploadTime} 분전</span>

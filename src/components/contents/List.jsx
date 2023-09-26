@@ -1,17 +1,18 @@
 import list from '@/assets/scss/contents/list.module.scss'
-// import data from '@/api/list'   
+import data from '@/api/list'   
 import { useContext, useEffect, useMemo, useState } from 'react';
 import { Context } from '@/context/Context';
 
 const List = () => {   
-  const {newProfile, isLogin, mainNav, subNav, newWrite, setNewWrite} = useContext(Context);  
-
+  const {newProfile, isLogin, mainNav, subNav, newWrite, setNewWrite, loginId} = useContext(Context);  
+  const [datas, setDatas] = useState(data) 
+  
   // 리스트 - 좋아요 기능
   const handleLike = useMemo(() => {
     return ((e,item) => {
       item.good = !item.good 
       window.localStorage.setItem("list", JSON.stringify(newWrite))
-      setNewWrite(newWrite) 
+      setNewWrite([...newWrite])   
     })
   },[newWrite, setNewWrite])
 
@@ -20,8 +21,8 @@ const List = () => {
     return ((e,item) => { 
       if(isLogin) {
         item.favorite = !item.favorite
+        setNewWrite([...newWrite]) 
         window.localStorage.setItem("list", JSON.stringify(newWrite))
-        setNewWrite(newWrite) 
       }else {
         alert('로그인이 필요합니다.')
       }
@@ -54,34 +55,36 @@ const List = () => {
     })
   },[])
  
+
+  // 리스트 - 로컬 데이터 가져오기
+  const handleLocalGetItem = () => {   
+    const localItem = JSON.parse(window.localStorage.getItem("list"))
+    if(localItem){
+      setDatas([...localItem]) 
+      setNewWrite([...localItem])
+      localItem.forEach((item) => {
+        if(!isLogin && item.favorite) {
+          item.favorite = !item.favorite
+        }
+      })    
+    }
+  }
+  
   // 리스트 - 게시글 정렬하기
   const handleSort = useMemo(() => {  
-    return (() => { 
-      const sortList = newWrite.sort((a,b) => {
+    return (() => {  
+      const sortList = datas.sort((a,b) => {
         if(a.uploadTime > b.uploadTime) return 1;
         if(a.uploadTime < b.uploadTime) return -1;
           return 0;
         });  
-        setNewWrite([...sortList])
+        setDatas([...sortList])
    })
-  },[])
-
-  // 리스트 - 로컬 데이터 가져오기
-  const handleLocalGetItem = () => { 
-    const getDatas =  JSON.parse(window.localStorage.getItem("list")) 
-    if (getDatas) { 
-      setNewWrite(getDatas)
-      getDatas.forEach((item) => {
-        if(!isLogin && item.favorite) {
-          item.favorite = !item.favorite
-        }
-      })
-    }        
-  }
-   
+  },[datas])
+    
   useEffect(() => {   
     handleLocalGetItem()
-    handleSort()
+    handleSort() 
   }, [isLogin]) 
 
   return (   
@@ -100,7 +103,7 @@ const List = () => {
                          <img src={newProfile.img} alt="" /> :
                          <img src='/images/common/profile_default.png' alt='기본프로필'/>
                       }  
-                      <span>{item.profileName}</span>
+                      <span>{newProfile.name ? newProfile.name : loginId[0].id}</span>
                     </div>
                     <span>{item.uploadTime} 분전</span>
                   </div>

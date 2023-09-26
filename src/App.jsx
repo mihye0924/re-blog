@@ -9,12 +9,14 @@ import RightLayout from '@/components/layout/RightLayout'
 import data from '@/api/list'  
 import { useNavigate } from 'react-router-dom'; 
 import { Context } from '@/context/Context';
+import login from '@/api/login'
  
 
 function App() {    
   const navigate = useNavigate();
   const loginStatus = window.localStorage.getItem("login");
  
+  const [loginId, setLoginID] = useState(login)
   const [idValue, setIdValue] = useState('') // 아이디 체크 
   const [pwValue, setPwValue] = useState('') // 비밀번호 체크
   const [isLogin, setIsLogin] = useState(loginStatus) // 로그인
@@ -24,8 +26,9 @@ function App() {
   const [mainNav, setMainNav] =  useState(1) // 목록- 대분류
   const [subNav, setSubNav] = useState(1)  // 목록- 중분류
   
-  const [newWrite, setNewWrite] = useState([...data]) // 글쓰기
+  const [newWrite, setNewWrite] = useState(data) // 글쓰기
   const [LocalItem, setLocalItem] = useState(JSON.parse(window.localStorage.getItem("list")))
+ 
 
   // 프로필 - 헤더 값 변동
   const dummyStorage = {
@@ -38,8 +41,8 @@ function App() {
   const [newProfile, setNewProfile] = useState(profiles ? JSON.parse(profiles) : dummyStorage)
   
   
-  useEffect(() => {  
-    console.log(newWrite,"헐")
+  useEffect(() => {   
+    console.log(loginId)
     if (!window.localStorage.getItem("list")) { 
       window.localStorage.setItem("list", JSON.stringify(data)) 
     } 
@@ -63,6 +66,7 @@ function App() {
         newProfile: newProfile, 
         newWrite : newWrite, 
         LocalItem: LocalItem,
+        loginId: loginId,
         setIsLogin: setIsLogin,
         setLoginModal: setLoginModal, 
         setIdValue: setIdValue,
@@ -72,7 +76,8 @@ function App() {
         setSubNav: setSubNav,
         setNewProfile: setNewProfile, 
         setNewWrite: setNewWrite,
-        setLocalItem: setLocalItem
+        setLocalItem: setLocalItem,
+        setLoginID: setLoginID
         }
       }> 
         <Header/>
