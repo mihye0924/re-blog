@@ -105,14 +105,13 @@ function WritePopup() {
 
   // 해시태그 - 엔터시 값 입력
   const handleHashTagKeyPress = useMemo(() => {
-    return ((e) => {
-      console.log(e)
+    return ((e) => { 
+      if (e.target.value === "") {
+        alert('값을 입력해주세요')
+        return false
+      }
       if (e.code === "Enter") {
         setHashList([...hashList, { label: e.target.value }])
-        
-        if (e.target.value === "") {
-          alert('값을 입력해주세요')
-        }
         setHash("")
       }
     })
