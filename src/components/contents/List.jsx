@@ -1,11 +1,13 @@
 import list from '@/assets/scss/contents/list.module.scss'
 import data from '@/api/list'   
 import { useContext, useEffect, useMemo, useState } from 'react';
-import { Context } from '@/context/Context';
+import { Context } from '@/context/Context'; 
+import { useNavigate } from 'react-router-dom';
 
 const List = () => {   
   const {newProfile, isLogin, mainNav, subNav, newWrite, setNewWrite, loginId} = useContext(Context);  
-  const [datas, setDatas] = useState(data) 
+  const [datas, setDatas] = useState(data)  
+  const navigate = useNavigate();
   
   // 리스트 - 좋아요 기능
   const handleLike = useMemo(() => {
@@ -48,9 +50,9 @@ const List = () => {
   const handleLink = useMemo(() => {
     return ((item) => {
       if (item.lagreCategory && item.middleCategory) {
-        window.location.href= `detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`
+        navigate(`detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`) 
       } else {
-        window.location.href= `detail/${item.lagreCategory}/0/${item.id}`
+        navigate(`detail/${item.lagreCategory}/0/${item.id}`)
       } 
     })
   },[])

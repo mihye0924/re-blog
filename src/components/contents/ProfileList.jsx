@@ -3,12 +3,14 @@ import data from '@/api/list'
 import { useContext, useEffect, useMemo, useState } from 'react' 
 import { ProfileContext } from '@/context/ProfileContext';
 import { Context } from '@/context/Context';
+import { useNavigate } from 'react-router-dom';
 
 const ProfileList = () => {    
   const {mainNav} = useContext(ProfileContext);    
   const {newProfile, newWrite, setNewWrite, loginId} = useContext(Context);   
   const [datas, setDatas] = useState(data) 
-
+  const navigate = useNavigate();
+  
   // 리스트 - 좋아요 기능
   const handleLike = useMemo(() => {
     return ((e,item) => {
@@ -45,9 +47,9 @@ const ProfileList = () => {
   const handleLink = useMemo(() => {
     return ((item) => {
       if (item.lagreCategory && item.middleCategory) {
-        window.location.href= `detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`
+        navigate(`/detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`, { replace: true })
       } else {
-        window.location.href= `detail/${item.lagreCategory}/0/${item.id}`
+        navigate(`/detail/${item.lagreCategory}/0/${item.id}`, { replace: true })
       } 
     })
   },[])
