@@ -4,11 +4,9 @@ import categoryList from '@/api/categoryList'
 import navList from '@/api/navList'
 import { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { Context } from '@/context/Context'; 
-import { useLocation, useNavigate } from 'react-router-dom'
 
 function WritePopup() { 
-  const { setWriteModal, newProfile, newWrite, setNewWrite, writeTitle } = useContext(Context);
-
+  const { setWriteModal, newProfile, newWrite, setNewWrite } = useContext(Context);
   const [category1, setCategory1] = useState(false)
   const [category2, setCategory2] = useState(false)
   const [category1Option, setCategory1Option] = useState('대분류') //카테고리1 값
@@ -16,17 +14,15 @@ function WritePopup() {
   const [category1Num, setCategory1Num] = useState(1)
   const [category2Num, setCategory2Num] = useState(1)
   const [hash, setHash] = useState("")
-  const [hashList, setHashList] = useState([]) //해시태그 
+  const [hashList, setHashList] = useState([]) //해시태그
+ 
   const [contentNum, setContentNum] = useState(JSON.parse(window.localStorage.getItem("list")).length)
   const [title, setTitle] = useState("") //제목
   const [content, setContent] = useState("") //글 
   const [imgFile, setImgFile] = useState([]) //이미지 리스트
-  const imgRef = useRef(); 
-  const location = useLocation();  
-  const navigate = useNavigate();
+  const imgRef = useRef();
+
   const profile = newProfile //프로필 기본값 
-
-
   // const [timer, setTimer] = useState(0)  
  
 
@@ -110,8 +106,7 @@ function WritePopup() {
   // 해시태그 - 엔터시 값 입력
   const handleHashTagKeyPress = useMemo(() => {
     return ((e) => { 
-      
-      if (e.code === "Enter" && e.target.value === "") {
+      if (e.target.value === "") {
         alert('값을 입력해주세요')
         return false
       }
@@ -149,8 +144,7 @@ function WritePopup() {
     })
   }, [imgFile])
 
-  // 글쓰기 버튼
-  const handleWrite = useMemo(() => {
+  const hanldeWrite = useMemo(() => {
     return (() => {
         if(category1Option === "대분류" && category2Option === "중분류") {
           alert("대분류 옵션을 선택해주세요")
@@ -169,7 +163,7 @@ function WritePopup() {
           return false
         }
     
-      let pushList = [...newWrite,
+    let pushList = [...newWrite,
         {
           "id": contentNum,
           "views": 0,
@@ -195,7 +189,6 @@ function WritePopup() {
       ] 
       setNewWrite(pushList)  
       setLocal(pushList)  
-      
       setTimeout(() => {
         setWriteModal(false)
       }, 100) 
@@ -203,129 +196,12 @@ function WritePopup() {
   }, [category1Option, category2Option, title, content, newWrite, contentNum, profile.img, profile.name, category1Num, category2Num, imgFile, hashList, setNewWrite, setWriteModal])
    
 
-  // 글 쓰기 로컬 list 업데이트
   const setLocal = (pushList) => {
       window.localStorage.setItem("list", JSON.stringify(pushList))
-  } 
+  }
 
-  // 글수정 카테고리 분류 가져오기
-  const handleGetCategoryChangeName = useMemo(() => {
-    return((large, medium) => {
-      switch(large) {
-        case 1:
-          setCategory1Option('브랜드관')
-          break;
-        case 2:
-          setCategory1Option('전체')
-          break;
-        case 3:
-          setCategory1Option('자유')
-          break;
-        case 4:
-          setCategory1Option('유머')
-          break;
-      }
-      switch(medium) {
-        case 1:
-          setCategory2Option('편의점')
-          break;
-        case 2:
-          setCategory2Option('카페')
-          break;
-        case 3:
-          setCategory2Option('음식점')
-          break;
-        case 4:
-          setCategory2Option('의류')
-          break;
-        case 5:
-          setCategory2Option('회계')
-          break;
-        case 6:
-          setCategory2Option('무역·유통')
-          break;
-        case 7:
-          setCategory2Option('기타')
-          break;
-      }
-    })
-  },[])
-
-  // 글수정 데이터 가져오기 
-  const LargeItem = Number(location.pathname.split("/")[2])
-  const MediumItem = Number(location.pathname.split("/")[3])
-  const ItemIdx = Number(location.pathname.split("/")[4]) 
-  const handleGetModifyItem = useMemo(() => {
-    return(() =>{  
-      newWrite.forEach((item) => {  
-        if(item.lagreCategory === LargeItem &&
-          item.middleCategory === MediumItem &&
-          item.id === ItemIdx) {  
-            handleGetCategoryChangeName(item.lagreCategory, item.middleCategory)
-            setTitle(item.label)
-            setContent(item.subLabel)
-            setHashList(item.hashTag)
-            setImgFile(item.contentImg) 
-          }
-      })
-    })
-  },[newWrite, LargeItem, MediumItem, ItemIdx, handleGetCategoryChangeName])
-
-  // 글수정 버튼
-  const handleModify = useMemo(() => {
-    return(() => { 
-      newWrite.forEach((item, index) => {
-        if(item.lagreCategory === LargeItem &&
-          item.middleCategory === MediumItem &&
-          item.id === ItemIdx) { 
-          let list = 
-            {
-              "id": item.id,
-              "views": item.views,
-              "good": item.good,
-              "favorite": item.favorite,
-              "profileImg": !profile.img ? "/images/common/thumbnail.svg" : profile.img,
-              "lagreCategory": category1Num,
-              "middleCategory": category2Num,
-              "profileName": !profile.name ? login[0].id : profile.name, 
-              "label": title,
-              "subLabel": content,
-              "contentImg": imgFile ? [...imgFile] : '',
-              "uploadTime": item.uploadTime,
-              "hashTag": hashList ? [...hashList] : '',
-              "sympathy": {
-                "good": item.sympathy.good,
-                "sad": item.sympathy.sad,
-                "laugh": item.sympathy.laugth,
-                "angry": item.sympathy.angry,
-                "total": item.sympathy.total
-              }
-            }   
-            newWrite.splice(index,1,list)
-            setNewWrite(newWrite)  
-            setLocal(newWrite)  
-            navigate('/')
-          } 
-      })
-      setTimeout(() => {
-        setWriteModal(false)
-      }, 100) 
-    })
-  },[ItemIdx, LargeItem, MediumItem, category1Num, category2Num, content, hashList, imgFile, navigate, newWrite, profile.img, profile.name, setNewWrite, setWriteModal, title])
-
-
-  // 글수정 체크 
-  const handleWriteModifyCheck = useMemo(() => {  
-    return(() => {
-      if(location.pathname.split("/")[1] === "detail") { 
-        handleGetModifyItem()  
-      }
-    })
-  },[handleGetModifyItem, location.pathname])
-  
-  useEffect(() => {  
-    handleWriteModifyCheck() // 글 수정 체크
-    setContentNum(Number(contentNum) + 1) // 글쓰기 id 값 증가
+  useEffect(() => {     
+    setContentNum(Number(contentNum) + 1)
     // setInterval(() => {
     //   const now = new Date()
     //   const seconds = now.getSeconds(); 
@@ -342,7 +218,7 @@ function WritePopup() {
       <div className={writePopup.writePopup_wrap}>
         <section className={writePopup.writePopup_header}> 
           <div className={writePopup.writePopup_header_wrap}> 
-            <span>{writeTitle}</span>
+            <span>글쓰기</span>
             <button onClick={()=>{setWriteModal(false)}}><span>닫기</span><i className='icon close'/></button>
           </div>
         </section>
@@ -456,15 +332,8 @@ function WritePopup() {
             />
             </>
             }
-            <button className={writePopup.writePopup_footer_textbutton} onClick={
-              location.pathname.split("/")[1] === "detail"? 
-                handleModify : handleWrite
-            }>
-              
-              {
-              location.pathname.split("/")[1] === "detail"? 
-              "수정하기" : "작성하기" 
-              }
+            <button className={writePopup.writePopup_footer_textbutton} onClick={hanldeWrite}>
+              작성하기
             </button>
           </div>
         </section>

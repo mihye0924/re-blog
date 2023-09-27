@@ -4,9 +4,9 @@ import { useContext, useEffect, useMemo, useState } from 'react'
 import { Context } from '@/context/Context';
 
 function DetailContent() {  
-  const {newProfile, loginId} = useContext(Context);  
+  const {newProfile, loginId, newWrite, setNewWrite } = useContext(Context);  
 
-  const [datas, setDatas] = useState(JSON.parse(window.localStorage.getItem("list")))
+  // const [datas, setDatas] = useState(JSON.parse(window.localStorage.getItem("list")))
   const [emotionActive, setEmotionActive] = useState(false)
   const location = useLocation();
   const largeCategory = Number(location.pathname.split("/")[2])
@@ -51,9 +51,9 @@ function DetailContent() {
         window.localStorage.setItem("list", JSON.stringify(datas))  
       });
   
-      setDatas([...datas]) 
+      setNewWrite([...datas]) 
     })
-  }, [largeCategory, middleCategory, contentId])
+  }, [setNewWrite, largeCategory, contentId, middleCategory])
   
 
   // 조회수 카운트
@@ -69,7 +69,7 @@ function DetailContent() {
               window.localStorage.setItem("list", JSON.stringify(datas))
             }
         })
-        setDatas([...datas])
+        setNewWrite([...datas])
       } 
   }
 
@@ -80,7 +80,7 @@ function DetailContent() {
   return ( 
     <article className={datailcontent.datailcontent_wrap}>
       <div>  
-        {datas.map((item) => {
+        {newWrite.map((item) => {
           return (
             item.lagreCategory === largeCategory && 
             item.id === contentId &&

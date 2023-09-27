@@ -4,16 +4,16 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Context } from '@/context/Context';
 
 function DetailHeader() { 
-  const {isLogin, LocalItem, setLocalItem} = useContext(Context); 
+  const {isLogin, LocalItem, setLocalItem, setWriteModal, setWriteTitle} = useContext(Context); 
   const navigate = useNavigate();
   const [active, setActive] = useState(false) 
   const [favorite, setFavorite] = useState('icon_favorite') 
   const location = useLocation();
   const largeCategory = Number(location.pathname.split("/")[2])
   const middleCategory = Number(location.pathname.split("/")[3])
-  const contentId = Number(location.pathname.split("/")[4])   
-  // const [datas, setDatas] = useState(JSON.parse(window.localStorage.getItem("list")) ) 
- 
+  const contentId = Number(location.pathname.split("/")[4])    
+
+
   // 북마크 - ... 아이콘 기능 (수정,삭제)
   const handleSelect = useMemo(() => {
     return (() => {
@@ -72,6 +72,10 @@ function DetailHeader() {
 
   // 게시글 수정하기
   const handleModify = useMemo(() => { 
+    return(() => {
+      setWriteModal(true);
+      setWriteTitle('글수정');
+    })
   },[])
 
   // 게시글 삭제하기
@@ -95,7 +99,7 @@ function DetailHeader() {
 
 
   useEffect(() => { 
-    handleLocalGetItem() 
+    handleLocalGetItem()  
   },[isLogin]) 
  
   return (

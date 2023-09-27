@@ -26,9 +26,9 @@ function App() {
   const [mainNav, setMainNav] =  useState(1) // 목록- 대분류
   const [subNav, setSubNav] = useState(1)  // 목록- 중분류
   
+  const [writeTitle, setWriteTitle]= useState(""); // 글쓰기 제목
   const [newWrite, setNewWrite] = useState(data) // 글쓰기
   const [LocalItem, setLocalItem] = useState(JSON.parse(window.localStorage.getItem("list")))
- 
 
   // 프로필 - 헤더 값 변동
   const dummyStorage = {
@@ -41,8 +41,7 @@ function App() {
   const [newProfile, setNewProfile] = useState(profiles ? JSON.parse(profiles) : dummyStorage)
   
   
-  useEffect(() => {   
-    console.log(loginId)
+  useEffect(() => {    
     if (!window.localStorage.getItem("list")) { 
       window.localStorage.setItem("list", JSON.stringify(data)) 
     } 
@@ -58,6 +57,7 @@ function App() {
     <>
      <Context.Provider value={
       {
+        loginId: loginId,
         isLogin: isLogin, 
         idValue: idValue, 
         pwValue: pwValue, 
@@ -66,7 +66,8 @@ function App() {
         newProfile: newProfile, 
         newWrite : newWrite, 
         LocalItem: LocalItem,
-        loginId: loginId,
+        writeTitle: writeTitle,
+        setLoginID: setLoginID,
         setIsLogin: setIsLogin,
         setLoginModal: setLoginModal, 
         setIdValue: setIdValue,
@@ -77,7 +78,7 @@ function App() {
         setNewProfile: setNewProfile, 
         setNewWrite: setNewWrite,
         setLocalItem: setLocalItem,
-        setLoginID: setLoginID
+        setWriteTitle: setWriteTitle,
         }
       }> 
         <Header/>
