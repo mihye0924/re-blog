@@ -13,8 +13,8 @@ function WritePopup() {
   const [category2, setCategory2] = useState(false)
   const [category1Option, setCategory1Option] = useState('대분류') //카테고리1 값
   const [category2Option, setCategory2Option] = useState('중분류') //카테고리2 값
-  const [category1Num, setCategory1Num] = useState(1)
-  const [category2Num, setCategory2Num] = useState(1)
+  const [category1Num, setCategory1Num] = useState()
+  const [category2Num, setCategory2Num] = useState() 
   const [hash, setHash] = useState("")
   const [hashList, setHashList] = useState([]) //해시태그 
   const [contentNum, setContentNum] = useState(JSON.parse(window.localStorage.getItem("list")).length)
@@ -25,10 +25,12 @@ function WritePopup() {
   const location = useLocation();  
   const navigate = useNavigate();
   const profile = newProfile //프로필 기본값 
+  const LargeItem = Number(location.pathname.split("/")[2])
+  const MediumItem = Number(location.pathname.split("/")[3])
+  const ItemIdx = Number(location.pathname.split("/")[4]) 
 
 
-  // const [timer, setTimer] = useState(0)  
- 
+  // const [timer, setTimer] = useState(0)   
 
   // 대분류 토클
   const handleCategory1 = () => {
@@ -250,11 +252,7 @@ function WritePopup() {
       }
     })
   },[])
-
   // 글수정 데이터 가져오기 
-  const LargeItem = Number(location.pathname.split("/")[2])
-  const MediumItem = Number(location.pathname.split("/")[3])
-  const ItemIdx = Number(location.pathname.split("/")[4]) 
   const handleGetModifyItem = useMemo(() => {
     return(() =>{  
       newWrite.forEach((item) => {  
@@ -270,10 +268,10 @@ function WritePopup() {
       })
     })
   },[newWrite, LargeItem, MediumItem, ItemIdx, handleGetCategoryChangeName])
-
+  
   // 글수정 버튼
   const handleModify = useMemo(() => {
-    return(() => { 
+    return(() => {       
       newWrite.forEach((item, index) => {
         if(item.lagreCategory === LargeItem &&
           item.middleCategory === MediumItem &&
@@ -285,8 +283,8 @@ function WritePopup() {
               "good": item.good,
               "favorite": item.favorite,
               "profileImg": !profile.img ? "/images/common/thumbnail.svg" : profile.img,
-              "lagreCategory": category1Num,
-              "middleCategory": category2Num,
+              "lagreCategory": category1Num ? category1Num : item.lagreCategory,
+              "middleCategory": category2Num ? category2Num : item.middleCategory,
               "profileName": !profile.name ? login[0].id : profile.name, 
               "label": title,
               "subLabel": content,
@@ -296,7 +294,7 @@ function WritePopup() {
               "sympathy": {
                 "good": item.sympathy.good,
                 "sad": item.sympathy.sad,
-                "laugh": item.sympathy.laugth,
+                "laugh": item.sympathy.laugh,
                 "angry": item.sympathy.angry,
                 "total": item.sympathy.total
               }

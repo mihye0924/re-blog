@@ -51,24 +51,26 @@ function DetailHeader() {
   },[isLogin, largeCategory, middleCategory, contentId])
   
   // 북마크 - 로컬 데이터로 메인과 상세 연결
-  const handleLocalGetItem = () => {  
-    const datas = JSON.parse(window.localStorage.getItem("list") ) 
-    datas.forEach((item) => {
-    if (item.lagreCategory === largeCategory &&
-      item.id === contentId &&
-      item.middleCategory === middleCategory) {  
-        if(isLogin) {
-            if (item.favorite) {
-              setFavorite('icon_favorite_yellow_2') 
-            } else {
+  const handleLocalGetItem = useMemo(() => {  
+    return(() => {
+      const datas = JSON.parse(window.localStorage.getItem("list") ) 
+      datas.forEach((item) => {
+      if (item.lagreCategory === largeCategory &&
+        item.id === contentId &&
+        item.middleCategory === middleCategory) {  
+          if(isLogin) {
+              if (item.favorite) {
+                setFavorite('icon_favorite_yellow_2') 
+              } else {
+                setFavorite('icon_favorite')
+              }
+            }else {
               setFavorite('icon_favorite')
             }
-          }else {
-            setFavorite('icon_favorite')
-          }
-       }
-    })  
-  } 
+        }
+      })  
+    })
+  },[contentId, isLogin, largeCategory, middleCategory])
 
   // 게시글 수정하기
   const handleModify = useMemo(() => { 
@@ -76,7 +78,7 @@ function DetailHeader() {
       setWriteModal(true);
       setWriteTitle('글수정');
     })
-  },[])
+  },[setWriteModal, setWriteTitle])
 
   // 게시글 삭제하기
   const handleDelete = useMemo(() => { 
