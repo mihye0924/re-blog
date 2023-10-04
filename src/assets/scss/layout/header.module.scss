@@ -72,17 +72,17 @@
                 position: absolute;
                 left: 50%;
                 transform: translate(-65%,-1%);
-                border-radius: 20px;
-                // overflow: hidden;  
+                border-radius: 5px; 
                 &::-webkit-scrollbar {
                     width: 15px;
-                    background-color: $bg_lightgray;
+                    // background-color: $bg_lightgray;
                 } 
                 &::-webkit-scrollbar-thumb {
                     width: 20px;
                     background-color: #a7a7a75c;  
                     background-clip: padding-box;
-                    border: 3px solid transparent; 
+                    border: 3px solid transparent;  
+                    border-radius: 50px;
                 }
                 &_li {
                     padding: 20px;
@@ -129,8 +129,7 @@
             }
             &_bottom {
                 display: flex;
-                justify-content: space-between;
-                // padding: 0 20px;
+                justify-content: space-between; 
                 div {
                   &:first-child { 
                     margin-right: 20px;
