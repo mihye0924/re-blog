@@ -29,6 +29,7 @@ function DetailContent() {
     return ((index) => { 
     const datas = JSON.parse(window.localStorage.getItem('list')) 
     datas.forEach(item => {  
+      console.log(item.lagreCategory)
         if(item.lagreCategory === largeCategory && 
           item.id === contentId &&
           item.middleCategory === middleCategory) {
