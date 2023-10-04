@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Context } from '@/context/Context';
 
 function DetailHeader() { 
-  const {isLogin, LocalItem, setLocalItem, setWriteModal, setWriteTitle} = useContext(Context); 
+  const {isLogin, setWriteModal, setWriteTitle} = useContext(Context); 
   const navigate = useNavigate();
   const [active, setActive] = useState(false) 
   const [favorite, setFavorite] = useState('icon_favorite') 
@@ -83,20 +83,20 @@ function DetailHeader() {
   // 게시글 삭제하기
   const handleDelete = useMemo(() => { 
    return (() => { 
-    LocalItem.forEach((item,index) => {
+    const localItem = JSON.parse(window.localStorage.getItem("list"))
+    localItem.forEach((item,index) => {
       if(item.id === contentId) {
-        LocalItem.splice(index, 1) 
+        localItem.splice(index, 1) 
       }
-    });
-    setLocalItem(LocalItem)   
-    setLocal(LocalItem) 
+    }); 
+    setLocal(localItem) 
     window.location.href = "/" 
    })
-  },[contentId, LocalItem, setLocalItem]) 
+  },[contentId]) 
 
 
-  const setLocal = (LocalItem) => {
-    window.localStorage.setItem("list", JSON.stringify(LocalItem))
+  const setLocal = (localItem) => {
+    window.localStorage.setItem("list", JSON.stringify(localItem))
   }
 
 

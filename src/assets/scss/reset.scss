@@ -5,6 +5,17 @@ body, html {
     box-sizing: border-box;
     background-color: $bg_lightgray;
 }
+body {
+    &::-webkit-scrollbar {
+        width: 15px;
+    } 
+    &::-webkit-scrollbar-thumb {
+        width: 20px;
+        background-color: #a7a7a75c;  
+        background-clip: padding-box;
+        border: 3px solid transparent; 
+    }
+}
 h1,h2,h3,h4,h5,h6,input,a,p,span,div{
     font-family: $noto-light; 
     font-size: $fs14;

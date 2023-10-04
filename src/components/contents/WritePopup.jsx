@@ -171,7 +171,7 @@ function WritePopup() {
           return false
         }
     
-      let pushList = [...newWrite,
+      let pushList = [
         {
           "id": contentNum,
           "views": 0,
@@ -193,11 +193,11 @@ function WritePopup() {
             "angry": 0,
             "total": 0
           }
-        }
+        },
+        ...newWrite
       ] 
       setNewWrite(pushList)  
       setLocal(pushList)  
-      
       setTimeout(() => {
         setWriteModal(false)
       }, 100) 
@@ -320,19 +320,11 @@ function WritePopup() {
       }
     })
   },[handleGetModifyItem, location.pathname])
-  
-  useEffect(() => {  
+   
+
+  useEffect(() => {   
     handleWriteModifyCheck() // 글 수정 체크
     setContentNum(Number(contentNum) + 1) // 글쓰기 id 값 증가
-    // setInterval(() => {
-    //   const now = new Date()
-    //   const seconds = now.getSeconds(); 
-  
-    //   // console.log(seconds)
-    //   if(seconds >= 59) {
-    //     setTimer(timer + 1)
-    //   }
-    // }, 1000);
   },[])  
   
   return (

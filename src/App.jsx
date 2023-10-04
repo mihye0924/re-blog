@@ -27,8 +27,7 @@ function App() {
   const [subNav, setSubNav] = useState(1)  // 목록- 중분류
   
   const [writeTitle, setWriteTitle]= useState(""); // 글쓰기 제목
-  const [newWrite, setNewWrite] = useState(data) // 글쓰기
-  const [LocalItem, setLocalItem] = useState(JSON.parse(window.localStorage.getItem("list")))
+  const [newWrite, setNewWrite] = useState(data) // 글쓰기 
 
   // 프로필 - 헤더 값 변동
   const dummyStorage = {
@@ -64,8 +63,7 @@ function App() {
         mainNav: mainNav,
         subNav: subNav,
         newProfile: newProfile, 
-        newWrite : newWrite, 
-        LocalItem: LocalItem,
+        newWrite : newWrite,  
         writeTitle: writeTitle,
         setLoginID: setLoginID,
         setIsLogin: setIsLogin,
@@ -76,8 +74,7 @@ function App() {
         setMainNav: setMainNav,
         setSubNav: setSubNav,
         setNewProfile: setNewProfile, 
-        setNewWrite: setNewWrite,
-        setLocalItem: setLocalItem,
+        setNewWrite: setNewWrite, 
         setWriteTitle: setWriteTitle,
         }
       }> 

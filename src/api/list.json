@@ -2,14 +2,15 @@
   {
     "id" : 1,  
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 1, 
     "middleCategory": 1,  
     "profileName":  "테스트네임",
-    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
-    "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
+    "label" : "국회에서 의결된 법률",
+    "subLabel": "이 헌법시행 당시에 이 헌법에 의하여 새로 설치될 기관의 권한에 속하는 직무를 행하고 있는 기관은 이 헌법에 의하여 새로운 기관이 설치될 때까지 존속하며 그 직무를 행한다. 대통령은 필요하다고 인정할 때에는 외교·국방·통일 기타 국가안위에 관한 중요정책을 국민투표에 붙일 수 있다. 대통령의 임기가 만료되는 때에는 임기만료 70일 내지 40일전에 후임자를 선거한다.",
     "contentImg" : [
       {
         "img" : "/images/content/list/dummy.png"
@@ -18,7 +19,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :10,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -38,14 +38,15 @@
   {
     "id" : 2, 
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 1,  
     "middleCategory": 1,  
     "profileName":  "테스트네임",
-    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
-    "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
+    "label" : "법관이 중대한 심신상",
+    "subLabel": "학교교육 및 평생교육을 포함한 교육제도와 그 운영, 교육재정 및 교원의 지위에 관한 기본적인 사항은 법률로 정한다. 모든 국민은 언론·출판의 자유와 집회·결사의 자유를 가진다. 국회에 제출된 법률안 기타의 의안은 회기중에 의결되지 못한 이유로 폐기되지 아니한다. 다만, 국회의원의 임기가 만료된 때에는 그러하지 아니하다.",
     "contentImg" : [
       {
         "img" : "/images/content/list/dummy.png"
@@ -54,7 +55,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :15,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -74,14 +74,15 @@
   {
     "id" : 3, 
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 1,  
     "middleCategory": 1,  
     "profileName":  "테스트네임",
-    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
-    "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
+    "label" : "모든 국민은 법률이",
+    "subLabel": "전직대통령의 신분과 예우에 관하여는 법률로 정한다. 누구든지 체포 또는 구속을 당한 때에는 적부의 심사를 법원에 청구할 권리를 가진다. 누구든지 병역의무의 이행으로 인하여 불이익한 처우를 받지 아니한다. 헌법에 의하여 체결·공포된 조약과 일반적으로 승인된 국제법규는 국내법과 같은 효력을 가진다.",
     "contentImg" : [
       {
         "img" : "/images/content/list/dummy.png"
@@ -90,7 +91,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :3,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -116,14 +116,15 @@
   {
     "id" : 4, 
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 1,  
     "middleCategory": 1,  
     "profileName":  "테스트네임",
-    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
-    "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
+    "label" : "모든 국민은 행위시의",
+    "subLabel": "대한민국은 국제평화의 유지에 노력하고 침략적 전쟁을 부인한다. 피고인의 자백이 고문·폭행·협박·구속의 부당한 장기화 또는 기망 기타의 방법에 의하여 자의로 진술된 것이 아니라고 인정될 때 또는 정식재판에 있어서 피고인의 자백이 그에게 불리한 유일한 증거일 때에는 이를 유죄의 증거로 삼거나 이를 이유로 처벌할 수 없다.",
     "contentImg" : [
       {
         "img" : "/images/content/list/dummy.png"
@@ -132,7 +133,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :3,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -152,14 +152,15 @@
   {
     "id" : 5, 
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 1,  
     "middleCategory": 1,  
     "profileName":  "테스트네임",
-    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
-    "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
+    "label" : "군사법원의 조직·권",
+    "subLabel": "대통령이 궐위된 때 또는 대통령 당선자가 사망하거나 판결 기타의 사유로 그 자격을 상실한 때에는 60일 이내에 후임자를 선거한다. 공공필요에 의한 재산권의 수용·사용 또는 제한 및 그에 대한 보상은 법률로써 하되, 정당한 보상을 지급하여야 한다. 대통령은 법률이 정하는 바에 의하여 훈장 기타의 영전을 수여한다.",
     "contentImg" : [
       {
         "img" : "/images/content/list/dummy.png"
@@ -168,7 +169,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :3,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -188,13 +188,14 @@
   {
     "id" : 6, 
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 1,  
     "middleCategory": 1,  
     "profileName":  "테스트네임",
-    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
+    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트6",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg" : [
       {
@@ -204,7 +205,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :3,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -224,13 +224,14 @@
   {
     "id" : 7, 
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 1,  
     "middleCategory": 1,  
     "profileName": "테스트네임", 
-    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
+    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트7",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg" : [
       {
@@ -240,7 +241,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :3,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -260,13 +260,14 @@
   {
     "id" : 8, 
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 1,  
     "middleCategory": 1,  
     "profileName": "테스트네임", 
-    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
+    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트8",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg" : [
       {
@@ -276,7 +277,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :3,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -296,13 +296,14 @@
   {
     "id" : 9,  
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 1,  
     "middleCategory": 1,  
     "profileName": "테스트네임",  
-    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
+    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트9",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg" : [
       {
@@ -312,7 +313,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :3,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -332,13 +332,14 @@
   {
     "id" : 10, 
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 1,  
     "middleCategory": 1,  
     "profileName": "테스트네임",  
-    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
+    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트10",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg" : [
       {
@@ -348,7 +349,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :3,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -368,13 +368,14 @@
   {
     "id" : 11, 
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 1,  
     "middleCategory": 2, 
     "profileName": "테스트네임",  
-    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
+    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트11",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg" : [
       {
@@ -384,7 +385,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :3,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -404,13 +404,14 @@
   {
     "id" : 12, 
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 1,  
     "middleCategory": 3, 
     "profileName": "테스트네임",  
-    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
+    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트12",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg" : [
       {
@@ -420,7 +421,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :1,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -443,13 +443,14 @@
   {
     "id" : 13, 
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 1,  
     "middleCategory": 4, 
     "profileName": "테스트네임",  
-    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
+    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트13",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg" : [
       {
@@ -459,7 +460,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :1,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -479,13 +479,14 @@
   {
     "id" : 14, 
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 1,  
     "middleCategory": 4,  
     "profileName": "테스트네임", 
-    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
+    "label" : "최대 두줄까지 할 예정이며 두줄이상이면 디폴트14",
     "subLabel": "게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지  이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg" : [
       {
@@ -495,7 +496,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :1,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -515,13 +515,14 @@
   {
     "id" : 15, 
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 3,
     "middleCategory": 0,
     "profileName": "테스트네임",  
-    "label" : "자유글1 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
+    "label" : "자유글1 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트15",
     "subLabel": "자유글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg" : [
       {
@@ -531,7 +532,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :3,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -551,13 +551,14 @@
   {
     "id" : 16,
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 3,
     "middleCategory": 0,
     "profileName": "테스트네임",  
-    "label" : "자유글2 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
+    "label" : "자유글2 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트16",
     "subLabel": "자유글2 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg" : [
       {
@@ -567,7 +568,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :20,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -587,13 +587,14 @@
   {
     "id" : 17,
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 4, 
     "middleCategory": 0,
     "profileName": "테스트네임", 
-    "label" : "유머글1 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
+    "label" : "유머글1 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트17",
     "subLabel": "유머글1 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg" : [
       {
@@ -603,7 +604,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :3,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
@@ -623,13 +623,14 @@
   {
     "id" : 18,
     "views" : 0,
+    "search" : true,
     "good": false,
     "favorite": false,
     "profileImg": "/images/common/thumbnail.svg",
     "lagreCategory": 4, 
     "middleCategory": 0,
     "profileName": "테스트네임", 
-    "label" : "유머글2 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트",
+    "label" : "유머글2 - 최대 두줄까지 할 예정이며 두줄이상이면 디폴트18",
     "subLabel": "유머글2 - 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 게시글 또한 두줄까지 이상이면 ...",
     "contentImg" : [
       {
@@ -639,7 +640,6 @@
         "img" : "/images/content/list/dummy.png"
       }
     ],
-    "uploadTime" :30,
     "hashTag" : [
       { 
         "label" :  "해시태그1"
