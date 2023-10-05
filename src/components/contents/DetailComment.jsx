@@ -51,7 +51,7 @@ function DetailComment({commentLength}) {
           window.localStorage.setItem("list", JSON.stringify(datas))  
           setNewWrite([...datas])
       })
-    }, [setNewWrite, largeCategory, contentId, middleCategory])
+    }, [])
 
     // 수정하기
     const handleCommentCorrection = useMemo(() => {
@@ -64,13 +64,14 @@ function DetailComment({commentLength}) {
               item.comment.forEach(subItem => {
                 subItem.currenction = false
                 item.comment[index].currenction = true
+                setSubCommentValue(item.comment[index].text)
               })
               }
             });
           window.localStorage.setItem("list", JSON.stringify(datas))  
           setNewWrite([...datas])
       })
-    }, [setNewWrite, largeCategory, contentId, middleCategory])
+    } , [])
 
     // 수정 댓글 변경
     const handleCommentCorrectionPush = useMemo(() => {
@@ -87,7 +88,7 @@ function DetailComment({commentLength}) {
           window.localStorage.setItem("list", JSON.stringify(datas))  
           setNewWrite([...datas])
       })
-    }, [setNewWrite, largeCategory, contentId, middleCategory])
+    })
 
   return (
     <article className={detailComment.detailComment}>
