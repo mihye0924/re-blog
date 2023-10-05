@@ -25,12 +25,12 @@ function DetailComment({commentLength}) {
                 }
               )
           }
-          window.localStorage.setItem("list", JSON.stringify(datas))  
         });
+        window.localStorage.setItem("list", JSON.stringify(datas))  
         setNewWrite([...datas])
       })
-    }, [setNewWrite, largeCategory, contentId, middleCategory])
-
+    }, [setNewWrite, largeCategory, contentId, middleCategory, newProfile.img, newProfile.name, commentValue])
+    console.log(newWrite)
   return (
     <article className={detailComment.detailComment}>
       <div className={detailComment.detailComment_wrap}>
@@ -50,12 +50,13 @@ function DetailComment({commentLength}) {
         </div>
         <ul className={detailComment.detailComment_comment}>
           {
-            newWrite.map(item => {
+            newWrite.map((item) => {
               return(
-                item.comment.map((subItem) => {
                   item.lagreCategory === largeCategory && 
                   item.id === contentId &&
-                  item.middleCategory === middleCategory &&
+                  item.middleCategory === middleCategory && 
+                  item.comment.map((subItem) => {
+                   return(
                     <li key={subItem.id} className={detailComment.detailComment_comment_list}>
                       dssadasdsadasd
                     <div className={detailComment.detailComment_comment_list_thumb}>
@@ -75,6 +76,7 @@ function DetailComment({commentLength}) {
                       </div>
                     </div>
                   </li>
+                   )
                 })
               )
             })
