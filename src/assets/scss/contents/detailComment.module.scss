@@ -75,8 +75,12 @@
     &_comment{
         &_list{
             display: flex;
-            gap: 12px;
-            padding: 14px 18px;
+            flex-direction: column;
+            & > div {
+                display: flex;
+                gap: 12px;
+                padding: 14px 18px;
+            }
             &_thumb{
                 width: 32px;
                 height: 32px;
@@ -85,11 +89,21 @@
                 }
             }
             &_item {
+                width: 100%;
                 &_wrap {
                     display: flex;flex-direction: column;
                 }
                 &_head {
                     margin-bottom: 6px;
+                    display: flex;
+                    justify-content: space-between;
+                    & > div {
+                        display: flex;
+                        gap: 8px;
+                        button {
+                            color: #999;
+                        }
+                    }
                     font: {
                         size: 13px;
                     };
@@ -132,6 +146,13 @@
                         }
                         color: #666;
                     }
+                }
+            }
+            &_sub{
+                &_item{
+                    display: flex;
+                    gap: 12px;
+                    padding: 14px 54px;
                 }
             }
         }

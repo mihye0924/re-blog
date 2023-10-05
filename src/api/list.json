@@ -36,15 +36,8 @@
     },
     "uploadTime": 30, 
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "sda",
-        "name": "asda",
-        "nickname": "dsad",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   },
   {
     "id" : 2, 
@@ -83,23 +76,8 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      },
-      {
-        "id": 2,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   },
   {
     "id" : 3, 
@@ -138,15 +116,8 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   },
   {
     "id" : 4, 
@@ -184,16 +155,8 @@
       "total" : 0
     },
     "uploadTime": 30,
-    "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    "comment": [],
+    "subComment" : []  
   },
   {
     "id" : 5, 
@@ -232,15 +195,8 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   },
   {
     "id" : 6, 
@@ -279,15 +235,8 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   },
   {
     "id" : 7, 
@@ -326,15 +275,8 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []
   },
   {
     "id" : 8, 
@@ -373,15 +315,8 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   },
   {
     "id" : 9,  
@@ -420,15 +355,8 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   },
   {
     "id" : 10, 
@@ -467,15 +395,8 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   },
   {
     "id" : 11, 
@@ -514,15 +435,8 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   },
   {
     "id" : 12, 
@@ -564,15 +478,8 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   },
   {
     "id" : 13, 
@@ -611,15 +518,8 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   },
   {
     "id" : 14, 
@@ -658,15 +558,8 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   },
   {
     "id" : 15, 
@@ -705,15 +598,8 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   },
   {
     "id" : 16,
@@ -752,15 +638,8 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   },
   {
     "id" : 17,
@@ -799,15 +678,8 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   },
   {
     "id" : 18,
@@ -846,14 +718,7 @@
     },
     "uploadTime": 30,
     "comment": [
-      {
-        "id": 1,
-        "img": "",
-        "text": "",
-        "name": "",
-        "nickname": "",
-        "time": "1"
-      }
-    ]
+    ],
+    "subComment" : []  
   }
 ]
