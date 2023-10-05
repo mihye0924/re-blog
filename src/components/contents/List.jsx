@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const List = () => {   
   const {newProfile, isLogin, mainNav, subNav, newWrite, setNewWrite, loginId} = useContext(Context);  
   const [datas, setDatas] = useState(data)  
+  const [count, setCount] = useState(1)  // 게시글 분
   const navigate = useNavigate();
   
   // 리스트 - 좋아요 기능
@@ -84,8 +85,22 @@ const List = () => {
    })
   },[datas])
     
+  useEffect(()=> {  
+    const now = new Date()
+    const seconds = now.getSeconds() 
+    const timer = setInterval(() => {   
+      setCount(seconds)  
+      newWrite.forEach((item) => {
+        if(count >= 59) {
+          item.uploadTime +=1
+          window.localStorage.setItem("list", JSON.stringify(newWrite))
+          setCount(0);
+        } 
+      })
+    }, 1000);   
+    return () => clearInterval(timer)
+  },[count, newWrite])
 
-  
   useEffect(() => {   
     handleLocalGetItem()
     handleSort() 
@@ -109,7 +124,7 @@ const List = () => {
                       }  
                       <span>{newProfile.name ? newProfile.name : loginId[0].id}</span>
                     </div>
-                    <span>{item.uploadTime} 분전</span>
+                    <span>{item.uploadTime < 30 ? item.uploadTime+'분전' : ''}</span>
                   </div>
                   <div className={list.list_label}>
                     <div>
@@ -122,7 +137,7 @@ const List = () => {
                     </div>
                     <div className={list.list_sympathy_img}>
                       {
-                        item.contentImg[0] ?
+                         item.contentImg[0] ?
                         <img src={item.contentImg[0].img} alt={item.smallCategory2} />
                         : '이미지를 불러올 수 없습니다.'
                       }

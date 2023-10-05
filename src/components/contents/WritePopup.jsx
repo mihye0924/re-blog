@@ -17,7 +17,6 @@ function WritePopup() {
   const [category2Num, setCategory2Num] = useState() 
   const [hash, setHash] = useState("")
   const [hashList, setHashList] = useState([]) //해시태그 
-  const [contentNum, setContentNum] = useState(JSON.parse(window.localStorage.getItem("list")).length)
   const [title, setTitle] = useState("") //제목
   const [content, setContent] = useState("") //글 
   const [imgFile, setImgFile] = useState([]) //이미지 리스트
@@ -170,7 +169,7 @@ function WritePopup() {
     
       let pushList = [
         {
-          "id": contentNum,
+          "id": newWrite.length + 1,
           "views": 0,
           "good": false,
           "favorite": false,
@@ -181,7 +180,7 @@ function WritePopup() {
           "label": title,
           "subLabel": content,
           "contentImg": imgFile ? [...imgFile] : '',
-          "uploadTime": 0,
+          "uploadTime": 1,
           "hashTag": hashList ? [...hashList] : '',
           "sympathy": {
             "good": 0,
@@ -209,7 +208,7 @@ function WritePopup() {
         setWriteModal(false)
       }, 100) 
     })
-  }, [category1Option, category2Option, title, content, newWrite, contentNum, profile.img, profile.name, category1Num, category2Num, imgFile, hashList, setNewWrite, setWriteModal])
+  }, [category1Option, category2Option, title, content, newWrite, profile.img, profile.name, category1Num, category2Num, imgFile, hashList, setNewWrite, setWriteModal])
    
 
   // 글 쓰기 로컬 list 업데이트
@@ -259,6 +258,7 @@ function WritePopup() {
       }
     })
   },[])
+  
   // 글수정 데이터 가져오기 
   const handleGetModifyItem = useMemo(() => {
     return(() =>{  
@@ -334,7 +334,7 @@ function WritePopup() {
 
   useEffect(() => {   
     handleWriteModifyCheck() // 글 수정 체크
-    setContentNum(Number(contentNum) + 1) // 글쓰기 id 값 증가
+    // setContentNum(Number(contentNum) + 1) // 글쓰기 id 값 증가
   },[])  
   
   return (
