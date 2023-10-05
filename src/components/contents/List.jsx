@@ -45,7 +45,6 @@ const List = () => {
     })
   },[mainNav, subNav])
  
-
   // 리스트 -  url 주소 확인 후 detail페이지로 값 보내기
   const handleLink = useMemo(() => {
     return ((item) => {
@@ -55,22 +54,23 @@ const List = () => {
         navigate(`detail/${item.lagreCategory}/0/${item.id}`)
       } 
     })
-  },[])
- 
+  },[navigate])
 
   // 리스트 - 로컬 데이터 가져오기
-  const handleLocalGetItem = () => {   
-    const localItem = JSON.parse(window.localStorage.getItem("list"))
-    if(localItem){
-      setDatas([...localItem]) 
-      setNewWrite([...localItem])
-      localItem.forEach((item) => {
-        if(!isLogin && item.favorite) {
-          item.favorite = !item.favorite
-        }
-      })    
-    }
-  }
+  const handleLocalGetItem = useMemo(() => {   
+    return(()=>{
+      const localItem = JSON.parse(window.localStorage.getItem("list"))
+      if(localItem){
+        setDatas([...localItem]) 
+        setNewWrite([...localItem])
+        localItem.forEach((item) => {
+          if(!isLogin && item.favorite) {
+            item.favorite = !item.favorite
+          }
+        })    
+      }
+    })
+  },[isLogin, setNewWrite])
   
   // 리스트 - 게시글 정렬하기
   const handleSort = useMemo(() => {  
@@ -84,6 +84,8 @@ const List = () => {
    })
   },[datas])
     
+
+  
   useEffect(() => {   
     handleLocalGetItem()
     handleSort() 

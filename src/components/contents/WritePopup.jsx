@@ -27,10 +27,7 @@ function WritePopup() {
   const profile = newProfile //프로필 기본값 
   const LargeItem = Number(location.pathname.split("/")[2])
   const MediumItem = Number(location.pathname.split("/")[3])
-  const ItemIdx = Number(location.pathname.split("/")[4]) 
-
-
-  // const [timer, setTimer] = useState(0)   
+  const ItemIdx = Number(location.pathname.split("/")[4])  
 
   // 대분류 토클
   const handleCategory1 = () => {
@@ -150,7 +147,7 @@ function WritePopup() {
       setImgFile([...imgFile])
     })
   }, [imgFile])
-
+  
   // 글쓰기 버튼
   const handleWrite = useMemo(() => {
     return (() => {
@@ -192,7 +189,17 @@ function WritePopup() {
             "laugh": 0,
             "angry": 0,
             "total": 0
-          }
+          }, 
+          "comment": [
+            {
+              "id": 1,
+              "img": "",
+              "text": "",
+              "name": "",
+              "nickname": "",
+              "time": "1"
+            }
+          ] 
         },
         ...newWrite
       ] 
@@ -297,7 +304,10 @@ function WritePopup() {
                 "laugh": item.sympathy.laugh,
                 "angry": item.sympathy.angry,
                 "total": item.sympathy.total
-              }
+              }, 
+              "comment": [
+                 ...item.comment
+              ] 
             }   
             newWrite.splice(index,1,list)
             setNewWrite(newWrite)  
