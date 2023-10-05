@@ -1,14 +1,19 @@
 import header from '@/assets/scss/layout/header.module.scss';
 import Button from '@/components/common/Button.jsx' 
 import { useContext, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Context } from '@/context/Context'; 
- 
+
 
 const Header = () => {
     const {isLogin, loginId, setIsLogin, setLoginModal, newProfile, newWrite, setNewWrite} = useContext(Context);   
     const [filterOpen, setFilterOpen] = useState(false)  
     const [input, setInput] = useState('');
+    const navigate = useNavigate();
+  
+    // 프로필
+    const profile = newProfile
 
     // 로그인 - 팝업
     const LoginPopup = () => {
@@ -19,11 +24,20 @@ const Header = () => {
     const logout = () => { 
         setIsLogin(false)
         window.localStorage.removeItem("login"); 
-    }  
- 
-    // 프로필
-    const profile = newProfile
-   
+    }   
+
+    // 검색결과 - url 주소 확인 후 detail페이지로 값 보내기
+    const handleLink = useMemo(() => {
+        return ((item) => {
+            console.log(item,"캌ㅋ")
+          if (item.lagreCategory && item.middleCategory) {
+            navigate(`detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`) 
+          } else {
+            navigate(`detail/${item.lagreCategory}/0/${item.id}`)
+          } 
+        })
+      },[navigate])
+
     // 검색결과
     const filter = useMemo(() => {
         return(() => {   
@@ -83,7 +97,7 @@ const Header = () => {
                                 {input} <span>- Re.Blog 검색</span>
                             </div>
                             {  
-                                newWrite.map((item,index) => { 
+                                newWrite.map((item, index) => { 
                                     return(    
                                         <li key={index} className={`${header.header_search_filter_ul_li} ${item.search ? 'show':'hide'}`}> 
                                             <div className={header.header_search_filter_top}> 
@@ -96,10 +110,10 @@ const Header = () => {
                                             </div>
                                             <div className={header.header_search_filter_bottom}>
                                                 <div>
-                                                    <button>
+                                                    <button onClick={() => { handleLink(item) }}>
                                                         <span>{item.label}</span>
                                                     </button>
-                                                    <button>
+                                                    <button onClick={() => { handleLink(item) }}>
                                                         <span>{item.subLabel}</span>
                                                     </button>
                                                 </div>
@@ -178,12 +192,12 @@ const Header = () => {
                                             </div>
                                             <div className={header.header_search_filter_bottom}>
                                                 <div>
-                                                    <button>
+                                                    <button onClick={() => { handleLink(item) }}>
                                                         <span>{item.label}</span>
                                                     </button>
-                                                    <button>
+                                                    <button onClick={() => { handleLink(item) }}>
                                                         <span>{item.subLabel}</span>
-                                                    </button>
+                                                    </button >
                                                 </div>
                                                 <div className={header.header_search_filter_bottom_img}>
                                                 {
