@@ -32,6 +32,7 @@ function DetailComment({commentLength}) {
           }
         });
         window.localStorage.setItem("list", JSON.stringify(datas))  
+        setCommentValue('')
         setNewWrite([...datas])
       })
     }, [setNewWrite, largeCategory, contentId, middleCategory, newProfile.img, newProfile.name, commentValue])
