@@ -8,8 +8,8 @@ function DetailComment({commentLength}) {
   const largeCategory = Number(location.pathname.split("/")[2])
   const middleCategory = Number(location.pathname.split("/")[3])
   const contentId = Number(location.pathname.split("/")[4])  
-  // 댓글 수정 on off
-  const [commentCorrection, setCommentCorrection] = useState(false) 
+
+
   // 댓글 추가
   const handleCommentPush = useMemo(() => {
     return (() => { 
@@ -36,6 +36,7 @@ function DetailComment({commentLength}) {
         setNewWrite([...datas])
       })
     }, [setNewWrite, largeCategory, contentId, middleCategory, newProfile.img, newProfile.name, commentValue])
+
     // 삭제하기
     const handleCommentDel = useMemo(() => {
       return ((index) => {
@@ -50,7 +51,8 @@ function DetailComment({commentLength}) {
           window.localStorage.setItem("list", JSON.stringify(datas))  
           setNewWrite([...datas])
       })
-    })
+    }, [setNewWrite, largeCategory, contentId, middleCategory])
+
     // 수정하기
     const handleCommentCorrection = useMemo(() => {
       return ((index) => {
@@ -68,7 +70,8 @@ function DetailComment({commentLength}) {
           window.localStorage.setItem("list", JSON.stringify(datas))  
           setNewWrite([...datas])
       })
-    })
+    }, [setNewWrite, largeCategory, contentId, middleCategory])
+
     // 수정 댓글 변경
     const handleCommentCorrectionPush = useMemo(() => {
       return ((index) => {
@@ -84,7 +87,7 @@ function DetailComment({commentLength}) {
           window.localStorage.setItem("list", JSON.stringify(datas))  
           setNewWrite([...datas])
       })
-    })
+    }, [setNewWrite, largeCategory, contentId, middleCategory])
 
   return (
     <article className={detailComment.detailComment}>
