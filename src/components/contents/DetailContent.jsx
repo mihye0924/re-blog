@@ -131,7 +131,7 @@ function DetailContent() {
                 <div className={datailcontent.datailcontent_footer_top}>
                   <div className={datailcontent.datailcontent_footer_top_left}>
                     <span>조회 { item.views ? item.views : 0} 회</span>
-                    <span>댓글</span>
+                    <span>댓글 { newWrite[item.id -1].comment.length }</span>
                     <span>공감 {item.sympathy.total ? item.sympathy.total : 0} </span>
                     </div>
                     <div className={`${datailcontent.datailcontent_footer_top_right} ${emotionActive && datailcontent['datailcontent_footer_top_right_active']}`}>

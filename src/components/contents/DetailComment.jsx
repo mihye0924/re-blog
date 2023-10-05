@@ -2,25 +2,35 @@ import detailComment from '@/assets/scss/contents/detailComment.module.scss'
 import { Context } from '@/context/Context';
 import { useContext, useEffect, useMemo, useState } from 'react';
 function DetailComment({commentLength}) {
-  const {newProfile} = useContext(Context);   
+  const {newProfile, newWrite, setNewWrite} = useContext(Context);   
   const [commentValue, setCommentValue] = useState()
-  const [commentList, setCommentList] = useState(JSON.parse(window.localStorage.getItem("list")))
+  const largeCategory = Number(location.pathname.split("/")[2])
+  const middleCategory = Number(location.pathname.split("/")[3])
+  const contentId = Number(location.pathname.split("/")[4])   
   const handleCommentPush = useMemo(() => {
-    return (() => {
-      commentList.forEach(item => {
-        item.comment.push(
-          {
-            id: commentList.length + 1,
-            img: newProfile.img,
-            name: newProfile.name,
-            nickname: '별명은 어떻게 하지?',
-            time: '1',
-            text: commentValue
+    return (() => { 
+      const datas = JSON.parse(window.localStorage.getItem('list')) 
+      datas.forEach(item => {  
+          if(item.lagreCategory === largeCategory && 
+            item.id === contentId &&
+            item.middleCategory === middleCategory) {
+              item.comment.push(
+                {
+                  id: item.comment.length + 1,
+                  img: newProfile.img,
+                  name: newProfile.name,
+                  nickname: '뭐해?',
+                  time: 1,
+                  text: commentValue
+                }
+              )
           }
-        )
+          window.localStorage.setItem("list", JSON.stringify(datas))  
+        });
+        setNewWrite([...datas])
       })
-    })
-  }, [])
+    }, [setNewWrite, largeCategory, contentId, middleCategory])
+
   return (
     <article className={detailComment.detailComment}>
       <div className={detailComment.detailComment_wrap}>
@@ -40,30 +50,33 @@ function DetailComment({commentLength}) {
         </div>
         <ul className={detailComment.detailComment_comment}>
           {
-            commentList.map(item => {
-              item.comment.map(comment => {
-                return(
-                  <li key={comment.id} className={detailComment.detailComment_comment_list}>
-                    sdada
+            newWrite.map(item => {
+              return(
+                item.comment.map((subItem) => {
+                  item.lagreCategory === largeCategory && 
+                  item.id === contentId &&
+                  item.middleCategory === middleCategory &&
+                    <li key={subItem.id} className={detailComment.detailComment_comment_list}>
+                      dssadasdsadasd
                     <div className={detailComment.detailComment_comment_list_thumb}>
-                      <img src={comment.img ? comment.img  : '/images/common/profile.png'} alt='' />
+                      <img src={subItem.img ? subItem.img  : '/images/common/profile.png'} alt='' />
                     </div>
                     <div className={detailComment.detailComment_comment_list_item}>
                       <div className={detailComment.detailComment_comment_list_item_wrap}>
                         <div className={detailComment.detailComment_comment_list_item_head}>
-                          <p><span className={detailComment.detailComment_comment_list_item_head_name}>{comment.name}</span><span>{comment.nickname}</span></p>
+                          <p><span className={detailComment.detailComment_comment_list_item_head_name}>{subItem.name}</span><span>{subItem.nickname}</span></p>
                         </div>
                         <div className={detailComment.detailComment_comment_list_item_content}>
-                          {comment.text}
+                          {subItem.text}
                         </div>
                         <div className={detailComment.detailComment_comment_list_item_bottom}>
-                          <span className={detailComment.detailComment_comment_list_item_bottom_time}>{comment.time}분</span><button>답글 달기</button>
+                          <span className={detailComment.detailComment_comment_list_item_bottom_time}>{subItem.time}분</span><button>답글 달기</button>
                         </div>
                       </div>
                     </div>
                   </li>
-                )
-              })
+                })
+              )
             })
           }
         </ul>
