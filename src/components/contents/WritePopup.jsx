@@ -4,10 +4,12 @@ import categoryList from '@/api/categoryList'
 import navList from '@/api/navList'
 import { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { Context } from '@/context/Context'; 
+import { MainContext } from '@/context/MainContext'; 
 import { useLocation, useNavigate } from 'react-router-dom'
 
 function WritePopup() { 
-  const { setWriteModal, newProfile, newWrite, setNewWrite, writeTitle } = useContext(Context);
+  const { newProfile, newWrite, setNewWrite } = useContext(Context);
+  const { setWriteModal, writeTitle } = useContext(MainContext);
 
   const [category1, setCategory1] = useState(false)
   const [category2, setCategory2] = useState(false)

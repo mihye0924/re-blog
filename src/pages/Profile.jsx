@@ -1,26 +1,17 @@
 import ProfileLeftLayout from '@/components/layout/ProfileLeftLayout'
 import ProfilePopup from '@/components/contents/ProfilePopup'
-import { useState } from 'react'
-import { ProfileContext } from '@/context/ProfileContext';
+import { useContext } from 'react'
+import { MainContext } from '@/context/MainContext';
 
-function Profile(){
-  const [popup, setPopup] = useState(false)  //프로필 팝업
-  const [mainNav, setMainNav] =  useState(1) //프로필 네비게이션 
-
-  return (
-    <ProfileContext.Provider value={{ 
-      popup: popup,
-      mainNav: mainNav,
-      setPopup: setPopup,
-      setMainNav: setMainNav
-    }}> 
+function Profile(){ 
+  const {popup} = useContext(MainContext);  
+  return ( 
     <>
       {
         popup ? <ProfilePopup  /> : false
       }
       <ProfileLeftLayout />
-    </>
-    </ProfileContext.Provider>
+    </> 
   )
 }
 export default Profile

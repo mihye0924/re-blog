@@ -1,10 +1,14 @@
 import write from '@/assets/scss/contents/write.module.scss'
 import { useContext } from 'react';
 import { Context } from '@/context/Context';
+import { MainContext } from '@/context/MainContext';
+
+
 const Write = () => {
-  const {isLogin, setWriteModal, setWriteTitle} = useContext(Context);   
+  const { state } = useContext(Context);   
+  const {setWriteModal, setWriteTitle} = useContext(MainContext);   
   return (  
-    isLogin &&
+    state.isLogin &&
     <section className={write.write_wrap}>
       <div>
           <button onClick={()=>{setWriteModal(true), setWriteTitle('글쓰기')}}>

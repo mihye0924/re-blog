@@ -4,40 +4,17 @@ import { useContext, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Context } from '@/context/Context'; 
+import {handleLink} from '@/js/list'
 
 
 const Header = () => {
-    const {isLogin, loginId, setIsLogin, setLoginModal, newProfile, newWrite, setNewWrite} = useContext(Context);   
+    const {state, dispatch, setLoginModal, newProfile, newWrite, setNewWrite} = useContext(Context);   
     const [filterOpen, setFilterOpen] = useState(false)  
     const [input, setInput] = useState('');
     const navigate = useNavigate();
   
     // 프로필
-    const profile = newProfile
-
-    // 로그인 - 팝업
-    const LoginPopup = () => {
-        setLoginModal(true)
-    }
-
-    //로그아웃
-    const logout = () => { 
-        setIsLogin(false)
-        window.localStorage.removeItem("login"); 
-    }   
-
-    // 검색결과 - url 주소 확인 후 detail페이지로 값 보내기
-    const handleLink = useMemo(() => {
-        return ((item) => {
-            console.log(item,"캌ㅋ")
-          if (item.lagreCategory && item.middleCategory) {
-            navigate(`detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`) 
-          } else {
-            navigate(`detail/${item.lagreCategory}/0/${item.id}`)
-          } 
-        })
-      },[navigate])
-
+    const profile = newProfile  
     // 검색결과
     const filter = useMemo(() => {
         return(() => {   
@@ -63,7 +40,7 @@ const Header = () => {
     },[input, newWrite, setNewWrite])
 
     return (
-        !isLogin ? 
+        !state.isLogin ? 
         <header className={header.header_wrap}>
             <div className={header.header}>
                 <div className={header.header_logo}>
@@ -85,7 +62,7 @@ const Header = () => {
                     <button className={header.header_alarm}>
                         <img src="/images/layout/alarm.png" alt="알림"/>
                     </button>
-                    <Button name="로그인" color="white" onClick={LoginPopup} />
+                    <Button name="로그인" color="white" onClick={() => {setLoginModal(true)}} />
                 </div>
             </div> 
             {
@@ -106,14 +83,14 @@ const Header = () => {
                                                     <img src={newProfile.img} alt="" /> :
                                                     <img src='/images/common/profile_default.png' alt='기본프로필'/>
                                                 }  
-                                                <span>{newProfile.name ? newProfile.name : loginId[0].id}</span>
+                                                <span>{newProfile.name ? newProfile.name : state.loginId}</span>
                                             </div>
                                             <div className={header.header_search_filter_bottom}>
                                                 <div>
-                                                    <button onClick={() => { handleLink(item) }}>
+                                                    <button onClick={() => { handleLink(item, navigate) }}>
                                                         <span>{item.label}</span>
                                                     </button>
-                                                    <button onClick={() => { handleLink(item) }}>
+                                                    <button onClick={() => { handleLink(item, navigate) }}>
                                                         <span>{item.subLabel}</span>
                                                     </button>
                                                 </div>
@@ -165,7 +142,7 @@ const Header = () => {
                     />        
                     </Link>
                     {/* <Button name="글쓰기" color="blackborder" /> */}
-                    <Link to={'/'} onClick={logout} className={header.header_logout}>
+                    <Link to={'/'} onClick={() => {dispatch({type: "LOGOUT"})}} className={header.header_logout}>
                         <span>로그아웃</span>
                     </Link>
                 </div>
@@ -188,7 +165,7 @@ const Header = () => {
                                                     <img src={newProfile.img} alt="" /> :
                                                     <img src='/images/common/profile_default.png' alt='기본프로필'/>
                                                 }  
-                                                <span>{newProfile.name ? newProfile.name : loginId[0].id}</span>
+                                                <span>{newProfile.name ? newProfile.name : state.loginId}</span>
                                             </div>
                                             <div className={header.header_search_filter_bottom}>
                                                 <div>

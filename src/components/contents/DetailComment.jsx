@@ -1,6 +1,6 @@
 import detailComment from '@/assets/scss/contents/detailComment.module.scss'
 import { Context } from '@/context/Context';
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 function DetailComment({commentLength}) {
   const {newProfile, newWrite, setNewWrite} = useContext(Context);   
   const [commentValue, setCommentValue] = useState()
@@ -29,8 +29,7 @@ function DetailComment({commentLength}) {
         window.localStorage.setItem("list", JSON.stringify(datas))  
         setNewWrite([...datas])
       })
-    }, [setNewWrite, largeCategory, contentId, middleCategory, newProfile.img, newProfile.name, commentValue])
-    console.log(newWrite)
+    }, [setNewWrite, largeCategory, contentId, middleCategory, newProfile.img, newProfile.name, commentValue]) 
   return (
     <article className={detailComment.detailComment}>
       <div className={detailComment.detailComment_wrap}>

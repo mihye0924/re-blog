@@ -1,17 +1,24 @@
 import  navList from '@/api/profileNav'
 import profileNav from '@/assets/scss/contents/profileNav.module.scss' 
-import { ProfileContext } from '@/context/ProfileContext';
-import { useContext } from 'react';
+import { MainContext } from '@/context/MainContext';
+import { useContext, useMemo } from 'react';
 
 const ProfileNav = () => { 
-  const {mainNav, setMainNav} = useContext(ProfileContext);  
-
+  const {state2, dispatch2} = useContext(MainContext);  
+  const handleNav = useMemo(() => {
+    return((e) => {
+      dispatch2({ 
+        type:'CATEGORY',
+        payload: {mainNav : e.target.value}
+      })
+    })
+  },[dispatch2])
   return (
     <div className={profileNav.profileNav_wrap}>
       <ul className={profileNav.profileNav_main}>
         {navList.map((item) => (
-          <li key={item.id} className={`${item.id === Number(mainNav) ? profileNav['profileNav_main_active'] : ''}`}>
-            <button onClick={(e) => {setMainNav(e.target.value)}} value={item.id}> 
+          <li key={item.id} className={`${item.id === state2.mainNav ? profileNav['profileNav_main_active'] : ''}`}>
+            <button onClick={handleNav} value={item.id}>  
               {item.label}
             </button>
           </li>

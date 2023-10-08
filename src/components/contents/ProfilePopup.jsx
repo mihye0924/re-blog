@@ -1,24 +1,24 @@
 import profilePopup from '@/assets/scss/contents/profilePopup.module.scss'
 // import Button from '@/components/common/Button'
 import { useContext, useEffect, useMemo, useRef, useState} from 'react';
-import { ProfileContext } from '@/context/ProfileContext'
+import { MainContext } from '@/context/MainContext'
 import { Context } from '@/context/Context'
  
 const ProfilePopup = () => {
-  const {setPopup} = useContext(ProfileContext);   
+  const {setPopup} = useContext(MainContext);   
   const {newProfile, setNewProfile} = useContext(Context);   
  
-  useEffect(() => {
-    const handleStorageChange = (e) => {
-        if (e.key === 'profile') {
-          setNewProfile(e.newValue);
-        }
-    };
-    window.addEventListener('storage', handleStorageChange);
-    return () => {
-        window.removeEventListener('storage', handleStorageChange);
-    };
-}, []);
+//   useEffect(() => {
+//     const handleStorageChange = (e) => {
+//         if (e.key === 'profile') {
+//           setNewProfile(e.newValue);
+//         }
+//     };
+//     window.addEventListener('storage', handleStorageChange);
+//     return () => {
+//         window.removeEventListener('storage', handleStorageChange);
+//     };
+// }, []);
 
   // input value 닉네임
   const [inputNameValue, setInputNameValue] = useState(newProfile.name);

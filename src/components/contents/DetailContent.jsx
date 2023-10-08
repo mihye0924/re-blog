@@ -4,9 +4,7 @@ import { useContext, useEffect, useMemo, useState } from 'react'
 import { Context } from '@/context/Context';
 
 function DetailContent() {  
-  const {newProfile, loginId, newWrite, setNewWrite } = useContext(Context);  
-
-  // const [datas, setDatas] = useState(JSON.parse(window.localStorage.getItem("list")))
+  const {state, newProfile, newWrite, setNewWrite } = useContext(Context);   
   const [emotionActive, setEmotionActive] = useState(false)
   const location = useLocation();
   const largeCategory = Number(location.pathname.split("/")[2])
@@ -96,7 +94,7 @@ function DetailContent() {
                      <img src='/images/common/profile_default.png' alt='기본프로필'/>
                     }  
                   </h1>
-                  <span>{newProfile.name ? newProfile.name : loginId[0].id}</span>
+                  <span>{newProfile.name ? newProfile.name : state.loginId}</span>
                   <span>{item.smallCategory2}</span>
                 </div>
                 <ul className={datailcontent.datailcontent_header_bottom}>
