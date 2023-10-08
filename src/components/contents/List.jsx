@@ -1,5 +1,5 @@
 import list from '@/assets/scss/contents/list.module.scss'
-import data from '@/api/list'   
+// import data from '@/api/list'   
 import  { useContext, useEffect, useState } from 'react';
 import { Context } from '@/context/Context'; 
 import { MainContext } from '@/context/MainContext'; 
@@ -7,10 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import { categoryNav, handleFavorite, handleLike, handleLink, handleLocalGetItem, handleTimer } from '@/js/list';
 
 const List = () => {   
-  const { state, newWrite, newProfile } = useContext(Context);   
+  const { state, datas, setDatas, newProfile } = useContext(Context);   
   const { state2 } = useContext(MainContext);   
-  const localData = JSON.parse(localStorage.getItem("list")) // 데이터 가져오기
-  const [datas, setDatas] = useState(data)  
+  const localData = JSON.parse(localStorage.getItem("list")) // 데이터 가져오기 
   const [count, setCount] = useState(1)  // 게시글 분
   const now = new Date()
   const seconds = now.getSeconds() 
@@ -33,7 +32,7 @@ const List = () => {
     <section className={`${list.list_wrap}`}>
       <ul className={list.list_ul}>  
         { 
-          localData.map((item, id) => {
+          datas.map((item, id) => {
             return (
               categoryNav(item, state2) &&
               <li key={id}>

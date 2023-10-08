@@ -2,7 +2,7 @@ import detailComment from '@/assets/scss/contents/detailComment.module.scss'
 import { Context } from '@/context/Context';
 import { useContext, useMemo, useState } from 'react';
 function DetailComment({commentLength}) {
-  const {newProfile, newWrite, setNewWrite} = useContext(Context);   
+  const {newProfile, datas, setDatas} = useContext(Context);   
   const [commentValue, setCommentValue] = useState()
   const largeCategory = Number(location.pathname.split("/")[2])
   const middleCategory = Number(location.pathname.split("/")[3])
@@ -27,9 +27,9 @@ function DetailComment({commentLength}) {
           }
         });
         window.localStorage.setItem("list", JSON.stringify(datas))  
-        setNewWrite([...datas])
+        setDatas([...datas])
       })
-    }, [setNewWrite, largeCategory, contentId, middleCategory, newProfile.img, newProfile.name, commentValue]) 
+    }, [setDatas, largeCategory, contentId, middleCategory, newProfile.img, newProfile.name, commentValue]) 
   return (
     <article className={detailComment.detailComment}>
       <div className={detailComment.detailComment_wrap}>
@@ -49,7 +49,7 @@ function DetailComment({commentLength}) {
         </div>
         <ul className={detailComment.detailComment_comment}>
           {
-            newWrite.map((item) => {
+            datas.map((item) => {
               return(
                   item.lagreCategory === largeCategory && 
                   item.id === contentId &&
@@ -57,7 +57,6 @@ function DetailComment({commentLength}) {
                   item.comment.map((subItem) => {
                    return(
                     <li key={subItem.id} className={detailComment.detailComment_comment_list}>
-                      dssadasdsadasd
                     <div className={detailComment.detailComment_comment_list_thumb}>
                       <img src={subItem.img ? subItem.img  : '/images/common/profile.png'} alt='' />
                     </div>

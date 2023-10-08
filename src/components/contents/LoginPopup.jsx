@@ -26,7 +26,7 @@ const LoginPopup = () => {
           }
         })
       })
-    },[dispatch, idValue, pwValue])
+    },[dispatch, idValue, pwValue, setLoginModal])
 
     return (
       <div className={loginPopup.loginPopup}>

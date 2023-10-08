@@ -6,19 +6,7 @@ import { Context } from '@/context/Context'
  
 const ProfilePopup = () => {
   const {setPopup} = useContext(MainContext);   
-  const {newProfile, setNewProfile} = useContext(Context);   
- 
-//   useEffect(() => {
-//     const handleStorageChange = (e) => {
-//         if (e.key === 'profile') {
-//           setNewProfile(e.newValue);
-//         }
-//     };
-//     window.addEventListener('storage', handleStorageChange);
-//     return () => {
-//         window.removeEventListener('storage', handleStorageChange);
-//     };
-// }, []);
+  const {newProfile, setNewProfile} = useContext(Context);    
 
   // input value 닉네임
   const [inputNameValue, setInputNameValue] = useState(newProfile.name);

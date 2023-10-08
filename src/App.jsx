@@ -26,7 +26,7 @@ function App() {
   const profiles = localStorage.getItem("profile")
   const [loginModal, setLoginModal] = useState(false) //로그인 모달
   const [newProfile, setNewProfile] = useState(profiles ? JSON.parse(profiles) : dummyStorage) //프로필
-  const [newWrite, setNewWrite] = useState(data)
+  const [datas, setDatas] = useState(data)
   
   useEffect(() => {    
     if (!localStorage.getItem("list")) {  
@@ -50,8 +50,8 @@ function App() {
         setLoginModal,
         newProfile,    
         setNewProfile, 
-        newWrite, 
-        setNewWrite,
+        datas, 
+        setDatas,
         }
       }> 
         <Header/>

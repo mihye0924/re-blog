@@ -7,10 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import { handleProfileLocalGetItem, handleTimer, categoryProfileNav, handleFavorite, handleLike, handleProfileLink } from '@/js/list';
 
 const ProfileList = () => {      
-  const { state, newProfile } = useContext(Context);  
+  const { state, newProfile, datas, setDatas } = useContext(Context);  
   const { state2 } = useContext(MainContext);   
   const localData = JSON.parse(localStorage.getItem("list")) // 데이터 가져오기
-  const [datas, setDatas] = useState(data)  
   const [count, setCount] = useState(1)  // 게시글 분
   const now = new Date()
   const seconds = now.getSeconds() 
@@ -33,7 +32,7 @@ const ProfileList = () => {
     <section className={`${profileList.profileList_wrap}`}>
       <ul className={profileList.profileList_ul}>  
         { 
-          localData.map((item, id) => {
+          datas.map((item, id) => {
             return (
               categoryProfileNav(item, state2) &&
               <li key={id}>

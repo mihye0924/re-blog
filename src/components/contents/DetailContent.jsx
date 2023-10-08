@@ -4,7 +4,7 @@ import { useContext, useEffect, useMemo, useState } from 'react'
 import { Context } from '@/context/Context';
 
 function DetailContent() {  
-  const {state, newProfile, newWrite, setNewWrite } = useContext(Context);   
+  const {state, newProfile, datas, setDatas } = useContext(Context);   
   const [emotionActive, setEmotionActive] = useState(false)
   const location = useLocation();
   const largeCategory = Number(location.pathname.split("/")[2])
@@ -50,14 +50,15 @@ function DetailContent() {
         window.localStorage.setItem("list", JSON.stringify(datas))  
       });
   
-      setNewWrite([...datas]) 
+      setDatas(datas) 
     })
-  }, [setNewWrite, largeCategory, contentId, middleCategory])
+  }, [setDatas, largeCategory, contentId, middleCategory])
   
 
   // 조회수 카운트
-  const handleGetItem = () => {
-    const newDatas = window.localStorage.getItem('list')
+  const handleGetItem = useMemo(() => {
+    return(() => {
+      const newDatas = window.localStorage.getItem('list')
       if(newDatas) {
         const datas = JSON.parse(newDatas)
         datas.forEach((item) => {
@@ -68,9 +69,10 @@ function DetailContent() {
               window.localStorage.setItem("list", JSON.stringify(datas))
             }
         })
-        setNewWrite([...datas])
+        setDatas(datas)
       } 
-  }
+    })
+  },[contentId, largeCategory, middleCategory, setDatas])
 
   useEffect(() => {      
     handleGetItem()
@@ -79,7 +81,7 @@ function DetailContent() {
   return ( 
     <article className={datailcontent.datailcontent_wrap}>
       <div>  
-        {newWrite.map((item) => {
+        {datas.map((item) => {
           return (
             item.lagreCategory === largeCategory && 
             item.id === contentId &&
@@ -129,7 +131,7 @@ function DetailContent() {
                 <div className={datailcontent.datailcontent_footer_top}>
                   <div className={datailcontent.datailcontent_footer_top_left}>
                     <span>조회 { item.views ? item.views : 0} 회</span>
-                    <span>댓글 { newWrite[item.id -1].comment.length }</span>
+                    <span>댓글 { datas[item.id -1].comment.length }</span>
                     <span>공감 {item.sympathy.total ? item.sympathy.total : 0} </span>
                     </div>
                     <div className={`${datailcontent.datailcontent_footer_top_right} ${emotionActive && datailcontent['datailcontent_footer_top_right_active']}`}>

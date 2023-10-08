@@ -8,7 +8,7 @@ import {handleLink} from '@/js/list'
 
 
 const Header = () => {
-    const {state, dispatch, setLoginModal, newProfile, newWrite, setNewWrite} = useContext(Context);   
+    const {state, dispatch, setLoginModal, newProfile, datas, setdatas} = useContext(Context);   
     const [filterOpen, setFilterOpen] = useState(false)  
     const [input, setInput] = useState('');
     const navigate = useNavigate();
@@ -20,24 +20,24 @@ const Header = () => {
         return(() => {   
             if(input) { 
                 setFilterOpen(true)
-                newWrite.forEach((item) => {    
+                datas.forEach((item) => {    
                     if(item.label.includes(input) ||
                     item.subLabel.includes(input) ||
                     item.profileName.includes(input)
                     ){     
                         item.search = true 
-                        setNewWrite([...newWrite])
+                        setdatas([...datas])
                     }else{
                         item.search = false 
-                        setNewWrite([...newWrite])   
+                        setdatas([...datas])   
                     }
-                    window.localStorage.setItem("list", JSON.stringify(newWrite))
+                    window.localStorage.setItem("list", JSON.stringify(datas))
                 });    
             }else{
                     setFilterOpen(false)
                 }
             })  
-    },[input, newWrite, setNewWrite])
+    },[input, datas, setdatas])
 
     return (
         !state.isLogin ? 
@@ -74,7 +74,7 @@ const Header = () => {
                                 {input} <span>- Re.Blog 검색</span>
                             </div>
                             {  
-                                newWrite.map((item, index) => { 
+                                datas.map((item, index) => { 
                                     return(    
                                         <li key={index} className={`${header.header_search_filter_ul_li} ${item.search ? 'show':'hide'}`}> 
                                             <div className={header.header_search_filter_top}> 
@@ -156,7 +156,7 @@ const Header = () => {
                                 {input} <span>- Re.Blog 검색</span>
                             </div>
                             {  
-                                newWrite.map((item,index) => { 
+                                datas.map((item,index) => { 
                                     return(    
                                         <li key={index} className={`${header.header_search_filter_ul_li} ${item.search ? 'show':'hide'}`}> 
                                             <div className={header.header_search_filter_top}> 
