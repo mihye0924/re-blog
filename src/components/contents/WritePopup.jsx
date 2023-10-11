@@ -4,10 +4,12 @@ import categoryList from '@/api/categoryList'
 import navList from '@/api/navList'
 import { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { Context } from '@/context/Context'; 
+import { MainContext } from '@/context/MainContext'; 
 import { useLocation, useNavigate } from 'react-router-dom'
 
 function WritePopup() { 
-  const { setWriteModal, newProfile, newWrite, setNewWrite, writeTitle } = useContext(Context);
+  const { newProfile, datas, setDatas } = useContext(Context);
+  const { setWriteModal, writeTitle } = useContext(MainContext);
 
   const [category1, setCategory1] = useState(false)
   const [category2, setCategory2] = useState(false)
@@ -169,7 +171,7 @@ function WritePopup() {
     
       let pushList = [
         {
-          "id": newWrite.length + 1,
+          "id": datas.length + 1,
           "views": 0,
           "good": false,
           "favorite": false,
@@ -200,15 +202,15 @@ function WritePopup() {
             }
           ] 
         },
-        ...newWrite
+        ...datas
       ] 
-      setNewWrite(pushList)  
+      setDatas(pushList)  
       setLocal(pushList)  
       setTimeout(() => {
         setWriteModal(false)
       }, 100) 
     })
-  }, [category1Option, category2Option, title, content, newWrite, profile.img, profile.name, category1Num, category2Num, imgFile, hashList, setNewWrite, setWriteModal])
+  }, [category1Option, category2Option, title, content, datas, profile.img, profile.name, category1Num, category2Num, imgFile, hashList, setDatas, setWriteModal])
    
 
   // 글 쓰기 로컬 list 업데이트
@@ -262,7 +264,7 @@ function WritePopup() {
   // 글수정 데이터 가져오기 
   const handleGetModifyItem = useMemo(() => {
     return(() =>{  
-      newWrite.forEach((item) => {  
+      datas.forEach((item) => {  
         if(item.lagreCategory === LargeItem &&
           item.middleCategory === MediumItem &&
           item.id === ItemIdx) {  
@@ -274,12 +276,12 @@ function WritePopup() {
           }
       })
     })
-  },[newWrite, LargeItem, MediumItem, ItemIdx, handleGetCategoryChangeName])
+  },[datas, LargeItem, MediumItem, ItemIdx, handleGetCategoryChangeName])
   
   // 글수정 버튼
   const handleModify = useMemo(() => {
     return(() => {       
-      newWrite.forEach((item, index) => {
+      datas.forEach((item, index) => {
         if(item.lagreCategory === LargeItem &&
           item.middleCategory === MediumItem &&
           item.id === ItemIdx) { 
@@ -309,9 +311,9 @@ function WritePopup() {
                  ...item.comment
               ] 
             }   
-            newWrite.splice(index,1,list)
-            setNewWrite(newWrite)  
-            setLocal(newWrite)  
+            datas.splice(index,1,list)
+            setDatas(datas)  
+            setLocal(datas)  
             navigate('/')
           } 
       })
@@ -319,7 +321,7 @@ function WritePopup() {
         setWriteModal(false)
       }, 100) 
     })
-  },[ItemIdx, LargeItem, MediumItem, category1Num, category2Num, content, hashList, imgFile, navigate, newWrite, profile.img, profile.name, setNewWrite, setWriteModal, title])
+  },[ItemIdx, LargeItem, MediumItem, category1Num, category2Num, content, hashList, imgFile, navigate, datas, profile.img, profile.name, setDatas, setWriteModal, title])
 
 
   // 글수정 체크 

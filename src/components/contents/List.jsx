@@ -1,118 +1,40 @@
 import list from '@/assets/scss/contents/list.module.scss'
-import data from '@/api/list'   
-import { useContext, useEffect, useMemo, useState } from 'react';
+// import data from '@/api/list'   
+import  { useContext, useEffect, useState } from 'react';
 import { Context } from '@/context/Context'; 
+import { MainContext } from '@/context/MainContext'; 
 import { useNavigate } from 'react-router-dom';
+import { categoryNav, handleFavorite, handleLike, handleLink, handleLocalGetItem, handleTimer } from '@/js/list';
 
 const List = () => {   
-  const {newProfile, isLogin, mainNav, subNav, newWrite, setNewWrite, loginId} = useContext(Context);  
-  const [datas, setDatas] = useState(data)  
+  const { state, datas, setDatas, newProfile } = useContext(Context);   
+  const { state2 } = useContext(MainContext);   
+  const localData = JSON.parse(localStorage.getItem("list")) // 데이터 가져오기 
   const [count, setCount] = useState(1)  // 게시글 분
+  const now = new Date()
+  const seconds = now.getSeconds() 
   const navigate = useNavigate();
-  
-  // 리스트 - 좋아요 기능
-  const handleLike = useMemo(() => {
-    return ((e,item) => {
-      item.good = !item.good 
-      window.localStorage.setItem("list", JSON.stringify(newWrite))
-      setNewWrite([...newWrite])   
-    })
-  },[newWrite, setNewWrite])
 
-  // 리스트 - 북마크
-  const handleFavorite = useMemo(() => {
-    return ((e,item) => { 
-      if(isLogin) {
-        item.favorite = !item.favorite
-        setNewWrite([...newWrite]) 
-        window.localStorage.setItem("list", JSON.stringify(newWrite))
-      }else {
-        alert('로그인이 필요합니다.')
-      }
-      }
-    )
-  },[isLogin, newWrite, setNewWrite])
-     
-  // 리스트 - 카테고리 별 네비게이션
-  const categoryNav = useMemo(() => {
-    return ((item) => {
-      if (Number(mainNav) === 1) {
-        return item.middleCategory === Number(subNav)
-      } else if (Number(mainNav) === 2) {
-        return true
-      } else {
-        return item.lagreCategory === Number(mainNav)
-      }
-    })
-  },[mainNav, subNav])
- 
-  // 리스트 -  url 주소 확인 후 detail페이지로 값 보내기
-  const handleLink = useMemo(() => {
-    return ((item) => {
-      if (item.lagreCategory && item.middleCategory) {
-        navigate(`detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`) 
-      } else {
-        navigate(`detail/${item.lagreCategory}/0/${item.id}`)
-      } 
-    })
-  },[navigate])
+  useEffect(()=>{ 
+    handleLocalGetItem(state, localData, setDatas) 
+  },[])
 
-  // 리스트 - 로컬 데이터 가져오기
-  const handleLocalGetItem = useMemo(() => {   
-    return(()=>{
-      const localItem = JSON.parse(window.localStorage.getItem("list"))
-      if(localItem){
-        setDatas([...localItem]) 
-        setNewWrite([...localItem])
-        localItem.forEach((item) => {
-          if(!isLogin && item.favorite) {
-            item.favorite = !item.favorite
-          }
-        })    
-      }
-    })
-  },[isLogin, setNewWrite])
-  
-  // 리스트 - 게시글 정렬하기
-  const handleSort = useMemo(() => {  
-    return (() => {  
-      const sortList = datas.sort((a,b) => {
-        if(a.id > b.id) return 1;
-        if(a.id < b.id) return -1;
-          return 0;
-        });  
-        setDatas([...sortList])
-   })
-  },[datas])
-    
-  useEffect(()=> {  
-    const now = new Date()
-    const seconds = now.getSeconds() 
+  useEffect(() => { 
+    handleTimer(count, setCount, localData) 
     const timer = setInterval(() => {   
-      setCount(seconds)  
-      newWrite.forEach((item) => {
-        if(count >= 59) {
-          item.uploadTime +=1
-          window.localStorage.setItem("list", JSON.stringify(newWrite))
-          setCount(0);
-        } 
-      })
-    }, 1000);   
+      setCount(seconds)
+    },1000)
     return () => clearInterval(timer)
-  },[count, newWrite])
+  },[count])
 
-  useEffect(() => {   
-    handleLocalGetItem()
-    handleSort() 
-  }, [isLogin]) 
 
   return (   
     <section className={`${list.list_wrap}`}>
       <ul className={list.list_ul}>  
         { 
-          newWrite.map((item, id) => {
+          datas.map((item, id) => {
             return (
-              categoryNav(item) &&
+              categoryNav(item, state2) &&
               <li key={id}>
                 <div className={list.list_content}> 
                   <div className={list.list_write}>
@@ -122,16 +44,16 @@ const List = () => {
                          <img src={newProfile.img} alt="" /> :
                          <img src='/images/common/profile_default.png' alt='기본프로필'/>
                       }  
-                      <span>{newProfile.name ? newProfile.name : loginId[0].id}</span>
+                      <span>{newProfile.name ? newProfile.name : state.loginId}</span>
                     </div>
                     <span>{item.uploadTime < 30 ? item.uploadTime+'분전' : ''}</span>
                   </div>
                   <div className={list.list_label}>
                     <div>
-                        <button onClick={() => { handleLink(item) }}>
+                        <button onClick={() => { handleLink(item, navigate) }}>
                           <span>{item.label}</span>
                       </button>
-                        <button onClick={() => { handleLink(item) }}>
+                        <button onClick={() => { handleLink(item, navigate) }}>
                           <span>{item.subLabel}</span>
                       </button>
                     </div>
@@ -145,9 +67,7 @@ const List = () => {
                   </div>
                   <div className={list.list_sympathy}>
                     <div className={list.list_sympathy_left}> 
-                      <button onClick={(e) => { 
-                        handleLike(e, item)
-                      }}>  
+                      <button onClick={() => { handleLike(item, datas, setDatas)}}>  
                         <i className={item.good ? 'icon_heart_full' : 'icon_heart'} aria-hidden="true" /> 
                         <span>공감</span>
                       </button>
@@ -157,7 +77,7 @@ const List = () => {
                       </button>
                     </div>
                     <div className={list.list_sympathy_right}>
-                      <button onClick={(e) => { handleFavorite(e, item) }}>
+                      <button onClick={() => { handleFavorite(state, item, datas, setDatas)}}>
                         <i className={item.favorite ? 'icon_favorite_yellow' : 'icon_favorite'} aria-hidden="true" />
                         <span>북마크</span>
                       </button>

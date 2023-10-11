@@ -1,34 +1,22 @@
 import loginPopup from '@/assets/scss/contents/loginPopup.module.scss'
 import Button from '@/components/common/Button'
 import login from '@/api/login'  
-import { useContext, useMemo } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import { Context } from '@/context/Context';
 
 const LoginPopup = () => {
-  const { 
-    idValue, 
-    pwValue, 
-    setLoginModal, 
-    setIsLogin, 
-    setIdValue, 
-    setPwValue
-  } = useContext(Context);
-
-    // 로그인 팝업 닫기
-    const onClose = useMemo(() => {
-      return(() => {
-        setLoginModal(false)
-      })
-    },[setLoginModal])
+  const { dispatch, setLoginModal } = useContext(Context);
+  const [idValue, setIdValue] = useState('') // 아이디 체크 
+  const [pwValue, setPwValue] = useState('') // 비밀번호 체크
+ 
 
     // 로그인 여부 체크
     const handleLogin = useMemo(() => {
       return(() => {
         login.map((item) => {
-          if(item.id === idValue && item.pw === pwValue) {
+          if(item.id === idValue && item.pw === pwValue) { 
+            dispatch({type: "LOGIN", payload: item.id }) 
             setLoginModal(false)
-            setIsLogin(true)
-            window.localStorage.setItem("login", true);
           } else if(item.id !== idValue && item.pw !== pwValue) {
             alert('회원정보가 없습니다.')
           } else if(item.id !== idValue ) {
@@ -38,7 +26,7 @@ const LoginPopup = () => {
           }
         })
       })
-    },[idValue, pwValue, setIsLogin, setLoginModal])
+    },[dispatch, idValue, pwValue, setLoginModal])
 
     return (
       <div className={loginPopup.loginPopup}>
@@ -46,7 +34,7 @@ const LoginPopup = () => {
           <div className={loginPopup.loginPopup_header}>
             <div className={loginPopup.loginPopup_header_wrap}>
               <span>로그인</span>
-              <button onClick={onClose}><span>닫기</span><i className='icon close'/></button>
+              <button onClick={() => {setLoginModal(false)}}><span>닫기</span><i className='icon close'/></button>
             </div>
           </div>
           <div className={loginPopup.loginPopup_contents}>

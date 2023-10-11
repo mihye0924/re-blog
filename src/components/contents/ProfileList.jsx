@@ -1,93 +1,40 @@
 import profileList from '@/assets/scss/contents/profileList.module.scss'
 import data from '@/api/list'  
-import { useContext, useEffect, useMemo, useState } from 'react' 
-import { ProfileContext } from '@/context/ProfileContext';
+import { useContext, useEffect, useState } from 'react'  
 import { Context } from '@/context/Context';
-import { useNavigate } from 'react-router-dom';
+import { MainContext } from '@/context/MainContext'; 
+import { useNavigate } from 'react-router-dom'; 
+import { handleProfileLocalGetItem, handleTimer, categoryProfileNav, handleFavorite, handleLike, handleProfileLink } from '@/js/list';
 
-const ProfileList = () => {    
-  const {mainNav} = useContext(ProfileContext);    
-  const {newProfile, newWrite, setNewWrite, loginId} = useContext(Context);   
-  const [datas, setDatas] = useState(data) 
+const ProfileList = () => {      
+  const { state, newProfile, datas, setDatas } = useContext(Context);  
+  const { state2 } = useContext(MainContext);   
+  const localData = JSON.parse(localStorage.getItem("list")) // 데이터 가져오기
+  const [count, setCount] = useState(1)  // 게시글 분
+  const now = new Date()
+  const seconds = now.getSeconds() 
   const navigate = useNavigate();
+     
   
-  // 리스트 - 좋아요 기능
-  const handleLike = useMemo(() => {
-    return ((e,item) => {
-      item.good = !item.good 
-      window.localStorage.setItem("list", JSON.stringify(newWrite))
-      setNewWrite([...newWrite])   
-    })
-  },[newWrite, setNewWrite])
-
-   // 리스트 - 북마크
-   const handleFavorite = useMemo(() => {
-    return ((e,item) => { 
-        item.favorite = !item.favorite
-        window.localStorage.setItem("list", JSON.stringify(newWrite))
-        setNewWrite([...newWrite])   
-      }
-    )
-  },[newWrite, setNewWrite])
-  
-  // 카테고리 별 네비게이션
-  const categoryNav = useMemo(() => {
-    return ((item) => {
-      if (Number(mainNav) === 1) {
-        return true
-      } else if (Number(mainNav) === 2) {
-        return false
-      } else if(Number(mainNav) === 3) {
-        return item.favorite === true
-      }
-    })
-  },[mainNav])
-
-  // 리스트 -  url 주소 확인 후 detail페이지로 값 보내기
-  const handleLink = useMemo(() => {
-    return ((item) => {
-      if (item.lagreCategory && item.middleCategory) {
-        navigate(`/detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`, { replace: true })
-      } else {
-        navigate(`/detail/${item.lagreCategory}/0/${item.id}`, { replace: true })
-      } 
-    })
+  useEffect(()=>{ 
+    handleProfileLocalGetItem(localData, setDatas) 
   },[])
 
-
-  // 리스트 - 로컬 데이터 가져오기
-  const handleLocalGetItem = () => { 
-    const localItem = JSON.parse(window.localStorage.getItem("list"))
-    if(localItem){
-      setDatas([...localItem]) 
-      setNewWrite([...localItem])   
-    }
-  }
-
-  // 리스트 - 게시글 정렬하기
-  const handleSort = useMemo(() => {  
-    return (() => { 
-      const sortList = datas.sort((a,b) => {
-        if(a.uploadTime > b.uploadTime) return 1;
-        if(a.uploadTime < b.uploadTime) return -1;
-          return 0;
-        });  
-        setDatas([...sortList])
-   })
-  },[])
-
-  useEffect(() => { 
-    handleLocalGetItem() 
-    handleSort()
-  },[]) 
+  useEffect(() => {  
+    handleTimer(count, setCount, localData)  
+    const timer = setInterval(() => {   
+      setCount(seconds)  
+    }, 1000);  
+    return () => clearInterval(timer)
+  }, [count]) 
 
   return (   
     <section className={`${profileList.profileList_wrap}`}>
       <ul className={profileList.profileList_ul}>  
         { 
-          newWrite.map((item, id) => {
+          datas.map((item, id) => {
             return (
-              categoryNav(item) &&
+              categoryProfileNav(item, state2) &&
               <li key={id}>
                 <div className={profileList.profileList_content}> 
                   <div className={profileList.profileList_write}>
@@ -97,17 +44,17 @@ const ProfileList = () => {
                         <img src={newProfile.img} alt="" /> :
                         <img src='/images/common/profile_default.png' alt='기본프로필'/>
                       }  
-                         <span>{newProfile.name ? newProfile.name : loginId[0].id}</span>
+                         <span>{newProfile.name ? newProfile.name : state.loginId}</span>
                       <span>{item.smallCategory2}</span>
                     </div>
-                    <span>{item.uploadTime} 분전</span>
+                    <span>{item.uploadTime <= 30 ? item.uploadTime+'분전' : ''}</span>
                   </div>
                   <div className={profileList.profileList_label}>
                     <div>
-                        <button onClick={() => { handleLink(item) }}>
+                        <button onClick={() => { handleProfileLink(item, navigate)}}>
                           <span>{item.label}</span>
                       </button>
-                        <button onClick={() => { handleLink(item) }}>
+                        <button onClick={() => { handleProfileLink(item, navigate) }}>
                           <span>{item.subLabel}</span>
                       </button>
                     </div>
@@ -121,9 +68,7 @@ const ProfileList = () => {
                   </div>
                   <div className={profileList.profileList_sympathy}>
                     <div className={profileList.profileList_sympathy_left}> 
-                      <button onClick={(e) => { 
-                        handleLike(e, item)
-                      }}>  
+                      <button onClick={() => { handleLike(item, datas, setDatas)}}>  
                         <i className={item.good ? 'icon_heart_full' : 'icon_heart'} aria-hidden="true" /> 
                         <span>공감</span>
                       </button>
@@ -133,7 +78,7 @@ const ProfileList = () => {
                       </button>
                     </div>
                     <div className={profileList.profileList_sympathy_right}>
-                      <button onClick={(e) => { handleFavorite(e, item) }}>
+                      <button onClick={() => { handleFavorite(state, item, datas, setDatas) }}>
                         <i className={item.favorite ? 'icon_favorite_yellow' : 'icon_favorite'} aria-hidden="true" />
                         <span>북마크</span>
                       </button>

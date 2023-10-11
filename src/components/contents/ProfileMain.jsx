@@ -1,17 +1,11 @@
 import profileMain from '@/assets/scss/contents/profileMain.module.scss'  
-import { ProfileContext } from '@/context/ProfileContext'
+import { Context } from '@/context/Context'
+import { MainContext } from '@/context/MainContext'
 import { useContext } from 'react';
 
 const ProfileMain = () => { 
-  const {setPopup} = useContext(ProfileContext); 
-  const dummyStorage = {
-    img: '',
-    name: '',
-    sectors: '',
-    textarea: ''
-  }
-  const profiles = window.localStorage.getItem("profile")
-  const newProfile = profiles ? JSON.parse(profiles) : dummyStorage
+  const { newProfile } = useContext(Context);  
+  const { setPopup } = useContext(MainContext);  
   return (
     <div className={profileMain.profileMain_wrap}>
       <div className={profileMain.profileMain_header}>

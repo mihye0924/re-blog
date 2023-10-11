@@ -2,15 +2,14 @@
 import left from '@/assets/scss/layout/left.module.scss'
 import DetailHeader from '@/components/contents/DetailHeader'
 import DetailContent from '@/components/contents/DetailContent'
-import DetailComment from '@/components/contents/DetailComment' 
-// import { DetailContext } from '@/context/DetailContext';
+import DetailComment from '@/components/contents/DetailComment'  
 
 function Detail() {
   return ( 
       <article className={left.left_wrap}> 
-          <DetailHeader />
-          <DetailContent/>
-          <DetailComment /> 
+        <DetailHeader />
+        <DetailContent/>
+        <DetailComment /> 
       </article> 
   )
 }

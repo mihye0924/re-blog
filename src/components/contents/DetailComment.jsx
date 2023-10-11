@@ -1,8 +1,8 @@
 import detailComment from '@/assets/scss/contents/detailComment.module.scss'
 import { Context } from '@/context/Context';
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 function DetailComment({commentLength}) {
-  const {newProfile, newWrite, setNewWrite} = useContext(Context);   
+  const {newProfile, datas, setDatas} = useContext(Context);   
   const [commentValue, setCommentValue] = useState()
   const [subCommentValue, setSubCommentValue] = useState()
   const largeCategory = Number(location.pathname.split("/")[2])
@@ -33,9 +33,9 @@ function DetailComment({commentLength}) {
         });
         window.localStorage.setItem("list", JSON.stringify(datas))  
         setCommentValue('')
-        setNewWrite([...datas])
+        setDatas([...datas])
       })
-    }, [setNewWrite, largeCategory, contentId, middleCategory, newProfile.img, newProfile.name, commentValue])
+    }, [setDatas, largeCategory, contentId, middleCategory, newProfile.img, newProfile.name, commentValue])
 
     // 삭제하기
     const handleCommentDel = useMemo(() => {
@@ -49,7 +49,7 @@ function DetailComment({commentLength}) {
             }
           });
           window.localStorage.setItem("list", JSON.stringify(datas))  
-          setNewWrite([...datas])
+          setDatas([...datas])
       })
     }, [])
 
@@ -69,7 +69,7 @@ function DetailComment({commentLength}) {
               }
             });
           window.localStorage.setItem("list", JSON.stringify(datas))  
-          setNewWrite([...datas])
+          setDatas([...datas])
       })
     } , [])
 
@@ -86,7 +86,7 @@ function DetailComment({commentLength}) {
             }
           });
           window.localStorage.setItem("list", JSON.stringify(datas))  
-          setNewWrite([...datas])
+          setDatas([...datas])
       })
     })
 
@@ -109,7 +109,7 @@ function DetailComment({commentLength}) {
         </div>
         <ul className={detailComment.detailComment_comment}>
           {
-            newWrite.map((item) => {
+            datas.map((item) => {
               return(
                   item.lagreCategory === largeCategory && 
                   item.id === contentId &&
