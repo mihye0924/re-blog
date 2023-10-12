@@ -47,7 +47,7 @@ const ProfileList = () => {
                          <span>{newProfile.name ? newProfile.name : state.loginId}</span>
                       <span>{item.smallCategory2}</span>
                     </div>
-                    <span>{item.uploadTime <= 30 ? item.uploadTime+'분전' : ''}</span>
+                    <span>{item.uploadTime < 30 ? item.uploadTime+'분전' : ''}</span>
                   </div>
                   <div className={profileList.profileList_label}>
                     <div>

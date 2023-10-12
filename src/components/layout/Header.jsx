@@ -8,7 +8,7 @@ import {handleLink} from '@/js/list'
 
 
 const Header = () => {
-    const {state, dispatch, setLoginModal, newProfile, datas, setdatas} = useContext(Context);   
+    const {state, dispatch, setLoginModal, newProfile, datas, setDatas} = useContext(Context);   
     const [filterOpen, setFilterOpen] = useState(false)  
     const [input, setInput] = useState('');
     const navigate = useNavigate();
@@ -26,10 +26,10 @@ const Header = () => {
                     item.profileName.includes(input)
                     ){     
                         item.search = true 
-                        setdatas([...datas])
+                        setDatas(datas)
                     }else{
                         item.search = false 
-                        setdatas([...datas])   
+                        setDatas(datas)
                     }
                     window.localStorage.setItem("list", JSON.stringify(datas))
                 });    
@@ -37,7 +37,7 @@ const Header = () => {
                     setFilterOpen(false)
                 }
             })  
-    },[input, datas, setdatas])
+    },[input, datas, setDatas])
 
     return (
         !state.isLogin ? 

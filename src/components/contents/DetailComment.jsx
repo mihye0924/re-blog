@@ -88,7 +88,7 @@ function DetailComment({commentLength}) {
           window.localStorage.setItem("list", JSON.stringify(datas))  
           setDatas([...datas])
       })
-    })
+    },[contentId, largeCategory, middleCategory, setDatas, subCommentValue])
 
   return (
     <article className={detailComment.detailComment}>
