@@ -37,8 +37,11 @@
             left: 0;
         }
         &_thumb {
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
+            border: 1px solid $bg_lightgray;
+            border-radius: 5px;
+            overflow: hidden;
             img{
                 width: 100%;
                 height: 100%;

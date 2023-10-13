@@ -132,7 +132,7 @@
       textarea {
         border: 0;
         margin-top: 20px;
-        height: 450px;
+        height: 250px;
         font-size: $fs14;
         font-family: $noto-light;
       }
@@ -190,6 +190,17 @@
       display: flex; 
       flex-wrap: wrap;
       gap: 15px;
+      overflow-y: auto;
+      max-height: 140px;
+      &::-webkit-scrollbar {
+        width: 15px;
+      } 
+      &::-webkit-scrollbar-thumb {
+          width: 20px;
+          background-color: #a7a7a75c;  
+          background-clip: padding-box;
+          border: 3px solid transparent; 
+      }
       li {
         border: 1px solid $border_color;
         border-radius: 5px;

@@ -91,14 +91,18 @@ function DetailComment({commentLength}) {
     },[contentId, largeCategory, middleCategory, setDatas, subCommentValue])
 
   return (
-    <article className={detailComment.detailComment}>
+    <section className={detailComment.detailComment}>
       <div className={detailComment.detailComment_wrap}>
         <div className={detailComment.detailComment_header}>
           <p>댓글 {commentLength}</p>
         </div>
         <div className={detailComment.detailComment_write}>
             <div className={detailComment.detailComment_write_thumb}>
-              <img src={newProfile.img} alt='' />
+            {
+                newProfile.img ?
+                <img src={newProfile.img} alt="" /> :
+                <img src='/images/common/profile_default.png' alt='기본프로필'/>
+            }  
             </div>
             <div className={detailComment.detailComment_write_comment}>
               <textarea placeholder='남길말을 입력하세요' value={commentValue} onChange={(e) => {setCommentValue(e.target.value)}}/>
@@ -183,7 +187,7 @@ function DetailComment({commentLength}) {
           }
         </ul>
       </div>
-    </article>
+    </section>
   )
 }
 export default DetailComment

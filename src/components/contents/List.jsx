@@ -44,7 +44,7 @@ const List = () => {
                          <img src={newProfile.img} alt="" /> :
                          <img src='/images/common/profile_default.png' alt='기본프로필'/>
                       }  
-                      <span>{newProfile.name ? newProfile.name : state.loginId}</span>
+                      <span>{newProfile.name ? newProfile.name : state.loginId ? state.loginId : '글쓴이'}</span>
                     </div>
                     <span>{item.uploadTime < 30 ? item.uploadTime+'분전' : ''}</span>
                   </div>
@@ -71,7 +71,7 @@ const List = () => {
                         <i className={item.good ? 'icon_heart_full' : 'icon_heart'} aria-hidden="true" /> 
                         <span>공감</span>
                       </button>
-                      <button> 
+                      <button onClick={() => handleLink(item,navigate)}> 
                         <i className='icon' aria-hidden="true"/>
                         <span>댓글</span>
                       </button>

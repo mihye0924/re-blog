@@ -191,16 +191,7 @@ function WritePopup() {
             "angry": 0,
             "total": 0
           }, 
-          "comment": [
-            {
-              "id": 1,
-              "img": "",
-              "text": "",
-              "name": "",
-              "nickname": "",
-              "time": "1"
-            }
-          ] 
+          "comment": [] 
         },
         ...datas
       ] 
@@ -335,8 +326,7 @@ function WritePopup() {
    
 
   useEffect(() => {   
-    handleWriteModifyCheck() // 글 수정 체크
-    // setContentNum(Number(contentNum) + 1) // 글쓰기 id 값 증가
+    handleWriteModifyCheck() // 글 수정 체크 
   },[])  
   
   return (

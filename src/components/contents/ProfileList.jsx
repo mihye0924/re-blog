@@ -1,10 +1,10 @@
 import profileList from '@/assets/scss/contents/profileList.module.scss'
-import data from '@/api/list'  
+// import data from '@/api/list'  
 import { useContext, useEffect, useState } from 'react'  
 import { Context } from '@/context/Context';
 import { MainContext } from '@/context/MainContext'; 
 import { useNavigate } from 'react-router-dom'; 
-import { handleProfileLocalGetItem, handleTimer, categoryProfileNav, handleFavorite, handleLike, handleProfileLink } from '@/js/list';
+import { handleProfileLocalGetItem, handleTimer, categoryProfileNav, handleFavorite, handleLike, handleProfileLink, handleReply } from '@/js/list';
 
 const ProfileList = () => {      
   const { state, newProfile, datas, setDatas } = useContext(Context);  
@@ -44,7 +44,7 @@ const ProfileList = () => {
                         <img src={newProfile.img} alt="" /> :
                         <img src='/images/common/profile_default.png' alt='기본프로필'/>
                       }  
-                         <span>{newProfile.name ? newProfile.name : state.loginId}</span>
+                      <span>{newProfile.name ? newProfile.name : state.loginId ? state.loginId : '글쓴이'}</span>
                       <span>{item.smallCategory2}</span>
                     </div>
                     <span>{item.uploadTime < 30 ? item.uploadTime+'분전' : ''}</span>
@@ -72,7 +72,7 @@ const ProfileList = () => {
                         <i className={item.good ? 'icon_heart_full' : 'icon_heart'} aria-hidden="true" /> 
                         <span>공감</span>
                       </button>
-                      <button> 
+                      <button onClick={() => {handleProfileLink(item, navigate)}}> 
                         <i className='icon' aria-hidden="true"/>
                         <span>댓글</span>
                       </button>

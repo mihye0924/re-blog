@@ -78,8 +78,14 @@ function DetailContent() {
     handleGetItem()
   }, [])  
   
+  useEffect(()=> { 
+    if (!localStorage.getItem("list")) {  
+      alert('접근이 불가능합니다.') 
+      window.location.href = '/'
+    }  
+  })
   return ( 
-    <article className={datailcontent.datailcontent_wrap}>
+    <section className={datailcontent.datailcontent_wrap}>
       <div>  
         {datas.map((item) => {
           return (
@@ -96,7 +102,7 @@ function DetailContent() {
                      <img src='/images/common/profile_default.png' alt='기본프로필'/>
                     }  
                   </h1>
-                  <span>{newProfile.name ? newProfile.name : state.loginId}</span>
+                  <span>{newProfile.name ? newProfile.name : state.loginId ? state.loginId : '글쓴이'}</span>
                   <span>{item.smallCategory2}</span>
                 </div>
                 <ul className={datailcontent.datailcontent_header_bottom}>
@@ -173,7 +179,7 @@ function DetailContent() {
           )
         })}
       </div>
-    </article>
+    </section>
   )
 }
 export default DetailContent

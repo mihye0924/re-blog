@@ -3,8 +3,9 @@ import Profile from '@/pages/Profile.jsx';
 import Detail from '@/pages/Detail.jsx';
 import Main from '@/pages/Main' 
 import { MainContext } from '@/context/MainContext';
-import { useReducer, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { listInitial, listReducer } from '@/reducer/reducer'; 
+import WritePopup from '@/components/contents/WritePopup'  
 
 function Router() {   
   const loginCheck = window.localStorage.getItem("login")
@@ -12,8 +13,8 @@ function Router() {
   const [writeTitle, setWriteTitle]= useState(""); // 글쓰기 제목 
   const [popup, setPopup] = useState(false)  //프로필 팝업
   const [mainNav, setMainNav] =  useState(1) //프로필 네비게이션   
-  const [state2, dispatch2] = useReducer(listReducer, listInitial);
-
+  const [state2, dispatch2] = useReducer(listReducer, listInitial);  
+ 
   return (
     <MainContext.Provider value={{
       state2,
@@ -27,11 +28,15 @@ function Router() {
       mainNav: mainNav,
       setMainNav: setMainNav
     }}> 
-      <Routes>
-      <Route path="/" element={<Main />} />
-        {
-          loginCheck && <Route path="/Profile" element={<Profile />} />
+    
+    {
+          writeModal ? <WritePopup /> : ''
         }
+      <Routes> 
+        <Route path="/" element={<Main />} />
+          {
+            loginCheck && <Route path="/Profile" element={<Profile />} />
+          }
         <Route path="/detail/:lagre/:middle/:id" element={<Detail />} /> 
       </Routes>  
     </MainContext.Provider>
