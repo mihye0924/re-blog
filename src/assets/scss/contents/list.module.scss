@@ -60,7 +60,8 @@
       button {
         display: block;
         padding-block: 1px;
-        padding-inline: 6px;
+        padding-inline: 6px; 
+        text-align: left;
         &:first-child {
         span {
           font-family: $noto-medium;
