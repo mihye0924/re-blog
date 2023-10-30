@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://mihye0924.github.io/re-blog/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
