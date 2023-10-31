@@ -63,7 +63,7 @@ const ProfilePopup = () => {
         <div className={profilePopup.profilePopup_contents}>
           <div className={profilePopup.profilePopup_contents_top}>
             <img
-              src={imgFile ? imgFile :`/re-blog/images/common/thumbnail.svg`}
+              src={imgFile ? imgFile :`/images/common/thumbnail.svg`}
               alt="프로필 이미지"
               className={profilePopup.profilePopup_contents_top_profile}
             />
@@ -106,7 +106,7 @@ const ProfilePopup = () => {
             <div className={profilePopup.profilePopup_footer_wrap}>
               {
                 <img
-                  src={imgFile ? imgFile :`/re-blog/images/common/copy.svg`}
+                  src={imgFile ? imgFile :`/images/common/copy.svg`}
                   alt="프로필 이미지"
                   className={profilePopup.profilePopup_footer_copybutton}
                 />

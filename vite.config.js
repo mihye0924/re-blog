@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: { '@': path.resolve(__dirname,'./src')}
-  },
+  }, 
   // SCSS 전역 사용
   css: {
     preprocessorOptions: {

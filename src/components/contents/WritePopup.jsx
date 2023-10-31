@@ -26,9 +26,9 @@ function WritePopup() {
   const location = useLocation();  
   const navigate = useNavigate();
   const profile = newProfile //프로필 기본값 
-  const LargeItem = Number(location.pathname.split("/")[3])
-  const MediumItem = Number(location.pathname.split("/")[4])
-  const ItemIdx = Number(location.pathname.split("/")[5])  
+  const LargeItem = Number(location.pathname.split("/")[2])
+  const MediumItem = Number(location.pathname.split("/")[3])
+  const ItemIdx = Number(location.pathname.split("/")[4])  
 
   // 대분류 토클
   const handleCategory1 = () => {
@@ -175,7 +175,7 @@ function WritePopup() {
           "views": 0,
           "good": false,
           "favorite": false,
-          "profileImg": !profile.img ? "/re-blog/images/common/thumbnail.svg" : profile.img,
+          "profileImg": !profile.img ? `/images/common/thumbnail.svg` : profile.img,
           "lagreCategory": category1Num,
           "middleCategory": category2Num,
           "profileName": !profile.name ? login[0].id : profile.name,
@@ -282,7 +282,7 @@ function WritePopup() {
               "views": item.views,
               "good": item.good,
               "favorite": item.favorite,
-              "profileImg": !profile.img ? "/re-blog/images/common/thumbnail.svg" : profile.img,
+              "profileImg": !profile.img ? `/images/common/thumbnail.svg` : profile.img,
               "lagreCategory": category1Num ? category1Num : item.lagreCategory,
               "middleCategory": category2Num ? category2Num : item.middleCategory,
               "profileName": !profile.name ? login[0].id : profile.name, 
@@ -305,7 +305,7 @@ function WritePopup() {
             datas.splice(index,1,list)
             setDatas(datas)  
             setLocal(datas)  
-            navigate('/re-blog/')
+            navigate(`/`)
           } 
       })
       setTimeout(() => {
@@ -318,7 +318,7 @@ function WritePopup() {
   // 글수정 체크 
   const handleWriteModifyCheck = useMemo(() => {  
     return(() => {
-      if(location.pathname.split("/")[2] === "detail") { 
+      if(location.pathname.split("/")[1] === "detail") { 
         handleGetModifyItem()  
       }
     })
@@ -427,7 +427,7 @@ function WritePopup() {
               imgFile.map((item, index) => {
                 return(
                   <li key={index}>
-                    <img src={item.img} alt=""/>
+                    <img src={`${item.img}`} alt=""/>
                     <button onClick={()=>{handleImgRemove(index)}} className={writePopup.writePopup_img_button}>x</button>
                   </li>
                 )
@@ -449,12 +449,12 @@ function WritePopup() {
             </>
             }
             <button className={writePopup.writePopup_footer_textbutton} onClick={
-              location.pathname.split("/")[2] === "detail"? 
+              location.pathname.split("/")[1] === "detail"? 
                 handleModify : handleWrite
             }>
               
               {
-              location.pathname.split("/")[2] === "detail"? 
+              location.pathname.split("/")[1] === "detail"? 
               "수정하기" : "작성하기" 
               }
             </button>

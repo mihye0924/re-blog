@@ -16,9 +16,8 @@ const ProfileMain = () => {
       </div>
       <div className={profileMain.profileMain_contents}>
         <div className={profileMain.profileMain_contents_wrap}>
-          <img
-            // src={imgFile ? imgFile :`/re-blog/images/common/thumbnail.svg`}
-            src={newProfile.img ? newProfile.img :`/re-blog/images/common/thumbnail.svg`}
+          <img 
+            src={newProfile.img ? newProfile.img :`/images/common/thumbnail.svg`}
             alt="프로필 이미지"
             className={profileMain.profileMainp_contents_profileimg}
           />

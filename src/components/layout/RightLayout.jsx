@@ -3,7 +3,11 @@ import popularList from '@/api/popularList'
 import newsList from '@/api/newsList' 
 import SwiperList from '@/components/common/SwiperList'    
 import { Link } from 'react-router-dom'
-const RightLayout = () => {
+import { Context } from '@/context/Context';
+import { useContext } from 'react';
+
+const RightLayout = () => { 
+
   return (
   <aside className={right.right_wrap}>
   <div className={right.right_wrap_div}> 
@@ -16,13 +20,13 @@ const RightLayout = () => {
       <ul className={right.right_download_ul}>
         <li>
           <button>
-            <img src='/re-blog/images/content/download/appstore.png' alt='애플스토어' />
+            <img src={`/images/content/download/appstore.png`} alt='애플스토어' />
             <span>App Store</span>
           </button>
         </li>
         <li> 
           <button>
-            <img src='/re-blog/images/content/download/googleplay.png' alt='구글스토어' />
+            <img src={`/images/content/download/googleplay.png`} alt='구글스토어' />
             <span>Google Play</span>
           </button>
         </li>
@@ -31,13 +35,13 @@ const RightLayout = () => {
     <div className={right.right_footer}>
       <ul className={right.right_info}>
         <li>
-          <Link to="/re-blog/">이용약관</Link>
+          <Link to="/">이용약관</Link>
         </li>
         <li>
-          <Link to="/re-blog/">개인정보처리방침</Link>
+          <Link to="/">개인정보처리방침</Link>
         </li>
         <li>
-          <Link to="/re-blog/">광고정보</Link>
+          <Link to="/">광고정보</Link>
         </li>
       </ul>
       <div className={right.right_copyright}>

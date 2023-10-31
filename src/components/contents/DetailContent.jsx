@@ -4,12 +4,12 @@ import { useContext, useEffect, useMemo, useState } from 'react'
 import { Context } from '@/context/Context';
 
 function DetailContent() {  
-  const {state, newProfile, datas, setDatas } = useContext(Context);   
+  const { state, newProfile, datas, setDatas } = useContext(Context);   
   const [emotionActive, setEmotionActive] = useState(false)
   const location = useLocation();
-  const largeCategory = Number(location.pathname.split("/")[3])
-  const middleCategory = Number(location.pathname.split("/")[4])
-  const contentId = Number(location.pathname.split("/")[5])    
+  const largeCategory = Number(location.pathname.split("/")[2])
+  const middleCategory = Number(location.pathname.split("/")[3])
+  const contentId = Number(location.pathname.split("/")[4])    
   
   // 공감표현 - 애니메이션 추가
   const handleEmtionToggle = useMemo(() => {
@@ -82,7 +82,7 @@ function DetailContent() {
   useEffect(()=> { 
     if (!localStorage.getItem("list")) {  
       alert('접근이 불가능합니다.') 
-      window.location.href = '/re-blog/'
+      window.location.href = '/'
     }  
   })
   return ( 
@@ -99,8 +99,8 @@ function DetailContent() {
                   <h1>
                     {
                      newProfile.img ?
-                     <img src={newProfile.img} alt="" /> :
-                     <img src='/re-blog/images/common/profile_default.png' alt='기본프로필'/>
+                     <img src={`${newProfile.img}`} alt="" /> :
+                     <img src={`/images/common/profile_default.png`} alt='기본프로필'/>
                     }  
                   </h1>
                   <span>{newProfile.name ? newProfile.name : state.loginId ? state.loginId : '글쓴이'}</span>
@@ -127,7 +127,7 @@ function DetailContent() {
                        item.contentImg.map((item,index) => {
                         return(
                           <div key={index}>
-                            <img src={item.img} alt=''/>
+                            <img src={`${item.img}`} alt=''/>
                           </div>
                         )
                       })

@@ -1,4 +1,6 @@
 import swiperList from '@/assets/scss/common/swiperList.module.scss'
+import { Context } from '@/context/Context';
+import { useContext } from 'react';
 
 // swiper
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -7,7 +9,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar'; 
-const SwiperList = ({list,keys}) => {  
+const SwiperList = ({list,keys}) => {   
+
     return ( 
         <div  className={swiperList.list_wrap}> 
             <div className={swiperList.list_content}> 
@@ -15,10 +18,10 @@ const SwiperList = ({list,keys}) => {
                     <span>{list.title}</span>
                     <div className={swiperList.list_btn}> 
                         <div className={`${swiperList.list_btn_left} prev_${keys}`}>
-                            <img src="/re-blog/images/common/left.png" alt="왼쪽" />
+                            <img src={`/images/common/left.png`} alt="왼쪽" />
                         </div>
                         <div className={`${swiperList.list_btn_right} next_${keys}`}>
-                            <img src="/re-blog/images/common/right.png" alt="오른쪽" />
+                            <img src={`/images/common/right.png`} alt="오른쪽" />
                         </div>
                     </div> 
                 </div>
@@ -29,9 +32,7 @@ const SwiperList = ({list,keys}) => {
                     navigation={{
                         prevEl: `.prev_${keys}`,
                         nextEl: `.next_${keys}`,
-                      }} 
-                    // onSlideChange={() => console.log('slide change')}
-                    // onSwiper={(swiper) => console.log(swiper)}
+                      }}  
                     > 
                         {
                          list.list.map((item) => (   

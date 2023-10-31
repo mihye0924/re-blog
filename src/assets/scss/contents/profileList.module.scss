@@ -106,14 +106,14 @@
         &:first-child {
           :global {
             .icon_heart { 
-              background: url('/re-blog/images/content/list/heart.png') no-repeat;
+              background: url('/images/content/list/heart.png') no-repeat;
               background-size: contain;
               width: 20px;
               height: 15px;
               margin-right: 8px;
               display: inline-block;
               &_full { 
-                background: url('/re-blog/images/content/list/heart_full.png') no-repeat;
+                background: url('/images/content/list/heart_full.png') no-repeat;
                 background-size: contain;
                 width: 20px;
                 height: 15px;
@@ -127,7 +127,7 @@
           margin-left: 10px;
           :global {
             .icon { 
-              background: url('/re-blog/images/content/list/comment.png') no-repeat;
+              background: url('/images/content/list/comment.png') no-repeat;
               background-size: contain;
               width: 20px;
               height: 15px;
@@ -158,13 +158,13 @@
         }
         :global {
           .icon_favorite { 
-            background: url('/re-blog/images/content/list/favorite.png') no-repeat;
+            background: url('/images/content/list/favorite.png') no-repeat;
             background-size: contain;
             width: 20px;
             height: 20px; 
             display: inline-block;
             &_yellow {
-              background: url('/re-blog/images/content/list/favorite_yellow.png') no-repeat;
+              background: url('/images/content/list/favorite_yellow.png') no-repeat;
               background-size: contain;
               width: 20px;
               height: 20px; 

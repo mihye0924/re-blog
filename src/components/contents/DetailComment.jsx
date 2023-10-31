@@ -1,13 +1,15 @@
 import detailComment from '@/assets/scss/contents/detailComment.module.scss'
 import { Context } from '@/context/Context';
-import { useContext, useMemo, useState } from 'react';
+import { useContext, useMemo, useState } from 'react'; 
+
+
 function DetailComment({commentLength}) {
-  const {newProfile, datas, setDatas} = useContext(Context);   
+  const { newProfile, datas, setDatas } = useContext(Context);   
   const [commentValue, setCommentValue] = useState()
   const [subCommentValue, setSubCommentValue] = useState()
-  const largeCategory = Number(location.pathname.split("/")[3])
-  const middleCategory = Number(location.pathname.split("/")[4])
-  const contentId = Number(location.pathname.split("/")[5])  
+  const largeCategory = Number(location.pathname.split("/")[2])
+  const middleCategory = Number(location.pathname.split("/")[3])
+  const contentId = Number(location.pathname.split("/")[4])   
 
 
   // 댓글 추가
@@ -100,8 +102,8 @@ function DetailComment({commentLength}) {
             <div className={detailComment.detailComment_write_thumb}>
             {
                 newProfile.img ?
-                <img src={newProfile.img} alt="" /> :
-                <img src='/re-blog/images/common/profile_default.png' alt='기본프로필'/>
+                <img src={`${newProfile.img}`} alt="" /> :
+                <img src={`/images/common/profile_default.png`} alt='기본프로필'/>
             }  
             </div>
             <div className={detailComment.detailComment_write_comment}>
@@ -123,7 +125,7 @@ function DetailComment({commentLength}) {
                     <li key={subItem.id} className={detailComment.detailComment_comment_list}>
                       <div>
                         <div className={detailComment.detailComment_comment_list_thumb}>
-                          <img src={subItem.img ? subItem.img  : '/re-blog/images/common/profile.png'} alt='' />
+                          <img src={subItem.img ? subItem.img  : `/images/common/profile.png`} alt='' />
                         </div>
                         <div className={detailComment.detailComment_comment_list_item}>
                           <div className={detailComment.detailComment_comment_list_item_wrap}>
@@ -159,7 +161,7 @@ function DetailComment({commentLength}) {
                               subItemComment.length > 0 &&
                               <li className={detailComment.detailComment_comment_list_sub_item}>
                                 <div className={detailComment.detailComment_comment_list_thumb}>
-                                  <img src={subItemComment.img ? subItemComment.img  : '/re-blog/images/common/profile.png'} alt='' />
+                                  <img src={subItemComment.img ? subItemComment.img  : `/images/common/profile.png`} alt='' />
                                 </div>
                                 <div className={detailComment.detailComment_comment_list_item}>
                                   <div className={detailComment.detailComment_comment_list_item_wrap}>

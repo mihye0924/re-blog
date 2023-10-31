@@ -15,31 +15,30 @@ function Router() {
   const [mainNav, setMainNav] =  useState(1) //프로필 네비게이션   
   const [state2, dispatch2] = useReducer(listReducer, listInitial);  
  
-  return (
-    <MainContext.Provider value={{
-      state2,
-      dispatch2,   
-      writeTitle: writeTitle, 
-      setWriteTitle:setWriteTitle,
-      writeModal:writeModal,
-      setWriteModal: setWriteModal, 
-      popup: popup,
-      setPopup: setPopup,
-      mainNav: mainNav,
-      setMainNav: setMainNav
-    }}> 
-    
-    {
+  return ( 
+      <MainContext.Provider value={{
+        state2,
+        dispatch2,   
+        writeTitle: writeTitle, 
+        setWriteTitle:setWriteTitle,
+        writeModal:writeModal,
+        setWriteModal: setWriteModal, 
+        popup: popup,
+        setPopup: setPopup,
+        mainNav: mainNav,
+        setMainNav: setMainNav
+      }}> 
+        {
           writeModal ? <WritePopup /> : ''
         }
-      <Routes> 
-        <Route path="re-blog/" element={<Main />} />
-          {
-            loginCheck && <Route path="re-blog/Profile" element={<Profile />} />
-          }
-        <Route path="re-blog/detail/:lagre/:middle/:id" element={<Detail />} /> 
-      </Routes>  
-    </MainContext.Provider>
+        <Routes> 
+          <Route path="/" element={<Main />} />
+            {
+              loginCheck && <Route path="/Profile" element={<Profile />} />
+            }
+          <Route path="/detail/:lagre/:middle/:id" element={<Detail />} /> 
+        </Routes>  
+      </MainContext.Provider> 
   )
 }
 export default Router

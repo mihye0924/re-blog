@@ -7,7 +7,7 @@ import Router from '@/components/Router'
 import RightLayout from '@/components/layout/RightLayout'
 import data from '@/api/list'  
 import { useNavigate } from 'react-router-dom'; 
-import { Context } from '@/context/Context';
+import { Context } from '@/context/Context'; 
 import { userInitial, userReducer } from '@/reducer/reducer';
  
 
@@ -43,7 +43,7 @@ function App() {
   return (
     <>
      <Context.Provider value={
-      {
+      { 
         state,
         dispatch, 
         loginModal,

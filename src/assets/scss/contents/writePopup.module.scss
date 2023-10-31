@@ -48,7 +48,7 @@
                 display: inline-block;
                 width: 24px;
                 height: 24px;
-                background: url('/re-blog/images/common/close.svg');
+                background: url('/images/common/close.svg');
               }
               
             }
@@ -77,7 +77,7 @@
              &::after {
                position: absolute;
                content: '';
-               background: url('/re-blog/images/content/write/dropdown.png') no-repeat;
+               background: url('/images/content/write/dropdown.png') no-repeat;
                width: 15px;
                height: 15px;
                right: 10px;
@@ -245,7 +245,7 @@
         content: '';
         top: 0;
         left: 0;
-        background:url("/re-blog/images/common/copy.svg") no-repeat;
+        background:url("/images/common/copy.svg") no-repeat;
         width: 24px;
         height: 24px;
 
