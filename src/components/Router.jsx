@@ -32,7 +32,7 @@ function Router() {
           writeModal ? <WritePopup /> : ''
         }
         <Routes> 
-          <Route path="/" element={<Main />} />
+          <Route path="*" element={<Main />} />
             {
               loginCheck && <Route path="/Profile" element={<Profile />} />
             }
