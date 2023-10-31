@@ -99,7 +99,7 @@ function DetailContent() {
                     {
                      newProfile.img ?
                      <img src={newProfile.img} alt="" /> :
-                     <img src='/images/common/profile_default.png' alt='기본프로필'/>
+                     <img src='/re-blog/images/common/profile_default.png' alt='기본프로필'/>
                     }  
                   </h1>
                   <span>{newProfile.name ? newProfile.name : state.loginId ? state.loginId : '글쓴이'}</span>

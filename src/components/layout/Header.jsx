@@ -46,7 +46,7 @@ const Header = () => {
                 <div className={header.header_logo}>
                     <h1>
                         <a href='/'>
-                            <img src="/images/layout/logo.png" alt="로고" />
+                            <img src="/re-blog/images/layout/logo.png" alt="로고" />
                         </a>
                     </h1>
                     <div className={header.header_search}>
@@ -60,7 +60,7 @@ const Header = () => {
                 </div>
                 <div className={header.header_button}>
                     <button className={header.header_alarm}>
-                        <img src="/images/layout/alarm.png" alt="알림"/>
+                        <img src="/re-blog/images/layout/alarm.png" alt="알림"/>
                     </button>
                     <Button name="로그인" color="white" onClick={() => {setLoginModal(true)}} />
                 </div>
@@ -81,7 +81,7 @@ const Header = () => {
                                                 {
                                                     newProfile.img ?
                                                     <img src={newProfile.img} alt="" /> :
-                                                    <img src='/images/common/profile_default.png' alt='기본프로필'/>
+                                                    <img src='/re-blog/images/common/profile_default.png' alt='기본프로필'/>
                                                 }  
                                                 <span>{newProfile.name ? newProfile.name : state.loginId}</span>
                                             </div>
@@ -117,7 +117,7 @@ const Header = () => {
                 <div className={header.header_logo}>
                     <h1>
                         <a href='/'>
-                            <img src="/images/layout/logo_black.png" alt="로고" />
+                            <img src="/re-blog/images/layout/logo_black.png" alt="로고" />
                         </a>
                     </h1>
                     <div className={header.header_search}>
@@ -131,13 +131,13 @@ const Header = () => {
                 </div>
                 <div className={header.header_button}>
                     <button className={header.header_alarm_black}>
-                        <img src="/images/layout/alarm_black.png" alt="알림"/>
+                        <img src="/re-blog/images/layout/alarm_black.png" alt="알림"/>
                     </button>
                     <Link className={header.header_profile} to="/Profile" >
                     <img src={
                         profile.img !== '' ? 
                         profile.img : 
-                        '/images/common/thumbnail.svg'
+                        '/re-blog/images/common/thumbnail.svg'
                         } alt="프로필"
                     />        
                     </Link>
@@ -163,7 +163,7 @@ const Header = () => {
                                                 {
                                                     newProfile.img ?
                                                     <img src={newProfile.img} alt="" /> :
-                                                    <img src='/images/common/profile_default.png' alt='기본프로필'/>
+                                                    <img src='/re-blog/images/common/profile_default.png' alt='기본프로필'/>
                                                 }  
                                                 <span>{newProfile.name ? newProfile.name : state.loginId}</span>
                                             </div>

@@ -101,7 +101,7 @@ function DetailComment({commentLength}) {
             {
                 newProfile.img ?
                 <img src={newProfile.img} alt="" /> :
-                <img src='/images/common/profile_default.png' alt='기본프로필'/>
+                <img src='/re-blog/images/common/profile_default.png' alt='기본프로필'/>
             }  
             </div>
             <div className={detailComment.detailComment_write_comment}>
@@ -123,7 +123,7 @@ function DetailComment({commentLength}) {
                     <li key={subItem.id} className={detailComment.detailComment_comment_list}>
                       <div>
                         <div className={detailComment.detailComment_comment_list_thumb}>
-                          <img src={subItem.img ? subItem.img  : '/images/common/profile.png'} alt='' />
+                          <img src={subItem.img ? subItem.img  : '/re-blog/images/common/profile.png'} alt='' />
                         </div>
                         <div className={detailComment.detailComment_comment_list_item}>
                           <div className={detailComment.detailComment_comment_list_item_wrap}>
@@ -159,7 +159,7 @@ function DetailComment({commentLength}) {
                               subItemComment.length > 0 &&
                               <li className={detailComment.detailComment_comment_list_sub_item}>
                                 <div className={detailComment.detailComment_comment_list_thumb}>
-                                  <img src={subItemComment.img ? subItemComment.img  : '/images/common/profile.png'} alt='' />
+                                  <img src={subItemComment.img ? subItemComment.img  : '/re-blog/images/common/profile.png'} alt='' />
                                 </div>
                                 <div className={detailComment.detailComment_comment_list_item}>
                                   <div className={detailComment.detailComment_comment_list_item_wrap}>
