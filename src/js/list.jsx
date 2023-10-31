@@ -30,9 +30,9 @@ export const categoryNav = (item, state2) => {
 // 리스트 - url 주소 확인 후 detail페이지로 값 보내기
 export const handleLink = (item, navigate) => { 
     if (item.lagreCategory && item.middleCategory) {
-    navigate(`detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`) 
+    navigate(`/re-blog/detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`) 
     } else {
-    navigate(`detail/${item.lagreCategory}/0/${item.id}`)
+    navigate(`/re-blog/detail/${item.lagreCategory}/0/${item.id}`)
     } 
 }
  
@@ -75,9 +75,9 @@ export const categoryProfileNav = (item, state2) => {
 // 프로필 리스트 - url 주소 확인 후 detail페이지로 값 보내기
 export const handleProfileLink = (item, navigate) => { 
     if (item.lagreCategory && item.middleCategory) {
-    navigate(`/detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`, { replace: true })
+    navigate(`/re-blog/detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`, { replace: true })
     } else {
-    navigate(`/detail/${item.lagreCategory}/0/${item.id}`, { replace: true })
+    navigate(`/re-blog/detail/${item.lagreCategory}/0/${item.id}`, { replace: true })
     }   
 }
 
