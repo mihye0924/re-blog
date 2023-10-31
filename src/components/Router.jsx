@@ -32,11 +32,11 @@ function Router() {
           writeModal ? <WritePopup /> : ''
         }
         <Routes> 
-          <Route path="*" element={<Main />} />
+          <Route exact path="/" element={<Main />} />
             {
-              loginCheck && <Route path="/Profile" element={<Profile />} />
+              loginCheck && <Route exact path="/Profile" element={<Profile />} />
             }
-          <Route path="/detail/:lagre/:middle/:id" element={<Detail />} /> 
+          <Route exact path="/detail/:lagre/:middle/:id" element={<Detail />} /> 
         </Routes>  
       </MainContext.Provider> 
   )
