@@ -11,9 +11,9 @@ function DetailHeader() {
   const [active, setActive] = useState(false) 
   const [favorite, setFavorite] = useState('icon_favorite') 
   const location = useLocation();
-  const largeCategory = Number(location.pathname.split("/")[2])
-  const middleCategory = Number(location.pathname.split("/")[3])
-  const contentId = Number(location.pathname.split("/")[4])    
+  const largeCategory = Number(location.pathname.split("/")[3])
+  const middleCategory = Number(location.pathname.split("/")[4])
+  const contentId = Number(location.pathname.split("/")[5])    
 
 
   // 북마크 - ... 아이콘 기능 (수정,삭제)
@@ -92,7 +92,7 @@ function DetailHeader() {
       }
     }); 
     setLocal(localItem) 
-    window.location.href = "/" 
+    window.location.href = "/re-blog/" 
    })
   },[contentId]) 
 

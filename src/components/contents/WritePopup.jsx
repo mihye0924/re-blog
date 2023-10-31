@@ -26,9 +26,9 @@ function WritePopup() {
   const location = useLocation();  
   const navigate = useNavigate();
   const profile = newProfile //프로필 기본값 
-  const LargeItem = Number(location.pathname.split("/")[2])
-  const MediumItem = Number(location.pathname.split("/")[3])
-  const ItemIdx = Number(location.pathname.split("/")[4])  
+  const LargeItem = Number(location.pathname.split("/")[3])
+  const MediumItem = Number(location.pathname.split("/")[4])
+  const ItemIdx = Number(location.pathname.split("/")[5])  
 
   // 대분류 토클
   const handleCategory1 = () => {
@@ -318,7 +318,7 @@ function WritePopup() {
   // 글수정 체크 
   const handleWriteModifyCheck = useMemo(() => {  
     return(() => {
-      if(location.pathname.split("/")[1] === "detail") { 
+      if(location.pathname.split("/")[2] === "detail") { 
         handleGetModifyItem()  
       }
     })
@@ -449,12 +449,12 @@ function WritePopup() {
             </>
             }
             <button className={writePopup.writePopup_footer_textbutton} onClick={
-              location.pathname.split("/")[1] === "detail"? 
+              location.pathname.split("/")[2] === "detail"? 
                 handleModify : handleWrite
             }>
               
               {
-              location.pathname.split("/")[1] === "detail"? 
+              location.pathname.split("/")[2] === "detail"? 
               "수정하기" : "작성하기" 
               }
             </button>

@@ -5,9 +5,9 @@ function DetailComment({commentLength}) {
   const {newProfile, datas, setDatas} = useContext(Context);   
   const [commentValue, setCommentValue] = useState()
   const [subCommentValue, setSubCommentValue] = useState()
-  const largeCategory = Number(location.pathname.split("/")[2])
-  const middleCategory = Number(location.pathname.split("/")[3])
-  const contentId = Number(location.pathname.split("/")[4])  
+  const largeCategory = Number(location.pathname.split("/")[3])
+  const middleCategory = Number(location.pathname.split("/")[4])
+  const contentId = Number(location.pathname.split("/")[5])  
 
 
   // 댓글 추가

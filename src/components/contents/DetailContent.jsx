@@ -7,10 +7,10 @@ function DetailContent() {
   const {state, newProfile, datas, setDatas } = useContext(Context);   
   const [emotionActive, setEmotionActive] = useState(false)
   const location = useLocation();
-  const largeCategory = Number(location.pathname.split("/")[2])
-  const middleCategory = Number(location.pathname.split("/")[3])
-  const contentId = Number(location.pathname.split("/")[4])   
-
+  const largeCategory = Number(location.pathname.split("/")[3])
+  const middleCategory = Number(location.pathname.split("/")[4])
+  const contentId = Number(location.pathname.split("/")[5])    
+  
   // 공감표현 - 애니메이션 추가
   const handleEmtionToggle = useMemo(() => {
     return (() => {
@@ -61,6 +61,7 @@ function DetailContent() {
       const newDatas = window.localStorage.getItem('list')
       if(newDatas) {
         const datas = JSON.parse(newDatas)
+        console.log(datas)
         datas.forEach((item) => {
           if (item.lagreCategory === largeCategory &&
             item.id === contentId &&
@@ -81,7 +82,7 @@ function DetailContent() {
   useEffect(()=> { 
     if (!localStorage.getItem("list")) {  
       alert('접근이 불가능합니다.') 
-      window.location.href = '/'
+      window.location.href = '/re-blog/'
     }  
   })
   return ( 
