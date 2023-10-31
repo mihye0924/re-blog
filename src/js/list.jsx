@@ -33,8 +33,7 @@ export const handleLink = (item, navigate) => {
     navigate(`detail/${item.lagreCategory}/${item.middleCategory}/${item.id}`) 
     } else {
     navigate(`detail/${item.lagreCategory}/0/${item.id}`)
-    } 
-    console.log(navigate,"네비")
+    }  
 }
  
 // 리스트 - 타이머

@@ -14,8 +14,9 @@ const List = () => {
   const now = new Date()
   const seconds = now.getSeconds() 
   const navigate = useNavigate();
-
+  
   useEffect(()=>{ 
+    console.log(location.pathname)
     handleLocalGetItem(state, localData, setDatas) 
   },[])
 
