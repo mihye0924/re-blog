@@ -31,13 +31,13 @@ const RightLayout = () => {
     <div className={right.right_footer}>
       <ul className={right.right_info}>
         <li>
-          <Link to="/">이용약관</Link>
+          <Link to="/re-blog/">이용약관</Link>
         </li>
         <li>
-          <Link to="/">개인정보처리방침</Link>
+          <Link to="/re-blog/">개인정보처리방침</Link>
         </li>
         <li>
-          <Link to="/">광고정보</Link>
+          <Link to="/re-blog/">광고정보</Link>
         </li>
       </ul>
       <div className={right.right_copyright}>

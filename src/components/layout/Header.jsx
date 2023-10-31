@@ -45,7 +45,7 @@ const Header = () => {
             <div className={header.header}>
                 <div className={header.header_logo}>
                     <h1>
-                        <a href='/'>
+                        <a href='/re-blog/'>
                             <img src="/re-blog/images/layout/logo.png" alt="로고" />
                         </a>
                     </h1>
