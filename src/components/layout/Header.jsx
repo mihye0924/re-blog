@@ -45,9 +45,9 @@ const Header = () => {
             <div className={header.header}>
                 <div className={header.header_logo}>
                     <h1>
-                        <a href="/">
+                        <Link to="/">
                             <img src={`${import.meta.env.BASE_URL}/images/layout/logo.png`} alt="로고" />
-                        </a>
+                        </Link>
                     </h1>
                     <div className={header.header_search}>
                         <input type="text" 
@@ -116,9 +116,9 @@ const Header = () => {
             <div className={header.header}>
                 <div className={header.header_logo}>
                     <h1>
-                        <a href="/">
+                        <Link to="/">
                             <img src={`${import.meta.env.BASE_URL}/images/layout/logo_black.png`} alt="로고" />
-                        </a>
+                        </Link>
                     </h1>
                     <div className={header.header_search}>
                         <input type="text" 
