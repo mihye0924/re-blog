@@ -45,7 +45,7 @@ const Header = () => {
             <div className={header.header}>
                 <div className={header.header_logo}>
                     <h1>
-                        <Link to="/">
+                        <Link to={`${import.meta.env.BASE_URL}`}>
                             <img src={`${import.meta.env.BASE_URL}/images/layout/logo.png`} alt="로고" />
                         </Link>
                     </h1>
@@ -116,7 +116,7 @@ const Header = () => {
             <div className={header.header}>
                 <div className={header.header_logo}>
                     <h1>
-                        <Link to="/">
+                        <Link to={`${import.meta.env.BASE_URL}`}>
                             <img src={`${import.meta.env.BASE_URL}/images/layout/logo_black.png`} alt="로고" />
                         </Link>
                     </h1>
