@@ -41,7 +41,7 @@ const RightLayout = () => {
         </li>
       </ul>
       <div className={right.right_copyright}>
-        © 2021 owwners, All rights reserved.
+        © 2021 re-blog, All rights reserved.
         </div>
     </div>
   </div>

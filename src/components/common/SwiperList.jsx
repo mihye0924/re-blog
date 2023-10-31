@@ -15,10 +15,10 @@ const SwiperList = ({list,keys}) => {
                     <span>{list.title}</span>
                     <div className={swiperList.list_btn}> 
                         <div className={`${swiperList.list_btn_left} prev_${keys}`}>
-                            <img src="@/images/common/left.png" alt="왼쪽" />
+                            <img src="/re-blog/images/common/left.png" alt="왼쪽" />
                         </div>
                         <div className={`${swiperList.list_btn_right} next_${keys}`}>
-                            <img src="@/images/common/right.png" alt="오른쪽" />
+                            <img src="/re-blog/images/common/right.png" alt="오른쪽" />
                         </div>
                     </div> 
                 </div>
