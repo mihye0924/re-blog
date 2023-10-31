@@ -116,7 +116,7 @@ const Header = () => {
             <div className={header.header}>
                 <div className={header.header_logo}>
                     <h1>
-                        <a href='/'>
+                        <a href='/re-blog/'>
                             <img src="/re-blog/images/layout/logo_black.png" alt="로고" />
                         </a>
                     </h1>
@@ -133,7 +133,7 @@ const Header = () => {
                     <button className={header.header_alarm_black}>
                         <img src="/re-blog/images/layout/alarm_black.png" alt="알림"/>
                     </button>
-                    <Link className={header.header_profile} to="/Profile" >
+                    <Link className={header.header_profile} to="/re-blog/Profile" >
                     <img src={
                         profile.img !== '' ? 
                         profile.img : 
@@ -142,7 +142,7 @@ const Header = () => {
                     />        
                     </Link>
                     {/* <Button name="글쓰기" color="blackborder" /> */}
-                    <Link to={'/'} onClick={() => {dispatch({type: "LOGOUT"})}} className={header.header_logout}>
+                    <Link to={'/re-blog'} onClick={() => {dispatch({type: "LOGOUT"})}} className={header.header_logout}>
                         <span>로그아웃</span>
                     </Link>
                 </div>

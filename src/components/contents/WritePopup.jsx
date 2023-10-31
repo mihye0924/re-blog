@@ -305,7 +305,7 @@ function WritePopup() {
             datas.splice(index,1,list)
             setDatas(datas)  
             setLocal(datas)  
-            navigate('/')
+            navigate('/re-blog/')
           } 
       })
       setTimeout(() => {

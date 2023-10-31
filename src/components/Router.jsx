@@ -35,7 +35,7 @@ function Router() {
       <Routes> 
         <Route path="re-blog/" element={<Main />} />
           {
-            loginCheck && <Route path="/Profile" element={<Profile />} />
+            loginCheck && <Route path="re-blog/Profile" element={<Profile />} />
           }
         <Route path="re-blog/detail/:lagre/:middle/:id" element={<Detail />} /> 
       </Routes>  
