@@ -34,6 +34,7 @@ export const handleLink = (item, navigate) => {
     } else {
     navigate(`detail/${item.lagreCategory}/0/${item.id}`)
     } 
+    console.log(navigate,"네비")
 }
  
 // 리스트 - 타이머
