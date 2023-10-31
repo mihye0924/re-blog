@@ -7,7 +7,7 @@ import DetailComment from '@/components/contents/DetailComment'
 
 function Detail() {
   useEffect(() => {
-    
+    window.location.pathname = location.pathname
     console.log(location.pathname)
   },[])
   return ( 
