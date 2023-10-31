@@ -99,8 +99,8 @@ function DetailContent() {
                   <h1>
                     {
                      newProfile.img ?
-                     <img src={`${newProfile.img}`} alt="" /> :
-                     <img src={`/images/common/profile_default.png`} alt='기본프로필'/>
+                     <img src={`${import.meta.env.BASE_URL}${newProfile.img}`} alt="" /> :
+                     <img src={`${import.meta.env.BASE_URL}/images/common/profile_default.png`} alt='기본프로필'/>
                     }  
                   </h1>
                   <span>{newProfile.name ? newProfile.name : state.loginId ? state.loginId : '글쓴이'}</span>
@@ -127,7 +127,7 @@ function DetailContent() {
                        item.contentImg.map((item,index) => {
                         return(
                           <div key={index}>
-                            <img src={`${item.img}`} alt=''/>
+                            <img src={`${import.meta.env.BASE_URL}${item.img}`} alt=''/>
                           </div>
                         )
                       })

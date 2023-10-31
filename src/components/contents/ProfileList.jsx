@@ -41,8 +41,8 @@ const ProfileList = () => {
                     <div> 
                       {
                         newProfile.img ?
-                        <img src={`${newProfile.img}`} alt="" /> :
-                        <img src={`/images/common/profile_default.png`} alt='기본프로필'/>
+                        <img src={`${import.meta.env.BASE_URL}${newProfile.img}`} alt="" /> :
+                        <img src={`${import.meta.env.BASE_URL}/images/common/profile_default.png`} alt='기본프로필'/>
                       }  
                       <span>{newProfile.name ? newProfile.name : state.loginId ? state.loginId : '글쓴이'}</span>
                       <span>{item.smallCategory2}</span>
@@ -61,7 +61,7 @@ const ProfileList = () => {
                     <div className={profileList.profileList_sympathy_img}>
                       {
                         item.contentImg[0] ?
-                        <img src={`${item.contentImg[0].img}`} alt={item.smallCategory2} />
+                        <img src={`${import.meta.env.BASE_URL}${item.contentImg[0].img}`} alt={item.smallCategory2} />
                         : '이미지를 불러올 수 없습니다.'
                       }
                     </div>

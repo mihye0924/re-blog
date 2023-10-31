@@ -427,7 +427,7 @@ function WritePopup() {
               imgFile.map((item, index) => {
                 return(
                   <li key={index}>
-                    <img src={`${item.img}`} alt=""/>
+                    <img src={`${import.meta.env.BASE_URL}${item.img}`} alt=""/>
                     <button onClick={()=>{handleImgRemove(index)}} className={writePopup.writePopup_img_button}>x</button>
                   </li>
                 )

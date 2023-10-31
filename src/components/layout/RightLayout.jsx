@@ -20,13 +20,13 @@ const RightLayout = () => {
       <ul className={right.right_download_ul}>
         <li>
           <button>
-            <img src={`/images/content/download/appstore.png`} alt='애플스토어' />
+            <img src={`${import.meta.env.BASE_URL}/images/content/download/appstore.png`} alt='애플스토어' />
             <span>App Store</span>
           </button>
         </li>
         <li> 
           <button>
-            <img src={`/images/content/download/googleplay.png`} alt='구글스토어' />
+            <img src={`${import.meta.env.BASE_URL}/images/content/download/googleplay.png`} alt='구글스토어' />
             <span>Google Play</span>
           </button>
         </li>
