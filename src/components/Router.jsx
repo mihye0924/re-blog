@@ -33,11 +33,11 @@ function Router() {
           writeModal ? <WritePopup /> : ''
         }
       <Routes> 
-        <Route path="/" element={<Main />} />
+        <Route path="re-blog/" element={<Main />} />
           {
             loginCheck && <Route path="/Profile" element={<Profile />} />
           }
-        <Route path="/detail/:lagre/:middle/:id" element={<Detail />} /> 
+        <Route path="re-blog/detail/:lagre/:middle/:id" element={<Detail />} /> 
       </Routes>  
     </MainContext.Provider>
   )

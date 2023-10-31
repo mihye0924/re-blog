@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from 'react'
 import { Context } from '@/context/Context';
 import { MainContext } from '@/context/MainContext'; 
 import { useNavigate } from 'react-router-dom'; 
-import { handleProfileLocalGetItem, handleTimer, categoryProfileNav, handleFavorite, handleLike, handleProfileLink, handleReply } from '@/js/list';
+import { handleProfileLocalGetItem, handleTimer, categoryProfileNav, handleFavorite, handleLike, handleProfileLink } from '@/js/list';
 
 const ProfileList = () => {      
   const { state, newProfile, datas, setDatas } = useContext(Context);  
