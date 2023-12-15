@@ -7,8 +7,8 @@
 - 메인, 글쓰기: 조미혜
  
 ------------
-# Site Link
-https://mihye0924.github.io/PERIPERA/peripera.html](https://mihye0924.github.io/SEOULMILK/seoulmilk.html
+# Site Link 
+https://mihye0924.github.io/re-blog/
  
 
 >작업용도: 블로그
