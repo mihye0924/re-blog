@@ -17,18 +17,8 @@ https://mihye0924.github.io/PERIPERA/peripera.html](https://mihye0924.github.io/
 >
 >작업기간: 2023.09.16 ~ 2023.10.30
 >
->작업 수: 2명
-  
-------------
-
-## React Client
-```
-"scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
-}
-````
-
+>작업 수: 2명 (조미혜, 황웅희)
+   
 ------------
 
 ## Stacks
