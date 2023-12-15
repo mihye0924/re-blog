@@ -1,6 +1,6 @@
-# ReBlog  
-![img1 daumcdn](https://github.com/mihye0924/react_context_app/assets/71968785/2570e3a5-ee43-42fb-86b8-da357be02d14)
- 
+# ReBlog   
+ ![화면_캡처_2023-09-30_165358](https://github.com/mihye0924/re-blog/assets/71968785/dae976cc-9bf3-4355-b4df-0e81f41da6cb)
+
  
 ------------
 # Site Link
@@ -23,8 +23,10 @@ https://mihye0924.github.io/PERIPERA/peripera.html](https://mihye0924.github.io/
 <img src="https://github.com/mihye0924/react_context_app/assets/71968785/557f00bf-2f5f-4bc9-9d63-10565250d6f9" width="30">
 <img src="https://github.com/mihye0924/react_context_app/assets/71968785/64f67e8b-759f-4063-a3bc-29dc3918e44b" width="30">
 
-#### Development  
-<img src="https://github.com/mihye0924/PERIPERA/assets/71968785/7b32d8ff-cb6b-4f81-9501-357f15c48994" width="30">
-<img src="https://github.com/mihye0924/PERIPERA/assets/71968785/f71d27fe-0839-43c4-bafe-7f9fe7474639" width="30">
-<img src="https://github.com/mihye0924/PERIPERA/assets/71968785/171f03bc-fc22-456c-aedf-ad9c944c70ae" width="30"> 
+#### Config
+<img src="https://github.com/mihye0924/react_context_app/assets/71968785/64725c2b-af8d-4891-9ef1-f1068d1fd019" width="30">
 
+#### Development  
+<img src="https://github.com/mihye0924/react_context_app/assets/71968785/d9784930-b259-4f5f-a941-568068f1d73d" width="30">  
+<img src="https://github.com/mihye0924/react_context_app/assets/71968785/4e1c1159-2dc7-421f-b247-f2d23a86c52f" width="30">
+<img src="https://github.com/mihye0924/GoldenDiscAwards/assets/71968785/c715b201-cc4b-4ff7-9d45-1b3429c98a25" width="30">
