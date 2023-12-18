@@ -24,6 +24,10 @@ https://mihye0924.github.io/re-blog/
 ## Stacks
 
 #### Environment   
+
+<div style="background:blue;">
+VISUAL STUDIO CODE 
+</div>
 <img src="https://github.com/mihye0924/react_context_app/assets/71968785/6e825b86-c259-48c2-a272-4286e74d9798" width="30">
 <img src="https://github.com/mihye0924/react_context_app/assets/71968785/557f00bf-2f5f-4bc9-9d63-10565250d6f9" width="30">
 <img src="https://github.com/mihye0924/react_context_app/assets/71968785/64f67e8b-759f-4063-a3bc-29dc3918e44b" width="30">
